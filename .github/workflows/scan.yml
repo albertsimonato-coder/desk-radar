@@ -41,6 +41,18 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m radar run --tier "${{ github.event.inputs.tier || 'daily' }}"
 
+      - name: Commit results
+        run: |
+          git config user.name "desk-radar[bot]"
+          git config user.email "desk-radar@users.noreply.github.com"
+          git add data/radar.sqlite docs/index.html docs/new.html
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "scan: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
       - name: Build morning digest
         id: digest
         run: |
@@ -53,7 +65,6 @@ jobs:
 
       - name: Email the digest
         if: steps.digest.outputs.send == 'true' && env.MAIL_USERNAME != ''
-        continue-on-error: true   # a mail problem must never block saving the scan
         env:
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
         uses: dawidd6/action-send-mail@v3
@@ -68,15 +79,3 @@ jobs:
           from: Desk Radar <${{ secrets.MAIL_USERNAME }}>
           html_body: file://digest.html
           body: file://digest.txt
-
-      - name: Commit results
-        run: |
-          git config user.name "desk-radar[bot]"
-          git config user.email "desk-radar@users.noreply.github.com"
-          git add data/radar.sqlite docs/index.html docs/new.html
-          if git diff --cached --quiet; then
-            echo "nothing changed"
-          else
-            git commit -m "scan: $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
-          fi
