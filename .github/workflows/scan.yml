@@ -53,6 +53,7 @@ jobs:
 
       - name: Email the digest
         if: steps.digest.outputs.send == 'true' && env.MAIL_USERNAME != ''
+        continue-on-error: true   # a mail problem must never block saving the scan
         env:
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
         uses: dawidd6/action-send-mail@v3
