@@ -36,20 +36,25 @@ class SourceError(Exception):
 
 
 class _HostThrottle:
-    """1 request per second per host, process-wide."""
+    """At most one request per MIN_INTERVAL_PER_HOST per host, process-wide and thread-safe.
 
-    def __init__(self) -> None:
+    Each caller reserves the next free slot for its host under the lock, then sleeps outside
+    the lock, so different hosts never wait for each other."""
+
+    def __init__(self, interval: float = MIN_INTERVAL_PER_HOST) -> None:
+        self.interval = interval
         self._lock = threading.Lock()
-        self._last: dict[str, float] = {}
+        self._next_free: dict[str, float] = {}
 
     def wait(self, url: str) -> None:
         host = urlsplit(url).netloc
         with self._lock:
-            last = self._last.get(host, 0.0)
-            delay = MIN_INTERVAL_PER_HOST - (time.monotonic() - last)
-            if delay > 0:
-                time.sleep(delay)
-            self._last[host] = time.monotonic()
+            now = time.monotonic()
+            slot = max(now, self._next_free.get(host, 0.0))
+            self._next_free[host] = slot + self.interval
+        delay = slot - time.monotonic()
+        if delay > 0:
+            time.sleep(delay)
 
 
 _throttle = _HostThrottle()

@@ -40,8 +40,9 @@ If `python -m radar` says `No module named radar` on macOS with Python 3.13, the
 install's `.pth` file got the hidden flag and Python skips it; fix with
 `chflags nohidden .venv/lib/python3.13/site-packages/__editable__*.pth`.
 
-Flags: `--db`, `--companies`, `--profile`, `--docs` override paths; `--no-llm` skips the
-Claude pass; `--no-render` skips the pages; `-v` for debug logging.
+Flags: `--db`, `--companies`, `--profile`, `--docs` override paths; `--workers N` sets how many
+employers are fetched at the same time (default 8, `1` = one after another); `--no-llm` skips
+the Claude pass; `--no-render` skips the pages; `-v` for debug logging.
 
 Set `ANTHROPIC_API_KEY` to enable the optional Claude pass. It only runs on rows the keyword
 rules left as `other`, uses the cheapest current model, asks for strict JSON, and caches the
@@ -129,6 +130,7 @@ and (optionally) add `ANTHROPIC_API_KEY` as a repository secret.
 
 ## Etiquette
 
-One request per second per host, realistic User-Agent, 20 s timeout, three retries with
-backoff on 429/5xx. A source that fails is logged in the `source_health` table and shown on
+Employers are fetched in parallel (8 at a time), but never more than one request per second
+to the same host; the database is written from one thread only. Realistic User-Agent, 20 s
+timeout, three retries with backoff on 429/5xx. A source that fails is logged in the `source_health` table and shown on
 the page; the run continues. LinkedIn, Indeed and eFinancialCareers are never scraped.

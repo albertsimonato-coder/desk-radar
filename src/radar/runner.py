@@ -6,6 +6,7 @@ import argparse
 import json
 import logging
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 
@@ -22,6 +23,7 @@ from radar.store import Store, now_utc
 log = logging.getLogger("radar")
 
 ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_WORKERS = 8
 DEFAULT_DB = ROOT / "data" / "radar.sqlite"
 DEFAULT_COMPANIES = ROOT / "companies.yaml"
 DEFAULT_PROFILE = ROOT / "profile.yaml"
@@ -154,6 +156,7 @@ def run(
     use_llm: bool = True,
     render: bool = True,
     now: datetime | None = None,
+    workers: int = DEFAULT_WORKERS,
 ) -> RunResult:
     now = now or now_utc()
     profile = load_profile(profile_path)
@@ -168,44 +171,54 @@ def run(
     result = RunResult()
     result.run_id = store.start_run(tier, dry_run=dry_run)
     result.sources_total = len(selected)
-    log.info("run #%d tier=%s companies=%d dry_run=%s", result.run_id, tier, len(selected), dry_run)
+    log.info(
+        "run #%d tier=%s companies=%d workers=%d dry_run=%s",
+        result.run_id,
+        tier,
+        len(selected),
+        workers,
+        dry_run,
+    )
 
-    for company in selected:
-        try:
-            adapter = get_adapter(company)
-            if company.ats == "sitemap":
-                adapter.known_postings = {
-                    o.url: RawPosting(
-                        external_id=o.external_id,
-                        title=o.title,
-                        location_raw=o.location_raw,
-                        department=o.department,
-                        posted_at=o.posted_at,
-                        url=o.url,
-                        description_snippet=o.description_snippet,
-                        employment_type_raw=o.employment_type_raw,
-                    )
-                    for o in store.openings_for_company(company.slug)
-                }
-            if dry_run:
-                postings = adapter.parse(load_fixture(company))
-            else:
-                postings = adapter.fetch()
-        except SourceError as e:
-            log.warning("%s: %s", company.name, e)
-            store.record_source_error(
-                company.slug, company.name, company.ats, result.run_id, str(e)
+    def known_for(company: Company) -> dict[str, RawPosting]:
+        return {
+            o.url: RawPosting(
+                external_id=o.external_id,
+                title=o.title,
+                location_raw=o.location_raw,
+                department=o.department,
+                posted_at=o.posted_at,
+                url=o.url,
+                description_snippet=o.description_snippet,
+                employment_type_raw=o.employment_type_raw,
             )
-            result.errors[company.slug] = str(e)
-            continue
-        except Exception as e:  # noqa: BLE001 - any adapter bug must not abort the run
-            log.exception("%s: unexpected error", company.name)
+            for o in store.openings_for_company(company.slug)
+        }
+
+    def fetch_one(company: Company, known: dict[str, RawPosting]) -> list[RawPosting]:
+        """Runs in a worker thread: network only, no database access."""
+        adapter = get_adapter(company)
+        adapter.known_postings = known
+        if dry_run:
+            return adapter.parse(load_fixture(company))
+        return adapter.fetch()
+
+    def apply(company: Company, outcome: list[RawPosting] | BaseException) -> None:
+        """Runs on the main thread: all SQLite writes happen here, one source at a time."""
+        if isinstance(outcome, SourceError):
+            log.warning("%s: %s", company.name, outcome)
             store.record_source_error(
-                company.slug, company.name, company.ats, result.run_id, f"{type(e).__name__}: {e}"
+                company.slug, company.name, company.ats, result.run_id, str(outcome)
             )
-            result.errors[company.slug] = f"{type(e).__name__}: {e}"
-            continue
-        seen = merge_into_store(store, company, postings, classifier, now, result.run_id, result)
+            result.errors[company.slug] = str(outcome)
+            return
+        if isinstance(outcome, BaseException):  # any adapter bug must not abort the run
+            log.error("%s: unexpected error: %s", company.name, outcome, exc_info=outcome)
+            msg = f"{type(outcome).__name__}: {outcome}"
+            store.record_source_error(company.slug, company.name, company.ats, result.run_id, msg)
+            result.errors[company.slug] = msg
+            return
+        seen = merge_into_store(store, company, outcome, classifier, now, result.run_id, result)
         result.closed += store.mark_missing(company.slug, seen, result.run_id)
         store.commit()
         store.record_source_success(
@@ -213,6 +226,19 @@ def run(
         )
         result.sources_ok += 1
         log.info("%s: %d postings (%s)", company.name, len(seen), company.ats)
+
+    # Sitemap-style sources need to know what is already stored before they fetch; read that on
+    # the main thread, then fan the network work out to `workers` threads (one employer each,
+    # still one request per second per host) and apply results here as they complete.
+    known_by_slug = {c.slug: (known_for(c) if c.ats == "sitemap" else {}) for c in selected}
+    with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+        futures = {pool.submit(fetch_one, c, known_by_slug[c.slug]): c for c in selected}
+        for fut in as_completed(futures):
+            company = futures[fut]
+            try:
+                apply(company, fut.result())
+            except BaseException as e:  # noqa: BLE001
+                apply(company, e)
 
     # Optional LLM pass for rows still classified other/other.
     all_openings = store.all_openings()
@@ -263,6 +289,12 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--companies", default=str(DEFAULT_COMPANIES))
     p.add_argument("--profile", default=str(DEFAULT_PROFILE))
     p.add_argument("--docs", default=str(DEFAULT_DOCS))
+    p.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
+        help="employers fetched concurrently (1 = sequential)",
+    )
     p.add_argument("--no-llm", action="store_true")
     p.add_argument("--no-render", action="store_true")
     p.add_argument("-v", "--verbose", action="store_true")
@@ -293,6 +325,7 @@ def main(argv: list[str] | None = None) -> int:
             only=args.only.split(",") if args.only else None,
             use_llm=not args.no_llm,
             render=not args.no_render,
+            workers=args.workers,
         )
         for slug, err in res.errors.items():
             print(f"SOURCE ERROR {slug}: {err}", file=sys.stderr)
