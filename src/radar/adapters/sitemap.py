@@ -12,6 +12,9 @@ Config:
   index_item_regex  (optional) regex run over each listing page (whitespace collapsed) with a
                     named group `url` and optional `location`, `department`, `employment_type`;
                     the values fill fields the job page itself does not provide
+  index_item_split  (optional) regex that starts each job entry on the listing page; the page
+                    is cut into chunks on it and index_item_regex is matched once per chunk,
+                    so a field can never be taken from the neighbouring entry
   job_url_pattern   regex a job URL must match
   max_new_pages     cap on job pages fetched per run (default 50)
   url_prefix        (optional) only keep URLs starting with this
@@ -129,6 +132,11 @@ class SitemapAdapter(Adapter):
             else None
         )
         self._index_meta: dict[str, dict[str, str]] = {}
+        self.index_item_split = (
+            re.compile(self.config["index_item_split"])
+            if self.config.get("index_item_split")
+            else None
+        )
         self.title_strip = self.config.get("title_strip") or ""
         self.location_regex = self.config.get("location_regex") or ""
 
@@ -179,13 +187,22 @@ class SitemapAdapter(Adapter):
                 out.add(href)
         if self.index_item_re:
             flat = " ".join(resp.text.split())
-            for m in self.index_item_re.finditer(flat):
-                g = m.groupdict()
-                href = urljoin(url, html_unescape(g.get("url") or "")).split("#")[0]
-                if href:
-                    self._index_meta[href] = {
-                        k: html_unescape(v).strip() for k, v in g.items() if k != "url" and v
-                    }
+            chunks = self.index_item_split.split(flat) if self.index_item_split else [flat]
+            for chunk in chunks:
+                found = (
+                    [self.index_item_re.search(chunk)]
+                    if self.index_item_split
+                    else list(self.index_item_re.finditer(chunk))
+                )
+                for m in found:
+                    if not m:
+                        continue
+                    g = m.groupdict()
+                    href = urljoin(url, html_unescape(g.get("url") or "")).split("#")[0]
+                    if href:
+                        self._index_meta[href] = {
+                            k: html_unescape(v).strip() for k, v in g.items() if k != "url" and v
+                        }
         return len(out) - before
 
     def _apply_meta(self, posting: RawPosting) -> RawPosting:

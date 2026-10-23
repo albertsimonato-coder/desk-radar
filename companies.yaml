@@ -66,6 +66,7 @@
     index_max_pages: 45
     job_url_pattern: "careers\\.unicredit\\.eu/en_GB/jobsuche/JobDetail/"
     index_item_regex: 'href="(?P<url>https://careers\.unicredit\.eu/en_GB/jobsuche/JobDetail/[^"]+)">[^<]*</a>.*?job-info-icon_world"> ?(?P<location>[^<]*?) ?</span>(?:.*?job-info-icon_function"> ?(?P<department>[^<]*?) ?</span>)?(?:.*?job-info-icon_work"> ?(?P<employment_type>[^<]*?) ?</span>)?'
+    index_item_split: '<h3 class=\"article__header__text__title'
     max_new_pages: 150
   careers_url: https://careers.unicredit.eu/en_GB/jobsuche
   active: true

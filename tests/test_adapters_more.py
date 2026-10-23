@@ -276,3 +276,42 @@ def test_sitemap_index_item_regex_attaches_listing_metadata():
     assert ps["https://x.test/JobDetail/Payroll-Expert/1"].location_raw == "Bulgaria"
     assert ps["https://x.test/JobDetail/Payroll-Expert/1"].department == "People & Culture"
     assert ps["https://x.test/JobDetail/Trader/2"].location_raw == "Italy"
+
+
+def test_sitemap_index_item_split_keeps_fields_within_one_entry():
+    import httpx
+
+    from radar.adapters.base import Http
+
+    # First entry has no metadata at all; without the split its regex would swallow the
+    # second entry's country.
+    listing = (
+        '<h3 class="t"><a href="https://x.test/JobDetail/A/1"> A </a></h3>'
+        '<h3 class="t"><a href="https://x.test/JobDetail/B/2"> B </a></h3>'
+        '<span class="job-info-icon_world"> Italy </span>'
+    )
+
+    def handler(req):
+        return httpx.Response(200, text=listing if "list" in str(req.url) else "<title>J</title>")
+
+    http = Http()
+    http.client = httpx.Client(transport=httpx.MockTransport(handler))
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "sitemap_url": "none",
+                "index_urls": ["https://x.test/list"],
+                "job_url_pattern": r"/JobDetail/",
+                "index_item_split": r'<h3 class="t"',
+                "index_item_regex": (
+                    r'href="(?P<url>https://x\.test/JobDetail/[^"]+)">'
+                    r'(?:.*?job-info-icon_world"> ?(?P<location>[^<]*?) ?</span>)?'
+                ),
+            },
+        ),
+        http=http,
+    )
+    ps = {p.url: p for p in adapter.fetch()}
+    assert ps["https://x.test/JobDetail/A/1"].location_raw == ""
+    assert ps["https://x.test/JobDetail/B/2"].location_raw == "Italy"
