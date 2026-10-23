@@ -50,3 +50,11 @@ def test_dedup_key_stable_and_case_insensitive_city():
     assert a == b and len(a) == 40
     assert dedup_key("ubs", "summer analyst", "Zurich") != a
     assert dedup_key("citi", "summer analyst", "London") != a
+
+
+def test_two_letter_country_codes_only_when_upper_case_tokens():
+    assert normalize_location("Salaberry-de-Valleyfield, Québec, Canada") == ("", "CA")
+    assert normalize_location("Bratislava, SK") == ("Bratislava", "SK")
+    assert normalize_location("Casablanca, Morocco") == ("Casablanca", "MA")
+    assert normalize_location("Milano, it") == ("Milan", "IT")  # city alias carries the country
+    assert normalize_location("de Valleyfield") == ("", "")

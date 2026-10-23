@@ -106,6 +106,31 @@ CITY_ALIASES: dict[str, tuple[str, str]] = {
     "athens": ("Athens", "GR"),
     "sofia": ("Sofia", "BG"),
     "monaco": ("Monaco", "MC"),
+    "bratislava": ("Bratislava", "SK"),
+    "zagreb": ("Zagreb", "HR"),
+    "ljubljana": ("Ljubljana", "SI"),
+    "belgrade": ("Belgrade", "RS"),
+    "beograd": ("Belgrade", "RS"),
+    "sarajevo": ("Sarajevo", "BA"),
+    "prag": ("Prague", "CZ"),
+    "vilnius": ("Vilnius", "LT"),
+    "riga": ("Riga", "LV"),
+    "tallinn": ("Tallinn", "EE"),
+    "helsinki": ("Helsinki", "FI"),
+    "limassol": ("Limassol", "CY"),
+    "nicosia": ("Nicosia", "CY"),
+    "valletta": ("Valletta", "MT"),
+    "istanbul": ("Istanbul", "TR"),
+    "tel aviv": ("Tel Aviv", "IL"),
+    "casablanca": ("Casablanca", "MA"),
+    "cairo": ("Cairo", "EG"),
+    "lagos": ("Lagos", "NG"),
+    "nairobi": ("Nairobi", "KE"),
+    "moscow": ("Moscow", "RU"),
+    "kyiv": ("Kyiv", "UA"),
+    "almaty": ("Almaty", "KZ"),
+    "chisinau": ("Chisinau", "MD"),
+    "chișinău": ("Chisinau", "MD"),
     # Americas
     "new york": ("New York", "US"),
     "nyc": ("New York", "US"),
@@ -226,6 +251,81 @@ COUNTRY_ALIASES: dict[str, str] = {
     "malaysia": "MY",
     "philippines": "PH",
     "south africa": "ZA",
+    "slovakia": "SK",
+    "sk": "SK",
+    "croatia": "HR",
+    "hr": "HR",
+    "slovenia": "SI",
+    "si": "SI",
+    "serbia": "RS",
+    "rs": "RS",
+    "bosnia and herzegovina": "BA",
+    "bosnia": "BA",
+    "ba": "BA",
+    "montenegro": "ME",
+    "albania": "AL",
+    "north macedonia": "MK",
+    "kosovo": "XK",
+    "moldova": "MD",
+    "md": "MD",
+    "lithuania": "LT",
+    "latvia": "LV",
+    "estonia": "EE",
+    "finland": "FI",
+    "iceland": "IS",
+    "cyprus": "CY",
+    "malta": "MT",
+    "turkey": "TR",
+    "türkiye": "TR",
+    "israel": "IL",
+    "russia": "RU",
+    "ukraine": "UA",
+    "kazakhstan": "KZ",
+    "morocco": "MA",
+    "egypt": "EG",
+    "nigeria": "NG",
+    "kenya": "KE",
+    "ghana": "GH",
+    "tunisia": "TN",
+    "algeria": "DZ",
+    "costa rica": "CR",
+    "colombia": "CO",
+    "nicaragua": "NI",
+    "honduras": "HN",
+    "guatemala": "GT",
+    "chile": "CL",
+    "peru": "PE",
+    "ecuador": "EC",
+    "venezuela": "VE",
+    "uruguay": "UY",
+    "paraguay": "PY",
+    "bolivia": "BO",
+    "panama": "PA",
+    "dominican republic": "DO",
+    "puerto rico": "PR",
+    "vietnam": "VN",
+    "viet nam": "VN",
+    "indonesia": "ID",
+    "thailand": "TH",
+    "pakistan": "PK",
+    "bangladesh": "BD",
+    "sri lanka": "LK",
+    "new zealand": "NZ",
+    "cambodia": "KH",
+    "laos": "LA",
+    "myanmar": "MM",
+    "mongolia": "MN",
+    "nepal": "NP",
+    "bahrain": "BH",
+    "kuwait": "KW",
+    "oman": "OM",
+    "jordan": "JO",
+    "lebanon": "LB",
+    "québec": "CA",
+    "quebec": "CA",
+    "ontario": "CA",
+    "alberta": "CA",
+    "british columbia": "CA",
 }
 
 # Longest aliases first so "frankfurt am main" wins over "frankfurt", "new york" over "york".
@@ -249,18 +349,17 @@ def normalize_location(location_raw: str) -> tuple[str, str]:
     m = _CITY_RE.search(text)
     if m:
         city, country = CITY_ALIASES[m.group(1)]
-    # Country: explicit mention wins only when it does not contradict the city.
-    cm = _COUNTRY_RE.search(text)
-    if cm:
-        c = COUNTRY_ALIASES[cm.group(1)]
-        # Two-letter aliases are noisy ("IT", "US" as words); accept them only when upper-case
-        # in the raw string or clearly delimited by punctuation.
-        if len(cm.group(1)) == 2:
-            raw_tokens = re.findall(r"[A-Za-z]+", location_raw)
-            if cm.group(1).upper() not in raw_tokens:
-                c = ""
-        if c and not country:
-            country = c
+    # Country: first explicit mention that is not a false positive. Two-letter aliases ("IT",
+    # "DE", "US") only count when they appear upper-case as their own token in the raw string,
+    # so "Salaberry-de-Valleyfield" does not become Germany.
+    if not country:
+        raw_tokens = set(re.findall(r"[A-Za-z]+", location_raw))
+        for cm in _COUNTRY_RE.finditer(text):
+            key = cm.group(1)
+            if len(key) == 2 and key.upper() not in raw_tokens:
+                continue
+            country = COUNTRY_ALIASES[key]
+            break
     if not city and _REMOTE_RE.search(text):
         city = "Remote"
     return city, country

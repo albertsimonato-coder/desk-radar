@@ -65,10 +65,11 @@
     index_step: 15
     index_max_pages: 45
     job_url_pattern: "careers\\.unicredit\\.eu/en_GB/jobsuche/JobDetail/"
+    index_item_regex: 'href="(?P<url>https://careers\\.unicredit\\.eu/en_GB/jobsuche/JobDetail/[^"]+)">[^<]*</a>.*?job-info-icon_world"> ?(?P<location>[^<]*?) ?</span>(?:.*?job-info-icon_function"> ?(?P<department>[^<]*?) ?</span>)?(?:.*?job-info-icon_work"> ?(?P<employment_type>[^<]*?) ?</span>)?'
     max_new_pages: 150
   careers_url: https://careers.unicredit.eu/en_GB/jobsuche
   active: true
-  notes: BeeSite portal (milch & zucker); paginated listing walked by offset, JSON-LD on every job page. ~560 openings group-wide, backfilled 150 per run.
+  notes: Avature portal; paginated listing walked by offset, JSON-LD on job pages (no location there, so country/function come from the listing). ~560 openings group-wide, backfilled 150 per run.
 
 - name: Banca Monte dei Paschi di Siena
   priority: 2

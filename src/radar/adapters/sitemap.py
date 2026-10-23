@@ -9,11 +9,15 @@ Config:
   index_url_pattern (optional) paginated listing URL with an {offset} placeholder, walked with
                     index_step (default 15) until a page adds no new job links or
                     index_max_pages (default 40) is reached
+  index_item_regex  (optional) regex run over each listing page (whitespace collapsed) with a
+                    named group `url` and optional `location`, `department`, `employment_type`;
+                    the values fill fields the job page itself does not provide
   job_url_pattern   regex a job URL must match
   max_new_pages     cap on job pages fetched per run (default 50)
   url_prefix        (optional) only keep URLs starting with this
   title_strip       (optional) regex removed from fallback titles, e.g. " - Marex Careers$"
-  location_regex    (optional) regex with one group applied to the meta description
+  location_regex    (optional) regex applied to the meta description, or to the raw page when
+                    the JSON-LD has no jobLocation; its capture groups are joined with ", "
 
 The adapter diffs the sitemap's job URLs against the postings the runner already knows
 (`self.known_postings`, url -> RawPosting). Known URLs are returned as-is without a fetch; new
@@ -119,6 +123,12 @@ class SitemapAdapter(Adapter):
         self.index_url_pattern: str = self.config.get("index_url_pattern") or ""
         self.index_step = int(self.config.get("index_step", 15))
         self.index_max_pages = int(self.config.get("index_max_pages", 40))
+        self.index_item_re = (
+            re.compile(self.config["index_item_regex"], re.S)
+            if self.config.get("index_item_regex")
+            else None
+        )
+        self._index_meta: dict[str, dict[str, str]] = {}
         self.title_strip = self.config.get("title_strip") or ""
         self.location_regex = self.config.get("location_regex") or ""
 
@@ -167,7 +177,28 @@ class SitemapAdapter(Adapter):
             href = urljoin(url, a.attributes.get("href", "")).split("#")[0]
             if self.pattern.search(href) and href.startswith(self.prefix):
                 out.add(href)
+        if self.index_item_re:
+            flat = " ".join(resp.text.split())
+            for m in self.index_item_re.finditer(flat):
+                g = m.groupdict()
+                href = urljoin(url, html_unescape(g.get("url") or "")).split("#")[0]
+                if href:
+                    self._index_meta[href] = {
+                        k: html_unescape(v).strip() for k, v in g.items() if k != "url" and v
+                    }
         return len(out) - before
+
+    def _apply_meta(self, posting: RawPosting) -> RawPosting:
+        meta = self._index_meta.get(posting.url)
+        if not meta:
+            return posting
+        if meta.get("location") and not posting.location_raw:
+            posting.location_raw = meta["location"]
+        if meta.get("department") and not posting.department:
+            posting.department = meta["department"]
+        if meta.get("employment_type") and not posting.employment_type_raw:
+            posting.employment_type_raw = meta["employment_type"]
+        return posting
 
     def job_urls(self) -> set[str]:
         urls: set[str] = set()
@@ -187,7 +218,16 @@ class SitemapAdapter(Adapter):
 
     def _parse_page(self, html: str, url: str) -> RawPosting | None:
         if extract_job_postings(html):
-            return parse_job_page(html, url)
+            posting = parse_job_page(html, url)
+            if posting and not posting.location_raw and self.location_regex:
+                m = re.search(self.location_regex, html, re.S)
+                if m:
+                    posting.location_raw = ", ".join(
+                        g.strip() for g in m.groups() if g and g.strip()
+                    )
+            if posting and self.title_strip:
+                posting.title = re.sub(self.title_strip, "", posting.title).strip(" -|:")
+            return posting
         return parse_fallback(html, url, self.title_strip, self.location_regex)
 
     # ---- fetch ------------------------------------------------------------
@@ -208,7 +248,7 @@ class SitemapAdapter(Adapter):
                 "sitemap: no job URLs matched job_url_pattern", company=self.company.name
             )
         known = self.known_postings
-        out: list[RawPosting] = [known[u] for u in urls if u in known]
+        out: list[RawPosting] = [self._apply_meta(known[u]) for u in urls if u in known]
         new = sorted(u for u in urls if u not in known)
         fetched = 0
         for u in new:
@@ -227,7 +267,7 @@ class SitemapAdapter(Adapter):
                 continue
             posting = self._parse_page(resp.text, u)
             if posting:
-                out.append(posting)
+                out.append(self._apply_meta(posting))
         return out
 
     def parse(self, payload: Any) -> list[RawPosting]:

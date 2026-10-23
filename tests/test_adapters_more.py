@@ -214,3 +214,65 @@ def test_sitemap_paginated_index_stops_when_nothing_new():
         "https://x.test/JobDetail/3",
     }
     assert seen == [0, 2, 4]
+
+
+def test_sitemap_location_regex_fills_missing_jsonld_location():
+    html = (
+        '<html><head><script type="application/ld+json">{"@type":"JobPosting","title":"Analyst",'
+        '"datePosted":"2026-10-01"}</script></head><body><script>var loc = {city: "Milan", '
+        'country: "Italy"};</script></body></html>'
+    )
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "job_url_pattern": "x",
+                "sitemap_url": "none",
+                "location_regex": r'city:\s*"([^"]*)"[^}]*?country:\s*"([^"]*)"',
+            },
+        )
+    )
+    p = adapter._parse_page(html, "https://x.test/j/1")
+    assert p.title == "Analyst" and p.location_raw == "Milan, Italy"
+
+
+def test_sitemap_index_item_regex_attaches_listing_metadata():
+    import httpx
+
+    from radar.adapters.base import Http
+
+    listing = (
+        '<h3><a href="https://x.test/JobDetail/Payroll-Expert/1"> Payroll Expert </a></h3>'
+        '<div><span class="job-info-icon job-info-icon_world"> Bulgaria </span>'
+        '<span class="job-info-icon job-info-icon_function"> People &amp; Culture </span>'
+        '<span class="job-info-icon job-info-icon_work"> Full-time </span></div>'
+        '<h3><a href="https://x.test/JobDetail/Trader/2"> Trader </a></h3>'
+        '<div><span class="job-info-icon job-info-icon_world"> Italy </span></div>'
+    )
+    job = '<script type="application/ld+json">{"@type":"JobPosting","title":"T"}</script>'
+
+    def handler(req):
+        return httpx.Response(200, text=listing if "list" in str(req.url) else job)
+
+    http = Http()
+    http.client = httpx.Client(transport=httpx.MockTransport(handler))
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "sitemap_url": "none",
+                "index_urls": ["https://x.test/list"],
+                "job_url_pattern": r"/JobDetail/",
+                "index_item_regex": (
+                    r'href="(?P<url>https://x\.test/JobDetail/[^"]+)">[^<]*</a>'
+                    r'.*?job-info-icon_world"> ?(?P<location>[^<]*?) ?</span>'
+                    r'(?:.*?job-info-icon_function"> ?(?P<department>[^<]*?) ?</span>)?'
+                ),
+            },
+        ),
+        http=http,
+    )
+    ps = {p.url: p for p in adapter.fetch()}
+    assert ps["https://x.test/JobDetail/Payroll-Expert/1"].location_raw == "Bulgaria"
+    assert ps["https://x.test/JobDetail/Payroll-Expert/1"].department == "People & Culture"
+    assert ps["https://x.test/JobDetail/Trader/2"].location_raw == "Italy"

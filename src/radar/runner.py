@@ -134,6 +134,9 @@ def merge_into_store(
         existing.missing_runs = 0
         existing.title = fresh.title
         existing.location_raw = fresh.location_raw
+        existing.country = (
+            fresh.country or existing.country
+        )  # same city (same key), maybe a better country
         existing.department = fresh.department or existing.department
         existing.url = fresh.url
         existing.external_id = fresh.external_id
