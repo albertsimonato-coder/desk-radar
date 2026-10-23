@@ -132,4 +132,3 @@ and (optionally) add `ANTHROPIC_API_KEY` as a repository secret.
 One request per second per host, realistic User-Agent, 20 s timeout, three retries with
 backoff on 429/5xx. A source that fails is logged in the `source_health` table and shown on
 the page; the run continues. LinkedIn, Indeed and eFinancialCareers are never scraped.
-# desk-radar
