@@ -2,8 +2,13 @@
 
 Config:
   sitemap_url       (optional; otherwise discovered from robots.txt, then /sitemap.xml)
+  rss_url           (optional) an RSS/Atom feed of jobs; items become postings directly
+                    (title, link, description, pubDate, g:location) without fetching pages
   index_urls        (optional) HTML listing pages whose links are harvested instead of / in
                     addition to the sitemap (set sitemap_url: none to skip the sitemap)
+  index_url_pattern (optional) paginated listing URL with an {offset} placeholder, walked with
+                    index_step (default 15) until a page adds no new job links or
+                    index_max_pages (default 40) is reached
   job_url_pattern   regex a job URL must match
   max_new_pages     cap on job pages fetched per run (default 50)
   url_prefix        (optional) only keep URLs starting with this
@@ -32,6 +37,73 @@ log = logging.getLogger(__name__)
 
 MAX_SITEMAPS = 50
 _LOC_RE = re.compile(r"<loc>\s*(.*?)\s*</loc>", re.I | re.S)
+_ITEM_RE = re.compile(r"<(?:item|entry)>(.*?)</(?:item|entry)>", re.I | re.S)
+_TITLE_LOC_RE = re.compile(r"^(.*?)\s*\(([^()]{2,80})\)\s*$")
+
+
+def _tag(block: str, *names: str) -> str:
+    for n in names:
+        m = re.search(rf"<{n}[^>]*>(.*?)</{n}>", block, re.S | re.I)
+        if m:
+            v = m.group(1).strip()
+            if v.startswith("<![CDATA["):
+                v = v[9:-3] if v.endswith("]]>") else v[9:]
+            return html_unescape(v.strip())
+    return ""
+
+
+def parse_rss(
+    xml: str, pattern: re.Pattern | None = None, location_from_title: bool = True
+) -> list[RawPosting]:
+    """Turn a job RSS/Atom feed into postings. SuccessFactors feeds put the location in
+    <g:location> and repeat it in parentheses at the end of the title."""
+    out: list[RawPosting] = []
+    for block in _ITEM_RE.findall(xml):
+        link = _tag(block, "link", "guid")
+        if not link:
+            m = re.search(r'<link[^>]*href="([^"]+)"', block)
+            link = m.group(1) if m else ""
+        if not link or (pattern and not pattern.search(link)):
+            continue
+        title = _tag(block, "title")
+        location = _tag(block, "g:location", "location")
+        m = _TITLE_LOC_RE.match(title)
+        if m and location_from_title:
+            if not location:
+                location = m.group(2)
+            if m.group(2) == location or location in m.group(2):
+                title = m.group(1).strip()
+        desc = _tag(block, "description", "summary", "content")
+        desc = re.sub(r"<[^>]+>", " ", html_unescape(desc))
+        out.append(
+            RawPosting(
+                external_id=_tag(block, "g:id", "guid") or link,
+                title=title,
+                location_raw=location,
+                department=_tag(block, "category"),
+                posted_at=parse_dt_rfc(_tag(block, "pubDate", "published", "updated")),
+                url=link,
+                description_snippet=" ".join(desc.split())[:400],
+                employment_type_raw=_tag(block, "g:job_type", "employmentType"),
+            )
+        )
+    return out
+
+
+def parse_dt_rfc(s: str):
+    from email.utils import parsedate_to_datetime
+
+    from radar.adapters.base import parse_dt
+
+    if not s:
+        return None
+    try:
+        dt = parsedate_to_datetime(s)
+        return dt if dt.tzinfo else dt.replace(tzinfo=__import__("datetime").UTC)
+    except (TypeError, ValueError):
+        return parse_dt(s)
+
+
 _SITEMAP_RE = re.compile(r"^\s*sitemap:\s*(\S+)", re.I | re.M)
 
 
@@ -44,6 +116,9 @@ class SitemapAdapter(Adapter):
         self.max_new = int(self.config.get("max_new_pages", 50))
         self.prefix = self.config.get("url_prefix") or ""
         self.index_urls: list[str] = list(self.config.get("index_urls") or [])
+        self.index_url_pattern: str = self.config.get("index_url_pattern") or ""
+        self.index_step = int(self.config.get("index_step", 15))
+        self.index_max_pages = int(self.config.get("index_max_pages", 40))
         self.title_strip = self.config.get("title_strip") or ""
         self.location_regex = self.config.get("location_regex") or ""
 
@@ -79,17 +154,20 @@ class SitemapAdapter(Adapter):
             elif self.pattern.search(loc) and loc.startswith(self.prefix):
                 out.add(loc)
 
-    def _harvest_index(self, url: str, out: set[str]) -> None:
+    def _harvest_index(self, url: str, out: set[str]) -> int:
+        """Add job links found on one listing page; returns how many were new."""
         resp = self._http().get(url)
         if resp.status_code != 200:
             raise SourceError(
                 f"index page: HTTP {resp.status_code} from {url}", company=self.company.name
             )
         tree = HTMLParser(resp.text)
+        before = len(out)
         for a in tree.css("a[href]"):
             href = urljoin(url, a.attributes.get("href", "")).split("#")[0]
             if self.pattern.search(href) and href.startswith(self.prefix):
                 out.add(href)
+        return len(out) - before
 
     def job_urls(self) -> set[str]:
         urls: set[str] = set()
@@ -98,6 +176,13 @@ class SitemapAdapter(Adapter):
             self._collect(sm, seen, urls)
         for page in self.index_urls:
             self._harvest_index(page, urls)
+        if self.index_url_pattern:
+            for i in range(self.index_max_pages):
+                added = self._harvest_index(
+                    self.index_url_pattern.format(offset=i * self.index_step), urls
+                )
+                if added == 0:
+                    break
         return urls
 
     def _parse_page(self, html: str, url: str) -> RawPosting | None:
@@ -107,6 +192,16 @@ class SitemapAdapter(Adapter):
 
     # ---- fetch ------------------------------------------------------------
     def fetch(self) -> list[RawPosting]:
+        if self.config.get("rss_url"):
+            resp = self._http().get(self.config["rss_url"])
+            if resp.status_code != 200:
+                raise SourceError(f"rss: HTTP {resp.status_code}", company=self.company.name)
+            postings = parse_rss(resp.text, self.pattern)
+            if not postings:
+                raise SourceError(
+                    "rss: no items matched job_url_pattern", company=self.company.name
+                )
+            return postings
         urls = self.job_urls()
         if not urls:
             raise SourceError(
@@ -136,7 +231,9 @@ class SitemapAdapter(Adapter):
         return out
 
     def parse(self, payload: Any) -> list[RawPosting]:
-        """Fixture format: {"urls": [...], "pages": {url: html}}."""
+        """Fixture format: {"urls": [...], "pages": {url: html}} or {"rss": "<xml>"}."""
+        if isinstance(payload, dict) and payload.get("rss"):
+            return parse_rss(payload["rss"], self.pattern)
         out: list[RawPosting] = []
         for u in payload.get("urls", []):
             if u in self.known_postings:

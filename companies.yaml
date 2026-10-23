@@ -28,10 +28,13 @@
 - name: Mediobanca
   priority: 1
   group: bank
-  ats: manual
-  careers_url: https://www.mediobanca.com/en/careers
+  ats: custom
+  config:
+    kind: intervieweb
+    page_url: https://www.mediobanca.com/it/lavora-con-noi/posizioni-aperte.html
+  careers_url: https://www.mediobanca.com/it/lavora-con-noi/posizioni-aperte.html
   active: true
-  notes: Careers section 404s on the EN site; portal not identified yet.
+  notes: In-recruiting (Intervieweb) feed embedded in the Italian careers page.
 
 - name: Crédit Agricole CIB
   priority: 1
@@ -46,11 +49,45 @@
   group: bank
   ats: sitemap
   config:
-    sitemap_url: https://jobs.intesasanpaolo.com/sitemap.xml
+    rss_url: https://jobs.intesasanpaolo.com/sitemap.xml
     job_url_pattern: "jobs\\.intesasanpaolo\\.com/job/"
   careers_url: https://jobs.intesasanpaolo.com/
-  active: false
-  notes: SAP SuccessFactors career site. Enable once the sitemap adapter exists.
+  active: true
+  notes: SuccessFactors; its sitemap.xml is actually an RSS feed of all openings (title, link, location), read directly.
+
+- name: UniCredit
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_url_pattern: "https://careers.unicredit.eu/en_GB/jobsuche/SearchJobs/?jobRecordsPerPage=15&jobOffset={offset}"
+    index_step: 15
+    index_max_pages: 45
+    job_url_pattern: "careers\\.unicredit\\.eu/en_GB/jobsuche/JobDetail/"
+    max_new_pages: 150
+  careers_url: https://careers.unicredit.eu/en_GB/jobsuche
+  active: true
+  notes: BeeSite portal (milch & zucker); paginated listing walked by offset, JSON-LD on every job page. ~560 openings group-wide, backfilled 150 per run.
+
+- name: Banca Monte dei Paschi di Siena
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://lavoraconnoi.mps.it/careersection/ex/joblist.ftl?lang=it
+  active: true
+  notes: Taleo career section; the list loads through Taleo's internal joblist.ajax POST.
+
+- name: Banca Sella
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: sellagroup
+    wd: wd3
+    site: ID01
+  careers_url: https://join.sellagroup.eu/
+  active: true
 
 - name: Bank of America
   priority: 1

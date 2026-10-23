@@ -4,7 +4,7 @@ Live inventory taken on 2026-10-23 with plain HTTP requests (no browser). "Live"
 adapter was verified end to end against the real endpoint; the posting count is what the
 endpoint reported that day.
 
-## Live sources (44)
+## Live sources (48)
 
 | Company | ATS | Config | Postings | Notes |
 |---|---|---|---|---|
@@ -30,6 +30,10 @@ endpoint reported that day.
 | TP ICAP | workday | `tp` / wd107 / `TP-ICAP` | 110 | |
 | Trafigura | workday | `trafigura` / wd3 / `TrafiguraCareerSite` | 71 | |
 | Vitol | smartrecruiters | company `Vitol` | 35 | |
+| Mediobanca | custom (`intervieweb`) | feed discovered from mediobanca.com/it/lavora-con-noi/posizioni-aperte.html | 23 | In-recruiting (Intervieweb) JSON feed; Milan, Madrid, Paris, London roles. |
+| Intesa Sanpaolo | sitemap (RSS) | jobs.intesasanpaolo.com/sitemap.xml (an RSS feed) | 322 | SuccessFactors; title, link and location straight from the feed, no page fetches. |
+| UniCredit | sitemap (paginated index) | careers.unicredit.eu/en_GB/jobsuche/SearchJobs/?jobOffset=N | ~560 | BeeSite portal; 15 per page, JSON-LD on job pages, backfilled 150 per run. |
+| Banca Sella | workday | `sellagroup` / wd3 / `ID01` | 38 | Found via join.sellagroup.eu. |
 | Onyx Capital Group | workable | account `onyx-capital-group` | 7 | Graduate Trader / Graduate Quant Analyst roles. |
 | Trading 212 | ashby | board `trading212` | 53 | Mostly Sofia; London roles classified by rules. |
 | Glencore | custom (`glencore`) | JSON API behind glencore.com/en/careers/jobs | 353 | Workday feed re-published by Glencore's own site. |
@@ -57,7 +61,6 @@ endpoint reported that day.
 
 | Company | ATS | Plan |
 |---|---|---|
-| Intesa Sanpaolo | SAP SuccessFactors (jobs.intesasanpaolo.com) | Its sitemap.xml is an RSS feed of jobs, not a sitemap; a small RSS mode for the sitemap adapter would unlock it. |
 | EY | SAP SuccessFactors (careers.ey.com) | 9,000+ job pages worldwide without JSON-LD; needs a title/URL filter before it is worth crawling. |
 | Pictet | SAP SuccessFactors (career012.successfactors.eu, company `banquepict`) | No sitemap on the SF host. |
 | ExxonMobil | SAP SuccessFactors (jobs.exxonmobil.com) | Sitemap empty. |
@@ -76,7 +79,7 @@ endpoint reported that day.
 | BNP Paribas, BGL BNP Paribas | group.bnpparibas returns 403; BGL careers URLs 404 | Needs browser |
 | Natixis | recrutement.natixis.com, portal not identified | Unknown |
 | Crédit Agricole CIB | Talentsoft/Cegid (jobs.ca-cib.com) | Medium: try sitemap |
-| Mediobanca | EN careers section 404s | Unknown |
+| Banca Monte dei Paschi di Siena | Taleo career section (lavoraconnoi.mps.it); the list is loaded by Taleo's internal joblist.ajax POST, ~20 openings | Medium: replicate the AJAX call |
 | EIB, EIF | PeopleSoft eRecruitment | Hard |
 | Banque de Luxembourg | Portal not identified | Unknown |
 | Peel Hunt, Citadel, Citadel Securities, StoneX | 403 to non-browser clients (Citadel's job pages are also blocked; their sitemap only lists articles) | Needs browser |
@@ -109,3 +112,9 @@ endpoint reported that day.
 - The extra employers were found by probing public Greenhouse/Ashby boards for market makers,
   prop shops and quant funds with London or European desks. Remove any you do not want from
   `companies.yaml`.
+
+## Added on 2026-10-23 (Italian banks)
+
+Mediobanca, Intesa Sanpaolo, UniCredit and Banca Sella are live (see table). Monte dei Paschi
+stays manual (Taleo). New adapter features for them: RSS feeds (`rss_url`), offset-paginated
+listing pages (`index_url_pattern`), and the `intervieweb` custom kind.

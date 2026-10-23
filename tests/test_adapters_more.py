@@ -143,3 +143,74 @@ def test_sitemap_index_page_harvest(monkeypatch):
     assert len(ps) == 1
     assert ps[0].title == "Junior Trader" and ps[0].location_raw == "London, GB"
     assert ps[0].url == "https://www.marex.com/careers/career-opportunities/abc123-trader"
+
+
+def test_rss_feed_items_become_postings():
+    fx = load_fixture("sitemap_intesa-sanpaolo.json")
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {"rss_url": "x", "job_url_pattern": r"jobs\.intesasanpaolo\.com/job/"},
+            name="ISP",
+        )
+    )
+    ps = adapter.parse(fx)
+    assert len(ps) == 12
+    p = ps[0]
+    assert p.url.startswith("https://jobs.intesasanpaolo.com/job/")
+    assert p.location_raw and "(" not in p.title  # "(City, CC)" moved from title to location
+    assert p.description_snippet and "<" not in p.description_snippet
+
+
+def test_custom_intervieweb_parse():
+    ps = CustomAdapter(_co("custom", {"kind": "intervieweb", "page_url": "x"})).parse(
+        load_fixture("custom_mediobanca.json")
+    )
+    assert len(ps) == 6
+    p = ps[0]
+    assert p.url.startswith("https://mediobanca.intervieweb.it/jobs/")
+    assert p.location_raw.startswith("Milano") and p.posted_at is not None
+    assert p.department
+
+
+def test_sitemap_paginated_index_stops_when_nothing_new():
+    import httpx
+
+    from radar.adapters.base import Http
+
+    pages = {
+        0: '<a href="/JobDetail/1">a</a><a href="/JobDetail/2">b</a>',
+        2: '<a href="/JobDetail/3">c</a>',
+        4: '<a href="/JobDetail/3">c again</a>',  # nothing new -> stop
+        6: '<a href="/JobDetail/99">never reached</a>',
+    }
+    seen = []
+
+    def handler(req):
+        if "offset=" in str(req.url):
+            off = int(str(req.url).split("offset=")[1])
+            seen.append(off)
+            return httpx.Response(200, text=pages.get(off, ""))
+        return httpx.Response(200, text="<title>Job</title>")
+
+    http = Http()
+    http.client = httpx.Client(transport=httpx.MockTransport(handler))
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "sitemap_url": "none",
+                "index_url_pattern": "https://x.test/list?offset={offset}",
+                "index_step": 2,
+                "job_url_pattern": r"/JobDetail/\d+",
+            },
+        ),
+        http=http,
+    )
+    urls = adapter.job_urls()
+    assert urls == {
+        "https://x.test/JobDetail/1",
+        "https://x.test/JobDetail/2",
+        "https://x.test/JobDetail/3",
+    }
+    assert seen == [0, 2, 4]

@@ -79,8 +79,8 @@ pass is skipped silently.
    | smartrecruiters | `company` |
    | ashby | `board` |
    | workable | `account` (the slug in `apply.workable.com/<account>/`) |
-   | sitemap | `job_url_pattern` (regex); optional `sitemap_url` (or `none`), `index_urls` (HTML listing pages to harvest links from), `max_new_pages` (default 50), `title_strip`, `location_regex` |
-   | custom | `kind` (bespoke JSON APIs kept in `adapters/custom.py`, currently `glencore`) |
+   | sitemap | `job_url_pattern` (regex); optional `sitemap_url` (or `none`), `rss_url` (a job RSS feed, read directly), `index_urls` (HTML listing pages to harvest links from), `index_url_pattern` + `index_step` (offset-paginated listing), `max_new_pages` (default 50), `title_strip`, `location_regex` |
+   | custom | `kind` (bespoke JSON APIs kept in `adapters/custom.py`: `glencore`, `intervieweb`) |
    | manual | none; the entry is kept for the record and skipped |
 
    The sitemap adapter reads each job page once: it diffs the URLs it finds against the ones
