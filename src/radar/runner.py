@@ -40,6 +40,7 @@ class RunResult:
         self.new = 0
         self.closed = 0
         self.reopened = 0
+        self.skipped = 0  # out of scope (profile.yaml `scope`)
         self.errors: dict[str, str] = {}
 
 
@@ -82,6 +83,24 @@ def build_opening(
     )
 
 
+def in_scope(o: Opening, scope: dict) -> bool:
+    """Scope filter from profile.yaml; see the comment there."""
+    if not scope or not scope.get("enabled"):
+        return True
+    countries = set(scope.get("countries") or [])
+    if countries:
+        if o.country:
+            if o.country not in countries:
+                return False
+        elif not scope.get("keep_unknown_country", True):
+            return False
+    if o.function in set(scope.get("exclude_functions") or []):
+        return False
+    if o.employment_type in set(scope.get("exclude_employment_types") or []):
+        return False
+    return True
+
+
 def merge_into_store(
     store: Store,
     company: Company,
@@ -90,6 +109,7 @@ def merge_into_store(
     now: datetime,
     run_id: int,
     result: RunResult,
+    scope: dict | None = None,
 ) -> set[str]:
     """Apply one source's postings: insert new, refresh existing, reopen closed.
 
@@ -99,6 +119,9 @@ def merge_into_store(
         if not raw.title:
             continue
         fresh = build_opening(company, raw, classifier, now, run_id)
+        if not in_scope(fresh, scope or {}):
+            result.skipped += 1
+            continue
         if fresh.dedup_key in seen:
             continue  # same title+city listed twice (multiple reqs) -> one row
         seen.add(fresh.dedup_key)
@@ -218,7 +241,9 @@ def run(
             store.record_source_error(company.slug, company.name, company.ats, result.run_id, msg)
             result.errors[company.slug] = msg
             return
-        seen = merge_into_store(store, company, outcome, classifier, now, result.run_id, result)
+        seen = merge_into_store(
+            store, company, outcome, classifier, now, result.run_id, result, profile.get("scope")
+        )
         result.closed += store.mark_missing(company.slug, seen, result.run_id)
         store.commit()
         store.record_source_success(
@@ -264,13 +289,14 @@ def run(
         render_pages(store, profile, docs_dir)
     store.close()
     log.info(
-        "done: %d/%d sources ok, %d seen, %d new, %d closed, %d reopened",
+        "done: %d/%d sources ok, %d seen, %d new, %d closed, %d reopened, %d out of scope",
         result.sources_ok,
         result.sources_total,
         result.seen,
         result.new,
         result.closed,
         result.reopened,
+        result.skipped,
     )
     return result
 
@@ -302,6 +328,13 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("--db", default=str(DEFAULT_DB))
     r.add_argument("--profile", default=str(DEFAULT_PROFILE))
     r.add_argument("--docs", default=str(DEFAULT_DOCS))
+    d = sub.add_parser("digest", help="write the morning digest (new since last run, by fit)")
+    d.add_argument("--db", default=str(DEFAULT_DB))
+    d.add_argument("--profile", default=str(DEFAULT_PROFILE))
+    d.add_argument("--site-url", default="https://albertsimonato-coder.github.io/desk-radar/")
+    d.add_argument("--html", required=True, help="where to write the HTML body")
+    d.add_argument("--text", required=True, help="where to write the plain-text body")
+    d.add_argument("--subject", required=True, help="where to write the subject line")
     c = sub.add_parser("check", help="validate companies.yaml and profile.yaml")
     c.add_argument("--companies", default=str(DEFAULT_COMPANIES))
     c.add_argument("--profile", default=str(DEFAULT_PROFILE))
@@ -335,6 +368,19 @@ def main(argv: list[str] | None = None) -> int:
         render_pages(store, load_profile(args.profile), args.docs)
         store.close()
         return 0
+    if args.cmd == "digest":
+        from radar.digest import build_digest
+
+        store = Store(args.db)
+        subject, html_body, text_body, n = build_digest(
+            store, load_profile(args.profile), args.site_url
+        )
+        store.close()
+        Path(args.html).write_text(html_body, encoding="utf-8")
+        Path(args.text).write_text(text_body, encoding="utf-8")
+        Path(args.subject).write_text(subject, encoding="utf-8")
+        print(subject)
+        return 0 if n else 3
     if args.cmd == "check":
         companies = load_registry(args.companies)
         load_profile(args.profile)

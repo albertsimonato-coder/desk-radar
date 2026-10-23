@@ -25,4 +25,6 @@ def load_profile(path: str | Path = "profile.yaml") -> dict:
     data.setdefault("keywords_penalty", [])
     data.setdefault("employment_type_rules", {})
     data.setdefault("function_rules", {})
+    data.setdefault("scope", {"enabled": False})
+    data.setdefault("digest", {"max_items": 25, "min_fit": 40})
     return data

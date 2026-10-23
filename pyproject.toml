@@ -33,3 +33,4 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/radar/render.py" = ["E501"]   # embedded HTML/JS template
+"src/radar/digest.py" = ["E501"]   # embedded HTML email template

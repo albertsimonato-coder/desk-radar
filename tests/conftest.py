@@ -34,3 +34,17 @@ def wd_company() -> Company:
         config={"tenant": "gunvor", "wd": "wd3", "site": "Gunvor_Careers"},
         careers_url="https://centalion.com/careers/",
     )
+
+
+@pytest.fixture
+def unscoped_profile(tmp_path) -> Path:
+    """profile.yaml with the scope filter switched off: the recorded fixtures are worldwide."""
+    import yaml
+
+    from radar.runner import DEFAULT_PROFILE
+
+    data = yaml.safe_load(DEFAULT_PROFILE.read_text(encoding="utf-8"))
+    data["scope"] = {"enabled": False}
+    out = tmp_path / "profile.yaml"
+    out.write_text(yaml.safe_dump(data, allow_unicode=True))
+    return out

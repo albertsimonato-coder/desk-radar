@@ -41,6 +41,33 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m radar run --tier "${{ github.event.inputs.tier || 'daily' }}"
 
+      - name: Build morning digest
+        id: digest
+        run: |
+          set +e
+          python -m radar digest --html digest.html --text digest.txt --subject digest.subject
+          code=$?
+          set -e
+          if [ "$code" = "0" ]; then echo "send=true" >> "$GITHUB_OUTPUT"; else echo "send=false" >> "$GITHUB_OUTPUT"; fi
+          echo "subject=$(cat digest.subject 2>/dev/null)" >> "$GITHUB_OUTPUT"
+
+      - name: Email the digest
+        if: steps.digest.outputs.send == 'true' && env.MAIL_USERNAME != ''
+        env:
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: ${{ steps.digest.outputs.subject }}
+          to: albert.simonato@gmail.com
+          from: Desk Radar <${{ secrets.MAIL_USERNAME }}>
+          html_body: file://digest.html
+          body: file://digest.txt
+
       - name: Commit results
         run: |
           git config user.name "desk-radar[bot]"

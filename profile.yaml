@@ -3,6 +3,21 @@
 
 new_window_days: 7          # "new" = first_seen within this many days and status = open
 
+# Scope: postings outside this are not stored at all (they never reach the database or the
+# pages). Rows stored before a scope change are not deleted; being "unseen" they close after two
+# runs like any withdrawn posting. Set `enabled: false` to store everything again.
+scope:
+  enabled: true
+  countries: [GB, IT, LU, CH, FR, IE]
+  keep_unknown_country: true      # location could not be parsed -> keep, better safe than sorry
+  exclude_functions: [technology, operations]
+  exclude_employment_types: [experienced]
+
+# Morning digest (python -m radar digest): top openings new since the last run, by fit score.
+digest:
+  max_items: 25
+  min_fit: 40
+
 cities:
   # city -> weight (0..1). Cities not listed get `other_city_weight`.
   London: 1.0

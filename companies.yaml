@@ -149,9 +149,11 @@
     tenant: citi
     wd: wd5
     site: "2"
+    applied_facets:
+      Country_and_Jurisdiction: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://jobs.citi.com/
   active: true
-  notes: Global site, Workday caps total at 2000; consider applied_facets by country later.
+  notes: Country facet keeps it to the target countries (~220 instead of 2000+).
 
 - name: Barclays
   priority: 1
@@ -172,6 +174,8 @@
     tenant: db
     wd: wd3
     site: DBWebsite
+    applied_facets:
+      Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://careers.db.com/
   active: true
 
@@ -351,6 +355,8 @@
     tenant: trafigura
     wd: wd3
     site: TrafiguraCareerSite
+    applied_facets:
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://www.trafigura.com/careers/
   active: true
 
@@ -402,6 +408,8 @@
     tenant: bpinternational
     wd: wd3
     site: bpCareers
+    applied_facets:
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://careers.bp.com/listing
   active: true
   notes: Whole-of-BP board; trading roles are classified by the keyword rules.
@@ -414,6 +422,8 @@
     tenant: shell
     wd: wd3
     site: ShellCareers
+    applied_facets:
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://shell.wd3.myworkdayjobs.com/ShellCareers
   active: true
 
@@ -647,6 +657,8 @@
     tenant: lseg
     wd: wd3
     site: Careers
+    applied_facets:
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
   careers_url: https://www.lseg.com/en/careers
   active: true
 

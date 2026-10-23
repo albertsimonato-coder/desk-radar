@@ -119,6 +119,20 @@ department, then the description snippet), with the optional Claude pass for lef
 The fit score (0-100) is a weighted sum of city, employment type, function, keyword hits and
 recency; the breakdown is stored and shown on hover over the score.
 
+## Scope and the morning digest
+
+`profile.yaml` has a `scope` block: postings outside the listed countries (unknown locations
+are kept), or classified as an excluded function or employment type, are not stored at all.
+Turn it off with `enabled: false`. Rows stored before a scope change are not deleted; the
+scanner simply stops seeing them, so they close after two runs. The large Workday boards also
+carry a country facet in `companies.yaml` (`applied_facets`) so the request itself is smaller.
+
+`python -m radar digest --html d.html --text d.txt --subject d.subject` writes an email body
+with the best openings new since the last run (`digest.max_items` / `digest.min_fit` in the
+profile). The workflow sends it after each run through Gmail when two repository secrets exist:
+`MAIL_USERNAME` (the Gmail address that sends) and `MAIL_PASSWORD` (a Google "app password"
+for that account, not the normal password). Without the secrets the step is skipped.
+
 ## Scheduler
 
 `.github/workflows/scan.yml` runs at 06:17 UTC daily and on demand (`workflow_dispatch`, with

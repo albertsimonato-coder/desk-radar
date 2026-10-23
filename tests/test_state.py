@@ -48,7 +48,7 @@ def _run(tmp_path, fixtures_dir, now, tier="all"):
         tier,
         db_path=tmp_path / "radar.sqlite",
         companies_path=tmp_path / "companies.yaml",
-        profile_path=runner.DEFAULT_PROFILE,
+        profile_path=tmp_path / "profile.yaml",
         docs_dir=tmp_path / "docs",
         dry_run=True,
         use_llm=False,
@@ -60,7 +60,7 @@ def _point_fixtures(monkeypatch, d: Path):
     monkeypatch.setattr(runner, "FIXTURES", d)
 
 
-def test_first_run_everything_is_new_then_stable(tmp_path, monkeypatch):
+def test_first_run_everything_is_new_then_stable(tmp_path, monkeypatch, unscoped_profile):
     _registry(tmp_path)
     _point_fixtures(monkeypatch, runner.FIXTURES)  # real recorded fixtures
     t0 = datetime(2026, 10, 23, 6, 0, tzinfo=UTC)
@@ -73,7 +73,7 @@ def test_first_run_everything_is_new_then_stable(tmp_path, monkeypatch):
     assert (tmp_path / "docs" / "index.html").exists() and (tmp_path / "docs" / "new.html").exists()
 
 
-def test_closed_after_two_misses_reappear_not_new(tmp_path, monkeypatch):
+def test_closed_after_two_misses_reappear_not_new(tmp_path, monkeypatch, unscoped_profile):
     import json
     import shutil
 
@@ -129,7 +129,7 @@ def test_closed_after_two_misses_reappear_not_new(tmp_path, monkeypatch):
     o = store.get(victim.dedup_key)
     assert o.status == "open" and o.reopened == 1 and o.missing_runs == 0
     assert o.first_seen == t0  # history preserved
-    profile = load_profile(runner.DEFAULT_PROFILE)
+    profile = load_profile(unscoped_profile)
     assert not is_new(o, t4, profile["new_window_days"])
     payload = build_payload(store, profile, now=t4)
     row = next(x for x in payload["rows"] if x["k"] == victim.dedup_key)
@@ -140,10 +140,10 @@ def test_closed_after_two_misses_reappear_not_new(tmp_path, monkeypatch):
     store.close()
 
 
-def test_new_window_and_new_since_last_run(tmp_path, monkeypatch):
+def test_new_window_and_new_since_last_run(tmp_path, monkeypatch, unscoped_profile):
     _registry(tmp_path)
     _point_fixtures(monkeypatch, runner.FIXTURES)
-    profile = load_profile(runner.DEFAULT_PROFILE)
+    profile = load_profile(unscoped_profile)
     t0 = datetime(2026, 9, 1, tzinfo=UTC)
     r1 = _run(tmp_path, None, t0)
     # 30 days later nothing is "new" anymore, even though all are still open.
@@ -156,7 +156,7 @@ def test_new_window_and_new_since_last_run(tmp_path, monkeypatch):
     store.close()
 
 
-def test_daily_tier_selects_priority(tmp_path, monkeypatch):
+def test_daily_tier_selects_priority(tmp_path, monkeypatch, unscoped_profile):
     _registry(tmp_path)
     _point_fixtures(monkeypatch, runner.FIXTURES)
     wednesday = datetime(2026, 10, 21, tzinfo=UTC)
@@ -165,3 +165,64 @@ def test_daily_tier_selects_priority(tmp_path, monkeypatch):
     monday = datetime(2026, 10, 19, tzinfo=UTC)
     r = _run(tmp_path, None, monday, tier="daily")
     assert r.sources_total == 2
+
+
+def test_scope_filter_and_digest(tmp_path, monkeypatch, unscoped_profile):
+    from radar.digest import build_digest
+    from radar.models import Opening
+    from radar.runner import in_scope
+
+    now = datetime(2026, 10, 23, tzinfo=UTC)
+
+    def mk(**kw):
+        base = dict(
+            dedup_key="k",
+            company_slug="x",
+            company_name="X",
+            group="bank",
+            priority=1,
+            external_id="1",
+            title="t",
+            title_norm="t",
+            location_raw="",
+            city="",
+            country="",
+            url="https://x",
+            first_seen=now,
+            last_seen=now,
+            first_run_id=1,
+        )
+        base.update(kw)
+        return Opening(**base)
+
+    scope = {
+        "enabled": True,
+        "countries": ["GB", "IT"],
+        "keep_unknown_country": True,
+        "exclude_functions": ["technology"],
+        "exclude_employment_types": ["experienced"],
+    }
+    assert in_scope(mk(country="GB", function="sales_trading", employment_type="graduate"), scope)
+    assert in_scope(mk(country="", function="quant"), scope)  # unknown country kept
+    assert not in_scope(mk(country="US", function="sales_trading"), scope)
+    assert not in_scope(mk(country="GB", function="technology"), scope)
+    assert not in_scope(mk(country="GB", employment_type="experienced"), scope)
+    assert in_scope(mk(country="US"), {"enabled": False})
+
+    # Digest: run on fixtures, then the digest lists the best new-since-last-run rows.
+    _registry(tmp_path)
+    _point_fixtures(monkeypatch, runner.FIXTURES)
+    _run(tmp_path, None, now)
+    store = Store(tmp_path / "radar.sqlite")
+    profile = load_profile(unscoped_profile)
+    subject, html_body, text_body, n = build_digest(
+        store, profile, "https://example.test/", now=now
+    )
+    assert n > 0 and "new openings" in subject
+    assert "https://example.test/new.html" in html_body and "example.test/new.html" in text_body
+    fits = [
+        int(x)
+        for x in __import__("re").findall(r"^\s*(\d+)\s{2}", text_body, flags=__import__("re").M)
+    ]
+    assert fits == sorted(fits, reverse=True) and min(fits) >= profile["digest"]["min_fit"]
+    store.close()

@@ -88,7 +88,7 @@ def _run(tmp_path, workers, db):
         "all",
         db_path=db,
         companies_path=tmp_path / "companies.yaml",
-        profile_path=runner.DEFAULT_PROFILE,
+        profile_path=tmp_path / "profile.yaml",
         docs_dir=tmp_path / "docs",
         dry_run=True,
         use_llm=False,
@@ -97,7 +97,7 @@ def _run(tmp_path, workers, db):
     )
 
 
-def test_parallel_run_matches_sequential_and_records_errors(tmp_path):
+def test_parallel_run_matches_sequential_and_records_errors(tmp_path, unscoped_profile):
     _registry(tmp_path)
     seq = _run(tmp_path, 1, tmp_path / "seq.sqlite")
     par = _run(tmp_path, 4, tmp_path / "par.sqlite")
