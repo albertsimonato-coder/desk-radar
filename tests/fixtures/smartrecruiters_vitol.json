@@ -1,0 +1,2461 @@
+[
+ {
+  "offset": 0,
+  "limit": 100,
+  "totalFound": 35,
+  "content": [
+   {
+    "id": "744000157044569",
+    "name": "Derivatives Operations (Contract role)",
+    "uuid": "686a1d80-c23f-4473-837a-05be44675cb0",
+    "jobAdId": "42d6c659-0064-4a52-993c-af519e9da1db",
+    "defaultJobAd": true,
+    "refNumber": "REF904H",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-22T06:40:01.720Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "analyst",
+     "label": "Analyst"
+    },
+    "typeOfEmployment": {
+     "id": "contract",
+     "label": "Contract"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000157044569",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000156062268",
+    "name": "Python Community Engineer",
+    "uuid": "2d8efeb9-682e-483d-8fa5-ff4422856360",
+    "jobAdId": "1a17e7ff-7feb-4cee-8adc-dcd7c29c2526",
+    "defaultJobAd": true,
+    "refNumber": "REF901R",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-16T18:37:02.505Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000156062268",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000156041474",
+    "name": "Full Stack (.NET/React) Developer",
+    "uuid": "f87c81e7-7987-46eb-a481-0da561304d98",
+    "jobAdId": "fc8a894d-fd4c-4137-8d99-7396bf29dd13",
+    "defaultJobAd": true,
+    "refNumber": "REF900M",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-16T16:15:29.658Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000156041474",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000155304039",
+    "name": "Developer & Business Analyst – PnL & Risk Systems",
+    "uuid": "a652f7af-4d27-4cf3-b6b8-767b7a2d9829",
+    "jobAdId": "bb59f39a-ac8f-4b57-9711-8540cfd232b5",
+    "defaultJobAd": false,
+    "refNumber": "REF646Z",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-13T15:41:54.823Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000155304039",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000154961064",
+    "name": "Claim Analyst",
+    "uuid": "c2e5ea15-3bdc-48f9-99ba-d2b1da3b9e53",
+    "jobAdId": "c2c9d308-40cf-4542-a6f4-54c027692b9e",
+    "defaultJobAd": true,
+    "refNumber": "REF898G",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-12T09:09:11.663Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736506",
+     "label": "Claims"
+    },
+    "function": {
+     "id": "analyst",
+     "label": "Analyst"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736506",
+      "valueLabel": "Claims"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000154961064",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000154118949",
+    "name": "Software Engineer",
+    "uuid": "ac5f1686-1b24-40a5-83d9-d5c318f4ebc6",
+    "jobAdId": "a5cfad74-4cd2-4f54-8e5d-c1bc8d2bd756",
+    "defaultJobAd": false,
+    "refNumber": "REF460S",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-07T14:17:05.178Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000154118949",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000153767449",
+    "name": "Process Operator ",
+    "uuid": "4c2e5ac5-29ce-4e5a-af00-d08d53059602",
+    "jobAdId": "3dd3daef-60bb-417d-b969-324c2c58aafe",
+    "defaultJobAd": true,
+    "refNumber": "REF897E",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-06T13:36:26.979Z",
+    "location": {
+     "city": "Rotterdam",
+     "region": "ZH",
+     "country": "nl",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "51.9244201",
+     "longitude": "4.4777325",
+     "fullLocation": "Rotterdam, ZH, Netherlands"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736404",
+     "label": "Trading"
+    },
+    "function": {
+     "id": "production",
+     "label": "Production"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "nl",
+      "valueLabel": "Netherlands"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "5ec97e8a-8936-409a-85e3-6a4273ed2d9d",
+      "valueLabel": "VPR"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736404",
+      "valueLabel": "Trading"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000153767449",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000153450640",
+    "name": "Cybersecurity Governance, Risk and Compliance",
+    "uuid": "b22ea034-3bb1-4e91-a04c-674b7bd63a5d",
+    "jobAdId": "0a2bb600-7e76-4122-a033-0ecb73ed1105",
+    "defaultJobAd": true,
+    "refNumber": "REF895Y",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-10-05T09:45:19.023Z",
+    "location": {
+     "city": "London",
+     "region": "England",
+     "country": "gb",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "51.5072178",
+     "longitude": "-0.1275862",
+     "fullLocation": "London, England, United Kingdom"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "gb",
+      "valueLabel": "United Kingdom"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000153450640",
+    "creator": {
+     "name": "Antigona Sadiku"
+    },
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000152223419",
+    "name": "Security Operations Lead",
+    "uuid": "c6dd3e07-08bc-44e2-9290-e8c1fce8405f",
+    "jobAdId": "28161484-2bf7-46d7-b268-78e1e018c2db",
+    "defaultJobAd": true,
+    "refNumber": "REF894Z",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-28T16:07:26.729Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000152223419",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000151035794",
+    "name": "GenAI Engineer",
+    "uuid": "5a7d1758-980f-4efb-a0b7-982791f5ab23",
+    "jobAdId": "c834fd74-221a-4795-bea1-d3029d0cd27b",
+    "defaultJobAd": true,
+    "refNumber": "REF889U",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-22T13:28:07.919Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000151035794",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000150974569",
+    "name": "Product Control Analyst",
+    "uuid": "24581eca-986a-4125-af3f-58fd5481a873",
+    "jobAdId": "5cb4543a-bc58-4c3d-93a3-4572fa95ad77",
+    "defaultJobAd": true,
+    "refNumber": "REF809Y",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-22T09:14:06.038Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736472",
+     "label": "Commercial Analyst"
+    },
+    "function": {
+     "id": "legal",
+     "label": "Legal"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736472",
+      "valueLabel": "Commercial Analyst"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000150974569",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000150027364",
+    "name": "Intern (Accounting)",
+    "uuid": "f723fca5-734d-4bf5-b711-178f47c41f29",
+    "jobAdId": "ae8efa8c-737b-4f36-8faa-4f1a1054e968",
+    "defaultJobAd": true,
+    "refNumber": "REF886B",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-17T07:32:20.632Z",
+    "location": {
+     "city": "Kukup",
+     "region": "Johor",
+     "country": "my",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.32687",
+     "longitude": "103.4460022",
+     "fullLocation": "Kukup, Johor, Malaysia"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736455",
+     "label": "Accounting"
+    },
+    "function": {
+     "id": "production",
+     "label": "Production"
+    },
+    "typeOfEmployment": {
+     "id": "intern",
+     "label": "Intern"
+    },
+    "experienceLevel": {
+     "id": "internship",
+     "label": "Internship"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "my",
+      "valueLabel": "Malaysia"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736455",
+      "valueLabel": "Accounting"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000150027364",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000149885813",
+    "name": "Desktop Support Engineer",
+    "uuid": "cbcb8e24-cc07-4fe1-9e75-6fc252098594",
+    "jobAdId": "131a95ed-e040-4f91-af75-2940fe95184f",
+    "defaultJobAd": true,
+    "refNumber": "REF885L",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-16T14:26:35.092Z",
+    "location": {
+     "city": "São Paulo",
+     "region": "SP",
+     "country": "br",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "-23.5557714",
+     "longitude": "-46.6395571",
+     "fullLocation": "São Paulo, SP, Brazil"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "br",
+      "valueLabel": "Brazil"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000149885813",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000149109634",
+    "name": "Data Engineer ",
+    "uuid": "4854f671-8cf0-42d1-be3d-06717060df8c",
+    "jobAdId": "c7194dac-4d29-4fd5-bdd2-7f401c35ca3c",
+    "defaultJobAd": true,
+    "refNumber": "REF884S",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-11T21:10:00.047Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000149109634",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000148830558",
+    "name": "Senior RNG Technician",
+    "uuid": "0bca5f00-6b42-4394-b8ed-56e363ceed6e",
+    "jobAdId": "2640bf49-5952-4b39-a88a-753ed906861f",
+    "defaultJobAd": true,
+    "refNumber": "REF865V",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-10T16:44:07.727Z",
+    "location": {
+     "city": "Mount Vernon",
+     "region": "AL",
+     "country": "us",
+     "postalCode": "36560",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.0864893",
+     "longitude": "-88.0112954",
+     "fullLocation": "Mount Vernon, AL, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000148830558",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000148798260",
+    "name": "GenAI Engineer",
+    "uuid": "34dcd01a-15d1-46e5-9905-a0fc48863b2a",
+    "jobAdId": "fcb39484-2497-494e-bf10-f597c8422483",
+    "defaultJobAd": true,
+    "refNumber": "REF876Z",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-10T14:37:02.616Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "associate",
+     "label": "Associate"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000148798260",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000148282689",
+    "name": "Enterprise Architect",
+    "uuid": "91710c1e-37f7-48e2-9475-dd5f0daf9f80",
+    "jobAdId": "eaac2f13-6f5c-4032-a69c-13ff80d9c98f",
+    "defaultJobAd": true,
+    "refNumber": "REF875M",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-08T15:39:15.486Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000148282689",
+    "creator": {
+     "name": "Antigona Sadiku"
+    },
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000147586483",
+    "name": "Contracts Administrator ",
+    "uuid": "5d2b38c1-4c79-4d41-a9d6-28acf853fde9",
+    "jobAdId": "f166ae28-175d-4d0e-8cc7-3612e38752f6",
+    "defaultJobAd": true,
+    "refNumber": "REF882V",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-04T18:57:05.361Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000147586483",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000147175916",
+    "name": "Senior Process Engineer",
+    "uuid": "c5f55dcb-c75a-417c-97d2-0ea38b23e81a",
+    "jobAdId": "02dcc656-25a1-429d-af01-00d9a2d47e6e",
+    "defaultJobAd": true,
+    "refNumber": "REF880E",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-09-03T08:23:25.295Z",
+    "location": {
+     "city": "Kukup",
+     "region": "Johor",
+     "country": "my",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.32687",
+     "longitude": "103.4460022",
+     "fullLocation": "Kukup, Johor, Malaysia"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "2439490",
+     "label": "General"
+    },
+    "function": {
+     "id": "production",
+     "label": "Production"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "my",
+      "valueLabel": "Malaysia"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "2439490",
+      "valueLabel": "General"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000147175916",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000146406209",
+    "name": "Regional Tax Executive",
+    "uuid": "483319b2-26de-480e-88f6-b50bbf71299e",
+    "jobAdId": "ef357089-13e9-42c5-bf8c-56d2018ff0b4",
+    "defaultJobAd": true,
+    "refNumber": "REF872W",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-31T07:10:27.403Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736523",
+     "label": "Finance/Tax"
+    },
+    "function": {
+     "id": "finance",
+     "label": "Finance"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736523",
+      "valueLabel": "Finance/Tax"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000146406209",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000144359280",
+    "name": "Senior RNG Technician ",
+    "uuid": "57a4f1e4-7699-4a4e-a293-3437dcd4087b",
+    "jobAdId": "4bdcde46-a30a-4f90-b613-6fbc6faf98bf",
+    "defaultJobAd": true,
+    "refNumber": "REF874R",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-19T16:14:41.923Z",
+    "location": {
+     "city": "Whitesboro",
+     "region": "TX",
+     "country": "us",
+     "postalCode": "76273",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "33.6562183",
+     "longitude": "-96.906948",
+     "fullLocation": "Whitesboro, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000144359280",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000143565138",
+    "name": "Forward Deployed Engineer ",
+    "uuid": "e1795f21-9416-451e-92f5-4f64401a5b7c",
+    "jobAdId": "a90746d4-fab8-46a4-8cda-51a5d24c80e5",
+    "defaultJobAd": true,
+    "refNumber": "REF873N",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-14T17:08:38.060Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000143565138",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000143055599",
+    "name": "Full Stack Desk Developer",
+    "uuid": "dd4ef8c5-f27a-4910-bc06-93b951e50e07",
+    "jobAdId": "306e5c02-02e1-4e3f-ba89-4825ee6369ee",
+    "defaultJobAd": true,
+    "refNumber": "REF800F",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-12T08:51:47.167Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000143055599",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000142122885",
+    "name": "Developer & Business Analyst - Trading Systems",
+    "uuid": "600c46cd-cbd0-4b34-83ed-e0f973aea11a",
+    "jobAdId": "071dd571-547f-4100-8a26-559f56d318a1",
+    "defaultJobAd": true,
+    "refNumber": "REF646Z",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-07T12:46:31.774Z",
+    "location": {
+     "city": "Geneva",
+     "region": "GE",
+     "country": "ch",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "46.2043907",
+     "longitude": "6.1431577",
+     "fullLocation": "Geneva, GE, Switzerland"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "ch",
+      "valueLabel": "Switzerland"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000142122885",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000141569918",
+    "name": "Senior RNG Technician",
+    "uuid": "a1933c54-1650-4989-a57c-886062dd4f4e",
+    "jobAdId": "a7bc3786-c64e-4f5d-bb8e-9a5c77578de8",
+    "defaultJobAd": true,
+    "refNumber": "REF737F",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-08-04T19:33:24.000Z",
+    "location": {
+     "city": "Coker",
+     "region": "AL",
+     "country": "us",
+     "postalCode": "35452",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "33.2456415",
+     "longitude": "-87.6856182",
+     "fullLocation": "Coker, AL, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000141569918",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000139554115",
+    "name": "Global System Administrator",
+    "uuid": "d9c87556-6976-4718-829c-ab87a5ae53ad",
+    "jobAdId": "d3c90d44-747f-49b8-877e-f07951cf7815",
+    "defaultJobAd": true,
+    "refNumber": "REF834S",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-07-24T09:38:01.500Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000139554115",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000137062879",
+    "name": "Research Analyst Internship (August - September 2026)",
+    "uuid": "f9a30906-abe3-447d-89be-1fd0f9983f87",
+    "jobAdId": "86cec934-eace-47fe-804e-85e236997229",
+    "defaultJobAd": true,
+    "refNumber": "REF855D",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-07-10T07:36:31.394Z",
+    "location": {
+     "city": "Shanghai",
+     "region": "Shanghai",
+     "country": "cn",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.230416",
+     "longitude": "121.473701",
+     "fullLocation": "Shanghai, Shanghai, China"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736608",
+     "label": "Research"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "cn",
+      "valueLabel": "China"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736608",
+      "valueLabel": "Research"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000137062879",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000133666057",
+    "name": "Platform Engineer",
+    "uuid": "7509ee47-99d8-42d3-98ad-c8eaa25884d2",
+    "jobAdId": "af96bb61-f0ac-4065-9b13-f2f946eecea6",
+    "defaultJobAd": true,
+    "refNumber": "REF850Y",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-06-23T17:40:25.923Z",
+    "location": {
+     "city": "Singapore",
+     "country": "sg",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.2811866",
+     "longitude": "103.8503404",
+     "fullLocation": "Singapore, , Singapore"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736387",
+     "label": "Technology"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "sg",
+      "valueLabel": "Singapore"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736387",
+      "valueLabel": "Technology"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000133666057",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000131808899",
+    "name": "Accountant",
+    "uuid": "b435ea2a-3502-4cd5-b43b-9bd49a25c58b",
+    "jobAdId": "13e9cd00-c62f-43c6-8e9d-c9cfc68434b8",
+    "defaultJobAd": true,
+    "refNumber": "REF845I",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-06-12T03:30:08.600Z",
+    "location": {
+     "city": "Shanghai",
+     "region": "Shanghai",
+     "country": "cn",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.230416",
+     "longitude": "121.473701",
+     "fullLocation": "Shanghai, Shanghai, China"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736455",
+     "label": "Accounting"
+    },
+    "function": {
+     "id": "other",
+     "label": "Other"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "executive",
+     "label": "Executive"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "cn",
+      "valueLabel": "China"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736455",
+      "valueLabel": "Accounting"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000131808899",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000131737638",
+    "name": "Senior RNG Technician ",
+    "uuid": "a77aeac0-d89e-4a23-9519-7d66f2da81d7",
+    "jobAdId": "cd925974-79ac-496d-a41f-8c7bb6c16ff5",
+    "defaultJobAd": true,
+    "refNumber": "REF844B",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-06-11T18:11:16.054Z",
+    "location": {
+     "city": "Lufkin",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.3345562",
+     "longitude": "-94.7321127",
+     "fullLocation": "Lufkin, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "information_technology",
+     "label": "Information Technology"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "mid_senior_level",
+     "label": "Mid-Senior Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000131737638",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000127299278",
+    "name": "Senior RNG Technician",
+    "uuid": "89b28881-3d5f-4f1f-855e-4c486106aa75",
+    "jobAdId": "c4123458-7cf3-44d9-a031-5248b6db02cf",
+    "defaultJobAd": true,
+    "refNumber": "REF664U",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-05-19T20:11:50.567Z",
+    "location": {
+     "city": "Jonesboro",
+     "region": "AR",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "35.835696",
+     "longitude": "-90.7051346",
+     "fullLocation": "Jonesboro, AR, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "manufacturing",
+     "label": "Manufacturing"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "associate",
+     "label": "Associate"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000127299278",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000116708627",
+    "name": "Trade Settlements Analyst",
+    "uuid": "bc3b224e-bfbe-405e-b57e-cbc9301ce535",
+    "jobAdId": "8c4a73dc-72e6-4cae-a83c-195b0e428cad",
+    "defaultJobAd": true,
+    "refNumber": "REF772N",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-03-25T21:09:45.741Z",
+    "location": {
+     "city": "Houston",
+     "region": "TX",
+     "country": "us",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "29.7600771",
+     "longitude": "-95.37011079999999",
+     "fullLocation": "Houston, TX, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "general_business",
+     "label": "General Business"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "associate",
+     "label": "Associate"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000116708627",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000112443456",
+    "name": "Senior RNG Technician",
+    "uuid": "7c5cd193-da5b-4c8c-9644-b2e4da2cb9ba",
+    "jobAdId": "40a669e3-6d97-42f0-b3bd-d3caf0e4ad0e",
+    "defaultJobAd": true,
+    "refNumber": "REF676B",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-03-03T14:53:06.140Z",
+    "location": {
+     "city": "Mount Vernon",
+     "region": "AL",
+     "country": "us",
+     "postalCode": "36560",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.0864893",
+     "longitude": "-88.0112954",
+     "fullLocation": "Mount Vernon, AL, United States"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "production",
+     "label": "Production"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "associate",
+     "label": "Associate"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "us",
+      "valueLabel": "United States"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "64fdf010-91db-4ecb-967b-fabdb0d9162e",
+      "valueLabel": "Vitol BioMethane"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000112443456",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000108423825",
+    "name": "Commercial Analyst ",
+    "uuid": "de49908d-85f7-471c-a393-fc999ce66840",
+    "jobAdId": "37a6e7f1-78a5-4fcd-a929-fb7825650ac3",
+    "defaultJobAd": true,
+    "refNumber": "REF784V",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2026-02-10T07:53:48.717Z",
+    "location": {
+     "city": "Shanghai",
+     "region": "Shanghai",
+     "country": "cn",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "31.230416",
+     "longitude": "121.473701",
+     "fullLocation": "Shanghai, Shanghai, China"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736472",
+     "label": "Commercial Analyst"
+    },
+    "function": {
+     "id": "analyst",
+     "label": "Analyst"
+    },
+    "typeOfEmployment": {
+     "id": "permanent",
+     "label": "Full-time"
+    },
+    "experienceLevel": {
+     "id": "entry_level",
+     "label": "Entry Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "cn",
+      "valueLabel": "China"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736472",
+      "valueLabel": "Commercial Analyst"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000108423825",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   },
+   {
+    "id": "744000100175975",
+    "name": "Process Technician Apprenticeship ",
+    "uuid": "aada72d5-65bb-4de4-85d0-6c0f9e5d6e65",
+    "jobAdId": "607d4117-41f8-41fa-b5e1-25e708a2d7f8",
+    "defaultJobAd": true,
+    "refNumber": "REF767C",
+    "company": {
+     "identifier": "Vitol",
+     "name": "Vitol"
+    },
+    "releasedDate": "2025-12-23T03:08:08.026Z",
+    "location": {
+     "city": "Johor Bahru",
+     "region": "Johor",
+     "country": "my",
+     "remote": false,
+     "hybrid": false,
+     "latitude": "1.4798575",
+     "longitude": "103.7642576",
+     "fullLocation": "Johor Bahru, Johor, Malaysia"
+    },
+    "industry": {
+     "id": "oil_and_energy",
+     "label": "Oil And Energy"
+    },
+    "department": {
+     "id": "1736421",
+     "label": "Operations"
+    },
+    "function": {
+     "id": "engineering",
+     "label": "Engineering"
+    },
+    "typeOfEmployment": {
+     "id": "contract",
+     "label": "Contract"
+    },
+    "experienceLevel": {
+     "id": "entry_level",
+     "label": "Entry Level"
+    },
+    "customField": [
+     {
+      "fieldId": "COUNTRY",
+      "fieldLabel": "Country/Region",
+      "valueId": "my",
+      "valueLabel": "Malaysia"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d57",
+      "fieldLabel": "Brands",
+      "valueId": "default",
+      "valueLabel": "Vitol"
+     },
+     {
+      "fieldId": "5f181a2ff4350677f8990d58",
+      "fieldLabel": "Department",
+      "valueId": "1736421",
+      "valueLabel": "Operations"
+     }
+    ],
+    "visibility": "PUBLIC",
+    "ref": "https://api.smartrecruiters.com/v1/companies/Vitol/postings/744000100175975",
+    "language": {
+     "code": "en",
+     "label": "English",
+     "labelNative": "English (US)"
+    }
+   }
+  ]
+ }
+]

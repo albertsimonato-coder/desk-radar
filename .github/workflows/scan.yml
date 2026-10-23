@@ -1,0 +1,54 @@
+name: scan
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # 06:17 UTC daily
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "daily (priority 1, plus priority 2 on Mondays) or all"
+        default: "daily"
+        type: choice
+        options: [daily, all]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[dev]"
+
+      - name: Tests (fixtures only, no network)
+        run: pytest -q
+
+      - name: Scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m radar run --tier "${{ github.event.inputs.tier || 'daily' }}"
+
+      - name: Commit results
+        run: |
+          git config user.name "desk-radar[bot]"
+          git config user.email "desk-radar@users.noreply.github.com"
+          git add data/radar.sqlite docs/index.html docs/new.html
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "scan: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

@@ -1,0 +1,773 @@
+# Desk Radar employer registry.
+# priority: 1 = scanned daily, 2 = scanned on Mondays (or always with --all)
+# group:    bank | boutique | asset_manager | commodities | exchange | prop_trading | advisory | corporate
+# ats:      greenhouse | lever | smartrecruiters | ashby | workday | sitemap | manual
+# active:   false = known ATS but adapter not built yet, or site blocked. See docs/inventory.md.
+
+# ---- Banks -----------------------------------------------------------------
+- name: UBS
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.ubs.com/global/en/careers.html
+  active: true
+  notes: jobs.ubs.com returns 403 to non-browser clients; bespoke portal. Needs browser or sitemap work.
+
+- name: Nomura
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.nomura.com/sitemap.xml
+    job_url_pattern: "careers\\.nomura\\.com/Nomura/job/"
+    max_new_pages: 120
+  careers_url: https://careers.nomura.com/
+  active: true
+  notes: SuccessFactors site (no JSON-LD, title/location from page metadata). Campus programmes are on nomuracampus.tal.net.
+
+- name: Mediobanca
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.mediobanca.com/en/careers
+  active: true
+  notes: Careers section 404s on the EN site; portal not identified yet.
+
+- name: Crédit Agricole CIB
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://jobs.ca-cib.com/
+  active: true
+  notes: Talentsoft (Cegid) portal; candidate for the sitemap adapter.
+
+- name: Intesa Sanpaolo
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.intesasanpaolo.com/sitemap.xml
+    job_url_pattern: "jobs\\.intesasanpaolo\\.com/job/"
+  careers_url: https://jobs.intesasanpaolo.com/
+  active: false
+  notes: SAP SuccessFactors career site. Enable once the sitemap adapter exists.
+
+- name: Bank of America
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: ghr
+    wd: wd1
+    site: Lateral-EMEA
+  careers_url: https://careers.bankofamerica.com/en-us/job-search
+  active: true
+  notes: EMEA lateral site (~75). US site is Lateral-US (~2000). Campus roles live on campus.bankofamerica.com (not Workday).
+
+- name: Jefferies
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.jefferies.com/careers/
+  active: true
+  notes: Experienced on jefferies.wd1.myworkdayjobs.com (site unknown, 422 on guesses); campus via jefferies.tal.net.
+
+- name: HSBC
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://mycareer.hsbc.com/en_GB/external
+  active: true
+  notes: Bespoke portal (mycareer.hsbc.com), JS-rendered.
+
+- name: Goldman Sachs
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://higher.gs.com/roles
+  active: true
+  notes: Bespoke portal (higher.gs.com), JS-rendered.
+
+- name: JPMorgan
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://careers.jpmorgan.com/global/en/home
+  active: true
+  notes: Oracle Recruiting Cloud (jpmc.fa.oraclecloud.com). Candidate for an Oracle adapter later.
+
+- name: Morgan Stanley
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://morganstanley.eightfold.ai/careers
+  active: true
+  notes: Eightfold.
+
+- name: Citi
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: citi
+    wd: wd5
+    site: "2"
+  careers_url: https://jobs.citi.com/
+  active: true
+  notes: Global site, Workday caps total at 2000; consider applied_facets by country later.
+
+- name: Barclays
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: barclays
+    wd: wd3
+    site: External_Career_Site_Barclays
+  careers_url: https://search.jobs.barclays/
+  active: true
+
+- name: Deutsche Bank
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: db
+    wd: wd3
+    site: DBWebsite
+  careers_url: https://careers.db.com/
+  active: true
+
+- name: BNP Paribas
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://group.bnpparibas/en/careers
+  active: true
+  notes: group.bnpparibas returns 403 to non-browser clients.
+
+- name: Société Générale
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.societegenerale.com/sitemap.xml
+    job_url_pattern: "careers\\.societegenerale\\.com/en/job-offers/"
+    max_new_pages: 150
+  careers_url: https://careers.societegenerale.com/en
+  active: true
+  notes: Bespoke site with schema.org JobPosting on every job page; Taleo only for the application form.
+
+- name: Natixis
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://recrutement.natixis.com/
+  active: true
+  notes: Bespoke recruitment portal, not identified.
+
+- name: European Investment Bank
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.eib.org/en/about/careers/index.htm
+  active: true
+  notes: PeopleSoft eRecruitment (erecruitment.eib.org).
+
+- name: European Investment Fund
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.eif.org/work-with-us/careers
+  active: true
+  notes: Shares the EIB PeopleSoft portal.
+
+- name: Banque de Luxembourg
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.banquedeluxembourg.com/en/bank/bl/careers
+  active: true
+  notes: Portal not identified.
+
+- name: BGL BNP Paribas
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bgl.lu/en/careers
+  active: true
+  notes: Careers URLs 404; part of BNP Paribas group recruitment.
+
+# ---- Brokers / boutiques ---------------------------------------------------
+- name: Peel Hunt
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.peelhunt.com/careers/
+  active: true
+  notes: 403 to non-browser clients.
+
+- name: Trading 212
+  priority: 1
+  group: corporate
+  ats: ashby
+  config:
+    board: trading212
+  careers_url: https://jobs.ashbyhq.com/trading212
+  active: true
+
+- name: Marex
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.marex.com/careers/career-opportunities
+    job_url_pattern: "marex\\.com/careers/career-opportunities/[a-z0-9]+-"
+    title_strip: " - Marex Careers$"
+    location_regex: "\\bin ([^.]+?)\\. "
+  careers_url: https://www.marex.com/careers/career-opportunities
+  active: true
+  notes: Server-rendered listing page; job pages have no JSON-LD so title/location come from page metadata.
+
+- name: StoneX
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.stonex.com/en/careers/
+  active: true
+  notes: 403 to non-browser clients; stonex.wd1 guesses failed.
+
+- name: TP ICAP
+  priority: 2
+  group: exchange
+  ats: workday
+  config:
+    tenant: tp
+    wd: wd107
+    site: TP-ICAP
+  careers_url: https://tpicap.com/tpicap/careers/opportunities
+  active: true
+
+# ---- Commodities -----------------------------------------------------------
+- name: Dare
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://dare.com/
+  active: true
+  notes: Site drops non-browser connections.
+
+- name: Onyx Capital Group
+  priority: 1
+  group: commodities
+  ats: workable
+  config:
+    account: onyx-capital-group
+  careers_url: https://apply.workable.com/onyx-capital-group/
+  active: true
+
+- name: ADM
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.adm.com/en-us/culture-and-careers/
+  active: true
+  notes: jobs.adm.com does not resolve; ATS not identified.
+
+- name: Glencore
+  priority: 1
+  group: commodities
+  ats: custom
+  config:
+    kind: glencore
+  careers_url: https://www.glencore.com/en/careers/jobs
+  active: true
+  notes: Bespoke JSON API behind the careers page (Workday feed re-published by Glencore).
+
+- name: ExxonMobil
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.exxonmobil.com/sitemap.xml
+    job_url_pattern: "jobs\\.exxonmobil\\.com/job/"
+  careers_url: https://jobs.exxonmobil.com/
+  active: false
+  notes: SAP SuccessFactors. Enable once the sitemap adapter exists.
+
+- name: Vitol
+  priority: 1
+  group: commodities
+  ats: smartrecruiters
+  config:
+    company: Vitol
+  careers_url: https://www.vitol.com/careers/
+  active: true
+
+- name: Trafigura
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: trafigura
+    wd: wd3
+    site: TrafiguraCareerSite
+  careers_url: https://www.trafigura.com/careers/
+  active: true
+
+- name: Mercuria
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.mercuria.com/careers
+  active: true
+  notes: TLS certificate error from this client; revisit.
+
+- name: Gunvor
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: gunvor
+    wd: wd3
+    site: Gunvor_Careers
+  careers_url: https://centalion.com/careers/
+  active: true
+  notes: Rebranding to Centalion; Workday tenant still "gunvor".
+
+- name: Cargill
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.cargill.com/sitemap.xml
+    job_url_pattern: "careers\\.cargill\\.com/en/job/"
+    max_new_pages: 150
+  careers_url: https://careers.cargill.com/en
+  active: true
+  notes: ~1300 job pages worldwide with JSON-LD; backfills 150 pages per run.
+
+- name: Louis Dreyfus
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.ldc.com/careers/
+  active: true
+  notes: ldc.wd3.myworkdayjobs.com answers 401 on guessed sites; job list page 403.
+
+- name: BP Trading
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: bpinternational
+    wd: wd3
+    site: bpCareers
+  careers_url: https://careers.bp.com/listing
+  active: true
+  notes: Whole-of-BP board; trading roles are classified by the keyword rules.
+
+- name: Shell Trading
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: shell
+    wd: wd3
+    site: ShellCareers
+  careers_url: https://shell.wd3.myworkdayjobs.com/ShellCareers
+  active: true
+
+- name: TotalEnergies Trading
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://careers.totalenergies.com/en
+  active: true
+  notes: Avature portal.
+
+# ---- Prop trading / market making -----------------------------------------
+- name: Optiver
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: optiverus
+  careers_url: https://optiver.com/working-at-optiver/career-opportunities/
+  active: true
+  notes: Board "optiverus" is the global board (169 jobs); "optiver" is empty.
+
+- name: IMC
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: imc
+  careers_url: https://www.imc.com/eu/careers
+  active: true
+
+- name: Flow Traders
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: flowtraders
+  careers_url: https://www.flowtraders.com/careers
+  active: true
+
+- name: Jane Street
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: janestreet
+  careers_url: https://www.janestreet.com/join-jane-street/open-roles/
+  active: true
+
+- name: Vela Trading
+  priority: 2
+  group: prop_trading
+  ats: manual
+  careers_url: https://www.velatrading.com/
+  active: true
+  notes: TLS SNI error from this client.
+
+- name: Citadel Securities
+  priority: 1
+  group: prop_trading
+  ats: manual
+  careers_url: https://www.citadelsecurities.com/careers/open-opportunities/
+  active: true
+  notes: 403 to non-browser clients.
+
+# ---- Hedge funds / asset managers -----------------------------------------
+- name: Citadel
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.citadel.com/careers/open-opportunities/
+  active: true
+  notes: 403 to non-browser clients.
+
+- name: Millennium
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.mlp.com/careers/
+  active: true
+  notes: Eightfold (mlp.eightfold.ai).
+
+- name: Point72
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: point72
+  careers_url: https://careers.point72.com/
+  active: true
+
+- name: Man Group
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: mangroup
+  careers_url: https://www.man.com/careers
+  active: true
+
+- name: Pictet
+  priority: 1
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://www.pictet.com/sitemap.xml
+    job_url_pattern: "career.*banquepict"
+  careers_url: https://www.pictet.com/us/en/careers
+  active: false
+  notes: SAP SuccessFactors (company banquepict). Enable once the sitemap adapter exists.
+
+- name: Lombard Odier
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: lombardodier
+    wd: wd3
+    site: Lombard_Odier_Careers
+  careers_url: https://www.lombardodier.com/home/careers.html
+  active: true
+
+- name: Julius Baer
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: juliusbaer
+    wd: wd3
+    site: External
+  careers_url: https://www.juliusbaer.com/en/careers/
+  active: true
+
+# ---- Advisory --------------------------------------------------------------
+- name: Rothschild & Co
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.rothschildandco.com/en/careers/
+  active: true
+  notes: ATS not identified (jobs.rothschildandco.com does not resolve).
+
+- name: Lazard
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.lazard.com/careers/
+  active: true
+  notes: Oracle Recruiting Cloud for professionals; lazard-careers.tal.net for campus.
+
+- name: Evercore
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.evercore.com/careers/
+  active: true
+  notes: evercore.wd1 answers 401; campus via tal.net.
+
+- name: PJT Partners
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: pjtpartners
+    wd: wd1
+    site: Careers
+  careers_url: https://www.pjtpartners.com/careers
+  active: true
+
+- name: Moelis
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: moelis
+    wd: wd1
+    site: Experienced-Hires
+  careers_url: https://www.moelis.com/careers/
+  active: true
+  notes: Workday site is experienced hires only; campus via moelis-careers.tal.net.
+
+- name: Perella Weinberg
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://pwpartners.com/careers/
+  active: true
+  notes: tal.net job board.
+
+- name: Centerview
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.centerviewpartners.com/careers
+  active: true
+  notes: ATS not identified.
+
+- name: Houlihan Lokey
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://hl.com/careers/
+  active: true
+  notes: hl.wd1/External answers but lists 1 role; main site name unknown.
+
+- name: EY
+  priority: 2
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.ey.com/sitemap.xml
+    job_url_pattern: "careers\\.ey\\.com/job/"
+  careers_url: https://careers.ey.com/
+  active: false
+  notes: SAP SuccessFactors. Enable once the sitemap adapter exists.
+
+# ---- Exchanges / market infrastructure ------------------------------------
+- name: ICE
+  priority: 1
+  group: exchange
+  ats: manual
+  careers_url: https://careers.ice.com/jobs
+  active: true
+  notes: iCIMS/Jibe front end; candidate for sitemap.
+
+- name: LSEG
+  priority: 1
+  group: exchange
+  ats: workday
+  config:
+    tenant: lseg
+    wd: wd3
+    site: Careers
+  careers_url: https://www.lseg.com/en/careers
+  active: true
+
+- name: Euronext
+  priority: 1
+  group: exchange
+  ats: workday
+  config:
+    tenant: hrhub
+    wd: wd3
+    site: Euronext_Career_Page
+  careers_url: https://www.euronext.com/en/about/careers
+  active: true
+  notes: Shared "hrhub" tenant.
+
+- name: Eurex / Deutsche Börse
+  priority: 2
+  group: exchange
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.deutsche-boerse.com/sitemap.xml
+    job_url_pattern: "careers\\.deutsche-boerse\\.com/offer/"
+    max_new_pages: 120
+  careers_url: https://careers.deutsche-boerse.com/
+  active: true
+  notes: Covers Eurex and Clearstream; job pages carry JSON-LD.
+
+- name: Clearstream
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://careers.deutsche-boerse.com/
+  active: true
+  notes: Hiring runs through the Deutsche Börse SuccessFactors site above.
+
+# ---- Added 2026-10-23: market makers, prop shops and quant funds found on public boards ----
+- name: Jump Trading
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: jumptrading
+  careers_url: https://www.jumptrading.com/careers/
+  active: true
+
+- name: Qube Research & Technologies
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: quberesearchandtechnologies
+  careers_url: https://www.qube-rt.com/careers
+  active: true
+
+- name: Squarepoint Capital
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: squarepointcapital
+  careers_url: https://www.squarepoint-capital.com/careers
+  active: true
+
+- name: DRW
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: drweng
+  careers_url: https://www.drw.com/work-at-drw/
+  active: true
+
+- name: Tower Research Capital
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: towerresearchcapital
+  careers_url: https://www.tower-research.com/open-positions
+  active: true
+
+- name: Virtu Financial
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: virtu
+  careers_url: https://www.virtu.com/careers/
+  active: true
+
+- name: Akuna Capital
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: akunacapital
+  careers_url: https://akunacapital.com/careers
+  active: true
+
+- name: Mako
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: mako
+  careers_url: https://www.mako.com/careers
+  active: true
+
+- name: GSA Capital
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: gsacapital
+  careers_url: https://www.gsacapital.com/careers
+  active: true
+
+- name: Schonfeld
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: schonfeld
+  careers_url: https://www.schonfeld.com/careers
+  active: true
+
+- name: AQR
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: aqr
+  careers_url: https://www.aqr.com/Careers
+  active: true
+
+- name: TransMarket Group
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: transmarketgroup
+  careers_url: https://www.transmarketgroup.com/careers
+  active: true
+
+- name: Keyrock
+  priority: 2
+  group: prop_trading
+  ats: ashby
+  config:
+    board: keyrock
+  careers_url: https://jobs.ashbyhq.com/keyrock
+  active: true
+
+- name: Quadrature Capital
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: quadraturecapital
+  careers_url: https://www.quadrature.ai/careers
+  active: true

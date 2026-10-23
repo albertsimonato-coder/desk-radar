@@ -1,0 +1,412 @@
+# Desk Radar profile: who you are and what counts as a good fit.
+# All classification keywords and score weights live here so you can tune without code changes.
+
+new_window_days: 7          # "new" = first_seen within this many days and status = open
+
+cities:
+  # city -> weight (0..1). Cities not listed get `other_city_weight`.
+  London: 1.0
+  Milan: 1.0
+  Luxembourg: 0.9
+  Zurich: 0.9
+  Geneva: 0.9
+  Paris: 0.85
+  Dublin: 0.85
+other_city_weight: 0.15
+unknown_city_weight: 0.4    # location could not be parsed (keep visible, do not punish too hard)
+remote_weight: 0.5
+
+countries_bonus:            # small bonus if city unknown but country matches
+  GB: 0.6
+  IT: 0.6
+  LU: 0.55
+  CH: 0.55
+  FR: 0.5
+  IE: 0.5
+
+employment_types:           # weight 0..1
+  graduate: 1.0
+  internship: 0.95
+  offcycle: 0.95
+  analyst_junior: 0.9
+  experienced: 0.25
+  other: 0.5
+
+functions:                  # weight 0..1
+  sales_trading: 1.0
+  commodities: 1.0
+  market_making: 0.95
+  quant: 0.85
+  market_risk: 0.9
+  treasury: 0.9
+  ibd: 0.7
+  advisory_valuation: 0.7
+  asset_management: 0.5
+  operations: 0.3
+  technology: 0.2
+  other: 0.35
+
+weights:                    # how much each component contributes to the 0-100 score (sum ~ 100)
+  city: 30
+  employment_type: 30
+  function: 25
+  keywords: 10
+  recency: 5
+
+recency_half_life_days: 21  # recency component decays with posted_at (or first_seen if missing)
+
+# Free-text keywords that boost the score when found in title/department/snippet. Case-insensitive.
+keywords_boost:
+  - 2027
+  - graduate programme
+  - graduate program
+  - summer analyst
+  - off-cycle
+  - off cycle
+  - placement
+  - physical trading
+  - oil trading
+  - metals
+  - freight
+  - agricultural
+  - energy trading
+  - power trading
+  - gas trading
+  - market risk
+  - treasury
+  - alm
+  - liquidity
+  - market making
+  - market-making
+  - trading desk
+  - sales and trading
+  - sales & trading
+  - global markets
+  - fixed income
+  - fx
+  - rates
+  - commodities
+  - italian
+  - italiano
+keywords_penalty:
+  - senior
+  - director
+  - vice president
+  - managing director
+  - head of
+  - lead
+  - principal
+  - "10+ years"
+  - "8+ years"
+  - "7+ years"
+  - "5+ years"
+  - apprentice
+  - apprenticeship
+
+# ---------------------------------------------------------------------------
+# Rule-based classifier keyword lists. Each list is matched (case-insensitive, word
+# boundaries) against title first, then department, then description snippet.
+# Order within each dict = priority when several match.
+# ---------------------------------------------------------------------------
+employment_type_rules:
+  internship:
+    - intern
+    - internship
+    - stage
+    - stagiaire
+    - tirocinio
+    - praktikum
+    - praktikant
+    - summer analyst
+    - summer associate
+    - spring week
+    - spring insight
+    - insight programme
+    - insight program
+    - industrial placement
+    - placement student
+    - summer programme
+    - summer program
+    - winter internship
+    - werkstudent
+  offcycle:
+    - off-cycle
+    - off cycle
+    - offcycle
+    - long-term internship
+    - long term internship
+    - 6-month internship
+    - 6 month internship
+    - internship (6 months)
+    - internship 6 months
+    - vie
+    - v.i.e
+  graduate:
+    - graduate programme
+    - graduate program
+    - graduate scheme
+    - graduate analyst
+    - graduate trainee
+    - graduate rotation
+    - graduate scheme
+    - new grad
+    - new graduate
+    - campus hire
+    - early careers
+    - early career
+    - analyst programme
+    - analyst program
+    - trainee
+    - neolaureato
+    - neolaureati
+    - jeune diplômé
+    - jeune diplome
+    - junior talent
+    - 2027
+    - "2026"
+    - full-time analyst
+    - full time analyst
+    - entry level
+    - entry-level
+  analyst_junior:
+    - junior
+    - analyst
+    - associate analyst
+    - assistant
+    - apprentice
+  experienced:
+    - senior
+    - vice president
+    - "vp"
+    - svp
+    - director
+    - managing director
+    - head of
+    - lead
+    - principal
+    - manager
+    - executive director
+    - chief
+    - partner
+    - "10+ years"
+    - "8+ years"
+    - "7+ years"
+    - "5+ years"
+    - "4+ years"
+    - experienced
+
+function_rules:
+  commodities:
+    - commodit*
+    - oil
+    - crude
+    - petroleum
+    - refined products
+    - metals
+    - base metals
+    - precious metals
+    - ags
+    - agri*
+    - grains
+    - oilseeds
+    - sugar
+    - cotton
+    - coffee
+    - cocoa
+    - freight
+    - shipping
+    - chartering
+    - lng
+    - natural gas
+    - gas trading
+    - power trading
+    - power & gas
+    - power and gas
+    - energy trading
+    - energy markets
+    - physical trading
+    - bunker
+    - cargo
+    - trade finance
+    - deal desk
+    - scheduler
+    - scheduling
+    - operator
+  market_making:
+    - market mak*
+    - market-mak*
+    - options trad*
+    - delta one
+    - etf trad*
+    - liquidity provi*
+    - trading intern
+    - trader intern
+    - trading graduate
+    - graduate trader
+    - trading analyst
+    - junior trader
+    - trader
+  sales_trading:
+    - sales & trading
+    - sales and trading
+    - sales trading
+    - global markets
+    - markets analyst
+    - markets graduate
+    - fixed income
+    - ficc
+    - fx
+    - foreign exchange
+    - rates
+    - credit trading
+    - equity sales
+    - equities
+    - equity derivatives
+    - structuring
+    - structurer
+    - derivatives
+    - execution
+    - prime
+    - trading
+    - trading floor
+    - institutional sales
+    - securities
+    - "cib markets"
+  quant:
+    - quant*
+    - quantitative
+    - research analyst
+    - researcher
+    - machine learning researcher
+    - alpha
+    - systematic
+    - signal
+    - statistical arbitrage
+    - stat arb
+    - data scien*
+  market_risk:
+    - market risk
+    - risk analyst
+    - risk management
+    - counterparty risk
+    - credit risk
+    - liquidity risk
+    - var
+    - stress test
+    - model validation
+    - model risk
+    - risk graduate
+    - risk intern
+    - risk control
+    - risk & control
+    - xva
+    - product control
+  treasury:
+    - treasury
+    - alm
+    - asset liability
+    - asset & liability
+    - liquidity management
+    - funding
+    - cash management
+    - capital management
+    - balance sheet
+    - interest rate risk in the banking book
+    - irrbb
+    - ftp
+  ibd:
+    - investment banking
+    - ibd
+    - m&a
+    - mergers
+    - acquisitions
+    - corporate finance
+    - coverage
+    - ecm
+    - dcm
+    - capital markets
+    - leveraged finance
+    - levfin
+    - financial sponsors
+    - restructuring
+    - banking analyst
+    - advisory analyst
+  advisory_valuation:
+    - valuation
+    - transaction advisory
+    - transaction services
+    - due diligence
+    - financial due diligence
+    - deal advisory
+    - corporate development
+    - strategy & transactions
+    - strategy and transactions
+    - "sat "
+    - financial modelling
+    - financial modeling
+    - valuations
+    - business modelling
+  asset_management:
+    - asset management
+    - portfolio manag*
+    - fund manag*
+    - wealth management
+    - private bank
+    - investment manag*
+    - multi-asset
+    - multi asset
+    - pm analyst
+    - investment analyst
+    - buy-side
+    - buy side
+    - private equity
+    - private credit
+  operations:
+    - operations
+    - middle office
+    - back office
+    - settlements
+    - settlement
+    - trade support
+    - kyc
+    - onboarding
+    - compliance
+    - audit
+    - finance analyst
+    - accounting
+    - controller
+    - reconciliation
+    - client service
+    - hr
+    - human resources
+    - legal
+    - marketing
+    - procurement
+    - facilities
+  technology:
+    - software
+    - developer
+    - engineer
+    - engineering
+    - devops
+    - sre
+    - data engineer
+    - platform
+    - infrastructure
+    - cloud
+    - security
+    - cyber
+    - it support
+    - network
+    - frontend
+    - backend
+    - full stack
+    - fullstack
+    - python developer
+    - c++
+    - java
+    - technology
+    - techno*
+    - product manager
+    - ux
+    - qa
