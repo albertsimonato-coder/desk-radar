@@ -46,8 +46,17 @@ class _HostThrottle:
         self._lock = threading.Lock()
         self._next_free: dict[str, float] = {}
 
-    def wait(self, url: str) -> None:
+    @staticmethod
+    def bucket(url: str) -> str:
+        """Hosts that share one WAF are paced together (all Workday tenants, for instance)."""
         host = urlsplit(url).netloc
+        for platform in ("myworkdayjobs.com", "successfactors.eu", "successfactors.com"):
+            if host.endswith(platform):
+                return platform
+        return host
+
+    def wait(self, url: str) -> None:
+        host = self.bucket(url)
         with self._lock:
             now = time.monotonic()
             slot = max(now, self._next_free.get(host, 0.0))
@@ -108,20 +117,36 @@ class Http:
     def get_json(self, url: str, **kw: Any) -> Any:
         resp = self.get(url, **kw)
         if resp.status_code != 200:
-            raise SourceError(f"HTTP {resp.status_code} from {url}")
+            raise SourceError(f"HTTP {resp.status_code} from {url}: {_snippet(resp)}")
         try:
             return resp.json()
         except ValueError as e:
-            raise SourceError(f"non-JSON body from {url}: {e}") from e
+            raise SourceError(
+                f"non-JSON body from {url} (HTTP {resp.status_code}, "
+                f"{resp.headers.get('content-type', '?')}): {_snippet(resp)}",
+                retryable=True,
+            ) from e
 
     def post_json(self, url: str, **kw: Any) -> Any:
         resp = self.post(url, **kw)
         if resp.status_code != 200:
-            raise SourceError(f"HTTP {resp.status_code} from {url}")
+            raise SourceError(f"HTTP {resp.status_code} from {url}: {_snippet(resp)}")
         try:
             return resp.json()
         except ValueError as e:
-            raise SourceError(f"non-JSON body from {url}: {e}") from e
+            raise SourceError(
+                f"non-JSON body from {url} (HTTP {resp.status_code}, "
+                f"{resp.headers.get('content-type', '?')}): {_snippet(resp)}",
+                retryable=True,
+            ) from e
+
+
+def _snippet(resp: httpx.Response, n: int = 160) -> str:
+    text = " ".join((resp.text or "").split())
+    import re as _re
+
+    m = _re.search(r"<title>(.*?)</title>", text, _re.I)
+    return (f"title={m.group(1)[:80]!r} " if m else "") + f"body={text[:n]!r}"
 
 
 class Adapter(ABC):

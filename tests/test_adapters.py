@@ -46,6 +46,8 @@ def test_workday_pagination_hits_api_until_total(wd_company):
     calls = []
 
     def handler(request: httpx.Request) -> httpx.Response:
+        if request.method == "GET":  # the session-opening page view
+            return httpx.Response(200, text="<html>site</html>")
         body = request.read()
         calls.append(body)
         import json

@@ -9,6 +9,7 @@ Job URL: https://{tenant}.{wd}.myworkdayjobs.com/{locale}/{site}{externalPath}
 from __future__ import annotations
 
 import re
+import time
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
@@ -79,8 +80,29 @@ class WorkdayAdapter(Adapter):
             "Referer": f"{self.base}/{self.locale}/{self.site}",
         }
 
+    def _open_session(self, http: Http) -> None:
+        """Workday answers the CXS API more reliably once the site page has set its cookies."""
+        try:
+            http.get(
+                f"{self.base}/{self.locale}/{self.site}", headers={"Accept": "text/html,*/*;q=0.8"}
+            )
+        except SourceError:
+            pass  # the API call below decides
+
+    def _page(self, http: Http, body: dict) -> dict:
+        try:
+            data = http.post_json(self.api, json=body, headers=self._headers())
+        except SourceError as e:
+            if not e.retryable:
+                raise
+            time.sleep(5)  # bot wall or empty body: re-open the session and try once more
+            self._open_session(http)
+            data = http.post_json(self.api, json=body, headers=self._headers())
+        return data
+
     def fetch(self) -> list[RawPosting]:
         http = self._http()
+        self._open_session(http)
         facets = self.config.get("applied_facets") or {}
         search = self.config.get("search_text", "")
         offset = 0
@@ -88,7 +110,7 @@ class WorkdayAdapter(Adapter):
         pages: list[dict] = []
         for _ in range(MAX_PAGES):
             body = {"appliedFacets": facets, "limit": PAGE, "offset": offset, "searchText": search}
-            data = http.post_json(self.api, json=body, headers=self._headers())
+            data = self._page(http, body)
             if not isinstance(data, dict) or "jobPostings" not in data:
                 raise SourceError(
                     f"workday: unexpected payload at offset {offset}", company=self.company.name

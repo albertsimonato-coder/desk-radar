@@ -111,3 +111,9 @@ def test_parallel_run_matches_sequential_and_records_errors(tmp_path, unscoped_p
     assert health["vitol"]["last_count"] > 0
     a.close()
     b.close()
+
+
+def test_platform_hosts_share_one_throttle_bucket():
+    assert _HostThrottle.bucket("https://citi.wd5.myworkdayjobs.com/x") == "myworkdayjobs.com"
+    assert _HostThrottle.bucket("https://db.wd3.myworkdayjobs.com/x") == "myworkdayjobs.com"
+    assert _HostThrottle.bucket("https://boards-api.greenhouse.io/x") == "boards-api.greenhouse.io"
