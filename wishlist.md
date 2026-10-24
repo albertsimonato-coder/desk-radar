@@ -22,16 +22,13 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 | Company | Careers URL | Priority | Group | Notes |
 |---|---|---|---|---|
 | Example Bank | https://careers.example.com/ | 1 | bank | delete this example row |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-
+| Bregal Milestone |  |  |  |  |
+| MUFG |  |  |  |  |
+| Natixis Corporate and Investment Banking |  |  |  |  |
+| Pictet |  |  |  |  |
+| Wells Fargo |  |  |  |  |
+| Td Securities |  |  |  |  |
+| Standard Chartered |
 ## Remove or pause
 
 | Company | Action (`remove` or `pause`) | Why |
@@ -44,3 +41,6 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 |---|---|---|
 | Mediobanca, Intesa Sanpaolo, UniCredit, Banca Sella | 2026-10-23 | live |
 | Banca Monte dei Paschi di Siena | 2026-10-23 | manual (Taleo portal, no public feed) |
+| Macquarie Group | 2026-10-24 | live (Avature listing, ~580 roles worldwide, 28 in scope) |
+| Pemberton Asset Management | 2026-10-24 | live (Ashby) |
+| Fasanara Capital ("Fusanara") | 2026-10-24 | live (Workable) |

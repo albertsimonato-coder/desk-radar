@@ -4,7 +4,7 @@ Live inventory taken on 2026-10-23 with plain HTTP requests (no browser). "Live"
 adapter was verified end to end against the real endpoint; the posting count is what the
 endpoint reported that day.
 
-## Live sources (48)
+## Live sources (51)
 
 | Company | ATS | Config | Postings | Notes |
 |---|---|---|---|---|
@@ -34,6 +34,9 @@ endpoint reported that day.
 | Intesa Sanpaolo | sitemap (RSS) | jobs.intesasanpaolo.com/sitemap.xml (an RSS feed) | 322 | SuccessFactors; title, link and location straight from the feed, no page fetches. |
 | UniCredit | sitemap (paginated index) | careers.unicredit.eu/en_GB/jobsuche/SearchJobs/?jobOffset=N | ~560 | BeeSite portal; 15 per page, JSON-LD on job pages, backfilled 150 per run. |
 | Banca Sella | workday | `sellagroup` / wd3 / `ID01` | 38 | Found via join.sellagroup.eu. |
+| Macquarie Group | sitemap (listing only) | recruitment.macquarie.com/en_US/careers/SearchJobs | ~580 | Avature; title, office, date, category read from the listing pages (`fetch_pages: false`), job pages never opened. |
+| Pemberton Asset Management | ashby | board `pemberton` | 3 | |
+| Fasanara Capital | workable | account `fasanara` | 8 | |
 | Onyx Capital Group | workable | account `onyx-capital-group` | 7 | Graduate Trader / Graduate Quant Analyst roles. |
 | Trading 212 | ashby | board `trading212` | 53 | Mostly Sofia; London roles classified by rules. |
 | Glencore | custom (`glencore`) | JSON API behind glencore.com/en/careers/jobs | 353 | Workday feed re-published by Glencore's own site. |

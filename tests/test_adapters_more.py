@@ -315,3 +315,54 @@ def test_sitemap_index_item_split_keeps_fields_within_one_entry():
     ps = {p.url: p for p in adapter.fetch()}
     assert ps["https://x.test/JobDetail/A/1"].location_raw == ""
     assert ps["https://x.test/JobDetail/B/2"].location_raw == "Italy"
+
+
+def test_sitemap_fetch_pages_false_builds_postings_from_listing_only():
+    import httpx
+
+    from radar.adapters.base import Http
+
+    listing = (
+        '<article class="r"><h3><a href="https://x.test/JobDetail?jobId=1"> Trader </a></h3>'
+        '<p class="icon">ID</p> <p> 1 </p> <img alt="Office Location:"> <p> London Office </p>'
+        '<img alt="Posted Date:"> <p> 23 Oct 2026 </p> <img alt="Job Category:"> <p> Equities </p>'
+        "</article>"
+        '<article class="r"><h3><a href="https://x.test/JobDetail?jobId=2"> Analyst </a></h3>'
+        "</article>"
+    )
+    calls = []
+
+    def handler(req):
+        calls.append(str(req.url))
+        return httpx.Response(200, text=listing if "offset=0" in str(req.url) else "")
+
+    http = Http()
+    http.client = httpx.Client(transport=httpx.MockTransport(handler))
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "sitemap_url": "none",
+                "index_url_pattern": "https://x.test/list?offset={offset}",
+                "index_step": 9,
+                "index_item_split": r'<article class="r"',
+                "index_item_regex": (
+                    r'href="(?P<url>https://x\.test/JobDetail\?jobId=\d+)">'
+                    r" ?(?P<title>[^<]+?) ?</a>"
+                    r'(?:.*?alt="Office Location:"> <p> ?(?P<location>[^<]*?) ?</p>)?'
+                    r'(?:.*?alt="Posted Date:"> <p> ?(?P<posted>[^<]*?) ?</p>)?'
+                    r'(?:.*?alt="Job Category:"> <p> ?(?P<department>[^<]*?) ?</p>)?'
+                ),
+                "fetch_pages": False,
+                "job_url_pattern": r"JobDetail",
+            },
+        ),
+        http=http,
+    )
+    ps = {p.url: p for p in adapter.fetch()}
+    assert set(ps) == {"https://x.test/JobDetail?jobId=1", "https://x.test/JobDetail?jobId=2"}
+    t = ps["https://x.test/JobDetail?jobId=1"]
+    assert t.title == "Trader" and t.location_raw == "London Office" and t.department == "Equities"
+    assert t.posted_at is not None and t.posted_at.day == 23
+    assert ps["https://x.test/JobDetail?jobId=2"].title == "Analyst"
+    assert not any("JobDetail" in c for c in calls)  # job pages never opened

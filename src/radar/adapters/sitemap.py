@@ -15,6 +15,9 @@ Config:
   index_item_split  (optional) regex that starts each job entry on the listing page; the page
                     is cut into chunks on it and index_item_regex is matched once per chunk,
                     so a field can never be taken from the neighbouring entry
+  fetch_pages       (default true) set false when the listing already carries everything
+                    (index_item_regex with `title`, and optionally `posted`): postings are
+                    built from the listing alone and job pages are never opened
   job_url_pattern   regex a job URL must match
   max_new_pages     cap on job pages fetched per run (default 50)
   url_prefix        (optional) only keep URLs starting with this
@@ -132,6 +135,7 @@ class SitemapAdapter(Adapter):
             else None
         )
         self._index_meta: dict[str, dict[str, str]] = {}
+        self.fetch_pages = bool(self.config.get("fetch_pages", True))
         self.index_item_split = (
             re.compile(self.config["index_item_split"])
             if self.config.get("index_item_split")
@@ -205,6 +209,24 @@ class SitemapAdapter(Adapter):
                         }
         return len(out) - before
 
+    def _from_listing(self, url: str) -> RawPosting:
+        """Posting built from listing metadata only (fetch_pages: false)."""
+        from radar.adapters.base import parse_dt
+
+        meta = self._index_meta[url]
+        title = meta.get("title") or url.rsplit("/", 1)[-1]
+        if self.title_strip:
+            title = re.sub(self.title_strip, "", title).strip(" -|:")
+        return RawPosting(
+            external_id=meta.get("id") or url,
+            title=" ".join(title.split()),
+            location_raw=meta.get("location", ""),
+            department=meta.get("department", ""),
+            posted_at=parse_dt(meta.get("posted")) if meta.get("posted") else None,
+            url=url,
+            employment_type_raw=meta.get("employment_type", ""),
+        )
+
     def _apply_meta(self, posting: RawPosting) -> RawPosting:
         meta = self._index_meta.get(posting.url)
         if not meta:
@@ -265,6 +287,8 @@ class SitemapAdapter(Adapter):
                 "sitemap: no job URLs matched job_url_pattern", company=self.company.name
             )
         known = self.known_postings
+        if not self.fetch_pages:
+            return [self._from_listing(u) for u in sorted(urls) if u in self._index_meta]
         out: list[RawPosting] = [self._apply_meta(known[u]) for u in urls if u in known]
         new = sorted(u for u in urls if u not in known)
         fetched = 0

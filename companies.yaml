@@ -822,3 +822,40 @@
     board: quadraturecapital
   careers_url: https://www.quadrature.ai/careers
   active: true
+
+# ---- Added 2026-10-24 from wishlist.md ----
+- name: Macquarie Group
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_url_pattern: "https://recruitment.macquarie.com/en_US/careers/SearchJobs/?jobRecordsPerPage=9&jobOffset={offset}"
+    index_step: 9
+    index_max_pages: 80
+    index_item_split: '<article class="article article--result'
+    index_item_regex: 'href="(?P<url>https://recruitment\.macquarie\.com/en_US/careers/JobDetail\?jobId=\d+)"> ?(?P<title>[^<]+?) ?</a>(?:.*?<p class="icon">ID</p> <p> ?(?P<id>\d+) ?</p>)?(?:.*?alt="Office Location:"[^>]*> <p> ?(?P<location>[^<]*?) ?</p>)?(?:.*?alt="Posted Date:"[^>]*> <p> ?(?P<posted>[^<]*?) ?</p>)?(?:.*?alt="Job Category:"[^>]*> <p> ?(?P<department>[^<]*?) ?</p>)?'
+    fetch_pages: false
+    job_url_pattern: "recruitment\\.macquarie\\.com/en_US/careers/JobDetail"
+  careers_url: https://recruitment.macquarie.com/en_US/careers
+  active: true
+  notes: Avature portal, ~580 openings worldwide; title, office, date and category read from the listing pages, job pages never opened.
+
+- name: Pemberton Asset Management
+  priority: 1
+  group: asset_manager
+  ats: ashby
+  config:
+    board: pemberton
+  careers_url: https://jobs.ashbyhq.com/Pemberton
+  active: true
+
+- name: Fasanara Capital
+  priority: 1
+  group: asset_manager
+  ats: workable
+  config:
+    account: fasanara
+  careers_url: https://apply.workable.com/fasanara/
+  active: true
+  notes: Listed as "Fusanara" in wishlist.md; assumed to be Fasanara Capital (London).
