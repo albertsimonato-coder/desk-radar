@@ -24,6 +24,8 @@ Config:
   title_strip       (optional) regex removed from fallback titles, e.g. " - Marex Careers$"
   location_regex    (optional) regex applied to the meta description, or to the raw page when
                     the JSON-LD has no jobLocation; its capture groups are joined with ", "
+  url_location_regex (optional) regex applied to the job URL when the page gives no location,
+                    e.g. "/job/([A-Za-z]+)-" for SuccessFactors sites whose slug starts with the city
 
 The adapter diffs the sitemap's job URLs against the postings the runner already knows
 (`self.known_postings`, url -> RawPosting). Known URLs are returned as-is without a fetch; new
@@ -47,7 +49,7 @@ log = logging.getLogger(__name__)
 
 MAX_SITEMAPS = 50
 _LOC_RE = re.compile(r"<loc>\s*(.*?)\s*</loc>", re.I | re.S)
-_ITEM_RE = re.compile(r"<(?:item|entry)>(.*?)</(?:item|entry)>", re.I | re.S)
+_ITEM_RE = re.compile(r"<(?:item|entry|job)>(.*?)</(?:item|entry|job)>", re.I | re.S)
 _TITLE_LOC_RE = re.compile(r"^(.*?)\s*\(([^()]{2,80})\)\s*$")
 
 
@@ -69,7 +71,7 @@ def parse_rss(
     <g:location> and repeat it in parentheses at the end of the title."""
     out: list[RawPosting] = []
     for block in _ITEM_RE.findall(xml):
-        link = _tag(block, "link", "guid")
+        link = _tag(block, "link", "url", "guid")
         if not link:
             m = re.search(r'<link[^>]*href="([^"]+)"', block)
             link = m.group(1) if m else ""
@@ -77,6 +79,9 @@ def parse_rss(
             continue
         title = _tag(block, "title")
         location = _tag(block, "g:location", "location")
+        if not location:  # job-feed style: <city>, <state>, <country>
+            parts = [_tag(block, "city"), _tag(block, "state"), _tag(block, "country")]
+            location = ", ".join(x for x in parts if x)
         m = _TITLE_LOC_RE.match(title)
         if m and location_from_title:
             if not location:
@@ -87,14 +92,14 @@ def parse_rss(
         desc = re.sub(r"<[^>]+>", " ", html_unescape(desc))
         out.append(
             RawPosting(
-                external_id=_tag(block, "g:id", "guid") or link,
+                external_id=_tag(block, "g:id", "referencenumber", "guid") or link,
                 title=title,
                 location_raw=location,
                 department=_tag(block, "category"),
-                posted_at=parse_dt_rfc(_tag(block, "pubDate", "published", "updated")),
+                posted_at=parse_dt_rfc(_tag(block, "pubDate", "published", "updated", "date")),
                 url=link,
                 description_snippet=" ".join(desc.split())[:400],
-                employment_type_raw=_tag(block, "g:job_type", "employmentType"),
+                employment_type_raw=_tag(block, "g:job_type", "employmentType", "jobtype"),
             )
         )
     return out
@@ -143,6 +148,7 @@ class SitemapAdapter(Adapter):
         )
         self.title_strip = self.config.get("title_strip") or ""
         self.location_regex = self.config.get("location_regex") or ""
+        self.url_location_regex = self.config.get("url_location_regex") or ""
 
     # ---- discovery --------------------------------------------------------
     def _sitemap_urls(self) -> list[str]:
@@ -227,6 +233,14 @@ class SitemapAdapter(Adapter):
             employment_type_raw=meta.get("employment_type", ""),
         )
 
+    def _apply_url_location(self, posting: RawPosting) -> RawPosting:
+        if posting.location_raw or not self.url_location_regex:
+            return posting
+        m = re.search(self.url_location_regex, posting.url)
+        if m:
+            posting.location_raw = ", ".join(g for g in m.groups() if g).replace("-", " ")
+        return posting
+
     def _apply_meta(self, posting: RawPosting) -> RawPosting:
         meta = self._index_meta.get(posting.url)
         if not meta:
@@ -289,7 +303,9 @@ class SitemapAdapter(Adapter):
         known = self.known_postings
         if not self.fetch_pages:
             return [self._from_listing(u) for u in sorted(urls) if u in self._index_meta]
-        out: list[RawPosting] = [self._apply_meta(known[u]) for u in urls if u in known]
+        out: list[RawPosting] = [
+            self._apply_url_location(self._apply_meta(known[u])) for u in urls if u in known
+        ]
         new = sorted(u for u in urls if u not in known)
         fetched = 0
         for u in new:
@@ -308,7 +324,7 @@ class SitemapAdapter(Adapter):
                 continue
             posting = self._parse_page(resp.text, u)
             if posting:
-                out.append(self._apply_meta(posting))
+                out.append(self._apply_url_location(self._apply_meta(posting)))
         return out
 
     def parse(self, payload: Any) -> list[RawPosting]:

@@ -22,13 +22,17 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 | Company | Careers URL | Priority | Group | Notes |
 |---|---|---|---|---|
 | Example Bank | https://careers.example.com/ | 1 | bank | delete this example row |
-| Bregal Milestone |  |  |  |  |
-| MUFG |  |  |  |  |
-| Natixis Corporate and Investment Banking |  |  |  |  |
-| Pictet |  |  |  |  |
-| Wells Fargo |  |  |  |  |
-| Td Securities |  |  |  |  |
-| Standard Chartered |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+
 ## Remove or pause
 
 | Company | Action (`remove` or `pause`) | Why |
@@ -44,3 +48,10 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 | Macquarie Group | 2026-10-24 | live (Avature listing, ~580 roles worldwide, 28 in scope) |
 | Pemberton Asset Management | 2026-10-24 | live (Ashby) |
 | Fasanara Capital ("Fusanara") | 2026-10-24 | live (Workable) |
+| MUFG | 2026-10-24 | live (Workday, UK/EU facet; 2027 UK Summer Analyst programmes) |
+| TD Securities | 2026-10-24 | live (Workday, TD Securities family + country facet) |
+| Standard Chartered | 2026-10-24 | live (SuccessFactors sitemap, target-city pages only) |
+| Wells Fargo | 2026-10-24 | live (job XML feed; EMEA summer analyst programmes) |
+| Natixis Corporate and Investment Banking | 2026-10-24 | manual (JavaScript portal, no feed) |
+| Pictet | 2026-10-24 | manual (old SuccessFactors portal, no feed) |
+| Bregal Milestone | 2026-10-24 | manual (no careers page) |

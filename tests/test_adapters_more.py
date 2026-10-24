@@ -366,3 +366,41 @@ def test_sitemap_fetch_pages_false_builds_postings_from_listing_only():
     assert t.posted_at is not None and t.posted_at.day == 23
     assert ps["https://x.test/JobDetail?jobId=2"].title == "Analyst"
     assert not any("JobDetail" in c for c in calls)  # job pages never opened
+
+
+def test_job_xml_feed_items_become_postings():
+    fx = load_fixture("sitemap_wells-fargo.json")
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {"rss_url": "x", "job_url_pattern": r"wellsfargojobs\.com/en/jobs/"},
+            name="WF",
+        )
+    )
+    ps = adapter.parse(fx)
+    assert len(ps) == 4
+    p = next(x for x in ps if "EMEA Markets Summer Analyst" in x.title)
+    assert p.location_raw == "CITY OF LONDON, United Kingdom"
+    assert p.external_id.startswith("R-") and p.posted_at is not None
+    assert p.employment_type_raw == "Full time" and p.department
+
+
+def test_url_location_regex_fills_location_from_slug():
+    adapter = SitemapAdapter(
+        _co(
+            "sitemap",
+            {
+                "sitemap_url": "x",
+                "job_url_pattern": "/job/",
+                "url_location_regex": r"/job/([A-Za-z]+)-",
+            },
+        )
+    )
+    p = RawPosting(
+        external_id="1", title="Intern", url="https://x.test/job/London-Intern-UK-2027/1/"
+    )
+    assert adapter._apply_url_location(p).location_raw == "London"
+    q = RawPosting(
+        external_id="2", title="T", url="https://x.test/job/Paris-X/2/", location_raw="Lyon"
+    )
+    assert adapter._apply_url_location(q).location_raw == "Lyon"  # never overrides a real one

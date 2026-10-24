@@ -4,7 +4,7 @@ Live inventory taken on 2026-10-23 with plain HTTP requests (no browser). "Live"
 adapter was verified end to end against the real endpoint; the posting count is what the
 endpoint reported that day.
 
-## Live sources (51)
+## Live sources (55)
 
 | Company | ATS | Config | Postings | Notes |
 |---|---|---|---|---|
@@ -37,6 +37,10 @@ endpoint reported that day.
 | Macquarie Group | sitemap (listing only) | recruitment.macquarie.com/en_US/careers/SearchJobs | ~580 | Avature; title, office, date, category read from the listing pages (`fetch_pages: false`), job pages never opened. |
 | Pemberton Asset Management | ashby | board `pemberton` | 3 | |
 | Fasanara Capital | workable | account `fasanara` | 8 | |
+| MUFG | workday | `mufgub` / wd3 / `MUFG-Careers` + `Country` facet | 68 | Global board ~680. |
+| TD Securities | workday | `td` / wd3 / `TD_Bank_Careers` + `jobFamilyGroup` (TD Securities) + country facet | 10 | Whole-of-TD board ~1800. |
+| Standard Chartered | sitemap | jobs.standardchartered.com/sitemap.xml, city-prefixed URLs only | ~40 of 1200 | SuccessFactors; JSON-LD on job pages. |
+| Wells Fargo | sitemap (job XML feed) | wellsfargojobs.com/en/jobs/xml/ | ~1600 (11 in scope) | One 15 MB request per run. |
 | Onyx Capital Group | workable | account `onyx-capital-group` | 7 | Graduate Trader / Graduate Quant Analyst roles. |
 | Trading 212 | ashby | board `trading212` | 53 | Mostly Sofia; London roles classified by rules. |
 | Glencore | custom (`glencore`) | JSON API behind glencore.com/en/careers/jobs | 353 | Workday feed re-published by Glencore's own site. |
@@ -65,7 +69,7 @@ endpoint reported that day.
 | Company | ATS | Plan |
 |---|---|---|
 | EY | SAP SuccessFactors (careers.ey.com) | 9,000+ job pages worldwide without JSON-LD; needs a title/URL filter before it is worth crawling. |
-| Pictet | SAP SuccessFactors (career012.successfactors.eu, company `banquepict`) | No sitemap on the SF host. |
+| Pictet | Old-style SuccessFactors portal (career012.successfactors.eu, company `banquepict`), JavaScript only | Needs browser |
 | ExxonMobil | SAP SuccessFactors (jobs.exxonmobil.com) | Sitemap empty. |
 
 ## Manual (blocked, bespoke, or portal not identified)
@@ -80,12 +84,13 @@ endpoint reported that day.
 | Morgan Stanley | Eightfold | Medium: Eightfold has a JSON API |
 | Millennium | Eightfold (mlp.eightfold.ai) | Medium |
 | BNP Paribas, BGL BNP Paribas | group.bnpparibas returns 403; BGL careers URLs 404 | Needs browser |
-| Natixis | recrutement.natixis.com, portal not identified | Unknown |
+| Natixis CIB | recrutement.natixis.com is a JavaScript app with no feed or sitemap | Needs browser |
 | Crédit Agricole CIB | Talentsoft/Cegid (jobs.ca-cib.com) | Medium: try sitemap |
 | Banca Monte dei Paschi di Siena | Taleo career section (lavoraconnoi.mps.it); the list is loaded by Taleo's internal joblist.ajax POST, ~20 openings | Medium: replicate the AJAX call |
 | EIB, EIF | PeopleSoft eRecruitment | Hard |
 | Banque de Luxembourg | Portal not identified | Unknown |
 | Peel Hunt, Citadel, Citadel Securities, StoneX | 403 to non-browser clients (Citadel's job pages are also blocked; their sitemap only lists articles) | Needs browser |
+| Bregal Milestone | No careers page on the site | n/a |
 | ADM, Centerview, Rothschild & Co | JS-rendered careers pages, ATS not visible in the source; sitemaps hold no job pages | Unknown |
 | Dare, Vela Trading, Mercuria | Connection/TLS errors from this client | Retry from GitHub runner |
 | Louis Dreyfus | `ldc.wd3.myworkdayjobs.com` answers 401 on guessed sites | Medium |

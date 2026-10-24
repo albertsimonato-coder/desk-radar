@@ -205,9 +205,9 @@
   priority: 2
   group: bank
   ats: manual
-  careers_url: https://recrutement.natixis.com/
+  careers_url: https://recrutement.natixis.com/en/
   active: true
-  notes: Bespoke recruitment portal, not identified.
+  notes: Natixis CIB (wishlist 2026-10-24). recrutement.natixis.com is a JavaScript app with no public feed or sitemap; needs a browser.
 
 - name: European Investment Bank
   priority: 2
@@ -533,9 +533,9 @@
   config:
     sitemap_url: https://www.pictet.com/sitemap.xml
     job_url_pattern: "career.*banquepict"
-  careers_url: https://www.pictet.com/us/en/careers
+  careers_url: https://career012.successfactors.eu/career?company=banquepict
   active: false
-  notes: SAP SuccessFactors (company banquepict). Enable once the sitemap adapter exists.
+  notes: Re-checked 2026-10-24 (wishlist). Old-style SuccessFactors portal rendered by JavaScript, no sitemap or feed; stays manual.
 
 - name: Lombard Odier
   priority: 1
@@ -859,3 +859,64 @@
   careers_url: https://apply.workable.com/fasanara/
   active: true
   notes: Listed as "Fusanara" in wishlist.md; assumed to be Fasanara Capital (London).
+
+- name: MUFG
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: mufgub
+    wd: wd3
+    site: MUFG-Careers
+    applied_facets:
+      Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://www.mufgemea.com/careers/
+  active: true
+  notes: Global MUFG Bank board (~680); country facet keeps ~70. Americas hire separately on careers.mufgamericas.com.
+
+- name: TD Securities
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: td
+    wd: wd3
+    site: TD_Bank_Careers
+    applied_facets:
+      jobFamilyGroup: [de769652963501d54ac13db5070407ac]   # TD Securities family only
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]
+  careers_url: https://www.tdsecurities.com/ca/en/careers
+  active: true
+  notes: Whole-of-TD Workday board (~1800); TD Securities job family + country facet keep ~10.
+
+- name: Standard Chartered
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.standardchartered.com/sitemap.xml
+    job_url_pattern: "jobs\\.standardchartered\\.com/job/(London|Dublin|Milan|Paris|Luxembourg|Zurich|Geneva|Birmingham|Edinburgh|Glasgow|Belfast|Manchester)-"
+    max_new_pages: 60
+    url_location_regex: "/job/([A-Za-z]+)-"
+  careers_url: https://jobs.standardchartered.com/
+  active: true
+  notes: SuccessFactors sitemap (~1200 jobs worldwide); the URL slug starts with the city, so only target-city pages are opened. JSON-LD on job pages.
+
+- name: Wells Fargo
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    rss_url: https://www.wellsfargojobs.com/en/jobs/xml/
+    job_url_pattern: "wellsfargojobs\\.com/en/jobs/"
+  careers_url: https://www.wellsfargojobs.com/en/jobs/
+  active: true
+  notes: Job XML feed (~1600 jobs, 15 MB, one request); city/country per item, scope filter keeps the EMEA ones.
+
+- name: Bregal Milestone
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.bregalmilestone.com/
+  active: true
+  notes: No careers page on the site (small growth-equity firm); hires via LinkedIn/recruiters.
