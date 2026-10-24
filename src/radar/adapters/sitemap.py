@@ -25,7 +25,7 @@ Config:
   location_regex    (optional) regex applied to the meta description, or to the raw page when
                     the JSON-LD has no jobLocation; its capture groups are joined with ", "
   url_location_regex (optional) regex applied to the job URL when the page gives no location,
-                    e.g. "/job/([A-Za-z]+)-" for SuccessFactors sites whose slug starts with the city
+                    e.g. "/job/([A-Za-z]+)-" when the URL slug starts with the city
 
 The adapter diffs the sitemap's job URLs against the postings the runner already knows
 (`self.known_postings`, url -> RawPosting). Known URLs are returned as-is without a fetch; new
