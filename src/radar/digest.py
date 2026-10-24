@@ -36,24 +36,33 @@ LABEL_FN = {
 }
 
 
-def select_rows(payload: dict, profile: dict) -> list[dict]:
+def select_rows(payload: dict, profile: dict, window: bool = False) -> list[dict]:
+    """New since the last run by default; `window` widens it to new in the last N days."""
     cfg = profile.get("digest", {})
     min_fit = float(cfg.get("min_fit", 40))
-    rows = [r for r in payload["rows"] if r["new_run"] and r["fit"] >= min_fit]
+    key = "new" if window else "new_run"
+    rows = [r for r in payload["rows"] if r[key] and r["fit"] >= min_fit]
     rows.sort(key=lambda r: (-r["fit"], r["company"], r["title"]))
     return rows[: int(cfg.get("max_items", 25))]
 
 
 def build_digest(
-    store: Store, profile: dict, site_url: str, now: datetime | None = None
+    store: Store, profile: dict, site_url: str, now: datetime | None = None, always: bool = False
 ) -> tuple[str, str, str, int]:
-    """Returns (subject, html_body, text_body, count)."""
+    """Returns (subject, html_body, text_body, count).
+
+    `always` is for manual test runs: if nothing is new since the last run, fall back to what
+    is new in the last N days, and never report zero rows as "do not send"."""
     now = now or datetime.now(UTC)
     payload = build_payload(store, profile, now=now)
     rows = select_rows(payload, profile)
+    scope = "since the last run"
+    if not rows and always:
+        rows = select_rows(payload, profile, window=True)
+        scope = f"in the last {payload['window_days']} days"
     counts = payload["counts"]
     date = now.strftime("%a %d %b")
-    subject = f"Desk Radar {date}: {len(rows)} new openings worth a look ({counts['new_run']} new in total)"
+    subject = f"Desk Radar {date}: {len(rows)} new openings worth a look ({counts['new_run']} new since the last run)"
 
     def row_html(r: dict) -> str:
         loc = html.escape(r["city"] or r["loc"] or "")
@@ -76,19 +85,21 @@ def build_digest(
     )
     html_body = (
         '<div style="font:14px -apple-system,Segoe UI,Roboto,sans-serif;color:#1b1b1f">'
-        f"<p>Good morning. The scan found <b>{counts['new_run']}</b> new openings since the last run; "
-        f"here are the best <b>{len(rows)}</b> by fit score. Open: {counts['open']}, total tracked: {counts['total']}.</p>"
+        f"<p>Good morning. Here are the best <b>{len(rows)}</b> openings new {scope}, by fit score. "
+        f"New since the last run: {counts['new_run']}. Open: {counts['open']}, total tracked: {counts['total']}.</p>"
         + table
         + f'<p><a href="{html.escape(site_url)}new.html">All new openings</a> · <a href="{html.escape(site_url)}">Everything</a></p></div>'
     )
-    text_lines = [
-        f"Desk Radar {date}: {counts['new_run']} new openings since the last run. Top {len(rows)} by fit:",
-        "",
-    ]
+    text_lines = [f"Desk Radar {date}: top {len(rows)} openings new {scope}, by fit:", ""]
     for r in rows:
         text_lines.append(
             f"{round(r['fit']):>3}  {r['company']} - {r['title']} ({r['city'] or r['loc']}, {LABEL_TYPE.get(r['type'], r['type'])}, {LABEL_FN.get(r['fn'], r['fn'])})"
         )
         text_lines.append(f"     {r['url']}")
     text_lines += ["", f"All new: {site_url}new.html", f"Everything: {site_url}"]
-    return subject, html_body, "\n".join(text_lines), len(rows)
+    return (
+        subject,
+        html_body,
+        "\n".join(text_lines),
+        (len(rows) if not always else max(len(rows), 1)),
+    )

@@ -10,6 +10,11 @@ on:
         default: "daily"
         type: choice
         options: [daily, all]
+      email:
+        description: "auto = only when something is new since the last run; always = send a test digest"
+        default: "auto"
+        type: choice
+        options: [auto, always]
 
 permissions:
   contents: write
@@ -62,7 +67,7 @@ jobs:
         id: digest
         run: |
           set +e
-          python -m radar digest --html digest.html --text digest.txt --subject digest.subject
+          python -m radar digest --html digest.html --text digest.txt --subject digest.subject ${{ github.event.inputs.email == 'always' && '--always' || '' }}
           code=$?
           set -e
           if [ "$code" = "0" ]; then echo "send=true" >> "$GITHUB_OUTPUT"; else echo "send=false" >> "$GITHUB_OUTPUT"; fi

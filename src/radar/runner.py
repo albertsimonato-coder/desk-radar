@@ -338,6 +338,11 @@ def main(argv: list[str] | None = None) -> int:
     d.add_argument("--html", required=True, help="where to write the HTML body")
     d.add_argument("--text", required=True, help="where to write the plain-text body")
     d.add_argument("--subject", required=True, help="where to write the subject line")
+    d.add_argument(
+        "--always",
+        action="store_true",
+        help="test mode: fall back to the N-day window and always exit 0",
+    )
     c = sub.add_parser("check", help="validate companies.yaml and profile.yaml")
     c.add_argument("--companies", default=str(DEFAULT_COMPANIES))
     c.add_argument("--profile", default=str(DEFAULT_PROFILE))
@@ -376,7 +381,7 @@ def main(argv: list[str] | None = None) -> int:
 
         store = Store(args.db)
         subject, html_body, text_body, n = build_digest(
-            store, load_profile(args.profile), args.site_url
+            store, load_profile(args.profile), args.site_url, always=args.always
         )
         store.close()
         Path(args.html).write_text(html_body, encoding="utf-8")
