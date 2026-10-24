@@ -50,7 +50,12 @@ jobs:
             echo "nothing changed"
           else
             git commit -m "scan: $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            # Someone may have pushed during the scan: replay our commit on top of theirs,
+            # keeping our (newer) database and pages if both sides touched them.
+            for attempt in 1 2 3; do
+              git pull --rebase -X theirs origin main && git push && break
+              echo "push attempt $attempt failed, retrying"; sleep 10
+            done
           fi
 
       - name: Build morning digest
