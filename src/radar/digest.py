@@ -90,6 +90,20 @@ def build_digest(
         + table
         + f'<p><a href="{html.escape(site_url)}new.html">All new openings</a> · <a href="{html.escape(site_url)}">Everything</a></p></div>'
     )
+    md = [
+        f"**{len(rows)}** openings new {scope}, ranked by fit. New since the last run: "
+        f"{counts['new_run']}. Open: {counts['open']}, tracked: {counts['total']}.",
+        "",
+        "| Fit | Company | Title | City | Type | Function |",
+        "|---|---|---|---|---|---|",
+    ]
+    for r in rows:
+        md.append(
+            f"| {round(r['fit'])} | {r['company']} | [{r['title'].replace('|', '/')}]({r['url']}) | "
+            f"{r['city'] or r['loc']} | {LABEL_TYPE.get(r['type'], r['type'])} | {LABEL_FN.get(r['fn'], r['fn'])} |"
+        )
+    md += ["", f"[All new openings]({site_url}new.html) · [Everything]({site_url})"]
+    build_digest.last_markdown = "\n".join(md)  # type: ignore[attr-defined]
     text_lines = [f"Desk Radar {date}: top {len(rows)} openings new {scope}, by fit:", ""]
     for r in rows:
         text_lines.append(

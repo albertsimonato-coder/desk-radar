@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: scan
@@ -67,11 +68,23 @@ jobs:
         id: digest
         run: |
           set +e
-          python -m radar digest --html digest.html --text digest.txt --subject digest.subject ${{ github.event.inputs.email == 'always' && '--always' || '' }}
+          python -m radar digest --html digest.html --text digest.txt --subject digest.subject --markdown digest.md ${{ github.event.inputs.email == 'always' && '--always' || '' }}
           code=$?
           set -e
           if [ "$code" = "0" ]; then echo "send=true" >> "$GITHUB_OUTPUT"; else echo "send=false" >> "$GITHUB_OUTPUT"; fi
           echo "subject=$(cat digest.subject 2>/dev/null)" >> "$GITHUB_OUTPUT"
+
+      - name: Post the digest as a GitHub issue (GitHub emails it to you)
+        if: steps.digest.outputs.send == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # close yesterday's digest issue(s) so only the latest stays open
+          for n in $(gh issue list --label digest --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Superseded by today's digest." >/dev/null
+          done
+          gh label create digest --color 0B57D0 --description "Daily Desk Radar digest" 2>/dev/null || true
+          gh issue create --title "${{ steps.digest.outputs.subject }}" --label digest --body-file digest.md
 
       - name: Email the digest
         if: steps.digest.outputs.send == 'true' && env.MAIL_USERNAME != ''

@@ -338,6 +338,7 @@ def main(argv: list[str] | None = None) -> int:
     d.add_argument("--html", required=True, help="where to write the HTML body")
     d.add_argument("--text", required=True, help="where to write the plain-text body")
     d.add_argument("--subject", required=True, help="where to write the subject line")
+    d.add_argument("--markdown", help="where to write a Markdown body (for a GitHub issue)")
     d.add_argument(
         "--always",
         action="store_true",
@@ -387,6 +388,10 @@ def main(argv: list[str] | None = None) -> int:
         Path(args.html).write_text(html_body, encoding="utf-8")
         Path(args.text).write_text(text_body, encoding="utf-8")
         Path(args.subject).write_text(subject, encoding="utf-8")
+        if args.markdown:
+            Path(args.markdown).write_text(
+                getattr(build_digest, "last_markdown", text_body), encoding="utf-8"
+            )
         print(subject)
         return 0 if n else 3
     if args.cmd == "check":
