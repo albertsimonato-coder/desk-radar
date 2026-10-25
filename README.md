@@ -130,8 +130,9 @@ openings appear under the **Saved** tab as a checklist with a status (to apply, 
 interview, offer, rejected, dropped), a deadline and free-text notes. The list lives in the
 browser's localStorage, so it survives every re-render and keeps a snapshot of openings that are
 later closed. It is per device: **Copy sync link** produces a URL that imports the list when
-opened on another device (computer to phone and back); **Copy as Markdown** and **Export /
-Import** cover notes apps and backups.
+opened on another device (computer to phone and back); **Copy as Markdown** covers notes apps, **Export to Excel** writes a
+real `.xlsx` workbook (no library, built in the page) to the browser's download folder, and
+**Export JSON / Import** are for backups.
 
 ## Scope and the morning digest
 

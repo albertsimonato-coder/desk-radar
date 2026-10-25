@@ -334,18 +334,60 @@ function markdown(){
   for(const i of grp)out+=`- [${st==='to_apply'?' ':'x'}] ${i.company} — [${i.title}](${i.url}) · ${i.city||'—'} · ${lbl('type',i.type)} · fit ${i.fit}${i.deadline?' · deadline '+i.deadline:''}${i.note?' · '+i.note:''}\n`;}
  return out;
 }
+function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
+// ---- Excel export: a minimal .xlsx (zip of XML parts, entries stored uncompressed) -------
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zipStored(files){
+ const enc=new TextEncoder(),parts=[],cd=[];let off=0;
+ const now=new Date(),dt=((now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1))&0xFFFF,dd=(((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate())&0xFFFF;
+ const u16=v=>[v&255,(v>>8)&255],u32=v=>[v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255];
+ for(const [name,text] of files){
+  const n=enc.encode(name),b=enc.encode(text),c=crc32(b);
+  const lh=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(dt),...u16(dd),...u32(c),...u32(b.length),...u32(b.length),...u16(n.length),...u16(0),...n]);
+  parts.push(lh,b);
+  cd.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(dt),...u16(dd),...u32(c),...u32(b.length),...u32(b.length),...u16(n.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off),...n]));
+  off+=lh.length+b.length;
+ }
+ const cdLen=cd.reduce((a,x)=>a+x.length,0);
+ const end=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cdLen),...u32(off),...u16(0)]);
+ return new Blob([...parts,...cd,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+function xlsxBlob(items){
+ const X=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'');
+ const head=['Status','Company','Title','City','Country','Type','Function','Fit','Posted','Saved on','Deadline','Notes','Link'];
+ const widths=[12,24,52,14,9,16,18,6,12,12,12,40,60];
+ const order=Object.fromEntries(STATUSES.map(([k],i)=>[k,i]));
+ const rows=[...items].sort((a,b)=>(order[a.status]??0)-(order[b.status]??0)||b.fit-a.fit).map(i=>[SLBL[i.status]||i.status,i.company,i.title,i.city,i.country,lbl('type',i.type),lbl('fn',i.fn),i.fit,fmtD(i.posted),fmtD(i.savedAt),i.deadline||'',i.note||'',i.url]);
+ const col=n=>{let s='';n++;while(n>0){const m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=Math.floor((n-1)/26);}return s;};
+ const cell=(v,r,c,style)=>typeof v==='number'?`<c r="${col(c)}${r}"${style?` s="${style}"`:''}><v>${v}</v></c>`:`<c r="${col(c)}${r}" t="inlineStr"${style?` s="${style}"`:''}><is><t xml:space="preserve">${X(v)}</t></is></c>`;
+ let sheet=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>`;
+ sheet+=`<row r="1">${head.map((h,c)=>cell(h,1,c,1)).join('')}</row>`;
+ rows.forEach((r,i)=>{sheet+=`<row r="${i+2}">${r.map((v,c)=>cell(v,i+2,c,0)).join('')}</row>`;});
+ sheet+=`</sheetData><autoFilter ref="A1:${col(head.length-1)}${rows.length+1}"/></worksheet>`;
+ const files=[
+  ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+  ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+  ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Applications" sheetId="1" r:id="rId1"/></sheets></workbook>'],
+  ['xl/_rels/workbook.xml.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+  ['xl/styles.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
+  ['xl/worksheets/sheet1.xml',sheet]];
+ return zipStored(files);
+}
 function drawSaved(){
  const items=Object.values(saved);
  const by={};for(const i of items){by[i.status||'to_apply']=(by[i.status||'to_apply']||0)+1;}
  $('#sbar').innerHTML=`<span><b>${items.length}</b> saved${STATUSES.filter(([k])=>by[k]).map(([k,n])=>` · ${n} ${by[k]}`).join('')}</span><span class="sp"></span>
   <button id="s-md" title="Copy the checklist as Markdown">Copy as Markdown</button>
   <button id="s-link" title="Copy a link that imports this list on another device (open it on your phone)">Copy sync link</button>
-  <button id="s-json" title="Download the list as a JSON file">Export</button>
+  <button id="s-xlsx" title="Download the checklist as an Excel workbook (goes to your Downloads folder)">Export to Excel</button>
+  <button id="s-json" title="Download the list as a JSON file (for Import on another device)">Export JSON</button>
   <label><input type="file" id="s-imp" accept="application/json,.json" hidden><button id="s-imp-b">Import</button></label>
   <button id="s-clear" title="Remove rejected and dropped applications">Clear rejected</button>`;
  $('#s-md').onclick=()=>copyText(markdown(),'Checklist');
  $('#s-link').onclick=()=>copyText(location.origin+location.pathname+'#import='+b64e(JSON.stringify(items)),'Sync link');
- $('#s-json').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(items,null,1)],{type:'application/json'}));a.download='desk-radar-saved.json';a.click();URL.revokeObjectURL(a.href);};
+ $('#s-xlsx').onclick=()=>{const d=new Date().toISOString().slice(0,10);download(xlsxBlob(items),`desk-radar-applications-${d}.xlsx`);toast('Excel file saved to your Downloads');};
+ $('#s-json').onclick=()=>download(new Blob([JSON.stringify(items,null,1)],{type:'application/json'}),'desk-radar-saved.json');
  $('#s-imp-b').onclick=()=>$('#s-imp').click();
  $('#s-imp').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const n=mergeSaved(JSON.parse(t));toast(`Imported ${n} new item${n===1?'':'s'}`);drawSaved();$('#saved-n').textContent=Object.keys(saved).length;}catch(err){toast('Not a valid export file');}});};
  $('#s-clear').onclick=()=>{let n=0;for(const i of items){if(i.status==='rejected'||i.status==='dropped'){delete saved[i.k];n++;}}persist();toast(n?`Removed ${n}`:'Nothing to clear');refreshSaved();};
