@@ -432,3 +432,34 @@ def test_custom_capgemini_parse():
     assert len(ps) == 3
     assert all(p.url.startswith("https://www.capgemini.com/jobs/") for p in ps)
     assert ps[0].title and ps[0].location_raw and ps[0].employment_type_raw
+
+
+def test_parse_dt_successfactors_java_format():
+    from radar.adapters.base import parse_dt
+
+    dt = parse_dt("Wed Oct 21 00:00:00 UTC 2026")
+    assert dt is not None and dt.date().isoformat() == "2026-10-21"
+
+
+def test_sitemap_page_date_fallbacks():
+    cfg = {
+        "sitemap_url": "x",
+        "job_url_pattern": "job",
+        "posted_regex": r"Posting Start Date:\s*(\d{2}/\d{2}/\d{4})",
+    }
+    a = SitemapAdapter(_co("sitemap", cfg))
+    html = (
+        "<html><head><title>Analyst</title>"
+        '<meta itemprop="datePosted" content="Tue Oct 20 07:00:00 UTC 2026"></head>'
+        "<body></body></html>"
+    )
+    p = a._parse_page(html, "https://x/job/1")
+    assert p is not None and p.posted_at is not None
+    assert p.posted_at.date().isoformat() == "2026-10-20"
+    html2 = (
+        "<html><head><title>Analyst</title></head><body><p>Posting Start Date: 13/10/2026</p>"
+        "<p>Posting End Date: 27/10/2026</p></body></html>"
+    )
+    p2 = a._parse_page(html2, "https://x/job/2")
+    assert p2 is not None and p2.posted_at is not None
+    assert p2.posted_at.date().isoformat() == "2026-10-13"

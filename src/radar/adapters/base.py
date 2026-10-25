@@ -196,6 +196,9 @@ def parse_dt(value: Any) -> datetime | None:
             "%b %d, %Y",
             "%d %b %Y",
             "%d.%m.%Y",
+            "%a %b %d %H:%M:%S %Z %Y",  # SuccessFactors: "Wed Oct 21 00:00:00 UTC 2026"
+            "%a %b %d %H:%M:%S %Y",
+            "%B %d, %Y",
         ):
             try:
                 dt = datetime.strptime(s, fmt)

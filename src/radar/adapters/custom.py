@@ -255,7 +255,7 @@ class CustomAdapter(Adapter):
                             title=(j.get("title") or "").strip(),
                             location_raw=loc,
                             department=j.get("feed") or "",
-                            posted_at=None,
+                            posted_at=parse_dt(j.get("startDate")),
                             url=f"https://www.glencore.com/en/careers/jobs/{job_id}",
                             description_snippet=" ".join(desc.split())[:400],
                             employment_type_raw=emp,

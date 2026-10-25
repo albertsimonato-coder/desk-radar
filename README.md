@@ -138,6 +138,15 @@ The openings tables have their own **Export to Excel** button: it writes the row
 shown (search, filters and sort applied), optionally only the first N, to a workbook in the
 browser's download folder.
 
+## Posting dates
+
+`posted_at` is the employer's own date and comes from the source whenever it exists (API
+fields, JSON-LD, SuccessFactors' `datePosted` meta, a `posted_regex` over the page text, the
+Workday job-detail endpoint when the list hides it). Where a source has none at all, the row
+keeps `first_seen`, the moment the scanner first saw it; that is also the rule for what counts
+as **new**, so a posting that appears today is new today whatever its stated date. Undated rows
+are re-checked a few per run, so a newly added employer fills in over the following days.
+
 ## Scope and the morning digest
 
 `profile.yaml` has a `scope` block: postings outside the listed countries (unknown locations

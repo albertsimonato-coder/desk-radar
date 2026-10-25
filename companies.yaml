@@ -899,6 +899,7 @@
   config:
     sitemap_url: https://jobs.standardchartered.com/sitemap.xml
     job_url_pattern: "jobs\\.standardchartered\\.com/job/(London|Dublin|Milan|Paris|Luxembourg|Zurich|Geneva|Birmingham|Edinburgh|Glasgow|Belfast|Manchester)-"
+    posted_regex: "Posting Start Date:\\s*(\\d{2}/\\d{2}/\\d{4})"
     max_new_pages: 60
     url_location_regex: "/job/([A-Za-z]+)-"
   careers_url: https://jobs.standardchartered.com/

@@ -26,6 +26,14 @@ Config:
                     the JSON-LD has no jobLocation; its capture groups are joined with ", "
   url_location_regex (optional) regex applied to the job URL when the page gives no location,
                     e.g. "/job/([A-Za-z]+)-" when the URL slug starts with the city
+  posted_regex      (optional) regex with one capture group run over the job page text (tags
+                    stripped) when neither JSON-LD nor an itemprop="datePosted" meta gives a
+                    posting date, e.g. "Posting Start Date:\\s*(\\d{2}/\\d{2}/\\d{4})"
+
+Posting dates: stored postings without a date (`known_postings[url].posted_at is None`) are
+re-fetched a few per run, within max_new_pages, until one is found; RSS feeds without pubDate
+get the same treatment for their new items. The date is the employer's own posting date; the
+runner's first_seen stays the rule for what counts as new.
 
 The adapter diffs the sitemap's job URLs against the postings the runner already knows
 (`self.known_postings`, url -> RawPosting). Known URLs are returned as-is without a fetch; new
@@ -41,7 +49,7 @@ from urllib.parse import urljoin, urlsplit
 
 from selectolax.lexbor import LexborHTMLParser as HTMLParser
 
-from radar.adapters.base import Adapter, SourceError
+from radar.adapters.base import Adapter, SourceError, parse_dt
 from radar.adapters.jsonld import extract_job_postings, parse_fallback, parse_job_page
 from radar.models import RawPosting
 
@@ -149,6 +157,7 @@ class SitemapAdapter(Adapter):
         self.title_strip = self.config.get("title_strip") or ""
         self.location_regex = self.config.get("location_regex") or ""
         self.url_location_regex = self.config.get("url_location_regex") or ""
+        self.posted_regex = self.config.get("posted_regex") or ""
 
     # ---- discovery --------------------------------------------------------
     def _sitemap_urls(self) -> list[str]:
@@ -269,7 +278,31 @@ class SitemapAdapter(Adapter):
                     break
         return urls
 
+    def _date_from_page(self, html: str):
+        """Posting date from a job page: JSON-LD datePosted, itemprop datePosted, posted_regex."""
+        for job in extract_job_postings(html):
+            dt = parse_dt(job.get("datePosted"))
+            if dt:
+                return dt
+        m = re.search(r'itemprop="datePosted"[^>]*content="([^"]+)"', html)
+        if m:
+            dt = parse_dt(html_unescape(m.group(1)))
+            if dt:
+                return dt
+        if self.posted_regex:
+            text = " ".join(re.sub(r"<[^>]+>", " ", html).split())
+            m = re.search(self.posted_regex, text)
+            if m:
+                return parse_dt(m.group(1).strip())
+        return None
+
     def _parse_page(self, html: str, url: str) -> RawPosting | None:
+        posting = self._parse_page_inner(html, url)
+        if posting and posting.posted_at is None:
+            posting.posted_at = self._date_from_page(html)
+        return posting
+
+    def _parse_page_inner(self, html: str, url: str) -> RawPosting | None:
         if extract_job_postings(html):
             posting = parse_job_page(html, url)
             if posting and not posting.location_raw and self.location_regex:
@@ -294,6 +327,7 @@ class SitemapAdapter(Adapter):
                 raise SourceError(
                     "rss: no items matched job_url_pattern", company=self.company.name
                 )
+            self._backfill_dates(postings)
             return postings
         urls = self.job_urls()
         if not urls:
@@ -308,6 +342,13 @@ class SitemapAdapter(Adapter):
         ]
         new = sorted(u for u in urls if u not in known)
         fetched = 0
+        # Stored postings without a date: open their page again (a few per run) to find one.
+        for p in out:
+            if fetched >= self.max_new:
+                break
+            if p.posted_at is None:
+                fetched += 1
+                p.posted_at = self._fetch_date(p.url)
         for u in new:
             if fetched >= self.max_new:
                 log.info(
@@ -326,6 +367,29 @@ class SitemapAdapter(Adapter):
             if posting:
                 out.append(self._apply_url_location(self._apply_meta(posting)))
         return out
+
+    def _fetch_date(self, url: str):
+        try:
+            resp = self._http().get(url)
+        except SourceError as e:
+            log.warning("%s: %s", self.company.name, e)
+            return None
+        return self._date_from_page(resp.text) if resp.status_code == 200 else None
+
+    def _backfill_dates(self, postings: list[RawPosting]) -> None:
+        """RSS items carry no date here: open the job page for the ones that are new or still
+        undated in the store, within the per-run page cap."""
+        known = self.known_postings
+        todo = [
+            p
+            for p in postings
+            if p.posted_at is None and (p.url not in known or known[p.url].posted_at is None)
+        ]
+        # Stored (hence in-scope) rows first: the feed also lists roles the scope will drop,
+        # and they must not eat the budget every run.
+        todo.sort(key=lambda p: p.url not in known)
+        for p in todo[: self.max_new]:
+            p.posted_at = self._fetch_date(p.url)
 
     def parse(self, payload: Any) -> list[RawPosting]:
         """Fixture format: {"urls": [...], "pages": {url: html}} or {"rss": "<xml>"}."""

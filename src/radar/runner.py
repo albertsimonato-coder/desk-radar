@@ -219,6 +219,7 @@ def run(
                 employment_type_raw=o.employment_type_raw,
             )
             for o in store.openings_for_company(company.slug)
+            if o.status == "open"  # closed rows are re-read like new ones if they come back
         }
 
     def fetch_one(company: Company, known: dict[str, RawPosting]) -> list[RawPosting]:
@@ -258,7 +259,9 @@ def run(
     # Sitemap-style sources need to know what is already stored before they fetch; read that on
     # the main thread, then fan the network work out to `workers` threads (one employer each,
     # still one request per second per host) and apply results here as they complete.
-    known_by_slug = {c.slug: (known_for(c) if c.ats == "sitemap" else {}) for c in selected}
+    known_by_slug = {
+        c.slug: (known_for(c) if c.ats in ("sitemap", "workday") else {}) for c in selected
+    }
     with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
         futures = {pool.submit(fetch_one, c, known_by_slug[c.slug]): c for c in selected}
         for fut in as_completed(futures):

@@ -8,16 +8,20 @@ Job URL: https://{tenant}.{wd}.myworkdayjobs.com/{locale}/{site}{externalPath}
 
 from __future__ import annotations
 
+import logging
 import re
 import time
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
-from radar.adapters.base import Adapter, Http, SourceError
+from radar.adapters.base import Adapter, Http, SourceError, parse_dt
 from radar.models import RawPosting
+
+log = logging.getLogger(__name__)
 
 PAGE = 20
 MAX_PAGES = 400  # 8000 postings hard cap per source
+DETAIL_CAP = 40  # job-detail requests per run, for postings the list gives no exact date for
 
 _POSTED_RE = re.compile(r"posted\s+(.*)", re.I)
 _N_LOCATIONS_RE = re.compile(r"^\s*\d+\s+locations?\s*$", re.I)
@@ -123,7 +127,50 @@ class WorkdayAdapter(Adapter):
             offset += PAGE
             if offset >= total or not data["jobPostings"]:
                 break
-        return self.parse(pages)
+        postings = self.parse(pages)
+        self._backfill_dates(http, pages, postings)
+        return postings
+
+    def _backfill_dates(self, http: Http, pages: list[dict], postings: list[RawPosting]) -> None:
+        """Some tenants omit postedOn from the list, and "30+ Days Ago" is only a bound; the
+        job-detail endpoint has the exact startDate. Fetch it for new postings, DETAIL_CAP per
+        run, so a newly added employer gets its dates over a few runs."""
+        posted_on = {}
+        for page in pages:
+            for j in page.get("jobPostings", []):
+                path = j.get("externalPath") or ""
+                if path:
+                    posted_on[f"{self.base}/{self.locale}/{self.site}{path}"] = (
+                        j.get("postedOn") or ""
+                    )
+        known = self.known_postings
+        todo = []
+        for p in postings:
+            raw = posted_on.get(p.url, "")
+            if p.posted_at is not None and "30+" not in raw:
+                continue
+            k = known.get(p.url)
+            if k is not None and k.posted_at is not None:
+                continue
+            todo.append(p)
+        todo.sort(key=lambda p: p.url not in known)  # stored (in-scope) rows first
+        for p in todo[:DETAIL_CAP]:
+            path = p.url.split(f"/{self.site}", 1)[-1]
+            try:
+                data = http.get_json(
+                    self.api[: -len("/jobs")] + path,
+                    headers={
+                        "Accept": "application/json",
+                        "Referer": f"{self.base}/{self.locale}/{self.site}",
+                    },
+                )
+            except SourceError as e:
+                log.debug("%s: detail %s: %s", self.company.name, path, e)
+                continue
+            info = data.get("jobPostingInfo") if isinstance(data, dict) else None
+            dt = parse_dt((info or {}).get("startDate"))
+            if dt:
+                p.posted_at = dt
 
     def parse(self, payload: Any) -> list[RawPosting]:
         pages = payload if isinstance(payload, list) else [payload]
