@@ -39,10 +39,17 @@ def test_rule_classifier_examples():
     assert c.classify("Graduate Programme - Oil Trading", "", "") == ("graduate", "commodities")
     assert c.classify("Senior Software Engineer", "", "") == ("experienced", "technology")
     assert c.classify("Junior Market Risk Analyst", "", "") == ("analyst_junior", "market_risk")
+    # off-cycle rules win over the generic intern rules (rule order = priority)
     assert c.classify("Off-cycle Intern - Commodities Trading", "", "") == (
-        "internship",
+        "offcycle",
         "commodities",
     )
+    assert c.classify("Sales, Trading and Structuring Off Cycle Internship Programme 2027 London", "", "")[0] == "offcycle"
+    assert c.classify("Quantitative Research Internship - 6 Months", "", "")[0] == "offcycle"
+    assert c.classify("2027 MUFG 6 month Paris internship: Corporate Banking", "", "")[0] == "offcycle"
+    assert c.classify("Stage de 6 mois - Trésorerie", "", "")[0] == "offcycle"
+    assert c.classify("Summer Internship 2027 (10 weeks)", "", "")[0] == "internship"
+    assert c.classify("Summer Internship 2027 - Global Markets", "", "")[0] == "internship"
     assert c.classify("Vice President, Treasury ALM", "", "") == ("experienced", "treasury")
     assert c.classify("Senior Analyst - Finance Operations", "", "")[0] == "experienced"
     assert c.classify("Something Unusual", "", "") == ("other", "other")
@@ -72,9 +79,9 @@ def test_score_prefers_target_city_type_function():
     )
     bg, bb = s.score(good, now), s.score(bad, now)
     assert bg.total > 85
-    assert bb.total < 25
+    assert bb.total < 30  # a fresh posting keeps the full recency component (15)
     assert "2027" in bg.keyword_hits
-    assert bg.city == 30 and bb.city < 10
+    assert bg.city == 25 and bb.city < 10
 
 
 def test_score_recency_decays():

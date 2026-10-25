@@ -116,8 +116,12 @@ Each row keeps `first_seen`, `last_seen`, `first_run_id`, `status`, `missing_run
 
 Classification is rule-based (keyword lists in `profile.yaml`, matched on title first, then
 department, then the description snippet), with the optional Claude pass for leftovers.
+Rule order is priority, so `offcycle` is listed before `internship`; an internship whose title
+states a duration of four months or more is off-cycle too, whatever the wording. Summer, spring
+and placement internships are out of scope (bachelor-level), only off-cycle ones are kept.
 The fit score (0-100) is a weighted sum of city, employment type, function, keyword hits and
-recency; the breakdown is stored and shown on hover over the score.
+recency (25/25/25/10/15 by default, recency halving every 14 days so fresh postings rank
+first); the breakdown is stored and shown on hover over the score.
 
 ## Scope and the morning digest
 

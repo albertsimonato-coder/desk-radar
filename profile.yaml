@@ -11,7 +11,7 @@ scope:
   countries: [GB, IT, LU, CH, FR, IE]
   keep_unknown_country: true      # location could not be parsed -> keep, better safe than sorry
   exclude_functions: [technology, operations]
-  exclude_employment_types: [experienced]
+  exclude_employment_types: [experienced, internship]   # summer/spring/placement internships are for bachelor students; off-cycle stays
 
 # Morning digest (python -m radar digest): top openings new since the last run, by fit score.
 digest:
@@ -41,8 +41,8 @@ countries_bonus:            # small bonus if city unknown but country matches
 
 employment_types:           # weight 0..1
   graduate: 1.0
-  internship: 0.95
-  offcycle: 0.95
+  internship: 0.1           # excluded by scope anyway
+  offcycle: 1.0
   analyst_junior: 0.9
   experienced: 0.25
   other: 0.5
@@ -62,23 +62,21 @@ functions:                  # weight 0..1
   other: 0.35
 
 weights:                    # how much each component contributes to the 0-100 score (sum ~ 100)
-  city: 30
-  employment_type: 30
+  city: 25
+  employment_type: 25
   function: 25
   keywords: 10
-  recency: 5
+  recency: 15               # applying early matters: a posting loses half of this every 14 days
 
-recency_half_life_days: 21  # recency component decays with posted_at (or first_seen if missing)
+recency_half_life_days: 14  # recency component decays with posted_at (or first_seen if missing)
 
 # Free-text keywords that boost the score when found in title/department/snippet. Case-insensitive.
 keywords_boost:
   - 2027
   - graduate programme
   - graduate program
-  - summer analyst
   - off-cycle
   - off cycle
-  - placement
   - physical trading
   - oil trading
   - metals
@@ -124,6 +122,22 @@ keywords_penalty:
 # Order within each dict = priority when several match.
 # ---------------------------------------------------------------------------
 employment_type_rules:
+  # offcycle is listed before internship on purpose: "Off-cycle Internship" must not fall into
+  # the generic intern bucket. Any internship whose title states 4+ months is also off-cycle (code).
+  offcycle:
+    - off-cycle
+    - off cycle
+    - offcycle
+    - long-term internship
+    - long term internship
+    - 6-month internship
+    - 6 month internship
+    - internship (6 months)
+    - internship 6 months
+    - vie
+    - v.i.e
+    - long-term intern
+    - long term intern
   internship:
     - intern
     - internship
@@ -144,18 +158,6 @@ employment_type_rules:
     - summer program
     - winter internship
     - werkstudent
-  offcycle:
-    - off-cycle
-    - off cycle
-    - offcycle
-    - long-term internship
-    - long term internship
-    - 6-month internship
-    - 6 month internship
-    - internship (6 months)
-    - internship 6 months
-    - vie
-    - v.i.e
   graduate:
     - graduate programme
     - graduate program

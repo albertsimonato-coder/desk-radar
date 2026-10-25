@@ -68,6 +68,15 @@ TITLE_ONLY = {
 }
 
 
+# An internship whose title states a duration of four months or more is an off-cycle /
+# long-term internship, whatever the wording ("Internship - 6 Months", "stage de 6 mois").
+INTERN_WORD = re.compile(r"intern|stage|stagiaire|tirocin|praktik|werkstudent")
+LONG_DURATION = re.compile(
+    r"(?<![a-z0-9])(?:[4-9]|1[0-2]|four|five|six|seven|eight|nine|ten|eleven|twelve)"
+    r"[ -]?(?:months?|mois|monate|mesi)(?![a-z])"
+)
+
+
 class RuleClassifier:
     def __init__(self, profile: dict):
         emp = profile.get("employment_type_rules", {})
@@ -97,7 +106,9 @@ class RuleClassifier:
 
     def employment_type(self, title: str, department: str, snippet: str, emp_raw: str) -> str:
         t = title.lower()
-        # Title has priority; within the title, rule order wins (internship before graduate ...)
+        if INTERN_WORD.search(t) and LONG_DURATION.search(t):
+            return "offcycle"
+        # Title has priority; within the title, rule order wins (offcycle before internship ...)
         m = self._first_match(self.emp_rules, t)
         if m:
             # "senior analyst" -> experienced, even though "analyst" matched analyst_junior first
