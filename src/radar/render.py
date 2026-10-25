@@ -129,6 +129,7 @@ details.health table{margin-top:8px;font-size:12px}
 .filters .seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .filters .seg button{font:inherit;padding:6px 10px;border:0;background:var(--card);color:var(--fg);cursor:pointer}
 .filters .seg button.on{background:var(--accent);color:var(--accent-fg)}
+.filters .xp{display:inline-flex;align-items:center;gap:6px;margin-left:auto;padding-left:8px;border-left:1px solid var(--line)}
 .filters button.reset{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer}
 .count{padding:0 16px 8px;color:var(--muted);font-size:13px}
 .wrap{overflow-x:auto;padding:0 16px 32px}
@@ -208,6 +209,7 @@ tr.will{background:color-mix(in srgb,var(--accent) 28%,var(--card))}
   <label>Min fit <input type="number" id="f-fit" min="0" max="100" step="5" value="0" style="width:64px"></label>
   <span id="mode-controls"></span>
   <button class="reset" id="reset">Reset</button>
+  <span class="xp"><label title="Leave empty to export every row that matches the filters">first <input type="number" id="x-n" min="1" step="1" placeholder="all" style="width:64px"> rows</label><button class="reset" id="x-xlsx" title="Download the rows currently shown (filters and sort applied) as an Excel workbook">Export to Excel</button></span>
 </div>
 <div class="count" id="count"></div>
 <div class="wrap"><table id="t"><thead><tr>
@@ -256,6 +258,14 @@ document.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.d
 document.querySelectorAll('#filters input,#filters select').forEach(el=>el.addEventListener('input',draw));
 $('#reset').onclick=()=>{document.querySelectorAll('#filters select').forEach(s=>s.value='');$('#q').value='';$('#f-fit').value=0;draw()};
 function bdTitle(r){const b=r.bd||{};return `city ${b.city} · type ${b.employment_type} · function ${b.function} · keywords ${b.keywords}${(b.keyword_hits||[]).length?' ['+b.keyword_hits.join(', ')+']':''} · recency ${b.recency}`}
+let shown=[];
+$('#x-xlsx').onclick=()=>{
+ const n=parseInt($('#x-n').value,10);const rows=n>0?shown.slice(0,n):shown;
+ if(!rows.length){toast('Nothing to export');return;}
+ const d=new Date().toISOString().slice(0,10);
+ download(listingWorkbook(rows),`desk-radar-${MODE==='all'?'openings':'new-openings'}-${d}.xlsx`);
+ toast(`${rows.length} row${rows.length===1?'':'s'} exported to your Downloads`);
+};
 function draw(){
  const q=$('#q').value.trim().toLowerCase(),co=$('#f-country').value,ci=$('#f-city').value,ty=$('#f-type').value,fn=$('#f-fn').value,gr=$('#f-group').value,pr=$('#f-prio').value,mf=+$('#f-fit').value||0;
  let rows=D.rows.filter(r=>{
@@ -268,6 +278,7 @@ function draw(){
  rows.sort((a,b)=>{const k=sort.k;let va=a[k]??'',vb=b[k]??'';if(typeof va==='string'){va=va.toLowerCase();vb=vb.toLowerCase();}
   let c=va<vb?-1:va>vb?1:0;if(c===0&&k!=='fit'){c=b.fit-a.fit;}if(c===0&&k!=='first'){c=(b.first||'')<(a.first||'')?-1:(b.first||'')>(a.first||'')?1:0;}return c*sort.dir;});
  document.querySelectorAll('th[data-k]').forEach(th=>{th.classList.toggle('sorted',th.dataset.k===sort.k);th.textContent=th.textContent.replace(/ [▲▼]$/,'')+(th.dataset.k===sort.k?(sort.dir<0?' ▼':' ▲'):'')});
+ shown=rows;
  $('#count').textContent=`${rows.length} of ${D.rows.length} shown`+($('#count').dataset.hint||'');
  $('#empty').hidden=rows.length>0;
  $('#tb').innerHTML=rows.map(r=>`<tr class="${r.status}${saved[r.k]?' saved':''}" data-k="${esc(r.k)}">
@@ -334,6 +345,19 @@ function markdown(){
   for(const i of grp)out+=`- [${st==='to_apply'?' ':'x'}] ${i.company} — [${i.title}](${i.url}) · ${i.city||'—'} · ${lbl('type',i.type)} · fit ${i.fit}${i.deadline?' · deadline '+i.deadline:''}${i.note?' · '+i.note:''}\n`;}
  return out;
 }
+function savedWorkbook(items){
+ const head=['Status','Company','Title','City','Country','Type','Function','Fit','Posted','Saved on','Deadline','Notes','Link'];
+ const widths=[12,24,52,14,9,16,18,6,12,12,12,40,60];
+ const order=Object.fromEntries(STATUSES.map(([k],i)=>[k,i]));
+ const rows=[...items].sort((a,b)=>(order[a.status]??0)-(order[b.status]??0)||b.fit-a.fit).map(i=>[SLBL[i.status]||i.status,i.company,i.title,i.city,i.country,lbl('type',i.type),lbl('fn',i.fn),i.fit,fmtD(i.posted),fmtD(i.savedAt),i.deadline||'',i.note||'',i.url]);
+ return xlsxBlob('Applications',head,widths,rows);
+}
+function listingWorkbook(rows){
+ const head=['Company','Priority','Group','Title','Department / location','City','Country','Type','Function','Fit','Posted','First seen','Status','New','Saved','Link'];
+ const widths=[24,8,14,52,30,14,9,16,18,6,12,12,9,10,8,60];
+ const data=rows.map(r=>[r.company,r.priority,r.group,r.title,r.dept||r.loc,r.city,r.country,lbl('type',r.type),lbl('fn',r.fn),Math.round(r.fit),fmtD(r.posted),fmtD(r.first),r.status,r.new_run?'since last run':r.new?'yes':'',saved[r.k]?'yes':'',r.url]);
+ return xlsxBlob(MODE==='all'?'Openings':'New openings',head,widths,data);
+}
 function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(a.href),2000);}
 // ---- Excel export: a minimal .xlsx (zip of XML parts, entries stored uncompressed) -------
 const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
@@ -353,12 +377,8 @@ function zipStored(files){
  const end=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cdLen),...u32(off),...u16(0)]);
  return new Blob([...parts,...cd,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
 }
-function xlsxBlob(items){
+function xlsxBlob(sheetName,head,widths,rows){
  const X=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])).replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'');
- const head=['Status','Company','Title','City','Country','Type','Function','Fit','Posted','Saved on','Deadline','Notes','Link'];
- const widths=[12,24,52,14,9,16,18,6,12,12,12,40,60];
- const order=Object.fromEntries(STATUSES.map(([k],i)=>[k,i]));
- const rows=[...items].sort((a,b)=>(order[a.status]??0)-(order[b.status]??0)||b.fit-a.fit).map(i=>[SLBL[i.status]||i.status,i.company,i.title,i.city,i.country,lbl('type',i.type),lbl('fn',i.fn),i.fit,fmtD(i.posted),fmtD(i.savedAt),i.deadline||'',i.note||'',i.url]);
  const col=n=>{let s='';n++;while(n>0){const m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=Math.floor((n-1)/26);}return s;};
  const cell=(v,r,c,style)=>typeof v==='number'?`<c r="${col(c)}${r}"${style?` s="${style}"`:''}><v>${v}</v></c>`:`<c r="${col(c)}${r}" t="inlineStr"${style?` s="${style}"`:''}><is><t xml:space="preserve">${X(v)}</t></is></c>`;
  let sheet=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>`;
@@ -368,7 +388,7 @@ function xlsxBlob(items){
  const files=[
   ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
   ['_rels/.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
-  ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Applications" sheetId="1" r:id="rId1"/></sheets></workbook>'],
+  ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="${X(sheetName).slice(0,31)}" sheetId="1" r:id="rId1"/></sheets></workbook>'],
   ['xl/_rels/workbook.xml.rels','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
   ['xl/styles.xml','<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>'],
   ['xl/worksheets/sheet1.xml',sheet]];
@@ -386,7 +406,7 @@ function drawSaved(){
   <button id="s-clear" title="Remove rejected and dropped applications">Clear rejected</button>`;
  $('#s-md').onclick=()=>copyText(markdown(),'Checklist');
  $('#s-link').onclick=()=>copyText(location.origin+location.pathname+'#import='+b64e(JSON.stringify(items)),'Sync link');
- $('#s-xlsx').onclick=()=>{const d=new Date().toISOString().slice(0,10);download(xlsxBlob(items),`desk-radar-applications-${d}.xlsx`);toast('Excel file saved to your Downloads');};
+ $('#s-xlsx').onclick=()=>{const d=new Date().toISOString().slice(0,10);download(savedWorkbook(items),`desk-radar-applications-${d}.xlsx`);toast('Excel file saved to your Downloads');};
  $('#s-json').onclick=()=>download(new Blob([JSON.stringify(items,null,1)],{type:'application/json'}),'desk-radar-saved.json');
  $('#s-imp-b').onclick=()=>$('#s-imp').click();
  $('#s-imp').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{try{const n=mergeSaved(JSON.parse(t));toast(`Imported ${n} new item${n===1?'':'s'}`);drawSaved();$('#saved-n').textContent=Object.keys(saved).length;}catch(err){toast('Not a valid export file');}});};

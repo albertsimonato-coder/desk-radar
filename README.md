@@ -134,6 +134,10 @@ opened on another device (computer to phone and back); **Copy as Markdown** cove
 real `.xlsx` workbook (no library, built in the page) to the browser's download folder, and
 **Export JSON / Import** are for backups.
 
+The openings tables have their own **Export to Excel** button: it writes the rows currently
+shown (search, filters and sort applied), optionally only the first N, to a workbook in the
+browser's download folder.
+
 ## Scope and the morning digest
 
 `profile.yaml` has a `scope` block: postings outside the listed countries (unknown locations
