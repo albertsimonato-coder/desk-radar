@@ -30,8 +30,6 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 |  |  |  |  |  |
 |  |  |  |  |  |
 |  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
 
 ## Remove or pause
 
@@ -55,3 +53,14 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 | Natixis Corporate and Investment Banking | 2026-10-24 | manual (JavaScript portal, no feed) |
 | Pictet | 2026-10-24 | manual (old SuccessFactors portal, no feed) |
 | Bregal Milestone | 2026-10-24 | manual (no careers page) |
+| TP ICAP, Jefferies, Goldman Sachs, JPMorgan, Houlihan Lokey | 2026-10-25 | already in the registry (TP ICAP live on Workday; the other four manual: bespoke or Oracle portals, Workday site names not public) |
+| ICE | 2026-10-25 | live (iCIMS/Jibe JSON API, new `jibe` adapter kind; was manual) |
+| Susquehanna (SIG) | 2026-10-25 | live (same Jibe API; ~290 roles, Dublin hub) |
+| PIMCO, Blackstone (+ Campus site), BlackRock, Apollo, The Carlyle Group, Ardian | 2026-10-25 | live (Workday) |
+| Castleton Commodities International | 2026-10-25 | live (Workday, tenant spelled osv_cci in the API) |
+| RBC, Brevan Howard | 2026-10-25 | live (Phenom People search API, new `phenom` adapter kind; RBC filtered to the six countries) |
+| Mizuho EMEA | 2026-10-25 | live (SuccessFactors sitemap; Americas board is out of geography) |
+| ExxonMobil | 2026-10-25 | live (SuccessFactors RSS feed, was inactive; ~30 UK roles) |
+| Capgemini | 2026-10-25 | live (public JSON API by country code; priority 2, nearly all roles are IT and dropped by scope) |
+| Chevron | 2026-10-25 | manual (Eightfold portal, JSON API answers 404) |
+| Capula | 2026-10-25 | manual (Hireserve portal behind an AWS WAF browser challenge) |

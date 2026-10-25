@@ -126,3 +126,28 @@ endpoint reported that day.
 Mediobanca, Intesa Sanpaolo, UniCredit and Banca Sella are live (see table). Monte dei Paschi
 stays manual (Taleo). New adapter features for them: RSS feeds (`rss_url`), offset-paginated
 listing pages (`index_url_pattern`), and the `intervieweb` custom kind.
+
+## Added on 2026-10-25 (wishlist batch)
+
+Live check with plain HTTP requests; "in scope" = rows kept after the profile scope filter on
+the day of adding (GB/IT/LU/CH/FR/IE, no experienced, no summer internships).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| PIMCO | workday | `pimco` / wd1 / `pimco-careers` | 182 | 7 | |
+| Blackstone | workday | `blackstone` / wd1 / `Blackstone_Careers` | 147 | 5 | Experienced hires. |
+| Blackstone Campus | workday | `blackstone` / wd1 / `Blackstone_Campus_Careers` | 26 | 2 | Internships / analyst programmes. |
+| BlackRock | workday | `blackrock` / wd1 / `BlackRock_Professional` | 291 | 10 | Campus hiring is on careers.blackrock.com (Radancy), not on this board. |
+| Apollo | workday | `athene` / wd5 / `apollo_careers` | 54 | 9 | Shared Athene tenant. |
+| The Carlyle Group | workday | `carlyle` / wd1 / `Carlyle` | 72 | 5 | |
+| Ardian | workday | `ardian` / wd103 / `ardiancareers` | 67 | 5 | Many stages (summer-type internships) dropped by scope. |
+| Castleton Commodities International | workday | `osv-cci` / wd1 / `ccicareers`, `cxs_tenant: osv_cci` | 12 | 3 | The API path uses an underscore while the host uses a hyphen. |
+| ICE | custom `jibe` | host careers.ice.com | 341 | 9 | iCIMS Jibe: `/api/jobs` only answers after the `/jobs` page set the session cookie. |
+| Susquehanna (SIG) | custom `jibe` | host careers.sig.com | 286 | 54 | Dublin office. |
+| RBC | custom `phenom` | jobs.rbc.com, en_ca/ca, country filter | 26 | 8 | Phenom `/widgets` refineSearch API, countries filtered server-side. |
+| Brevan Howard | custom `phenom` | careers.brevanhoward.com, en_gb/gb | 27 | 1 | |
+| Mizuho EMEA | sitemap | careers.mizuhoemea.com/sitemap.xml | 32 | 6 | SuccessFactors. Mizuho Americas is Workday `mizuho` / wd1 / `MizuhoAmericas` (119), out of geography. |
+| ExxonMobil | sitemap (rss_url) | jobs.exxonmobil.com/sitemap.xml | 508 | 27 | The file is a Google-Jobs RSS feed (6 MB); priority 2. |
+| Capgemini | custom `capgemini` | wp-json/llm/v1/jobs, 8 country codes | ~600 | 0 | Almost everything is IT and dropped by scope; priority 2. |
+| Chevron | manual | careers.chevron.com (Eightfold) | | | Eightfold JSON API answers 404 for this tenant. |
+| Capula | manual | careers.capula.com (Hireserve) | | | AWS WAF browser challenge. |

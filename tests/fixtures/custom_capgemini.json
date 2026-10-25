@@ -1,0 +1,51 @@
+{
+ "count": 515,
+ "page": 1,
+ "size": 3,
+ "total_pages": 172,
+ "items": [
+  {
+   "id": "527786-en_GB+sap_btp",
+   "title": "Cloud and Platform Engineer-Consultant-AI and Digital Factory",
+   "location": "Newcastle Bank House, Manchester, Bristol, London",
+   "country_code": "en-gb",
+   "contract_type": "Permanent",
+   "brand": "Capgemini Invent",
+   "department": "",
+   "url": "https://www.capgemini.com/wp-json/llm/v1/jobs/527786-en_GB+sap_btp",
+   "html_url": "https://www.capgemini.com/jobs/527786-en_GB+sap_btp/",
+   "llm_url": "https://www.capgemini.com/wp-json/llm/v1/jobs/527786-en_GB+sap_btp"
+  },
+  {
+   "id": "544188-en_GB+sap_btp",
+   "title": "Cloud Solution Manager",
+   "location": "Manchester, Birmingham, Woking, Bristol, London",
+   "country_code": "en-gb",
+   "contract_type": "Permanent",
+   "brand": "Capgemini",
+   "department": "",
+   "url": "https://www.capgemini.com/wp-json/llm/v1/jobs/544188-en_GB+sap_btp",
+   "html_url": "https://www.capgemini.com/jobs/544188-en_GB+sap_btp/",
+   "llm_url": "https://www.capgemini.com/wp-json/llm/v1/jobs/544188-en_GB+sap_btp"
+  },
+  {
+   "id": "562192-en_GB+sap_btp",
+   "title": "Senior SAP Engagement Manager",
+   "location": "Birmingham, Woking, Manchester, London",
+   "country_code": "en-gb",
+   "contract_type": "Permanent",
+   "brand": "Capgemini",
+   "department": "",
+   "url": "https://www.capgemini.com/wp-json/llm/v1/jobs/562192-en_GB+sap_btp",
+   "html_url": "https://www.capgemini.com/jobs/562192-en_GB+sap_btp/",
+   "llm_url": "https://www.capgemini.com/wp-json/llm/v1/jobs/562192-en_GB+sap_btp"
+  }
+ ],
+ "links": {
+  "self": "https://www.capgemini.com/wp-json/llm/v1/jobs?country_code=en-gb&page=1&size=3",
+  "first": "https://www.capgemini.com/wp-json/llm/v1/jobs?country_code=en-gb&page=1&size=3",
+  "prev": null,
+  "next": "https://www.capgemini.com/wp-json/llm/v1/jobs?country_code=en-gb&page=2&size=3",
+  "last": "https://www.capgemini.com/wp-json/llm/v1/jobs?country_code=en-gb&page=172&size=3"
+ }
+}

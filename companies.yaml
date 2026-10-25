@@ -334,11 +334,11 @@
   group: corporate
   ats: sitemap
   config:
-    sitemap_url: https://jobs.exxonmobil.com/sitemap.xml
+    rss_url: https://jobs.exxonmobil.com/sitemap.xml
     job_url_pattern: "jobs\\.exxonmobil\\.com/job/"
   careers_url: https://jobs.exxonmobil.com/
-  active: false
-  notes: SAP SuccessFactors. Enable once the sitemap adapter exists.
+  active: true
+  notes: SAP SuccessFactors; the "sitemap.xml" is really a Google-Jobs RSS feed (~500 items, 6 MB, one request) with g:location per item. ~30 UK roles (London trading, Fawley).
 
 - name: Vitol
   priority: 1
@@ -646,10 +646,13 @@
 - name: ICE
   priority: 1
   group: exchange
-  ats: manual
+  ats: custom
+  config:
+    kind: jibe
+    host: careers.ice.com
   careers_url: https://careers.ice.com/jobs
   active: true
-  notes: iCIMS/Jibe front end; candidate for sitemap.
+  notes: iCIMS/Jibe front end; the /api/jobs JSON answers once the /jobs page has set its session cookie (~340 roles worldwide).
 
 - name: LSEG
   priority: 1
@@ -920,3 +923,178 @@
   careers_url: https://www.bregalmilestone.com/
   active: true
   notes: No careers page on the site (small growth-equity firm); hires via LinkedIn/recruiters.
+
+# ---- Added 2026-10-25 from wishlist.md ---------------------------------------
+- name: PIMCO
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: pimco
+    wd: wd1
+    site: pimco-careers
+  careers_url: https://www.pimco.com/gbl/en/careers
+  active: true
+  notes: ~180 roles worldwide, ~30 in London/Dublin/Zurich/Milan.
+
+- name: Blackstone
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: blackstone
+    wd: wd1
+    site: Blackstone_Careers
+  careers_url: https://www.blackstone.com/careers/
+  active: true
+  notes: Experienced-hire site (~150). Campus programmes are on the separate site below.
+
+- name: Blackstone Campus
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: blackstone
+    wd: wd1
+    site: Blackstone_Campus_Careers
+  careers_url: https://blackstone.wd1.myworkdayjobs.com/Blackstone_Campus_Careers
+  active: true
+  notes: Internships and analyst programmes (~25).
+
+- name: BlackRock
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: blackrock
+    wd: wd1
+    site: BlackRock_Professional
+  careers_url: https://careers.blackrock.com/
+  active: true
+  notes: Experienced-hire board (~290 worldwide). Campus/graduate hiring runs through careers.blackrock.com (Radancy front end), not this board.
+
+- name: Apollo
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: athene
+    wd: wd5
+    site: apollo_careers
+  careers_url: https://www.apollo.com/careers
+  active: true
+  notes: Shares the Athene (Apollo's insurer) Workday tenant; ~55 roles.
+
+- name: The Carlyle Group
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: carlyle
+    wd: wd1
+    site: Carlyle
+  careers_url: https://www.carlyle.com/careers
+  active: true
+  notes: ~70 roles worldwide, ~13 in London/Dublin/Paris/Milan/Luxembourg.
+
+- name: Ardian
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: ardian
+    wd: wd103
+    site: ardiancareers
+  careers_url: https://www.ardian.com/join-us
+  active: true
+  notes: ~65 roles, two thirds in Paris/London/Luxembourg/Milan; many internships (stages).
+
+- name: Castleton Commodities International
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: osv-cci
+    cxs_tenant: osv_cci
+    wd: wd1
+    site: ccicareers
+  careers_url: https://cci.com/careers
+  active: true
+  notes: Small board (~12) but London graduate scheduler / intern roles appear here. API tenant is spelled osv_cci.
+
+- name: Brevan Howard
+  priority: 1
+  group: asset_manager
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.brevanhoward.com
+    lang: en_gb
+    country: gb
+  careers_url: https://careers.brevanhoward.com/gb/en/home
+  active: true
+  notes: Phenom People site over a Workday back end; ~27 roles incl. the 2027 trading internships.
+
+- name: RBC
+  priority: 1
+  group: bank
+  ats: custom
+  config:
+    kind: phenom
+    host: jobs.rbc.com
+    lang: en_ca
+    country: ca
+    selected_fields:
+      country: [United Kingdom, Luxembourg, France, Switzerland, Italy, Ireland]
+  careers_url: https://jobs.rbc.com/ca/en
+  active: true
+  notes: Phenom People site; the country filter is applied server-side (~25 European roles out of thousands in Canada).
+
+- name: Mizuho EMEA
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.mizuhoemea.com/sitemap.xml
+    job_url_pattern: "careers\\.mizuhoemea\\.com/job/"
+  careers_url: https://careers.mizuhoemea.com/
+  active: true
+  notes: SuccessFactors site (~30 London roles). Americas hiring is on Workday (mizuho / wd1 / MizuhoAmericas), out of geography.
+
+- name: Susquehanna (SIG)
+  priority: 1
+  group: prop_trading
+  ats: custom
+  config:
+    kind: jibe
+    host: careers.sig.com
+  careers_url: https://careers.sig.com/jobs
+  active: true
+  notes: iCIMS/Jibe front end like ICE (~290 roles worldwide; Dublin is the European hub).
+
+- name: Capgemini
+  priority: 2
+  group: advisory
+  ats: custom
+  config:
+    kind: capgemini
+    country_codes: [en-gb, it-it, fr-fr, en-ch, fr-ch, en-ie, en-lu, fr-lu]
+  careers_url: https://www.capgemini.com/careers/join-capgemini/job-search/
+  active: true
+  notes: Public JSON API filtered by country code (~600 roles in scope countries, mostly IT; the scope filter drops the technology ones).
+
+- name: Chevron
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://careers.chevron.com/
+  active: true
+  notes: Eightfold portal; the usual Eightfold JSON API answers 404 for this tenant. Few European finance roles anyway.
+
+- name: Capula
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://capula.com/careers
+  active: true
+  notes: Hireserve portal (careers.capula.com) behind an AWS WAF browser challenge; not readable without a browser.

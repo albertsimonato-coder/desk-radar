@@ -70,7 +70,9 @@ class WorkdayAdapter(Adapter):
         self.site = self.config["site"]
         self.locale = self.config.get("locale", "en-US")
         self.base = f"https://{self.tenant}.{self.wd}.myworkdayjobs.com"
-        self.api = f"{self.base}/wday/cxs/{self.tenant}/{self.site}/jobs"
+        # A few tenants spell the API tenant differently from the host ("osv-cci" vs "osv_cci").
+        cxs_tenant = self.config.get("cxs_tenant", self.tenant)
+        self.api = f"{self.base}/wday/cxs/{cxs_tenant}/{self.site}/jobs"
 
     def _headers(self) -> dict[str, str]:
         return {

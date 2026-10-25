@@ -1,0 +1,231 @@
+{
+ "jobs": [
+  {
+   "data": {
+    "slug": "14099",
+    "language": "en-us",
+    "languages": [
+     "en-us"
+    ],
+    "client_code": "ice",
+    "req_id": "14099",
+    "title": "Summer Internship Program 2027 - Risk Analyst Intern",
+    "description": "<p style=\"margin: 0px; padding: 0px; color: windowtext;\"><span style=\"margin: 0px; padding: 0px; font-size: 11pt; font-f",
+    "location_name": "OFF GBR: London (Sancroft)",
+    "street_address": "Sancroft, Rose Street, Paternoster Square\nLevel 2-4",
+    "city": "London",
+    "country": "United Kingdom",
+    "country_code": "GB",
+    "postal_code": "EC4M 7DQ",
+    "location_type": "LAT_LNG",
+    "latitude": 51.50853,
+    "longitude": -0.12574,
+    "tags1": [
+     "Full Time"
+    ],
+    "tags2": [
+     "Risk Management"
+    ],
+    "tags3": [
+     "In-Office"
+    ],
+    "department": "",
+    "salary_value": 0,
+    "salary_min_value": 0,
+    "salary_max_value": 0,
+    "employment_type": "FULL_TIME",
+    "hiring_organization": "Intercontinental Exchange Holdings, Inc.",
+    "hiring_organization_logo": "https://ice.icims.com/icims2/servlet/icims2?module=AppInert&action=download&id=57&hashed=227257843",
+    "posted_date": "2026-10-23T20:10:00+0000",
+    "apply_url": "https://globalcareers-ice.icims.com/jobs/14099/login",
+    "internal": false,
+    "external": false,
+    "searchable": true,
+    "applyable": true,
+    "li_easy_applyable": true,
+    "ats_code": "icims",
+    "hiring_flow_name": "iCIMS ATS Hiring Flow",
+    "isFrontLineAIJob": false,
+    "isApplyFlowJob": false,
+    "meta_data": {
+     "mongo": {
+      "mongo_created": true
+     },
+     "openingjobs": {
+      "openingJobId": "0000c196ea122935510e03a9efbfb7277695"
+     },
+     "icims": {
+      "jps_is_public": true,
+      "primary_posted_site_object": {
+       "site": "globalcareers-ice",
+       "tenantId": "14113",
+       "siteId": "8eaa6f70-aabe-4804-b579-07d66f8463f1",
+       "datePosted": "2026-10-23T20:10:00+0000",
+       "siteType": "ATTRACT"
+      },
+      "date_updated": "2026-10-23T20:10:19Z",
+      "config_keys": {
+       "jobposting.external.company.name": "Intercontinental Exchange Holdings, Inc.",
+       "icims.external.xml.feeds": "icims.accessdubuquejobs.xml.enabled,icims.adzuna.xml.enabled,icims.aeroemploiformation.xml.enabled,icims.apec.xml.enabled,icims.appcast.xml.enabled,icims.bayard.xml.enabled,icims.careerbuilder.xml.enabled,icims.careerarc.xml.enabled,icims.careerlink.xml.enabled,icims.careermd.xml.enabled,icims.clearbold.xml.enabled,icims.constructionjobs.xml.enabled,icims.craigslist.xml.enabled,icims.cv-library.xml.enabled,icims.cvaden.xml.enabled,icims.direct-employers.xml.enabled,icims.diversityjobsgroup.xml.enabled,icims.firsthand.xml.enabled,icims.foorilla.xml.enabled,icims.getit.xml.enabled,icims.haymarket.xml.enabled,icims.hireheroesusa.xml.enabled,icims.hireahero.xml.enabled,icims.hirepurpose.xml.enabled,icims.hospitalcareers.xml.enabled,icims.iberempleos.xml.enabled,icims.inautomotive.xml.enabled,icims.indeed.xml.enabled,icims.inhersight.xml.enabled,icims.interactivesites.xml.enabled,icims.irishjobs.xml.enabled,icims.itjobscafe.xml.enabled,icims.jobbio.xml.enabled,icims.jobboardio.xml.enabled,icims.jobcase.xml.enabled,icims.jobsite.xml.enabled,icims.jooble.xml.enabled,icims.tango.xml.enabled,icims.linkedin.xml.enabled,icims.mogul.xml.enabled,icims.monster.xml.enabled,icims.msep.xml.enabled,icims.nijobs.xml.enabled,icims.oneten.xml.enabled,icims.pallet-labs.xml.enabled,icims.paradox.xml.enabled,icims.powertofly.xml.enabled,icims.practicematch.xml.enabled,icims.prideatwork.xml.enabled,icims.professionaldiversitynetwork.xml.enabled,icims.propellum.xml.enabled,icims.puck.xml.enabled,icims.qkly.xml.enabled,icims.radancy.xml.enabled,icims.recruitnet.xml.enabled,icims.recruitics.xml.enabled,icims.recruitmilitary.xml.enabled,icims.regionsjob.xml.enabled,icims.resume-library.xml.enabled,icims.smartjobboard.xml.enabled,icims.snagajob.xml.enabled,icims.socialhp.xml.enabled,icims.sourceamerica.xml.enabled,icims.stylecareers.xml.enabled,icims.technojobs.xml.enabled,icims.triad.xml.enabled,icims.upward.xml.enabled,icims.vivian.xml.enabled,icims.vonq.xml.enabled,icims.webengineering.xml.enabled,icims.webscribble.xml.enabled,icims.welcometothejungle.xml.enabled,icims.werkzoeken.xml.enabled,icims.ziprecruiter.xml.enabled,icims.zippia.xml.enabled,icims.nexxt.xml.enabled",
+       "portal.id": "207",
+       "ccc.attract.portal.url": "",
+       "icims.config.web.indeed.easy.apply": "0"
+      },
+      "revision_int": 1,
+      "uuid": "b8e50bff-2961-4ac7-ba67-dd07281bfd83"
+     },
+     "ats_job_hash": "7dc1538ccc4fa5bcb34d2f0be7edd34c",
+     "googlejobs": {
+      "jobName": "projects/helpful-passage-853/tenants/cb22eb5b-7e00-0000-0000-007edad744d3/jobs/142234267600986822"
+     },
+     "import_id": "27a79d37-c79a-4d05-98a6-18c0b90fbc9b",
+     "redirectOnApply": true,
+     "questionservice": {
+      "id": "46869849"
+     },
+     "canonical_url": null,
+     "gdpr": true,
+     "last_mod": "2026-10-23T21:00:46+0000",
+     "elasticsearch": {
+      "es_created": false
+     },
+     "opensearch": {
+      "hit_score": "NaN",
+      "hit_explanation": null,
+      "hit_matched_queries": [
+       "internal",
+       "applyable",
+       "term-language",
+       "searchable",
+       "term-client_code"
+      ],
+      "hit_index": "jobs",
+      "hit_shard": null
+     },
+     "import_source": "ImporterService",
+     "client_code": "ice"
+    },
+    "update_date": "2026-10-23T21:00:46+0000",
+    "create_date": "2026-10-23T20:11:24+0000",
+    "category": [],
+    "full_location": "London, United Kingdom",
+    "short_location": "London, United Kingdom",
+    "multipleLocations": false
+   }
+  },
+  {
+   "data": {
+    "slug": "14098",
+    "language": "en-us",
+    "languages": [
+     "en-us"
+    ],
+    "client_code": "ice",
+    "req_id": "14098",
+    "title": "Summer Internship Program 2027 - Market Analyst Intern",
+    "description": "<p style=\"margin: 0px; padding: 0px; color: windowtext;\"><span style=\"margin: 0px; padding: 0px; font-size: 11pt; font-f",
+    "location_name": "OFF GBR: London (Sancroft)",
+    "street_address": "Sancroft, Rose Street, Paternoster Square\nLevel 2-4",
+    "city": "London",
+    "country": "United Kingdom",
+    "country_code": "GB",
+    "postal_code": "EC4M 7DQ",
+    "location_type": "LAT_LNG",
+    "latitude": 51.50853,
+    "longitude": -0.12574,
+    "tags1": [
+     "Full Time"
+    ],
+    "tags2": [
+     "Business Support"
+    ],
+    "tags3": [
+     "In-Office"
+    ],
+    "department": "",
+    "salary_value": 0,
+    "salary_min_value": 0,
+    "salary_max_value": 0,
+    "employment_type": "FULL_TIME",
+    "hiring_organization": "Intercontinental Exchange Holdings, Inc.",
+    "hiring_organization_logo": "https://ice.icims.com/icims2/servlet/icims2?module=AppInert&action=download&id=57&hashed=227257843",
+    "posted_date": "2026-10-23T20:10:00+0000",
+    "apply_url": "https://globalcareers-ice.icims.com/jobs/14098/login",
+    "internal": false,
+    "external": false,
+    "searchable": true,
+    "applyable": true,
+    "li_easy_applyable": true,
+    "ats_code": "icims",
+    "hiring_flow_name": "iCIMS ATS Hiring Flow",
+    "isFrontLineAIJob": false,
+    "isApplyFlowJob": false,
+    "meta_data": {
+     "mongo": {
+      "mongo_created": true
+     },
+     "openingjobs": {
+      "openingJobId": "0000e43864c49eca61ff43f42bbce1a6e6ef"
+     },
+     "icims": {
+      "jps_is_public": true,
+      "primary_posted_site_object": {
+       "site": "globalcareers-ice",
+       "tenantId": "14113",
+       "siteId": "8eaa6f70-aabe-4804-b579-07d66f8463f1",
+       "datePosted": "2026-10-23T20:10:00+0000",
+       "siteType": "ATTRACT"
+      },
+      "date_updated": "2026-10-23T20:10:19Z",
+      "config_keys": {
+       "jobposting.external.company.name": "Intercontinental Exchange Holdings, Inc.",
+       "icims.external.xml.feeds": "icims.accessdubuquejobs.xml.enabled,icims.adzuna.xml.enabled,icims.aeroemploiformation.xml.enabled,icims.apec.xml.enabled,icims.appcast.xml.enabled,icims.bayard.xml.enabled,icims.careerbuilder.xml.enabled,icims.careerarc.xml.enabled,icims.careerlink.xml.enabled,icims.careermd.xml.enabled,icims.clearbold.xml.enabled,icims.constructionjobs.xml.enabled,icims.craigslist.xml.enabled,icims.cv-library.xml.enabled,icims.cvaden.xml.enabled,icims.direct-employers.xml.enabled,icims.diversityjobsgroup.xml.enabled,icims.firsthand.xml.enabled,icims.foorilla.xml.enabled,icims.getit.xml.enabled,icims.haymarket.xml.enabled,icims.hireheroesusa.xml.enabled,icims.hireahero.xml.enabled,icims.hirepurpose.xml.enabled,icims.hospitalcareers.xml.enabled,icims.iberempleos.xml.enabled,icims.inautomotive.xml.enabled,icims.indeed.xml.enabled,icims.inhersight.xml.enabled,icims.interactivesites.xml.enabled,icims.irishjobs.xml.enabled,icims.itjobscafe.xml.enabled,icims.jobbio.xml.enabled,icims.jobboardio.xml.enabled,icims.jobcase.xml.enabled,icims.jobsite.xml.enabled,icims.jooble.xml.enabled,icims.tango.xml.enabled,icims.linkedin.xml.enabled,icims.mogul.xml.enabled,icims.monster.xml.enabled,icims.msep.xml.enabled,icims.nijobs.xml.enabled,icims.oneten.xml.enabled,icims.pallet-labs.xml.enabled,icims.paradox.xml.enabled,icims.powertofly.xml.enabled,icims.practicematch.xml.enabled,icims.prideatwork.xml.enabled,icims.professionaldiversitynetwork.xml.enabled,icims.propellum.xml.enabled,icims.puck.xml.enabled,icims.qkly.xml.enabled,icims.radancy.xml.enabled,icims.recruitnet.xml.enabled,icims.recruitics.xml.enabled,icims.recruitmilitary.xml.enabled,icims.regionsjob.xml.enabled,icims.resume-library.xml.enabled,icims.smartjobboard.xml.enabled,icims.snagajob.xml.enabled,icims.socialhp.xml.enabled,icims.sourceamerica.xml.enabled,icims.stylecareers.xml.enabled,icims.technojobs.xml.enabled,icims.triad.xml.enabled,icims.upward.xml.enabled,icims.vivian.xml.enabled,icims.vonq.xml.enabled,icims.webengineering.xml.enabled,icims.webscribble.xml.enabled,icims.welcometothejungle.xml.enabled,icims.werkzoeken.xml.enabled,icims.ziprecruiter.xml.enabled,icims.zippia.xml.enabled,icims.nexxt.xml.enabled",
+       "portal.id": "207",
+       "ccc.attract.portal.url": "",
+       "icims.config.web.indeed.easy.apply": "0"
+      },
+      "revision_int": 1,
+      "uuid": "0fd13a0d-78b8-49da-9bec-40f10b196df8"
+     },
+     "ats_job_hash": "29c7fccd2b9bbcbb7c0e43addfa4c526",
+     "googlejobs": {
+      "jobName": "projects/helpful-passage-853/tenants/cb22eb5b-7e00-0000-0000-007edad744d3/jobs/80992569445491398"
+     },
+     "import_id": "27a79d37-c79a-4d05-98a6-18c0b90fbc9b",
+     "redirectOnApply": true,
+     "questionservice": {
+      "id": "46869848"
+     },
+     "canonical_url": null,
+     "gdpr": true,
+     "last_mod": "2026-10-23T21:00:46+0000",
+     "elasticsearch": {
+      "es_created": false
+     },
+     "opensearch": {
+      "hit_score": "NaN",
+      "hit_explanation": null,
+      "hit_matched_queries": [
+       "internal",
+       "applyable",
+       "term-language",
+       "searchable",
+       "term-client_code"
+      ],
+      "hit_index": "jobs",
+      "hit_shard": null
+     },
+     "import_source": "ImporterService",
+     "client_code": "ice"
+    },
+    "update_date": "2026-10-23T21:00:46+0000",
+    "create_date": "2026-10-23T20:11:23+0000",
+    "category": [],
+    "full_location": "London, United Kingdom",
+    "short_location": "London, United Kingdom",
+    "multipleLocations": false
+   }
+  }
+ ],
+ "totalCount": 341
+}

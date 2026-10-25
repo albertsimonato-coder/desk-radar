@@ -404,3 +404,31 @@ def test_url_location_regex_fills_location_from_slug():
         external_id="2", title="T", url="https://x.test/job/Paris-X/2/", location_raw="Lyon"
     )
     assert adapter._apply_url_location(q).location_raw == "Lyon"  # never overrides a real one
+
+
+def test_custom_jibe_parse():
+    ps = CustomAdapter(_co("custom", {"kind": "jibe", "host": "careers.ice.com"})).parse(
+        load_fixture("custom_jibe_ice.json")
+    )
+    assert len(ps) == 2
+    p = ps[0]
+    assert p.url == f"https://careers.ice.com/jobs/{p.external_id}?lang=en-us"
+    assert p.title and p.location_raw and p.posted_at is not None
+
+
+def test_custom_phenom_parse():
+    cfg = {"kind": "phenom", "host": "careers.brevanhoward.com", "lang": "en_gb", "country": "gb"}
+    ps = CustomAdapter(_co("custom", cfg)).parse(load_fixture("custom_phenom_brevan-howard.json"))
+    assert len(ps) == 3
+    p = ps[0]
+    assert p.url.startswith(f"https://careers.brevanhoward.com/gb/en/job/{p.external_id}/")
+    assert p.title and p.location_raw and p.posted_at is not None and p.employment_type_raw
+
+
+def test_custom_capgemini_parse():
+    ps = CustomAdapter(_co("custom", {"kind": "capgemini"})).parse(
+        load_fixture("custom_capgemini.json")
+    )
+    assert len(ps) == 3
+    assert all(p.url.startswith("https://www.capgemini.com/jobs/") for p in ps)
+    assert ps[0].title and ps[0].location_raw and ps[0].employment_type_raw
