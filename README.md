@@ -131,7 +131,12 @@ carry a country facet in `companies.yaml` (`applied_facets`) so the request itse
 with the best openings new since the last run (`digest.max_items` / `digest.min_fit` in the
 profile). The workflow sends it after each run through Gmail when two repository secrets exist:
 `MAIL_USERNAME` (the Gmail address that sends) and `MAIL_PASSWORD` (a Google "app password"
-for that account, not the normal password). Without the secrets the step is skipped.
+for that account, not the normal password). Without the secrets the step is skipped. The
+digest is also posted as a GitHub issue labelled `digest` on every run that has news, so
+email is optional: a wrong Gmail secret (`535 Username and Password not accepted`) is logged
+but no longer fails the run. To fix it, turn on 2-Step Verification on the sending Google
+account, create an app password at myaccount.google.com/apppasswords and paste the 16-character
+value (spaces removed) into the `MAIL_PASSWORD` secret.
 
 ## Scheduler
 

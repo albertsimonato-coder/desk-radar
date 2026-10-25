@@ -86,8 +86,9 @@ jobs:
           gh label create digest --color 0B57D0 --description "Daily Desk Radar digest" 2>/dev/null || true
           gh issue create --title "${{ steps.digest.outputs.subject }}" --label digest --body-file digest.md
 
-      - name: Email the digest
+      - name: Email the digest (optional; the GitHub issue above is the primary channel)
         if: steps.digest.outputs.send == 'true' && env.MAIL_USERNAME != ''
+        continue-on-error: true
         env:
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
         uses: dawidd6/action-send-mail@v3
