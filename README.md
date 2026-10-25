@@ -123,6 +123,16 @@ The fit score (0-100) is a weighted sum of city, employment type, function, keyw
 recency (25/25/25/10/15 by default, recency halving every 14 days so fresh postings rank
 first); the breakdown is stored and shown on hover over the score.
 
+## Saved applications checklist
+
+Every row on both pages has a **Save** button (on a phone, swipe the row to the right). Saved
+openings appear under the **Saved** tab as a checklist with a status (to apply, applied,
+interview, offer, rejected, dropped), a deadline and free-text notes. The list lives in the
+browser's localStorage, so it survives every re-render and keeps a snapshot of openings that are
+later closed. It is per device: **Copy sync link** produces a URL that imports the list when
+opened on another device (computer to phone and back); **Copy as Markdown** and **Export /
+Import** cover notes apps and backups.
+
 ## Scope and the morning digest
 
 `profile.yaml` has a `scope` block: postings outside the listed countries (unknown locations

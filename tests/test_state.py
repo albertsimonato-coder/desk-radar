@@ -226,3 +226,15 @@ def test_scope_filter_and_digest(tmp_path, monkeypatch, unscoped_profile):
     ]
     assert fits == sorted(fits, reverse=True) and min(fits) >= profile["digest"]["min_fit"]
     store.close()
+
+
+def test_render_html_includes_saved_checklist():
+    from radar.render import render_html
+
+    payload = {
+        "generated_at": None, "last_run": None, "window_days": 7,
+        "counts": {"total": 0, "open": 0, "closed": 0, "new": 0, "new_run": 0},
+        "health": [], "rows": [],
+    }
+    html = render_html(payload, mode="all")
+    assert "deskradar.saved.v1" in html and 'id="nav-saved"' in html and "__DATA__" not in html
