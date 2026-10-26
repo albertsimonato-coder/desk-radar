@@ -463,3 +463,41 @@ def test_sitemap_page_date_fallbacks():
     p2 = a._parse_page(html2, "https://x/job/2")
     assert p2 is not None and p2.posted_at is not None
     assert p2.posted_at.date().isoformat() == "2026-10-13"
+
+
+def test_custom_bamboohr_parse():
+    ps = CustomAdapter(_co("custom", {"kind": "bamboohr", "subdomain": "panmure"})).parse(
+        load_fixture("custom_bamboohr_panmure.json")
+    )
+    assert len(ps) == 3
+    p = ps[0]
+    assert p.url == f"https://panmure.bamboohr.com/careers/{p.external_id}"
+    assert p.title and p.location_raw.startswith("London") and p.employment_type_raw
+
+
+def test_custom_oracle_parse():
+    cfg = {"kind": "oracle", "host": "fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com", "site": "CX_1"}
+    ps = CustomAdapter(_co("custom", cfg)).parse(load_fixture("custom_oracle_citco.json"))
+    assert len(ps) == 3
+    p = ps[0]
+    assert p.url == (
+        "https://fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites"
+        f"/CX_1/job/{p.external_id}"
+    )
+    assert p.title and p.location_raw and p.posted_at is not None
+
+
+def test_custom_wordpress_parse():
+    cfg = {
+        "kind": "wordpress",
+        "base": "https://www.jtcgroup.com/wp-json/wp/v2",
+        "type": "job",
+        "location_taxonomy": "location",
+        "department_taxonomy": "job_department",
+    }
+    ps = CustomAdapter(_co("custom", cfg)).parse(load_fixture("custom_wordpress_jtc.json"))
+    assert len(ps) == 3
+    p = ps[0]
+    assert p.url.startswith("https://www.jtcgroup.com/jobs/")
+    assert p.title and "&#8211;" not in p.title and "<" not in p.title
+    assert p.location_raw and p.department and p.posted_at is not None

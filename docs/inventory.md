@@ -151,3 +151,49 @@ the day of adding (GB/IT/LU/CH/FR/IE, no experienced, no summer internships).
 | Capgemini | custom `capgemini` | wp-json/llm/v1/jobs, 8 country codes | ~600 | 0 | Almost everything is IT and dropped by scope; priority 2. |
 | Chevron | manual | careers.chevron.com (Eightfold) | | | Eightfold JSON API answers 404 for this tenant. |
 | Capula | manual | careers.capula.com (Hireserve) | | | AWS WAF browser challenge. |
+
+## Added on 2026-10-26 (wishlist batch: banks, boutiques, valuation firms, fund administrators)
+
+Inventory with plain HTTP requests (no browser available that day). "Postings" is what the
+source returned; "In scope" is what survived the country / function / employment-type filter.
+Three new custom kinds were added for this batch: `bamboohr`, `oracle` (Oracle HCM Cloud
+recruiting sites) and `wordpress` (jobs published as a WordPress post type over the REST API).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Lloyds Banking Group | workday | `lbg` / wd3 / `LBG_Careers` | 70 | 18 | Experienced hires only; campus programmes are elsewhere. |
+| Santander CIB | workday | `santander` / wd3 / `SantanderCareers` | 1078 | 487 | Group-wide board (retail, all countries); 6 London rows. |
+| BBVA | workday | `bbva` / wd3 / `BBVA` | 618 | 396 | Mostly Mexico and Spain; unknown-country rows are kept by the scope rule. |
+| ING | sitemap | careers.ing.com/sitemap.xml, target-city `/en/job/<city>/` URLs | ~700 (9 in target cities) | 9 | Radancy; JSON-LD with datePosted. |
+| Nordea | sitemap | careers.nordea.com/sitemap.xml, target cities + the four Nordic head offices | 159 (38 opened) | 0 | SuccessFactors; no London role today. The head-office cities keep the pattern matching something, otherwise the adapter reports an error. |
+| Koch Minerals & Trading | sitemap (listing only) | koch.avature.net SearchJobs/Minerals, `fetch_pages: false` | 8 | 0 | Wishlist name "Koch Supply & Trading". London roles today are trade support, middle office and IT, all dropped by the function filter. |
+| LionTree | greenhouse | board `liontree` | 3 | 0 | US roles only today. |
+| Guggenheim Securities | workday | `guggenheim` / wd1 / `Guggenheim_Partners` | 5 | 1 | US board; Guggenheim Investments is `guggenheiminvestment` / wd5 / `External` (24). |
+| Panmure Liberum | custom `bamboohr` | subdomain `panmure` | 3 | 2 | Incl. the entry-level expression of interest. No posting date. |
+| Kroll | sitemap | careers.kroll.com/en/sitemap.xml, target-city `/en/job/<city>/` URLs | 350 (34 in target cities) | 8 | Valuation / portfolio-valuation analyst roles in London, Milan, Paris, Luxembourg. JSON-LD without datePosted (backfilled over the next runs). |
+| BDO | sitemap | careers.bdo.co.uk/sitemap.xml, London URLs only | 199 (91 London) | 4 so far | Radancy; 60 pages per run, the rest follows tomorrow. |
+| Forvis Mazars | workday | `forvismazarsuk` / wd107 / `FM_1`, locale en-GB | 188 | 43 | UK board; treasury advisory, valuations, deals. |
+| S&P Global | workday | `spgi` / wd5 / `SPGI_Careers` | 321 | 33 | Wishlist name "S&P Global Portfolio Valuations"; whole group. |
+| Lincoln International | greenhouse | board `lincolninternational` | 5 | 5 | M&A analyst/associate roles; apply links go to lincolninternational.com/greenhouse/. |
+| Aztec Group | workday | `aztecgroup` / wd103 / `External` | 28 | 10 | |
+| Langham Hall | sitemap (listing only) | langhamhall.com/apply/current-vacancies, `fetch_pages: false` | 7 | 0 | Hong Kong, Singapore, New York today. No posting date. |
+| Alter Domus | sitemap | careers.alterdomus.com/sitemap.xml, target-city URLs | 221 (37 in target cities) | 7 | Radancy; JSON-LD. |
+| IQ-EQ | custom `wordpress` | iqeq.com/careers/wp-json/wp/v2, type `vacancy`, taxonomies `vacancy_location` / `department` | 110 | 4 | Location is country-level (United Kingdom, Luxembourg...), so the city stays empty. |
+| Apex Group | workday | `theapexgroup` / wd3 / `apexgroupcareers` | 1085 | 11 | |
+| Citco | custom `oracle` | host fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com, site `CX_1` | 536 | 20 | Dublin and London fund-services roles; some requisitions have no location. |
+| Ocorian | sitemap | ocorian.com/sitemap.xml, `/job/` URLs | 53 | 2 | Drupal; JSON-LD. |
+| JTC | custom `wordpress` | jtcgroup.com/wp-json/wp/v2, type `job`, taxonomies `location` / `job_department` | 56 | 9 | Office names like "Jersey - St Helier" are not target cities; applications go to a Cornerstone portal. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| ENEL | Avature portal; the SearchJobs page is an empty client-rendered shell, no sitemap, no feed. | Needs a browser or the Avature XHR endpoint. |
+| NatWest Markets | jobs.natwestgroup.com answers 403 to every non-browser request. | Bot protection. |
+| Rabobank | rabobank.jobs answered 403 "Tijdelijk niet beschikbaar" all day. | Retry the inventory. |
+| Alvarez & Marsal | alvarezandmarsal.com answers 403; no Workday/iCIMS tenant found by guessing. | Needs a browser to see the job-search XHR. |
+| Grant Thornton (UK) | Job pages carry JSON-LD but are not in the sitemap; the job search is a JavaScript app with no visible API. | Needs a browser. |
+| RSM UK | AEM site, job search rendered client-side. | Needs a browser. |
+| Crowe UK | crowe.com answers 403. | Bot protection. |
+| Valuation Research Corporation | ADP Workforce Now portal. | JavaScript only; tiny London office. |
+| Robey Warshaw, Zaoui & Co, Ondra Partners | No careers page or job feed (Robey Warshaw and Ondra sites did not answer). | Headhunter-driven hiring. |

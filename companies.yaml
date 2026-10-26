@@ -1099,3 +1099,374 @@
   careers_url: https://capula.com/careers
   active: true
   notes: Hireserve portal (careers.capula.com) behind an AWS WAF browser challenge; not readable without a browser.
+
+# ---- Added 2026-10-26 from wishlist.md ---------------------------------------
+# Banks
+- name: Lloyds Banking Group
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: lbg
+    wd: wd3
+    site: LBG_Careers
+  careers_url: https://www.lloydsbankinggroup.com/careers.html
+  active: true
+  notes: Experienced-hire board (~70 roles); early-careers programmes are on a separate campus site.
+
+- name: Santander CIB
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: santander
+    wd: wd3
+    site: SantanderCareers
+  careers_url: https://www.santandercib.com/about-us/careers
+  active: true
+  notes: Group-wide Santander board (~1100 roles, all countries and retail); the scope filter keeps the London/Madrid CIB roles.
+
+- name: BBVA
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: bbva
+    wd: wd3
+    site: BBVA
+  careers_url: https://careers.bbva.com/
+  active: true
+  notes: Group-wide board (~620 roles, mostly Mexico and Spain); London CIB roles appear in the same feed.
+
+- name: ING
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.ing.com/sitemap.xml
+    job_url_pattern: "careers\\.ing\\.com/en/job/(london|dublin|milan|milano|paris|luxembourg|zurich|geneva)/"
+    url_location_regex: "/en/job/([a-z-]+)/"
+    max_new_pages: 60
+  careers_url: https://careers.ing.com/en
+  active: true
+  notes: Radancy site; sitemap lists ~700 jobs worldwide with the city in the URL, so only target-city pages are opened. JSON-LD with datePosted on job pages.
+
+- name: Rabobank
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://rabobank.jobs/en/vacancies
+  active: true
+  notes: rabobank.jobs answered 403 "Tijdelijk niet beschikbaar" (temporarily unavailable) on 2026-10-26; retry the inventory later.
+
+- name: Nordea
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.nordea.com/sitemap.xml
+    job_url_pattern: "careers\\.nordea\\.com/job/(London|Luxembourg|Dublin|Paris|Milan|Zurich|Geneva|Stockholm|Helsinki|Oslo|K%C3%B8benhavn|Copenhagen)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 40
+  careers_url: https://www.nordea.com/en/careers/open-jobs
+  active: true
+  notes: SuccessFactors sitemap (~160 jobs, nearly all Nordic/Polish); the slug starts with the city, so only target-city pages (plus the four Nordic head offices, which keep the source alive when no target-city role exists) are opened. No London roles on 2026-10-26.
+
+- name: NatWest Markets
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://jobs.natwestgroup.com/
+  active: true
+  notes: jobs.natwestgroup.com answers 403 to non-browser clients (bot protection); no feed found.
+
+# Commodities
+- name: Koch Minerals & Trading
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_url_pattern: "https://koch.avature.net/en_US/careers/SearchJobs/Minerals?jobRecordsPerPage=15&jobOffset={offset}"
+    index_step: 15
+    index_max_pages: 10
+    index_item_split: '<article class="article article--result">'
+    index_item_regex: 'subtitle"> ?(?P<department>[^<]+?) ?</h5>.*?href="(?P<url>https://koch\.avature\.net/en_US/careers/JobDetail/[^"]+)"> ?(?P<title>[^<]+?) ?</a>(?:.*?Location: </div> <div class="article__content__field__value"> ?(?P<location>[^<]+?) ?</div>)?'
+    fetch_pages: false
+    job_url_pattern: "koch\\.avature\\.net/en_US/careers/JobDetail/"
+  careers_url: https://koch.avature.net/en_US/careers/SearchJobs/Minerals
+  active: true
+  notes: Listed as "Koch Supply & Trading" in wishlist.md; the trading arm is now Koch Minerals & Trading (London, Geneva, Singapore). Koch-wide Avature portal searched by keyword "Minerals"; title, company and office read from the listing. No posting date.
+
+# Boutiques
+- name: Robey Warshaw
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.robeywarshaw.com/
+  active: true
+  notes: No careers page; the site did not answer on 2026-10-26. Hires through headhunters.
+
+- name: Zaoui & Co
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://zaoui.com/
+  active: true
+  notes: No careers page or job feed.
+
+- name: Ondra Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.ondrapartners.com/
+  active: true
+  notes: Site unreachable on 2026-10-26; no known job feed.
+
+- name: LionTree
+  priority: 1
+  group: boutique
+  ats: greenhouse
+  config:
+    board: liontree
+  careers_url: https://job-boards.greenhouse.io/liontree
+  active: true
+  notes: 3 roles on 2026-10-26, all US (2028 summer analyst); London roles appear on the same board.
+
+- name: Guggenheim Securities
+  priority: 1
+  group: boutique
+  ats: workday
+  config:
+    tenant: guggenheim
+    wd: wd1
+    site: Guggenheim_Partners
+  careers_url: https://www.guggenheimpartners.com/firm/careers
+  active: true
+  notes: Guggenheim Partners board (5 roles, US) covers Guggenheim Securities. Guggenheim Investments is a separate tenant (guggenheiminvestment / wd5 / External, 24 roles, US).
+
+- name: Panmure Liberum
+  priority: 1
+  group: boutique
+  ats: custom
+  config:
+    kind: bamboohr
+    subdomain: panmure
+  careers_url: https://panmure.bamboohr.com/careers
+  active: true
+  notes: BambooHR careers page (3 London roles incl. an entry-level expression of interest). No posting date.
+
+# Valuation and advisory
+- name: Kroll
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.kroll.com/en/sitemap.xml
+    job_url_pattern: "careers\\.kroll\\.com/en/job/(london|dublin|milano|milan|paris|luxembourg|zurich|geneva|united-kingdom)/"
+    url_location_regex: "/en/job/([a-z-]+)/"
+    max_new_pages: 60
+  careers_url: https://careers.kroll.com/en
+  active: true
+  notes: Bespoke site with a sitemap of ~350 jobs worldwide; the city is in the URL, so only target-city pages are opened (19 London, 6 Milan, 5 Paris, 4 Dublin on 2026-10-26). JSON-LD on job pages; valuation and portfolio-valuation roles.
+
+- name: Alvarez & Marsal
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.alvarezandmarsal.com/careers
+  active: true
+  notes: alvarezandmarsal.com answers 403 to non-browser clients; the ATS behind the job search could not be identified without a browser.
+
+- name: Grant Thornton
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.grantthornton.co.uk/careers/job-search/
+  active: true
+  notes: Listed as "Gran Thornton" in wishlist.md. UK job search is a JavaScript app; job pages carry JSON-LD but are not in the sitemap and no listing API was found.
+
+- name: BDO
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.bdo.co.uk/sitemap.xml
+    job_url_pattern: "careers\\.bdo\\.co\\.uk/job/london/"
+    url_location_regex: "/job/([a-z-]+)/"
+    max_new_pages: 60
+  careers_url: https://careers.bdo.co.uk/
+  active: true
+  notes: BDO UK, Radancy site; sitemap of ~200 UK jobs, London ones only (~90). JSON-LD on job pages.
+
+- name: Forvis Mazars
+  priority: 1
+  group: advisory
+  ats: workday
+  config:
+    tenant: forvismazarsuk
+    wd: wd107
+    site: FM_1
+    locale: en-GB
+  careers_url: https://careers-uk.forvismazars.com/
+  active: true
+  notes: UK board (~190 roles) incl. treasury advisory, valuations and deal advisory.
+
+- name: RSM UK
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.rsmuk.com/careers/jobs
+  active: true
+  notes: Job search is a JavaScript block on an AEM site; no feed or API found.
+
+- name: Crowe UK
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.crowe.com/uk/careers/vacancies
+  active: true
+  notes: crowe.com answers 403 to non-browser clients.
+
+- name: Valuation Research Corporation
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.valuationresearch.com/about/careers/
+  active: true
+  notes: ADP Workforce Now portal (JavaScript, no feed). Small London office.
+
+- name: S&P Global
+  priority: 1
+  group: advisory
+  ats: workday
+  config:
+    tenant: spgi
+    wd: wd5
+    site: SPGI_Careers
+  careers_url: https://careers.spglobal.com/jobs
+  active: true
+  notes: Listed as "S&P Global Portfolio Valuations" in wishlist.md; the Workday board covers the whole group (~320 roles), portfolio-valuation roles included.
+
+- name: Lincoln International
+  priority: 1
+  group: boutique
+  ats: greenhouse
+  config:
+    board: lincolninternational
+  careers_url: https://www.lincolninternational.com/careers-and-culture/careers/
+  active: true
+  notes: Greenhouse board embedded in the firm's site (job links point to lincolninternational.com/greenhouse/?gh_jid=...).
+
+# Fund administrators
+- name: Aztec Group
+  priority: 1
+  group: corporate
+  ats: workday
+  config:
+    tenant: aztecgroup
+    wd: wd103
+    site: External
+  careers_url: https://aztec.group/careers/
+  active: true
+  notes: ~30 roles (Jersey, Guernsey, Luxembourg, Southampton, London).
+
+- name: Langham Hall
+  priority: 1
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.langhamhall.com/apply/current-vacancies
+    index_item_regex: '<h4 class="heading-style-h5">(?P<title>[^<]+)</h4> ?<div class="text-size-regular hide-desktop">(?P<location>[^<]+)</div> ?<a [^>]*href="(?P<url>/job/[^"]+)"'
+    fetch_pages: false
+    job_url_pattern: "langhamhall\\.com/job/"
+  careers_url: https://www.langhamhall.com/apply/current-vacancies
+  active: true
+  notes: Webflow site; title and office read from the vacancies page (7 roles on 2026-10-26, Hong Kong / Singapore / New York). No posting date.
+
+- name: Alter Domus
+  priority: 1
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.alterdomus.com/sitemap.xml
+    job_url_pattern: "careers\\.alterdomus\\.com/en/job/(london|luxembourg|dublin|paris|milan|zurich|geneva)/"
+    url_location_regex: "/en/job/([a-z-]+)/"
+    max_new_pages: 60
+  careers_url: https://careers.alterdomus.com/en
+  active: true
+  notes: Radancy site; sitemap of ~220 jobs worldwide, target-city pages only (27 Luxembourg, 5 London, 4 Paris on 2026-10-26). JSON-LD on job pages.
+
+- name: IQ-EQ
+  priority: 1
+  group: corporate
+  ats: custom
+  config:
+    kind: wordpress
+    base: https://iqeq.com/careers/wp-json/wp/v2
+    type: vacancy
+    location_taxonomy: vacancy_location
+    department_taxonomy: department
+  careers_url: https://iqeq.com/careers/vacancies/
+  active: true
+  notes: Listed as "IQ -EQ" in wishlist.md. WordPress REST API (~110 vacancies); location is a country-level taxonomy (United Kingdom, Luxembourg, Ireland...).
+
+- name: Apex Group
+  priority: 1
+  group: corporate
+  ats: workday
+  config:
+    tenant: theapexgroup
+    wd: wd3
+    site: apexgroupcareers
+  careers_url: https://www.apexgroup.com/careers/
+  active: true
+  notes: ~1100 roles worldwide.
+
+- name: Citco
+  priority: 1
+  group: corporate
+  ats: custom
+  config:
+    kind: oracle
+    host: fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com
+    site: CX_1
+  careers_url: https://www.citco.com/careers
+  active: true
+  notes: Oracle HCM Cloud recruiting site read through its public REST API (~540 roles worldwide).
+
+- name: Ocorian
+  priority: 1
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://www.ocorian.com/sitemap.xml
+    job_url_pattern: "ocorian\\.com/job/"
+    max_new_pages: 60
+  careers_url: https://www.ocorian.com/careers
+  active: true
+  notes: Listed as "Ocarina" in wishlist.md. Drupal site; ~50 job pages in the sitemap with JSON-LD (datePosted, location).
+
+- name: JTC
+  priority: 1
+  group: corporate
+  ats: custom
+  config:
+    kind: wordpress
+    base: https://www.jtcgroup.com/wp-json/wp/v2
+    type: job
+    location_taxonomy: location
+    department_taxonomy: job_department
+  careers_url: https://www.jtcgroup.com/jtc-careers/
+  active: true
+  notes: WordPress REST API (~55 jobs) with office and department taxonomies; applications go to a Cornerstone portal.
+
+- name: ENEL
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://jobs.enel.com/en_US/careers/home
+  active: true
+  notes: Avature portal whose job search is rendered client-side (the SearchJobs page is an empty shell, no sitemap or feed); only a featured-jobs carousel is in the HTML.

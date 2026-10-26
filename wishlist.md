@@ -64,3 +64,20 @@ Rows under "Done" have already been added; move or leave them, they are ignored 
 | Capgemini | 2026-10-25 | live (public JSON API by country code; priority 2, nearly all roles are IT and dropped by scope) |
 | Chevron | 2026-10-25 | manual (Eightfold portal, JSON API answers 404) |
 | Capula | 2026-10-25 | manual (Hireserve portal behind an AWS WAF browser challenge) |
+| Lloyds Banking Group, Santander CIB, BBVA, Forvis Mazars, S&P Global, Guggenheim Securities, Aztec Group, Apex Group | 2026-10-26 | live (Workday) |
+| ING, BDO, Alter Domus | 2026-10-26 | live (Radancy sitemaps, target-city job pages with JSON-LD) |
+| Kroll | 2026-10-26 | live (sitemap, target-city job pages with JSON-LD) |
+| Nordea | 2026-10-26 | live (SuccessFactors sitemap, target-city pages only; no London role today) |
+| Koch Supply & Trading | 2026-10-26 | live as "Koch Minerals & Trading" (Avature listing searched by keyword, no job pages opened) |
+| LionTree, Lincoln International | 2026-10-26 | live (Greenhouse) |
+| Panmure Liberum | 2026-10-26 | live (BambooHR list API, new `bamboohr` adapter kind) |
+| Citco | 2026-10-26 | live (Oracle HCM REST API, new `oracle` adapter kind) |
+| IQ -EQ, JTC | 2026-10-26 | live (WordPress REST API, new `wordpress` adapter kind) |
+| Ocorian ("Ocarina") | 2026-10-26 | live (sitemap, JSON-LD) |
+| Langham Hall | 2026-10-26 | live (vacancies page read as a listing) |
+| ENEL | 2026-10-26 | manual (Avature search rendered in the browser, no feed) |
+| NatWest Markets, Alvarez & Marsal, Crowe | 2026-10-26 | manual (sites answer 403 to non-browser clients) |
+| Rabobank | 2026-10-26 | manual (rabobank.jobs "temporarily unavailable" today; retry later) |
+| Gran Thornton (Grant Thornton), RSM | 2026-10-26 | manual (JavaScript job search, no feed found) |
+| Robey Warshaw, Zaoui & Co, Ondra Partners | 2026-10-26 | manual (no careers page or job feed) |
+| Valuation Research Corporation | 2026-10-26 | manual (ADP portal, no feed) |

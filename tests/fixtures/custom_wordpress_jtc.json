@@ -1,0 +1,68 @@
+{
+ "posts": [
+  {
+   "id": 11376,
+   "date": "2026-10-26T06:36:37",
+   "link": "https://www.jtcgroup.com/jobs/senior-administrator-investor-aml-kyc-3010/",
+   "title": {
+    "rendered": "Senior Administrator &#8211; Investor AML/KYC"
+   },
+   "excerpt": {
+    "rendered": "<p>ROLE OVERVIEW PURPOSE OF JOB Based in Mauritius, the Senior Administrator supports JTCL in carrying out defined investor due diligence, ongoing monitoring and investor registration activities under an approved intra-group&hellip;</p>\n",
+    "protected": false
+   },
+   "job_department": [
+    52
+   ],
+   "location": [
+    273
+   ]
+  },
+  {
+   "id": 11363,
+   "date": "2026-10-23T11:36:58",
+   "link": "https://www.jtcgroup.com/jobs/senior-administrator-business-development-marketing-3087/",
+   "title": {
+    "rendered": "Senior Administrator &#8211; Business Development &amp; Marketing"
+   },
+   "excerpt": {
+    "rendered": "<p>ROLE OVERVIEW PURPOSE OF JOB An exciting role to complement a growing and dynamic Institutional Capital Services (ICS) Business Development &amp; Marketing (BD&amp;M) team. The position is varied and provides&hellip;</p>\n",
+    "protected": false
+   },
+   "job_department": [
+    75
+   ],
+   "location": [
+    275
+   ]
+  },
+  {
+   "id": 11343,
+   "date": "2026-10-20T21:35:33",
+   "link": "https://www.jtcgroup.com/jobs/senior-administrator-client-services-3004/",
+   "title": {
+    "rendered": "Senior Administrator &#8211; Client Services"
+   },
+   "excerpt": {
+    "rendered": "<p>ROLE OVERVIEW PURPOSE OF JOB This position is performed as a Sr. Administrator.&nbsp; The candidate will be responsible for providing support to Client Services team members, excellent customer service, working&hellip;</p>\n",
+    "protected": false
+   },
+   "job_department": [
+    52
+   ],
+   "location": [
+    276
+   ]
+  }
+ ],
+ "terms": {
+  "location": {
+   "273": "Mauritius - Ebene",
+   "275": "Jersey - St Helier"
+  },
+  "job_department": {
+   "75": "Business Development &amp; Marketing",
+   "52": "Fund Services"
+  }
+ }
+}
