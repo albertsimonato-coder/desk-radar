@@ -175,6 +175,17 @@ and commits `data/radar.sqlite`, `docs/index.html` and `docs/new.html` if they c
 Setup once: push the repo, enable GitHub Pages from the `docs/` folder on the default branch,
 and (optionally) add `ANTHROPIC_API_KEY` as a repository secret.
 
+## Evening routine: 20 new employers a day
+
+A scheduled cloud agent (a Claude Code "routine", managed at https://claude.ai/code/routines)
+runs every evening at 18:30 UTC (19:30 Rome in winter). It takes any rows you left in
+`wishlist.md`, then the next rows of `backlog.md` (a queue ordered by closeness to the target
+career path: valuation, private equity, corporate finance, sales and trading, commodities, then
+the rest), finds each employer's portal, adds it to `companies.yaml`, scans it once, records the
+result in `docs/inventory.md` and the "Processed" table of `backlog.md`, and pushes to `main`.
+The morning scan then picks the new employers up. The full prompt is in
+`docs/routine-add-employers.md`; edit `backlog.md` to steer what gets added next.
+
 ## Etiquette
 
 Employers are fetched in parallel (8 at a time), but never more than one request per second
