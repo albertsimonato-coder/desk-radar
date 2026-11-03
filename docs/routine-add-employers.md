@@ -15,7 +15,8 @@ to the tracker, verify each one, record what you found, and push to `main`.
 
 ## Setup
 
-1. `pip install -e ".[dev]"`, then `pytest -q` (offline, fixtures only) and
+1. `python -m pip install -e ".[dev]"` (plain `pip` may belong to a different Python here),
+   then `python -m pytest -q` (offline, fixtures only) and
    `python -m radar check`. Both must pass before you start and before you commit.
 2. Read `README.md` (sections "Add a company" and "Etiquette"), the top of `docs/inventory.md`
    (section "How the inventory was done") and the latest "Added on" section of the same file:
