@@ -197,3 +197,32 @@ Manual (no feed reachable without a browser):
 | Crowe UK | crowe.com answers 403. | Bot protection. |
 | Valuation Research Corporation | ADP Workforce Now portal. | JavaScript only; tiny London office. |
 | Robey Warshaw, Zaoui & Co, Ondra Partners | No careers page or job feed (Robey Warshaw and Ondra sites did not answer). | Headhunter-driven hiring. |
+
+## Added on 2026-11-03 (evening routine)
+
+First 20 rows of `backlog.md` (tier 1: valuation, transaction services, M&A advisory); the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Deloitte UK | sitemap (listing only) | apply.deloitte.co.uk/UKCareers/SearchJobs, 20 per page, `fetch_pages: false` | ~594 | 3 | Avature; title, office, service line and date from the listing. Mostly non-finance roles. |
+| KPMG UK | sitemap | experienced.kpmgcareers.co.uk/sitemap.xml, London URLs only | 121 London (190 total) | 0 so far | SuccessFactors; 60 pages opened per run, 61 left for tomorrow. Graduate vacancies are on www.kpmgcareers.co.uk (not read). |
+| KPMG Italia | sitemap | careers.kpmg.it/sitemap.xml | 222 | 27 so far | SuccessFactors; 140 pages left for the next runs. |
+| KPMG Luxembourg | sitemap | careers.kpmg.lu/sitemap.xml | 54 | 18 | SuccessFactors. |
+| Deloitte Luxembourg | sitemap | jobs.deloitte.lu/sitemap.xml | 82 | 19 | SuccessFactors; 3 pages left for the next run. |
+| Evelyn Partners | smartrecruiters | company `EvelynPartners` | 17 | 9 | |
+| Stout | workday | `stout` / wd5 / `Stout-Careers` | 41 | 2 | Mostly US roles. |
+| Alantra | workday | `alantra` / wd3 / `Alantra` | 51 | 3 | |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| PwC UK, PwC Italia, PwC Luxembourg | pwc.co.uk, pwc.com and pwc.lu answer 403 to plain clients. | Bot protection. |
+| Teneo, Clearwater International | teneo.com and clearwatercf.com answer 403. | Bot protection. |
+| Deloitte Italia | Avature portal deloittecm.avature.net shared with Greece and others; 418 roles, 6 per page, no location in the listing. | Could be done with ~70 requests per run plus job pages; not worth it blind. |
+| FTI Consulting | Coveo JavaScript search; jobs.fticonsulting.com not reachable. | Needs a browser. |
+| AlixPartners | Client-rendered job search; no ATS link in page source, no job URLs in sitemaps. | Needs a browser. |
+| Accuracy | Openings embedded from app-accuracy.bc.direct (JavaScript app). | Needs a browser or the app's XHR. |
+| Eight Advisory | eight-advisory.com fails the TLS handshake (unrecognized name). | Retry later. |
+| Interpath Advisory | Workable account `interpath-advisory` exists, but Workable answered 429 (Retry-After ~24h) to this egress IP. | Retry tomorrow and switch to `workable`. |
+| Oaklins | Network of independent firms; no central vacancy list. | Per-member-firm sites. |

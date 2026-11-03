@@ -22,26 +22,6 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Deloitte UK | advisory | 1 | Financial advisory: valuation, M&A, transaction services |
-| PwC UK | advisory | 1 | Deals practice |
-| KPMG UK | advisory | 1 | Deal advisory |
-| Deloitte Italia | advisory | 1 | |
-| PwC Italia | advisory | 1 | |
-| KPMG Italia | advisory | 1 | |
-| PwC Luxembourg | advisory | 2 | |
-| KPMG Luxembourg | advisory | 2 | |
-| Deloitte Luxembourg | advisory | 2 | |
-| FTI Consulting | advisory | 1 | Corporate finance & restructuring, economic consulting |
-| AlixPartners | advisory | 1 | |
-| Accuracy | advisory | 1 | Paris-based financial advisory, Milan and London offices |
-| Eight Advisory | advisory | 1 | |
-| Teneo | advisory | 2 | Financial advisory arm |
-| Interpath Advisory | advisory | 2 | |
-| Evelyn Partners | advisory | 2 | |
-| Stout | advisory | 2 | Valuation advisory, London office |
-| Alantra | boutique | 1 | Madrid HQ, Milan and London |
-| Oaklins | boutique | 2 | |
-| Clearwater International | boutique | 2 | |
 | DC Advisory | boutique | 1 | |
 | Baird | boutique | 1 | Global investment banking, London |
 | Stifel | bank | 1 | Includes Stifel Europe |
@@ -508,3 +488,23 @@ registry" means it was there before.
 
 | Company | Added on | Result |
 |---|---|---|
+| Deloitte UK | 2026-11-03 | live (Avature listing, ~594 roles, 3 in scope) |
+| PwC UK | 2026-11-03 | manual (403 to non-browser clients) |
+| KPMG UK | 2026-11-03 | live (SuccessFactors sitemap, London pages only; 61 pages still to open) |
+| Deloitte Italia | 2026-11-03 | manual (Avature portal shared with Greece etc., no location in listing) |
+| PwC Italia | 2026-11-03 | manual (403 to non-browser clients) |
+| KPMG Italia | 2026-11-03 | live (SuccessFactors sitemap, 27 in scope so far) |
+| PwC Luxembourg | 2026-11-03 | manual (403 to non-browser clients) |
+| KPMG Luxembourg | 2026-11-03 | live (SuccessFactors sitemap, 18 in scope) |
+| Deloitte Luxembourg | 2026-11-03 | live (SuccessFactors sitemap, 19 in scope) |
+| FTI Consulting | 2026-11-03 | manual (Coveo JavaScript search, no feed) |
+| AlixPartners | 2026-11-03 | manual (client-rendered job search, no feed) |
+| Accuracy | 2026-11-03 | manual (JavaScript app on bc.direct, no feed) |
+| Eight Advisory | 2026-11-03 | manual (site fails TLS handshake from plain clients) |
+| Teneo | 2026-11-03 | manual (403 to non-browser clients) |
+| Interpath Advisory | 2026-11-03 | manual (Workable account found but rate-limited with 429; retry later) |
+| Evelyn Partners | 2026-11-03 | live (SmartRecruiters, 17 postings, 9 in scope) |
+| Stout | 2026-11-03 | live (Workday, 41 postings, 2 in scope) |
+| Alantra | 2026-11-03 | live (Workday, 51 postings, 3 in scope) |
+| Oaklins | 2026-11-03 | manual (network of local firms, no vacancy list) |
+| Clearwater International | 2026-11-03 | manual (403 to non-browser clients) |

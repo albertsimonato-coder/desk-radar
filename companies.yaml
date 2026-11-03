@@ -1470,3 +1470,201 @@
   careers_url: https://jobs.enel.com/en_US/careers/home
   active: true
   notes: Avature portal whose job search is rendered client-side (the SearchJobs page is an empty shell, no sitemap or feed); only a featured-jobs carousel is in the HTML.
+
+# ---- Added 2026-11-03 (evening routine) ---------------------------------------
+# Valuation, transaction services, M&A advisory
+- name: Deloitte UK
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_url_pattern: "https://apply.deloitte.co.uk/UKCareers/SearchJobs/?jobRecordsPerPage=20&jobOffset={offset}"
+    index_step: 20
+    index_max_pages: 40
+    index_item_split: '<article class="article article--result'
+    index_item_regex: 'href="(?P<url>https://apply\.deloitte\.co\.uk/UKCareers/JobDetail/[^"]+)"> ?(?P<title>[^<]+?) ?</a>.*?<span> ?(?P<location>[^<]+?) ?</span> <span> ?(?P<department>[^<]+?) ?</span>(?:.*?<span> ?Posted: (?P<posted>[^<]+?) ?</span>)?'
+    fetch_pages: false
+    job_url_pattern: "apply\\.deloitte\\.co\\.uk/UKCareers/JobDetail"
+  careers_url: https://apply.deloitte.co.uk/UKCareers/
+  active: true
+  notes: Avature portal, ~600 openings across all service lines; title, office, service line and date read from the listing pages, job pages never opened.
+
+- name: PwC UK
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.pwc.co.uk/careers.html
+  active: true
+  notes: pwc.co.uk answers 403 to every non-browser request; the job search could not be inspected.
+
+- name: KPMG UK
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://experienced.kpmgcareers.co.uk/sitemap.xml
+    job_url_pattern: "experienced\\.kpmgcareers\\.co\\.uk/job/London-"
+    max_new_pages: 60
+  careers_url: https://www.kpmgcareers.co.uk/
+  active: true
+  notes: Experienced-hire SuccessFactors site with a sitemap (~120 London URLs of ~200). Graduate and student vacancies are on www.kpmgcareers.co.uk/search/vacancies (server-rendered, not read).
+
+- name: Deloitte Italia
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://deloittecm.avature.net/en_US/careers/SearchJobs/
+  active: true
+  notes: Avature portal shared by the Central Mediterranean member firm (Italy, Greece, ...); 418 roles at 6 per page and the listing carries no location, so it would need ~70 requests a run plus job pages. Not worth scanning blind.
+
+- name: PwC Italia
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.pwc.com/it/it/careers.html
+  active: true
+  notes: pwc.com answers 403 to non-browser clients; the job search could not be inspected.
+
+- name: KPMG Italia
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.kpmg.it/sitemap.xml
+    job_url_pattern: "careers\\.kpmg\\.it/job/"
+    max_new_pages: 60
+  careers_url: https://careers.kpmg.it/
+  active: true
+  notes: SuccessFactors career site with a sitemap; Deal Advisory, valuation and finance roles in Milano and Roma among others.
+
+- name: PwC Luxembourg
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.pwc.lu/en/careers.html
+  active: true
+  notes: pwc.lu answers 403 to non-browser clients; the job search could not be inspected.
+
+- name: KPMG Luxembourg
+  priority: 2
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.kpmg.lu/sitemap.xml
+    job_url_pattern: "careers\\.kpmg\\.lu/job/"
+    max_new_pages: 60
+  careers_url: https://careers.kpmg.lu/search/
+  active: true
+  notes: SuccessFactors career site with a sitemap; all roles are Luxembourg.
+
+- name: Deloitte Luxembourg
+  priority: 2
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.deloitte.lu/sitemap.xml
+    job_url_pattern: "jobs\\.deloitte\\.lu/job/"
+    max_new_pages: 60
+  careers_url: https://jobs.deloitte.lu/
+  active: true
+  notes: SuccessFactors career site with a sitemap; all roles are Luxembourg.
+
+- name: FTI Consulting
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.fticonsulting.com/careers
+  active: true
+  notes: Job search is a Coveo JavaScript app on fticonsulting.com; the underlying ATS host (jobs.fticonsulting.com) is not reachable and no feed was found.
+
+- name: AlixPartners
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.alixpartners.com/careers/job-search/
+  active: true
+  notes: Job search is a client-rendered component with no ATS link in the page source and no job URLs in the sitemaps.
+
+- name: Accuracy
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.accuracy.com/careers/joining-accuracy/
+  active: true
+  notes: Openings are embedded from app-accuracy.bc.direct (a JavaScript app, no JSON feed found); Paris, Milan and London offices.
+
+- name: Eight Advisory
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.eight-advisory.com/en/careers
+  active: true
+  notes: eight-advisory.com fails the TLS handshake from plain clients (unrecognized name); no careers page could be read.
+
+- name: Teneo
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.teneo.com/careers/
+  active: true
+  notes: teneo.com answers 403 to non-browser clients.
+
+- name: Interpath Advisory
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.interpath.com/careers/
+  active: true
+  notes: Workable account `interpath-advisory` (linked from interpath.com/careers, widget API answered once) but Workable rate-limited this egress IP (429, Retry-After ~24h). Switch to workable with account interpath-advisory once it answers.
+
+- name: Evelyn Partners
+  priority: 2
+  group: advisory
+  ats: smartrecruiters
+  config:
+    company: EvelynPartners
+  careers_url: https://www.evelyn.com/careers/
+  active: true
+  notes: SmartRecruiters board linked from evelyn.com/careers; mostly wealth management, a few finance and advisory roles.
+
+- name: Stout
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: stout
+    wd: wd5
+    site: Stout-Careers
+  careers_url: https://www.stout.com/en/careers
+  active: true
+  notes: Workday board (also split into Stout-Experienced-Careers and Stout-Student-Careers). Valuation advisory; mostly US roles, London office is small.
+
+# Boutiques
+- name: Alantra
+  priority: 1
+  group: boutique
+  ats: workday
+  config:
+    tenant: alantra
+    wd: wd3
+    site: Alantra
+  careers_url: https://www.alantra.com/careers/apply/
+  active: true
+  notes: Workday board linked from alantra.com/careers/apply; Madrid, Milan, London, Paris and others.
+
+- name: Oaklins
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.oaklins.com/us/en/careers/
+  active: true
+  notes: Network of independent local M&A firms; the global site has no vacancy list, each member firm hires through its own site.
+
+- name: Clearwater International
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.clearwatercf.com/careers
+  active: true
+  notes: clearwatercf.com answers 403 to non-browser clients.
