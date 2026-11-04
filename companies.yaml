@@ -1668,3 +1668,186 @@
   careers_url: https://www.clearwatercf.com/careers
   active: true
   notes: clearwatercf.com answers 403 to non-browser clients.
+
+# ---- Added 2026-11-04 (evening routine) ---------------------------------------
+# Valuation, transaction services, M&A advisory
+- name: William Blair
+  priority: 1
+  group: boutique
+  ats: greenhouse
+  config:
+    board: williamblair
+  careers_url: https://www.williamblair.com/careers
+  active: true
+  notes: Greenhouse board (~48 roles, mostly Chicago and New York, a handful in London). The careers page also links an Avature site.
+
+- name: Piper Sandler
+  priority: 2
+  group: boutique
+  ats: workday
+  config:
+    tenant: pipersandler
+    wd: wd501
+    site: Piper_Sandler_Careers
+  careers_url: https://www.pipersandler.com/careers
+  active: true
+  notes: Workday (data-centre wd501), about 50 roles, mostly US.
+
+- name: Harris Williams
+  priority: 2
+  group: boutique
+  ats: workday
+  config:
+    tenant: pnc
+    wd: wd5
+    site: HarrisWilliams
+  careers_url: https://www.harriswilliams.com/careers
+  active: true
+  notes: Runs on PNC's Workday tenant (site HarrisWilliams); about 13 roles, mostly US 2027 M&A associate hiring.
+
+- name: Stifel
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers-stifel.icims.com/sitemap.xml
+    job_url_pattern: "careers-stifel\\.icims\\.com/jobs/\\d+/"
+    max_new_pages: 60
+  careers_url: https://www.stifel.com/careers
+  active: true
+  notes: iCIMS portal (sitemap lists ~143 jobs, mostly US; Stifel Europe roles are few). The SmartRecruiters company "stifel" holds only a stale 2016 posting.
+
+- name: Berenberg
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://careers.berenberg.com/search-our-jobs?location=
+    job_url_pattern: "careers\\.berenberg\\.com/search-our-jobs/"
+    max_new_pages: 120
+  careers_url: https://careers.berenberg.com/search-our-jobs
+  active: true
+  notes: Concrete CMS portal read from the search-our-jobs listing (the sitemap is stale); job pages carry JSON-LD (location is a postcode there, so the city comes from the URL / title). ~94 jobs, mostly Hamburg and Frankfurt, some London.
+
+# Manual (no feed readable without a browser)
+- name: DC Advisory
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.dcadvisory.com/careers/
+  active: true
+  notes: dcadvisory.com answers 403 to non-browser clients; no job feed could be inspected.
+
+- name: Baird
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.bairdcareers.com/
+  active: true
+  notes: bairdcareers.com answers 403 to non-browser clients.
+
+- name: Raymond James
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.raymondjames.com/careers
+  active: true
+  notes: raymondjames.com answers 403 to non-browser clients; the job site fails TLS or times out from plain clients.
+
+- name: Cavendish
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.cavendish.com/current-vacancies/
+  active: true
+  notes: Static WordPress vacancy page with one or two hand-made pages, no feed or JSON-LD list (2 roles today).
+
+- name: Arma Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.armapartners.com/careers/open-vacancies/
+  active: true
+  notes: Vacancies page says no open vacancies; WordPress page, no feed. Spontaneous applications by email.
+
+- name: Fenchurch Advisory
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://fenchurchadvisory.com/careers/
+  active: true
+  notes: Careers page is a culture page with no vacancy list; applications by email.
+
+- name: Equita
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.equita.eu/it/careers.html
+  active: true
+  notes: Careers page has an empty open-positions block and a spontaneous-application email; no feed.
+
+- name: Vitale & Co
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.vitale-co.com/en/careers.html
+  active: true
+  notes: Careers page is text only with a contact email; no vacancy list.
+
+- name: Fineurop Soditic
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.fineurop-soditic.it
+  active: true
+  notes: Site fails TLS verification / proxy error from plain clients; no careers page reached.
+
+- name: Klecha & Co
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.klecha.com
+  active: true
+  notes: Site unreachable from plain clients (proxy 502); no careers page reached.
+
+- name: Ethica Group
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://ethica-group.com/
+  active: true
+  notes: Site has no careers page (/en/careers.html is a 404); the ethicagroup.com domain is parked.
+
+- name: Intermonte
+  priority: 1
+  group: boutique
+  ats: manual
+  careers_url: https://www.intermonte.it/
+  active: true
+  notes: No careers page on intermonte.it (Banca Generali group); hiring goes through the parent.
+
+- name: Banca Akros
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.bancaakros.it/lavora-con-noi/
+  active: true
+  notes: Banco BPM group, the page links only a spontaneous-application form on gruppobancobpm.intervieweb.it, no public vacancy feed or key found.
+
+- name: Banca Profilo
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bancaprofilo.it/lavora-con-noi/
+  active: true
+  notes: WordPress page with a single teaser card (Junior Private Banker) and an application form; no feed.
+
+- name: KKR
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.kkr.com/careers/career-opportunities
+  active: true
+  notes: Greenhouse embed on the page, but the board token is not exposed (script reads for=stage); no feed found without a browser.

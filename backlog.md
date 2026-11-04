@@ -22,34 +22,11 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| DC Advisory | boutique | 1 | |
-| Baird | boutique | 1 | Global investment banking, London |
-| Stifel | bank | 1 | Includes Stifel Europe |
-| William Blair | boutique | 1 | |
-| Raymond James | boutique | 2 | |
-| Piper Sandler | boutique | 2 | |
-| Harris Williams | boutique | 2 | |
-| Cavendish | boutique | 2 | UK mid-market |
-| Arma Partners | boutique | 2 | |
-| Fenchurch Advisory | boutique | 2 | |
-| Equita | boutique | 1 | Milan: investment banking and sales & trading |
-| Vitale & Co | boutique | 1 | Milan |
-| Fineurop Soditic | boutique | 2 | Milan |
-| Klecha & Co | boutique | 2 | Milan / London |
-| Ethica Group | boutique | 2 | Milan |
-| Intermonte | boutique | 1 | Milan: sales & trading and investment banking |
-| Banca Akros | bank | 1 | Banco BPM group CIB |
-| Banca Profilo | bank | 2 | |
-| Deutsche Numis | bank | 1 | |
-| Berenberg | bank | 1 | London: S&T, research, investment banking |
-| Greenhill (Mizuho) | boutique | 2 | May sit on the Mizuho portal |
-| Natixis Partners | boutique | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| KKR | asset_manager | 1 | |
 | TPG | asset_manager | 1 | |
 | Bain Capital | asset_manager | 1 | |
 | CVC Capital Partners | asset_manager | 1 | Luxembourg, London, Milan |
@@ -508,3 +485,26 @@ registry" means it was there before.
 | Alantra | 2026-11-03 | live (Workday, 51 postings, 3 in scope) |
 | Oaklins | 2026-11-03 | manual (network of local firms, no vacancy list) |
 | Clearwater International | 2026-11-03 | manual (403 to non-browser clients) |
+| DC Advisory | 2026-11-04 | manual (403 to non-browser clients) |
+| Baird | 2026-11-04 | manual (403 to non-browser clients) |
+| Stifel | 2026-11-04 | live (iCIMS sitemap, ~143 jobs mostly US, 0 in scope so far; 83 pages still to open) |
+| William Blair | 2026-11-04 | live (Greenhouse, 48 postings, 3 in scope) |
+| Raymond James | 2026-11-04 | manual (403 to non-browser clients) |
+| Piper Sandler | 2026-11-04 | live (Workday wd501, 51 postings, 9 in scope) |
+| Harris Williams | 2026-11-04 | live (Workday on PNC's tenant, 13 postings, 7 in scope) |
+| Cavendish | 2026-11-04 | manual (static vacancy page, no feed) |
+| Arma Partners | 2026-11-04 | manual (no open vacancies, no feed) |
+| Fenchurch Advisory | 2026-11-04 | manual (no vacancy list, email applications) |
+| Equita | 2026-11-04 | manual (empty open-positions block, email applications) |
+| Vitale & Co | 2026-11-04 | manual (no vacancy list, email applications) |
+| Fineurop Soditic | 2026-11-04 | manual (site unreachable (TLS error / 502)) |
+| Klecha & Co | 2026-11-04 | manual (site unreachable (502)) |
+| Ethica Group | 2026-11-04 | manual (no careers page) |
+| Intermonte | 2026-11-04 | manual (no careers page) |
+| Banca Akros | 2026-11-04 | manual (Banco BPM Intervieweb form only, no feed) |
+| Banca Profilo | 2026-11-04 | manual (single teaser card, no feed) |
+| Deutsche Numis | 2026-11-04 | already in registry (hires on the Deutsche Bank portal, entry Deutsche Bank) |
+| Berenberg | 2026-11-04 | live (search-our-jobs listing, 48 postings, 10 in scope) |
+| Greenhill (Mizuho) | 2026-11-04 | already in registry (greenhill.com now redirects to Mizuho; entry Mizuho EMEA) |
+| Natixis Partners | 2026-11-04 | already in registry (hires via the Natixis portal, entry Natixis) |
+| KKR | 2026-11-04 | manual (Greenhouse embed with hidden board token) |

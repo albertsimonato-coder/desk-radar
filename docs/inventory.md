@@ -226,3 +226,29 @@ Manual (no feed reachable without a browser):
 | Eight Advisory | eight-advisory.com fails the TLS handshake (unrecognized name). | Retry later. |
 | Interpath Advisory | Workable account `interpath-advisory` exists, but Workable answered 429 (Retry-After ~24h) to this egress IP. | Retry tomorrow and switch to `workable`. |
 | Oaklins | Network of independent firms; no central vacancy list. | Per-member-firm sites. |
+
+## Added on 2026-11-04 (evening routine)
+
+First 20 processable rows of `backlog.md` (tier 1 rows 1-18 and Berenberg, plus KKR from tier 2); the wishlist had no new rows. Deutsche Numis, Greenhill (Mizuho) and Natixis Partners are already covered by the Deutsche Bank, Mizuho EMEA and Natixis entries and did not use a slot. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| William Blair | greenhouse | board `williamblair` | 48 | 3 | Mostly Chicago and New York; 6 London roles, 3 in scope. |
+| Piper Sandler | workday | `pipersandler` / wd501 / `Piper_Sandler_Careers` | 51 | 9 | Mostly US; data centre wd501 is on the company page. |
+| Harris Williams | workday | `pnc` / wd5 / `HarrisWilliams` | 13 | 7 | PNC's tenant; 2027 M&A associate hiring. |
+| Stifel | sitemap | careers-stifel.icims.com/sitemap.xml | ~143 | 0 so far | iCIMS; 60 pages opened per run, 83 left, mostly US. SmartRecruiters company `stifel` is a stale 2016 posting. |
+| Berenberg | sitemap (listing) | careers.berenberg.com/search-our-jobs | 48 | 10 | Concrete CMS; the sitemap is stale (404s), so the listing page is harvested; JSON-LD on job pages. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| DC Advisory, Baird, Raymond James | dcadvisory.com, bairdcareers.com and raymondjames.com answer 403 to plain clients. | Bot protection. |
+| Cavendish | Hand-made WordPress vacancy pages (2 roles), no feed. | Small; re-check by hand. |
+| Arma Partners | Vacancies page says none open. | Email applications. |
+| Fenchurch Advisory, Equita, Vitale & Co | No vacancy list, applications by email. | No public feed. |
+| Fineurop Soditic, Klecha & Co | Sites fail TLS or proxy (502) from this egress. | Retry later. |
+| Ethica Group, Intermonte | No careers page found. | Parent / LinkedIn hiring. |
+| Banca Akros | Banco BPM Intervieweb spontaneous-application form only; the vacancy feed key is not public. | Needs the feed key or a browser. |
+| Banca Profilo | One teaser card (Junior Private Banker) and a form. | Small. |
+| KKR | Greenhouse embed on kkr.com/careers/career-opportunities, board token not in the page source (`for=stage`). | Needs a browser. |
