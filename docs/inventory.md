@@ -252,3 +252,30 @@ Manual (no feed reachable without a browser):
 | Banca Akros | Banco BPM Intervieweb spontaneous-application form only; the vacancy feed key is not public. | Needs the feed key or a browser. |
 | Banca Profilo | One teaser card (Junior Private Banker) and a form. | Small. |
 | KKR | Greenhouse embed on kkr.com/careers/career-opportunities, board token not in the page source (`for=stage`). | Needs a browser. |
+
+## Added on 2026-11-05 (evening routine)
+
+First 20 rows of `backlog.md` (tier 2, TPG to Triton Partners); tier 1 was empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter (the run log figure).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| TPG | greenhouse | board `tpgcareers` | 19 | 0 | Fort Worth, New York, remote. |
+| Bain Capital | workday | `baincapital` / wd1 / `External_Public` | 31 | 1 | |
+| EQT | greenhouse | board `eqtpartners` | 13 | 2 | Mostly Stockholm; 3 London roles. |
+| Permira | greenhouse | board `permiraexternalprivate` | 7 | 1 | EU-hosted job pages. |
+| PAI Partners | sitemap | careers.paipartners.com/sitemap.xml | 42 open | 5 | Recruitee; `closed-` slugs excluded; Paris internships. |
+| Partners Group | sitemap | jobs.partnersgroup.com/sitemap.xml | 79 | 11 | SuccessFactors; target-city slugs only (Zug, Zurich, London, Luxembourg, Milan, Paris, Dublin, Geneva). |
+| Intermediate Capital Group (ICG) | workday | `icg` / wd3 / `external_careers` | 15 | 2 | |
+| Triton Partners | workday | `tritonpartners` / wd3 / `External` | 5 | 0 | |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| CVC Capital Partners | No careers page on cvc.com; CVC Credit Partners Workable account answers 429 and shows no openings. | Retry Workable later. |
+| Cinven, Hg, Investindustrial, Charterhouse, Alpha Private Equity | No vacancy list, feed or ATS link on their sites (careers pages 404 or editorial only). | No public feed. |
+| Advent International | Site answers 403 to plain clients. | Bot protection. |
+| Warburg Pincus | ClearCompany portal is JavaScript only; main site 403. | Needs a browser. |
+| Bridgepoint | SmartRecruiters company `Bridgepoint` has 0 postings; site behind a bot challenge. | Switch to `smartrecruiters` when it fills. |
+| Eurazeo | JobTeaser / Cornerstone flow. | Needs a browser. |
+| Clessidra, Ambienta | /lavora and /careers pages have no job list (form only). | No public feed. |

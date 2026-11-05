@@ -27,26 +27,6 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| TPG | asset_manager | 1 | |
-| Bain Capital | asset_manager | 1 | |
-| CVC Capital Partners | asset_manager | 1 | Luxembourg, London, Milan |
-| EQT | asset_manager | 1 | |
-| Permira | asset_manager | 1 | |
-| Cinven | asset_manager | 1 | |
-| Advent International | asset_manager | 1 | |
-| Warburg Pincus | asset_manager | 1 | |
-| Hg | asset_manager | 1 | |
-| Bridgepoint | asset_manager | 1 | |
-| PAI Partners | asset_manager | 1 | |
-| Eurazeo | asset_manager | 1 | |
-| Investindustrial | asset_manager | 1 | London / Milan / Lugano |
-| Clessidra | asset_manager | 1 | Milan |
-| Ambienta | asset_manager | 1 | Milan |
-| Alpha Private Equity | asset_manager | 2 | |
-| Charterhouse Capital Partners | asset_manager | 2 | |
-| Partners Group | asset_manager | 1 | Zug |
-| Intermediate Capital Group (ICG) | asset_manager | 1 | |
-| Triton Partners | asset_manager | 2 | |
 | Nordic Capital | asset_manager | 2 | |
 | General Atlantic | asset_manager | 1 | |
 | Silver Lake | asset_manager | 2 | |
@@ -508,3 +488,23 @@ registry" means it was there before.
 | Greenhill (Mizuho) | 2026-11-04 | already in registry (greenhill.com now redirects to Mizuho; entry Mizuho EMEA) |
 | Natixis Partners | 2026-11-04 | already in registry (hires via the Natixis portal, entry Natixis) |
 | KKR | 2026-11-04 | manual (Greenhouse embed with hidden board token) |
+| TPG | 2026-11-05 | live (Greenhouse, 19 roles, none in scope) |
+| Bain Capital | 2026-11-05 | live (Workday, 31 roles) |
+| CVC Capital Partners | 2026-11-05 | manual (no careers page or feed; CVC Credit Workable 429) |
+| EQT | 2026-11-05 | live (Greenhouse) |
+| Permira | 2026-11-05 | live (Greenhouse, slug permiraexternalprivate) |
+| Cinven | 2026-11-05 | manual (no vacancy list or feed) |
+| Advent International | 2026-11-05 | manual (403 to plain clients) |
+| Warburg Pincus | 2026-11-05 | manual (ClearCompany JavaScript portal, 403 on main site) |
+| Hg | 2026-11-05 | manual (no vacancy list) |
+| Bridgepoint | 2026-11-05 | manual (SmartRecruiters board empty, site behind bot challenge) |
+| PAI Partners | 2026-11-05 | live (Recruitee sitemap) |
+| Eurazeo | 2026-11-05 | manual (JobTeaser / Cornerstone, no feed) |
+| Investindustrial | 2026-11-05 | manual (no careers page) |
+| Clessidra | 2026-11-05 | manual (no job list or feed) |
+| Ambienta | 2026-11-05 | manual (application form only) |
+| Alpha Private Equity | 2026-11-05 | manual (no careers page) |
+| Charterhouse Capital Partners | 2026-11-05 | manual (no careers page) |
+| Partners Group | 2026-11-05 | live (SuccessFactors sitemap, target-city pages) |
+| Intermediate Capital Group (ICG) | 2026-11-05 | live (Workday) |
+| Triton Partners | 2026-11-05 | live (Workday, 5 roles, none in scope) |

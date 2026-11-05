@@ -1851,3 +1851,192 @@
   careers_url: https://www.kkr.com/careers/career-opportunities
   active: true
   notes: Greenhouse embed on the page, but the board token is not exposed (script reads for=stage); no feed found without a browser.
+
+# ---- Added 2026-11-05 (evening routine) ---------------------------------------
+# Private equity, private credit, infrastructure
+- name: TPG
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: tpgcareers
+  careers_url: https://www.tpg.com/careers
+  active: true
+  notes: Greenhouse board (~19 roles, mostly Fort Worth and New York).
+
+- name: Bain Capital
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: baincapital
+    wd: wd1
+    site: External_Public
+  careers_url: https://www.baincapital.com/careers
+  active: true
+  notes: Workday, about 30 roles worldwide.
+
+- name: CVC Capital Partners
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cvc.com/
+  active: true
+  notes: No careers page or feed on cvc.com (404 on /careers); CVC Credit Partners has a Workable account (cvc-credit-partners) but it answered 429 and listed no openings. Retry later.
+
+- name: EQT
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: eqtpartners
+  careers_url: https://eqtgroup.com/about/careers
+  active: true
+  notes: Greenhouse board (13 roles; Stockholm, London, Warsaw).
+
+- name: Permira
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: permiraexternalprivate
+  careers_url: https://www.permira.com/careers
+  active: true
+  notes: Greenhouse board under the odd slug permiraexternalprivate (EU-hosted job pages).
+
+- name: Cinven
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cinven.com/
+  active: true
+  notes: No vacancy list or feed on cinven.com (careers page 404, no ATS link in the source).
+
+- name: Advent International
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.adventinternational.com/careers/
+  active: true
+  notes: adventinternational.com answers 403 to plain HTTP clients.
+
+- name: Warburg Pincus
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://warburgpincus.clearcompany.com/careers
+  active: true
+  notes: ClearCompany portal is JavaScript-only (no job data in the HTML); warburgpincus.com answers 403.
+
+- name: Hg
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://hgcapital.com/join-us
+  active: true
+  notes: join-us page is editorial only, no vacancy list or ATS link; roles are by direct application.
+
+- name: Bridgepoint
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.bridgepointgroup.com/about-us/joining-the-team/other-opportunities
+  active: true
+  notes: SmartRecruiters company Bridgepoint exists but has 0 postings today; the website sits behind a bot challenge. Switch to smartrecruiters if the board fills.
+
+- name: PAI Partners
+  priority: 1
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.paipartners.com/sitemap.xml
+    job_url_pattern: "careers\\.paipartners\\.com/o/(?!closed)"
+    max_new_pages: 40
+  careers_url: https://careers.paipartners.com/
+  active: true
+  notes: Recruitee portal; sitemap includes closed postings (slugs start with closed-) which the pattern skips. Paris internships and London roles.
+
+- name: Eurazeo
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.eurazeo.com/en/talents
+  active: true
+  notes: Roles are published through JobTeaser and a Cornerstone (Csod) flow; no feed readable without a browser.
+
+- name: Investindustrial
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.investindustrial.com/
+  active: true
+  notes: No careers page (404) and no vacancy feed; spontaneous applications only.
+
+- name: Clessidra
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.clessidra.it/lavora
+  active: true
+  notes: Clessidra site has a /lavora page with no job list or feed (proxy 502 on the main domain on first try).
+
+- name: Ambienta
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.ambientasgr.com/careers
+  active: true
+  notes: Careers page is an application form with a role dropdown, no vacancy list or feed.
+
+- name: Alpha Private Equity
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.alphape.com/
+  active: true
+  notes: No careers page or vacancy feed on the site.
+
+- name: Charterhouse Capital Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.charterhouse.co.uk/
+  active: true
+  notes: No careers page or vacancy feed (404 on /careers).
+
+- name: Partners Group
+  priority: 1
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.partnersgroup.com/sitemap.xml
+    job_url_pattern: "jobs\\.partnersgroup\\.com/job/(Zug|Baar|Zurich|London|Luxembourg|Milan|Paris|Dublin|Geneva)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 40
+  careers_url: https://www.partnersgroup.com/en/careers
+  active: true
+  notes: SuccessFactors (jobs2web) sitemap; slug starts with the city so only target-city pages are opened (Zug is the head office).
+
+- name: Intermediate Capital Group (ICG)
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: icg
+    wd: wd3
+    site: external_careers
+  careers_url: https://www.icgam.com/people-and-careers/careers/
+  active: true
+  notes: Workday, about 15 roles worldwide; icgam.com itself answers 403.
+
+- name: Triton Partners
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: tritonpartners
+    wd: wd3
+    site: External
+  careers_url: https://www.triton-partners.com/careers
+  active: true
+  notes: Workday, about 5 roles.
