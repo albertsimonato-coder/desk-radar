@@ -27,26 +27,6 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Nordic Capital | asset_manager | 2 | |
-| General Atlantic | asset_manager | 1 | |
-| Silver Lake | asset_manager | 2 | |
-| Thoma Bravo | asset_manager | 2 | |
-| Oaktree Capital Management | asset_manager | 1 | |
-| Ares Management | asset_manager | 1 | |
-| Brookfield | asset_manager | 1 | |
-| Antin Infrastructure Partners | asset_manager | 1 | Paris / London / Luxembourg |
-| 3i Group | asset_manager | 1 | |
-| Inflexion | asset_manager | 2 | |
-| Livingbridge | asset_manager | 2 | |
-| LDC | asset_manager | 2 | |
-| ECI Partners | asset_manager | 2 | |
-| Montagu | asset_manager | 2 | |
-| Astorg | asset_manager | 1 | Luxembourg / Paris / London |
-| Tikehau Capital | asset_manager | 1 | |
-| Arcmont Asset Management | asset_manager | 2 | |
-| Hayfin Capital Management | asset_manager | 2 | |
-| Blue Owl | asset_manager | 2 | |
-| HPS Investment Partners | asset_manager | 1 | |
 | Sixth Street | asset_manager | 2 | |
 | Golub Capital | asset_manager | 2 | |
 | Fondo Italiano d'Investimento | asset_manager | 1 | Milan |
@@ -508,3 +488,23 @@ registry" means it was there before.
 | Partners Group | 2026-11-05 | live (SuccessFactors sitemap, target-city pages) |
 | Intermediate Capital Group (ICG) | 2026-11-05 | live (Workday) |
 | Triton Partners | 2026-11-05 | live (Workday, 5 roles, none in scope) |
+| Nordic Capital | 2026-11-06 | live (Teamtailor jobs.rss, 4 roles, 0 in scope) |
+| General Atlantic | 2026-11-06 | live (Greenhouse, 14 roles, 0 in scope) |
+| Silver Lake | 2026-11-06 | manual (site 403; Greenhouse page is a talent-database form) |
+| Thoma Bravo | 2026-11-06 | manual (no ATS or job list on careers page) |
+| Oaktree Capital Management | 2026-11-06 | manual (Workday, 52 roles, but adapter collapses ids: country is first bullet field) |
+| Ares Management | 2026-11-06 | manual (site 403, Workday site not public) |
+| Brookfield | 2026-11-06 | live (Workday, 142 roles, 7 in scope) |
+| Antin Infrastructure Partners | 2026-11-06 | live (Teamtailor jobs.rss, 1 role, 0 in scope) |
+| 3i Group | 2026-11-06 | manual (site 403) |
+| Inflexion | 2026-11-06 | manual (no careers page) |
+| Livingbridge | 2026-11-06 | manual (no careers page) |
+| LDC | 2026-11-06 | manual (email applications, no job list) |
+| ECI Partners | 2026-11-06 | manual (no careers page) |
+| Montagu | 2026-11-06 | manual (no careers page) |
+| Astorg | 2026-11-06 | manual (no careers page, proxy error on astorg-partners.com) |
+| Tikehau Capital | 2026-11-06 | live (SmartRecruiters, 1 role, 1 in scope) |
+| Arcmont Asset Management | 2026-11-06 | manual (site unreachable through proxy) |
+| Hayfin Capital Management | 2026-11-06 | manual (Workable account exists but answered 429 tonight; retry) |
+| Blue Owl | 2026-11-06 | manual (site 403, no public ATS found) |
+| HPS Investment Partners | 2026-11-06 | live (Greenhouse, 1 role, 0 in scope) |

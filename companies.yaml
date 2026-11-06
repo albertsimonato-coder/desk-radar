@@ -2040,3 +2040,181 @@
   careers_url: https://www.triton-partners.com/careers
   active: true
   notes: Workday, about 5 roles.
+
+# ---- Added 2026-11-06 (evening routine) ---------------------------------------
+# Private equity, private credit, infrastructure
+- name: Nordic Capital
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    rss_url: https://career.nordiccapital.com/jobs.rss
+    job_url_pattern: "career\\.nordiccapital\\.com/jobs/"
+  careers_url: https://career.nordiccapital.com/
+  active: true
+  notes: Teamtailor career site; jobs.rss lists every opening (title, link, description) in one request.
+
+- name: General Atlantic
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: generalatlantic
+  careers_url: https://www.generalatlantic.com/careers/
+  active: true
+  notes: Greenhouse board (~14 roles worldwide, includes London).
+
+- name: Silver Lake
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://job-boards.greenhouse.io/silverlakecareerpage
+  active: true
+  notes: silverlake.com answers 403 to plain clients; the Greenhouse page is a general talent-database form and the boards API answers 404 for the slug.
+
+- name: Thoma Bravo
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.thomabravo.com/about/careers
+  active: true
+  notes: Careers page has no ATS link or job list in the HTML (JavaScript or form only).
+
+- name: Oaktree Capital Management
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://oaktree.wd1.myworkdayjobs.com/Oaktree
+  active: true
+  notes: Workday (tenant oaktree, wd1, site Oaktree, 52 roles) but the first bullet field of every posting is the country, so the workday adapter collapses all postings to 2. Switch back to workday once ids are read from the path.
+
+- name: Ares Management
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.aresmgmt.com/careers
+  active: true
+  notes: aresmgmt.com answers 403 to plain clients; Workday site name not public (guessed tenants return 422/404).
+
+- name: Brookfield
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: brookfield
+    wd: wd5
+    site: brookfield
+  careers_url: https://www.brookfield.com/careers
+  active: true
+  notes: Workday, whole-of-Brookfield board (~140 roles); brookfield.com itself answers 403, site name found by probing.
+
+- name: Antin Infrastructure Partners
+  priority: 1
+  group: asset_manager
+  ats: sitemap
+  config:
+    rss_url: https://antininfrastructurepartners-1655458195.teamtailor.com/jobs.rss
+    job_url_pattern: "teamtailor\\.com/jobs/"
+  careers_url: https://www.antin-ip.com/careers
+  active: true
+  notes: Teamtailor (linked from antin-ip.com/careers); jobs.rss lists every opening. Paris, London, Luxembourg internships.
+
+- name: 3i Group
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.3i.com/careers/
+  active: true
+  notes: 3i.com answers 403 to plain clients; ATS not visible.
+
+- name: Inflexion
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.inflexion.com/
+  active: true
+  notes: No careers page (404) and no ATS link on the site.
+
+- name: Livingbridge
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.livingbridge.com/
+  active: true
+  notes: Careers pages 404; no ATS link on the site.
+
+- name: LDC
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.ldc.co.uk/careers/
+  active: true
+  notes: Editorial careers page, applications by email (careers@ldc.co.uk); no job list or ATS.
+
+- name: ECI Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.ecipartners.com/
+  active: true
+  notes: Careers URLs 404; no ATS link on the site.
+
+- name: Montagu
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.montagu.com/
+  active: true
+  notes: Careers URLs 404; no ATS link on the site.
+
+- name: Astorg
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.astorg.com/
+  active: true
+  notes: Careers URLs 404 and astorg-partners.com fails through the proxy; no ATS found.
+
+- name: Tikehau Capital
+  priority: 1
+  group: asset_manager
+  ats: smartrecruiters
+  config:
+    company: tikehaucapital
+  careers_url: https://www.tikehaucapital.com/en/careers
+  active: true
+  notes: SmartRecruiters company slug found by probing (4 postings).
+
+- name: Arcmont Asset Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.arcmontam.com/careers
+  active: true
+  notes: arcmontam.com fails through the proxy (ProxyError); no ATS found.
+
+- name: Hayfin Capital Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://apply.workable.com/hayfin-capital-management/
+  active: true
+  notes: Workable account hayfin-capital-management (about 5 London roles) but Workable answered 429 to every request from this egress tonight. Retry the workable adapter later; hayfin.com answers 403.
+
+- name: Blue Owl
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.blueowl.com/careers
+  active: true
+  notes: blueowl.com answers 403 to plain clients; no public ATS board found.
+
+- name: HPS Investment Partners
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: hpsinvestmentpartners
+  careers_url: https://www.hpspartners.com/careers
+  active: true
+  notes: Greenhouse board found by probing (1 posting today).

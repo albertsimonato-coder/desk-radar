@@ -279,3 +279,29 @@ Manual (no feed reachable without a browser):
 | Bridgepoint | SmartRecruiters company `Bridgepoint` has 0 postings; site behind a bot challenge. | Switch to `smartrecruiters` when it fills. |
 | Eurazeo | JobTeaser / Cornerstone flow. | Needs a browser. |
 | Clessidra, Ambienta | /lavora and /careers pages have no job list (form only). | No public feed. |
+
+## Added on 2026-11-06 (evening routine)
+
+First 20 rows of `backlog.md` (tier 2, Nordic Capital to HPS Investment Partners); tier 1 was empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter (the run log figure).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Nordic Capital | sitemap (RSS) | career.nordiccapital.com/jobs.rss | 4 | 0 | Teamtailor; feed read directly. Frankfurt / Stockholm internships. |
+| General Atlantic | greenhouse | board `generalatlantic` | 14 | 0 | |
+| Brookfield | workday | `brookfield` / wd5 / `brookfield` | 142 | 7 | Whole-of-Brookfield board. |
+| Antin Infrastructure Partners | sitemap (RSS) | antininfrastructurepartners-1655458195.teamtailor.com/jobs.rss | 1 | 0 | Teamtailor; feed read directly. |
+| Tikehau Capital | smartrecruiters | company `tikehaucapital` | 1 | 1 | |
+| HPS Investment Partners | greenhouse | board `hpsinvestmentpartners` | 1 | 0 | |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Oaktree Capital Management | Workday `oaktree` / wd1 / `Oaktree`, 52 roles. The workday adapter takes the first bullet field as the job id, which is the country here, so every posting collapses to 2. | Adapter fix: derive id from the path when bullet fields repeat; then switch to `workday`. |
+| Hayfin Capital Management | Workable account `hayfin-capital-management` (~5 London roles); Workable answered 429 to every request tonight. | Retry the `workable` adapter later. |
+| Silver Lake | silverlake.com 403; Greenhouse page `silverlakecareerpage` is a talent-database form, boards API 404. | Bot protection / no list. |
+| Ares Management, 3i Group, Blue Owl | Sites answer 403 to plain clients; no ATS link visible. | Bot protection. |
+| Thoma Bravo | Careers page has no ATS link or job list. | No public feed. |
+| Inflexion, Livingbridge, ECI Partners, Montagu, Astorg | Careers URLs 404; no ATS link on the sites. | No public feed. |
+| LDC | Editorial careers page, applications by email. | No public feed. |
+| Arcmont Asset Management | arcmontam.com fails through the proxy. | Retry later. |
