@@ -27,26 +27,6 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Sixth Street | asset_manager | 2 | |
-| Golub Capital | asset_manager | 2 | |
-| Fondo Italiano d'Investimento | asset_manager | 1 | Milan |
-| Quadrivio Group | asset_manager | 2 | Milan |
-| Wise Equity | asset_manager | 2 | Milan |
-| NB Renaissance | asset_manager | 2 | Milan |
-| F2i | asset_manager | 1 | Milan infrastructure |
-| Mandarin Capital Partners | asset_manager | 2 | |
-| Green Arrow Capital | asset_manager | 2 | |
-| Xenon Private Equity | asset_manager | 2 | |
-| Tamburi Investment Partners | asset_manager | 2 | |
-| Apax Partners | asset_manager | 1 | |
-| Coller Capital | asset_manager | 2 | |
-| Pantheon | asset_manager | 2 | |
-| HarbourVest | asset_manager | 2 | |
-| LGT Capital Partners | asset_manager | 2 | Pfäffikon |
-| Capital Dynamics | asset_manager | 2 | |
-| Unigestion | asset_manager | 2 | Geneva |
-| Hamilton Lane | asset_manager | 2 | |
-| StepStone Group | asset_manager | 2 | |
 | Vista Equity Partners | asset_manager | 2 | |
 | Francisco Partners | asset_manager | 2 | |
 | Searchlight Capital | asset_manager | 2 | |
@@ -508,3 +488,23 @@ registry" means it was there before.
 | Hayfin Capital Management | 2026-11-06 | manual (Workable account exists but answered 429 tonight; retry) |
 | Blue Owl | 2026-11-06 | manual (site 403, no public ATS found) |
 | HPS Investment Partners | 2026-11-06 | live (Greenhouse, 1 role, 0 in scope) |
+| Sixth Street | 2026-11-07 | live (Workday, 18 roles, 0 in scope) |
+| Golub Capital | 2026-11-07 | manual (site 403, Workday site name not public) |
+| Fondo Italiano d'Investimento | 2026-11-07 | manual (no careers page or job list) |
+| Quadrivio Group | 2026-11-07 | manual (no careers page or job list) |
+| Wise Equity | 2026-11-07 | manual (no careers page) |
+| NB Renaissance | 2026-11-07 | manual (no vacancy list; only Neuberger Berman Workday tenant link) |
+| F2i | 2026-11-07 | manual (no careers page found; f2i.it unreachable) |
+| Mandarin Capital Partners | 2026-11-07 | manual (site unreachable through proxy) |
+| Green Arrow Capital | 2026-11-07 | manual (site unreachable through proxy) |
+| Xenon Private Equity | 2026-11-07 | manual (no careers page) |
+| Tamburi Investment Partners | 2026-11-07 | manual (editorial work-with-us page, no job list) |
+| Apax Partners | 2026-11-07 | live (Lever board exists, 0 roles today) |
+| Coller Capital | 2026-11-07 | manual (Teamtailor RSS answers but is empty today; switch to sitemap when roles appear) |
+| Pantheon | 2026-11-07 | live (Greenhouse `pantheonpublic`, 7 roles, 1 in scope) |
+| HarbourVest | 2026-11-07 | live (Workday, 77 roles, 6 in scope) |
+| LGT Capital Partners | 2026-11-07 | live (Workday, 8 in scope) |
+| Capital Dynamics | 2026-11-07 | live (Greenhouse, 10 roles, 1 in scope) |
+| Unigestion | 2026-11-07 | manual (application form only, no job list) |
+| Hamilton Lane | 2026-11-07 | live (Workday, 50 roles, 5 in scope) |
+| StepStone Group | 2026-11-07 | live (Greenhouse, 62 roles, 1 in scope) |

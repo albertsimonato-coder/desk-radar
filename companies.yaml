@@ -2218,3 +2218,190 @@
   careers_url: https://www.hpspartners.com/careers
   active: true
   notes: Greenhouse board found by probing (1 posting today).
+
+# ---- Added 2026-11-07 (evening routine) ---------------------------------------
+# Private equity, private credit, infrastructure
+- name: Sixth Street
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: sixthstreet
+    wd: wd1
+    site: sixthstreetcareers
+  careers_url: https://www.sixthstreet.com/careers
+  active: true
+  notes: Workday board linked from the careers page (18 roles, mostly Dallas / US).
+
+- name: Golub Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.golubcapital.com/careers
+  active: true
+  notes: golubcapital.com answers 403 to plain clients; Workday tenant golub (wd1) exists but the site name is not public (422 on guesses). Bot protection.
+
+- name: Fondo Italiano d'Investimento
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.fondoitaliano.it/
+  active: true
+  notes: No careers page or vacancy list found (/lavora-con-noi/ 404; WordPress REST exposes no jobs type).
+
+- name: Quadrivio Group
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.quadriviogroup.com/it
+  active: true
+  notes: No careers page or job list on the site.
+
+- name: Wise Equity
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.wiseequity.com/
+  active: true
+  notes: No careers page (/careers 404); no job list on the site.
+
+- name: NB Renaissance
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.nbrenaissance.com/
+  active: true
+  notes: No vacancy list on the site; only a link to the Neuberger Berman Workday tenant (nb, wd1) with no public site name.
+
+- name: F2i
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://f2isgr.it/en/index.html
+  active: true
+  notes: No careers page or job list found on f2isgr.it; f2i.it does not resolve through the proxy.
+
+- name: Mandarin Capital Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://mandarincp.com/
+  active: true
+  notes: mandarincp.com does not resolve through the proxy; no careers page reached.
+
+- name: Green Arrow Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.greenarrow-capital.com/
+  active: true
+  notes: Site unreachable through the proxy; no careers page reached.
+
+- name: Xenon Private Equity
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.xenonpe.com/
+  active: true
+  notes: No careers page (/careers 404); no job list or ATS link.
+
+- name: Tamburi Investment Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://tipspa.it/en/work-with-us/
+  active: true
+  notes: Work-with-us page is editorial / spontaneous applications only; no job list or feed.
+
+- name: Apax Partners
+  priority: 1
+  group: asset_manager
+  ats: lever
+  config:
+    company: apax
+  careers_url: https://www.apax.com/people/careers/
+  active: true
+  notes: Lever board `apax` exists (jobs.lever.co/apax) but listed 0 postings tonight; will pick up roles when posted.
+
+- name: Coller Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.collereqt.com/careers/
+  active: true
+  notes: Teamtailor site (collercapital-1660725598.teamtailor.com); jobs.rss answers 200 but lists 0 openings tonight, so the sitemap adapter errors. Switch to sitemap with rss_url when roles appear.
+
+- name: Pantheon
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: pantheonpublic
+  careers_url: https://www.pantheon.com/careers
+  active: true
+  notes: Greenhouse board `pantheonpublic` (the `pantheon` slug is an unrelated company); 7 roles, London / New York / Singapore. pantheon.com itself answers 502.
+
+- name: HarbourVest
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: harbourvest
+    wd: wd5
+    site: HVP
+  careers_url: https://www.harbourvest.com/us/en/about-harbourvest/careers
+  active: true
+  notes: Workday board linked from the careers page (77 roles).
+
+- name: LGT Capital Partners
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: lgtcp
+    wd: wd502
+    site: lgtcpcurrentvacancies
+  careers_url: https://www.lgtcp.com/jobs
+  active: true
+  notes: Workday board linked from lgtcp.com/jobs (Pfäffikon, Dublin, London).
+
+- name: Capital Dynamics
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: capitaldynamicsag
+  careers_url: https://www.capdyn.com/about-us/careers/
+  active: true
+  notes: Greenhouse board linked from the careers page (10 roles, mostly London).
+
+- name: Unigestion
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.unigestion.com/home/join-unigestion
+  active: true
+  notes: Join page links to an application form only; no public job list or feed found.
+
+- name: Hamilton Lane
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: hamiltonlane
+    wd: wd108
+    site: search
+  careers_url: https://www.hamiltonlane.com/en-us/careers
+  active: true
+  notes: Workday board linked from the careers page (50 roles).
+
+- name: StepStone Group
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: stepstone
+  careers_url: https://www.stepstonegroup.com/current-opportunities/
+  active: true
+  notes: Greenhouse board embedded on the careers page (62 roles; London, Zurich, Dublin graduate / intern programmes).
+

@@ -305,3 +305,29 @@ Manual (no feed reachable without a browser):
 | Inflexion, Livingbridge, ECI Partners, Montagu, Astorg | Careers URLs 404; no ATS link on the sites. | No public feed. |
 | LDC | Editorial careers page, applications by email. | No public feed. |
 | Arcmont Asset Management | arcmontam.com fails through the proxy. | Retry later. |
+
+## Added on 2026-11-07 (evening routine)
+
+First 20 rows of `backlog.md` (tier 2, Sixth Street to StepStone Group); tier 1 was empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter (the run log figure).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Sixth Street | workday | `sixthstreet` / wd1 / `sixthstreetcareers` | 18 | 0 | Mostly Dallas / US. |
+| Apax Partners | lever | company `apax` | 0 | 0 | Board exists, empty tonight. |
+| Pantheon | greenhouse | board `pantheonpublic` | 7 | 1 | The `pantheon` slug is an unrelated company. |
+| HarbourVest | workday | `harbourvest` / wd5 / `HVP` | 77 | 6 | |
+| LGT Capital Partners | workday | `lgtcp` / wd502 / `lgtcpcurrentvacancies` | ~20 | 8 | Pfäffikon, Dublin, London. |
+| Capital Dynamics | greenhouse | board `capitaldynamicsag` | 10 | 1 | |
+| Hamilton Lane | workday | `hamiltonlane` / wd108 / `search` | 50 | 5 | |
+| StepStone Group | greenhouse | board `stepstone` | 62 | 1 | Board embedded on the careers page; London, Zurich, Dublin programmes. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Golub Capital | Site 403; Workday tenant `golub` (wd1) exists but the site name is unknown (422 on guesses). | Bot protection / site name. |
+| Coller Capital | Teamtailor `jobs.rss` answers 200 but is empty, so the sitemap adapter errors. | Switch to `sitemap` with `rss_url` when roles appear. |
+| Unigestion | Join page has an application form only. | No public feed. |
+| NB Renaissance | No vacancy list; only a Neuberger Berman Workday tenant link (`nb`, wd1, site unknown). | No public feed. |
+| Fondo Italiano d'Investimento, Quadrivio Group, Wise Equity, Xenon Private Equity, Tamburi Investment Partners | No careers page or job list (404, editorial or spontaneous-application page only). | No public feed. |
+| F2i, Mandarin Capital Partners, Green Arrow Capital | Sites unreachable through the proxy (F2i only via f2isgr.it, no careers page). | Retry later. |
