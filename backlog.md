@@ -27,31 +27,11 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Vista Equity Partners | asset_manager | 2 | |
-| Francisco Partners | asset_manager | 2 | |
-| Searchlight Capital | asset_manager | 2 | |
-| Stirling Square | asset_manager | 2 | |
-| Exponent Private Equity | asset_manager | 2 | |
-| Epiris | asset_manager | 2 | |
-| Pollen Street | asset_manager | 2 | |
-| AnaCap | asset_manager | 2 | |
-| CDP Equity | asset_manager | 1 | Cassa Depositi e Prestiti group |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Eni | corporate | 1 | Finance, treasury; Eni Trading & Shipping is in tier 5 |
-| Leonardo | corporate | 1 | |
-| Stellantis | corporate | 1 | |
-| Ferrari | corporate | 2 | |
-| Prada Group | corporate | 2 | |
-| EssilorLuxottica | corporate | 2 | |
-| Pirelli | corporate | 2 | |
-| TIM (Telecom Italia) | corporate | 2 | |
-| A2A | corporate | 1 | Energy trading desk in Milan |
-| Snam | corporate | 2 | |
-| Terna | corporate | 2 | |
 | Italgas | corporate | 2 | |
 | Poste Italiane | corporate | 2 | |
 | Generali | corporate | 1 | Group finance, investments |
@@ -508,3 +488,23 @@ registry" means it was there before.
 | Unigestion | 2026-11-07 | manual (application form only, no job list) |
 | Hamilton Lane | 2026-11-07 | live (Workday, 50 roles, 5 in scope) |
 | StepStone Group | 2026-11-07 | live (Greenhouse, 62 roles, 1 in scope) |
+| Vista Equity Partners | 2026-11-08 | manual (site 403, bot protection) |
+| Francisco Partners | 2026-11-08 | manual (careers link is a Getro portfolio job board, JavaScript, no feed) |
+| Searchlight Capital | 2026-11-08 | manual (site 403, bot protection) |
+| Stirling Square | 2026-11-08 | manual (no careers page or job list) |
+| Exponent Private Equity | 2026-11-08 | manual (no careers page or job list) |
+| Epiris | 2026-11-08 | manual (site 403, bot protection) |
+| Pollen Street | 2026-11-08 | manual (no careers page found) |
+| AnaCap | 2026-11-08 | manual (no careers page or job list) |
+| CDP Equity | 2026-11-08 | manual (Radware bot challenge on cdp.it) |
+| Eni | 2026-11-08 | manual (Oracle HCM on jobs.eni.com, TLS chain fails verification through the proxy; retry later) |
+| Leonardo | 2026-11-08 | live (Workday, 849 roles, 253 in scope) |
+| Stellantis | 2026-11-08 | manual (site 403; WordPress careers site with JavaScript search, no job feed) |
+| Ferrari | 2026-11-08 | live (SuccessFactors sitemap, Italian and target-city pages only, 1 role, 1 in scope) |
+| Prada Group | 2026-11-08 | live (SuccessFactors sitemap, target-city pages only, 26 roles, 26 in scope) |
+| EssilorLuxottica | 2026-11-08 | manual (JavaScript job search, no feed found) |
+| Pirelli | 2026-11-08 | manual (JavaScript job search, no feed found) |
+| TIM (Telecom Italia) | 2026-11-08 | manual (JavaScript job search, no feed found) |
+| A2A | 2026-11-08 | manual (Oracle HCM API blocked by WAF, 403) |
+| Snam | 2026-11-08 | manual (no careers page reachable) |
+| Terna | 2026-11-08 | manual (no ATS link or feed found) |

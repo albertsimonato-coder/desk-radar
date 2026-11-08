@@ -2405,3 +2405,178 @@
   active: true
   notes: Greenhouse board embedded on the careers page (62 roles; London, Zurich, Dublin graduate / intern programmes).
 
+
+# ---- Added 2026-11-08 (evening routine) ---------------------------------------
+# Private equity, private credit, infrastructure
+- name: Vista Equity Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.vistaequitypartners.com/careers/
+  active: true
+  notes: vistaequitypartners.com answers 403 to plain clients. Bot protection.
+
+- name: Francisco Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.franciscopartners.com/about/recruitment
+  active: true
+  notes: Careers link points to a Getro job board (careers.franciscopartners.com) that lists portfolio-company jobs worldwide, not the firm's own roles; JavaScript app, no feed.
+
+- name: Searchlight Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.searchlightcap.com/careers
+  active: true
+  notes: searchlightcap.com answers 403 to plain clients. Bot protection.
+
+- name: Stirling Square
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.stirlingsquare.com/
+  active: true
+  notes: No careers page or job list on the site (/careers 404).
+
+- name: Exponent Private Equity
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.exponentpe.com/
+  active: true
+  notes: No careers page or job list on the site (/careers 404).
+
+- name: Epiris
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.epiris.co.uk/careers
+  active: true
+  notes: epiris.co.uk answers 403 to plain clients. Bot protection.
+
+- name: Pollen Street
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.pollenstreetgroup.com/
+  active: true
+  notes: No careers page found (/careers 404); WordPress REST exposes only oEmbed.
+
+- name: AnaCap
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.anacap.com/
+  active: true
+  notes: No careers page or job list on the site (/careers 404).
+
+- name: CDP Equity
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cdp.it/sitointernet/it/cdp_equity.page
+  active: true
+  notes: cdp.it sits behind a Radware bot-manager challenge for plain clients; no feed reachable.
+
+# Corporate finance and treasury inside corporates
+- name: Eni
+  priority: 1
+  group: corporate
+  ats: manual
+  careers_url: https://www.eni.com/en-IT/careers/job-opportunities.html
+  active: true
+  notes: Oracle HCM site on jobs.eni.com (site CX_1004, linked from the careers page) but its TLS chain fails verification through the proxy, so the API is not reachable. Retry later; switch to custom/oracle if it verifies.
+
+- name: Leonardo
+  priority: 1
+  group: corporate
+  ats: workday
+  config:
+    tenant: leonardocompany
+    wd: wd3
+    site: LeonardoCareerSite
+  careers_url: https://www.leonardo.com/en/careers/work-with-us
+  active: true
+  notes: Workday board linked from the careers page (~860 roles, mostly Italy).
+
+- name: Stellantis
+  priority: 1
+  group: corporate
+  ats: manual
+  careers_url: https://careers.stellantis.com/
+  active: true
+  notes: stellantis.com answers 403; careers.stellantis.com is a WordPress site whose REST API exposes no job post type and whose job search is a JavaScript app.
+
+- name: Ferrari
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.ferrari.com/sitemap.xml
+    job_url_pattern: "jobs\\.ferrari\\.com/job/(Maranello|Milano|Modena|London|Paris|Zurich|Geneva|Lugano|Luxembourg|Dublin)-"
+    max_new_pages: 40
+  careers_url: https://jobs.ferrari.com/
+  active: true
+  notes: SuccessFactors career site (~25 jobs); the slug starts with the city, so only Italian and target-city pages are opened.
+
+- name: Prada Group
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.pradagroup.com/sitemap.xml
+    job_url_pattern: "jobs\\.pradagroup\\.com/job/(Milano|London|Paris|Zurich|Geneva|Lugano|Luxembourg|Dublin)-"
+    max_new_pages: 60
+  careers_url: https://jobs.pradagroup.com/
+  active: true
+  notes: SuccessFactors career site (~240 jobs worldwide); the slug starts with the city, so only target-city pages are opened.
+
+- name: EssilorLuxottica
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.essilorluxottica.com/en/careers/
+  active: true
+  notes: Careers page only links out to an unnamed JavaScript job search; no ATS marker or feed found in the page source.
+
+- name: Pirelli
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://corporate.pirelli.com/corporate/en-ww/careers/careers
+  active: true
+  notes: Careers page has no ATS link or feed in the source (JavaScript job search).
+
+- name: TIM (Telecom Italia)
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.gruppotim.it/it/lavora-con-noi.html
+  active: true
+  notes: Lavora con noi page has no ATS link or feed in the source (JavaScript job search).
+
+- name: A2A
+  priority: 1
+  group: corporate
+  ats: manual
+  careers_url: https://www.gruppoa2a.it/en/careers
+  active: true
+  notes: Oracle HCM site hdeh.fa.em3.oraclecloud.com (site CX_1) linked from the careers page, but the REST API answers 403 (Oracle WAF4SaaS block) to plain clients.
+
+- name: Snam
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.snam.it/it/home.html
+  active: true
+  notes: No careers page reachable (/careers and /lavora-con-noi 404).
+
+- name: Terna
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.terna.it/it/lavora-con-noi
+  active: true
+  notes: Lavora con noi page has no ATS link or feed in the source.

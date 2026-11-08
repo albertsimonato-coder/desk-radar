@@ -331,3 +331,27 @@ Manual (no feed reachable without a browser):
 | NB Renaissance | No vacancy list; only a Neuberger Berman Workday tenant link (`nb`, wd1, site unknown). | No public feed. |
 | Fondo Italiano d'Investimento, Quadrivio Group, Wise Equity, Xenon Private Equity, Tamburi Investment Partners | No careers page or job list (404, editorial or spontaneous-application page only). | No public feed. |
 | F2i, Mandarin Capital Partners, Green Arrow Capital | Sites unreachable through the proxy (F2i only via f2isgr.it, no careers page). | Retry later. |
+
+## Added on 2026-11-08 (evening routine)
+
+Rest of tier 2 (Vista Equity Partners to CDP Equity) and the first eleven rows of tier 3 (Eni to Terna); tier 1 was empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned; "In scope" is what survived the country / function / employment-type filter (the run log figure).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Leonardo | workday | `leonardocompany` / wd3 / `LeonardoCareerSite` | 849 | 253 | Found on leonardo.com/en/careers/work-with-us. |
+| Ferrari | sitemap | jobs.ferrari.com/sitemap.xml, city-prefixed slugs | 1 | 1 | SuccessFactors; only Italian and target-city pages opened (~25 jobs, mostly US). |
+| Prada Group | sitemap | jobs.pradagroup.com/sitemap.xml, city-prefixed slugs | 26 | 26 | SuccessFactors; ~240 jobs worldwide, target-city pages only (a few more backfill next run). |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Vista Equity Partners, Searchlight Capital, Epiris | Sites answer 403 to plain clients. | Bot protection. |
+| Francisco Partners | Careers link is a Getro job board covering portfolio companies, JavaScript app. | No public feed. |
+| Stirling Square, Exponent Private Equity, AnaCap, Pollen Street | No careers page or job list (404). | No public feed. |
+| CDP Equity | cdp.it behind a Radware bot challenge. | Bot protection. |
+| Eni | Oracle HCM on jobs.eni.com (site CX_1004); TLS chain fails verification through the proxy. | Retry later, then `custom`/`oracle`. |
+| A2A | Oracle HCM (hdeh.fa.em3.oraclecloud.com, CX_1); REST API blocked by WAF (403). | Bot protection. |
+| Stellantis | Site 403; WordPress careers site with JavaScript search and no job post type. | No public feed. |
+| EssilorLuxottica, Pirelli, TIM, Terna | Careers pages have no ATS link or feed in the source. | JavaScript search. |
+| Snam | No careers page reachable (404). | No public feed. |
