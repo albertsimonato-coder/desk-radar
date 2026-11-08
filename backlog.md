@@ -32,57 +32,8 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Italgas | corporate | 2 | |
-| Poste Italiane | corporate | 2 | |
-| Generali | corporate | 1 | Group finance, investments |
-| Unipol | corporate | 2 | |
-| Edison | corporate | 1 | Energy trading in Milan |
-| Saipem | corporate | 2 | |
-| Tenaris | corporate | 2 | |
-| Moncler | corporate | 2 | |
-| Campari Group | corporate | 2 | |
-| Barilla | corporate | 2 | |
-| Ferrero | corporate | 2 | Luxembourg HQ |
-| Nestlé | corporate | 2 | Vevey treasury |
-| Unilever | corporate | 2 | |
-| Diageo | corporate | 2 | |
-| Vodafone | corporate | 2 | |
-| BAT | corporate | 2 | |
-| GSK | corporate | 2 | |
-| AstraZeneca | corporate | 2 | |
-| Rolls-Royce | corporate | 2 | |
-| BAE Systems | corporate | 2 | |
-| Airbus | corporate | 2 | |
-| LVMH | corporate | 2 | |
-| L'Oréal | corporate | 2 | |
-| Danone | corporate | 2 | |
-| Schneider Electric | corporate | 2 | |
-| Novartis | corporate | 2 | |
-| Roche | corporate | 2 | |
-| ABB | corporate | 2 | |
-| Richemont | corporate | 2 | |
-| Swiss Re | corporate | 1 | |
-| Zurich Insurance | corporate | 1 | |
-| Cassa Depositi e Prestiti | corporate | 1 | |
-| SACE | corporate | 2 | |
-| Mundys (Atlantia) | corporate | 2 | |
-| Fincantieri | corporate | 2 | |
-| Iveco Group | corporate | 2 | |
-| CNH Industrial | corporate | 2 | |
-| Prysmian | corporate | 2 | |
-| Nexi | corporate | 2 | |
-| Webuild | corporate | 2 | |
-| Hera | corporate | 2 | Energy trading |
-| Iren | corporate | 2 | Energy trading |
-| Ryanair | corporate | 2 | Dublin treasury |
-| CRH | corporate | 2 | |
-| Kerry Group | corporate | 2 | |
-| Flutter Entertainment | corporate | 2 | |
-| ArcelorMittal | corporate | 2 | Luxembourg HQ |
-| SES | corporate | 2 | Luxembourg |
-| Allianz | corporate | 2 | |
-| AXA | corporate | 2 | |
-| Munich Re | corporate | 2 | |
+
+_Dropped on 2026-11-08: the user wants M&A and investment banking, not finance roles inside corporates. Do not refill this tier._
 
 ## Tier 4: sales and trading, brokers, exchanges, market infrastructure
 
@@ -497,14 +448,14 @@ registry" means it was there before.
 | Pollen Street | 2026-11-08 | manual (no careers page found) |
 | AnaCap | 2026-11-08 | manual (no careers page or job list) |
 | CDP Equity | 2026-11-08 | manual (Radware bot challenge on cdp.it) |
-| Eni | 2026-11-08 | manual (Oracle HCM on jobs.eni.com, TLS chain fails verification through the proxy; retry later) |
-| Leonardo | 2026-11-08 | live (Workday, 849 roles, 253 in scope) |
-| Stellantis | 2026-11-08 | manual (site 403; WordPress careers site with JavaScript search, no job feed) |
-| Ferrari | 2026-11-08 | live (SuccessFactors sitemap, Italian and target-city pages only, 1 role, 1 in scope) |
-| Prada Group | 2026-11-08 | live (SuccessFactors sitemap, target-city pages only, 26 roles, 26 in scope) |
-| EssilorLuxottica | 2026-11-08 | manual (JavaScript job search, no feed found) |
-| Pirelli | 2026-11-08 | manual (JavaScript job search, no feed found) |
-| TIM (Telecom Italia) | 2026-11-08 | manual (JavaScript job search, no feed found) |
-| A2A | 2026-11-08 | manual (Oracle HCM API blocked by WAF, 403) |
-| Snam | 2026-11-08 | manual (no careers page reachable) |
-| Terna | 2026-11-08 | manual (no ATS link or feed found) |
+| Eni | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (Oracle HCM on jobs.eni.com, TLS chain fails verification through the proxy; retry later)) |
+| Leonardo | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: live (Workday, 849 roles, 253 in scope)) |
+| Stellantis | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (site 403; WordPress careers site with JavaScript search, no job feed)) |
+| Ferrari | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: live (SuccessFactors sitemap, Italian and target-city pages only, 1 role, 1 in scope)) |
+| Prada Group | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: live (SuccessFactors sitemap, target-city pages only, 26 roles, 26 in scope)) |
+| EssilorLuxottica | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (JavaScript job search, no feed found)) |
+| Pirelli | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (JavaScript job search, no feed found)) |
+| TIM (Telecom Italia) | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (JavaScript job search, no feed found)) |
+| A2A | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (Oracle HCM API blocked by WAF, 403)) |
+| Snam | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (no careers page reachable)) |
+| Terna | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (no ATS link or feed found)) |
