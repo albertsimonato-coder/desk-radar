@@ -2479,3 +2479,227 @@
   careers_url: https://www.cdp.it/sitointernet/it/cdp_equity.page
   active: true
   notes: cdp.it sits behind a Radware bot-manager challenge for plain clients; no feed reachable.
+
+# ---- Added 2026-11-09 (evening routine) ---------------------------------------
+# Sales and trading, brokers, exchanges, market infrastructure
+- name: BNY
+  priority: 1
+  group: bank
+  ats: custom
+  config:
+    kind: oracle
+    host: eofe.fa.us2.oraclecloud.com
+    site: CX_3001
+  careers_url: https://www.bny.com/corporate/global/en/about-us/careers.html
+  active: true
+  notes: Oracle HCM Cloud site BNY-Careers read through its REST API.
+
+- name: State Street
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: statestreet
+    wd: wd1
+    site: Global
+    applied_facets:
+      Location_Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://careers.statestreet.com/global/en
+  active: true
+  notes: Workday behind a Phenom front page; country facet keeps ~115 of ~1160 roles.
+
+- name: Northern Trust
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: ntrs
+    wd: wd1
+    site: northerntrust
+    applied_facets:
+      locationCountry: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://www.northerntrust.com/united-states/careers
+  active: true
+  notes: Workday (~640 roles worldwide, mostly US/India/Limerick); country facet is locationCountry.
+
+- name: Scotiabank
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    rss_url: https://jobs.scotiabank.com/sitemap.xml
+    job_url_pattern: "jobs\\.scotiabank\\.com/job/(London|Dublin)-"
+  careers_url: https://jobs.scotiabank.com
+  active: true
+  notes: SuccessFactors (Jobs2Web) site whose sitemap.xml is a large RSS feed (~1300 roles, mostly Canada); only London and Dublin links kept.
+
+- name: CIBC
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: cibc
+    wd: wd3
+    site: search
+    applied_facets:
+      Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://cibc.wd3.myworkdayjobs.com/search
+  active: true
+  notes: Workday (~590 roles, almost all Canada/US); country facet keeps the handful in the UK.
+
+- name: BMO Capital Markets
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: bmo
+    wd: wd3
+    site: External
+    applied_facets:
+      Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://jobs.bmo.com/
+  active: true
+  notes: Workday for the whole of BMO (~1000 roles, Canada/US); country facet keeps the European ones.
+
+- name: ANZ
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.anz.com/sitemap.xml
+    job_url_pattern: "careers\\.anz\\.com/job/(London|Paris|Dublin|Zurich|Geneva|Milan|Luxembourg)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+  careers_url: https://careers.anz.com/
+  active: true
+  notes: SuccessFactors sitemap (~150 roles, mostly Australia/NZ/India); only target-city pages (London) are opened.
+
+- name: Commerzbank
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.commerzbank.com/sitemap.xml
+    job_url_pattern: "ac=jobad&id="
+    max_new_pages: 60
+  careers_url: https://jobs.commerzbank.com/
+  active: true
+  notes: beesite portal; sitemap lists ~470 job pages with JSON-LD (mostly Germany/Poland/Bulgaria), opened 60 per run; the scope filter drops those outside the target countries.
+
+- name: Danske Bank
+  priority: 2
+  group: bank
+  ats: custom
+  config:
+    kind: oracle
+    host: ejqi.fa.ocs.oraclecloud.eu
+    site: CX_1001
+  careers_url: https://danskebank.com/careers
+  active: true
+  notes: Oracle HCM Cloud (~120 roles, mostly Nordic and India).
+
+- name: DNB
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://jobb.dnb.no/sitemap.xml
+    job_url_pattern: "jobb\\.dnb\\.no/job/(London|Luxembourg|Dublin|Paris|Milan|Zurich|Geneva|Oslo)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 40
+  careers_url: https://jobb.dnb.no/
+  active: true
+  notes: SuccessFactors sitemap; target-city pages plus Oslo head office (keeps the source alive). Nearly all roles are Norwegian.
+
+- name: ABN AMRO
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://www.werkenbijabnamro.nl/sitemap.vacancy.xml
+    job_url_pattern: "werkenbijabnamro\\.nl/vacature/"
+    max_new_pages: 40
+  careers_url: https://www.werkenbijabnamro.nl/en/vacancies
+  active: true
+  notes: Own vacancy sitemap; ~all roles in the Netherlands, so few survive the scope filter.
+
+- name: RBI (Raiffeisen Bank International)
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.rbinternational.com/sitemap.xml
+    job_url_pattern: "jobs\\.rbinternational\\.com/job/(London|Milan|Luxembourg|Paris|Zurich|Dublin|Wien)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 40
+  careers_url: https://jobs.rbinternational.com/
+  active: true
+  notes: SuccessFactors sitemap (~100 roles, mostly Vienna); target cities plus Wien to keep the source alive.
+
+- name: SMBC Group EMEA
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://careersemea.smbcgroup.com/sitemap.xml
+    job_url_pattern: "careersemea\\.smbcgroup\\.com/job/(London|Dublin|Paris|Milan|Luxembourg|Zurich|Geneva)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 60
+  careers_url: https://careersemea.smbcgroup.com/
+  active: true
+  notes: SuccessFactors sitemap (~190 roles; London 96, Dublin 40, Paris 19); target-city pages only.
+
+- name: Bank of China (UK)
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bankofchina.com/uk/en/
+  active: true
+  notes: "No careers page: the UK site redirects to boc.cn and bankofchina.co.uk fails TLS verification."
+
+- name: ICBC Standard Bank
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.icbcstandard.com/career/find-your-new-job/our-vacant-positions
+  active: true
+  notes: icbcstandard.com and icbcstandardbank.com answer 403 to plain clients.
+
+- name: Erste Group
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.erstegroup.com/en/career/positions-offered
+  active: true
+  notes: Vacancies are a JavaScript SAP SuccessFactors job-board app (cfapps hana.ondemand.com) with no feed; jobs.erstegroup.com unreachable through the proxy.
+
+- name: SEB
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://sebgroup.com/career
+  active: true
+  notes: Careers page only; vacancy search is on a separate portal that fails through the proxy (502), no feed found.
+
+- name: KBC
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.kbc.com/en/joining-us.html
+  active: true
+  notes: Country-by-country local portals (kbc.be/jobs, jobs.cbc.be); Belgian roles, no feed found.
+
+- name: Daiwa Capital Markets Europe
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.uk.daiwacm.com/careers
+  active: true
+  notes: Careers page lists no vacancies and links to no ATS.
+
+- name: Investec
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.investec.com/en_gb/welcome-to-investec/Careers/vacancies.html
+  active: true
+  notes: investec.com answers 403 to plain clients; rotational graduate programmes paused per their FAQ.

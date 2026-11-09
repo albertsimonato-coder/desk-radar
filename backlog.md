@@ -39,26 +39,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| BNY | bank | 1 | |
-| State Street | bank | 2 | |
-| Northern Trust | bank | 2 | |
-| Scotiabank | bank | 1 | Global Banking and Markets, London |
-| CIBC | bank | 2 | |
-| BMO Capital Markets | bank | 2 | |
-| ANZ | bank | 2 | |
-| Commerzbank | bank | 1 | |
-| Danske Bank | bank | 2 | |
-| SEB | bank | 2 | |
-| DNB | bank | 2 | |
-| KBC | bank | 2 | |
-| ABN AMRO | bank | 1 | |
-| Erste Group | bank | 2 | |
-| Raiffeisen Bank International | bank | 2 | |
-| Bank of China (UK) | bank | 2 | |
-| ICBC Standard Bank | bank | 1 | London commodities and FICC |
-| SMBC Group EMEA | bank | 1 | |
-| Daiwa Capital Markets Europe | bank | 2 | |
-| Investec | bank | 1 | |
 | Close Brothers | bank | 2 | Winterflood Securities |
 | Cantor Fitzgerald | bank | 1 | |
 | BGC Group | bank | 1 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | A2A | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (Oracle HCM API blocked by WAF, 403)) |
 | Snam | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (no careers page reachable)) |
 | Terna | 2026-11-08 | removed 2026-11-08 (corporate finance out of scope; was: manual (no ATS link or feed found)) |
+| BNY | 2026-11-09 | live (21 in scope) |
+| State Street | 2026-11-09 | live (14 in scope) |
+| Northern Trust | 2026-11-09 | live (34 in scope) |
+| Scotiabank | 2026-11-09 | live (13 in scope) |
+| CIBC | 2026-11-09 | live (0 in scope) |
+| BMO Capital Markets | 2026-11-09 | live (0 in scope) |
+| ANZ | 2026-11-09 | live (1 in scope) |
+| Commerzbank | 2026-11-09 | live (5 in scope) |
+| Danske Bank | 2026-11-09 | live (0 in scope) |
+| SEB | 2026-11-09 | manual (careers page only) |
+| DNB | 2026-11-09 | live (0 in scope) |
+| KBC | 2026-11-09 | manual (local per-country portals (kbc.be/jobs, jobs.cbc.be), belgian roles, no feed) |
+| ABN AMRO | 2026-11-09 | live (11 in scope) |
+| Erste Group | 2026-11-09 | manual (vacancies are a javascript sap job-board app) |
+| Raiffeisen Bank International | 2026-11-09 | live (0 in scope) |
+| Bank of China (UK) | 2026-11-09 | manual (uk site redirects to boc.cn, bankofchina.co.uk fails tls) |
+| ICBC Standard Bank | 2026-11-09 | manual (both domains answer 403 to plain clients) |
+| SMBC Group EMEA | 2026-11-09 | live (14 in scope) |
+| Daiwa Capital Markets Europe | 2026-11-09 | manual (careers page lists no vacancies and links to no ats) |
+| Investec | 2026-11-09 | manual (403 to plain clients) |

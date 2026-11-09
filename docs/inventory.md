@@ -344,3 +344,35 @@ Manual (no feed reachable without a browser):
 | Francisco Partners | Careers link is a Getro job board covering portfolio companies, JavaScript app. | No public feed. |
 | Stirling Square, Exponent Private Equity, AnaCap, Pollen Street | No careers page or job list (404). | No public feed. |
 | CDP Equity | cdp.it behind a Radware bot challenge. | Bot protection. |
+
+## Added on 2026-11-09 (evening routine)
+
+First 20 rows of `backlog.md` (tier 4, BNY to Investec); tiers 1-3 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source returned before scope (approximate where noted); "In scope" is the run-log figure.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| BNY | custom (oracle) | `eofe.fa.us2.oraclecloud.com` / `CX_3001` | 21 | 21 | Oracle HCM REST API. |
+| State Street | workday | `statestreet` / wd1 / `Global`, Location_Country facet | ~118 | 14 | Of ~1160 worldwide. |
+| Northern Trust | workday | `ntrs` / wd1 / `northerntrust`, locationCountry facet | ~107 | 34 | Mostly Limerick. |
+| Scotiabank | sitemap (rss_url) | sitemap.xml is an RSS feed; London|Dublin links | 43 | 13 | 1293 items worldwide, mostly Canada. |
+| CIBC | workday | `cibc` / wd3 / `search`, Country facet | 2 | 0 | Technology / legal roles dropped by scope. |
+| BMO Capital Markets | workday | `bmo` / wd3 / `External`, Country facet | 0 | 0 | No role in the six countries tonight (board is Canada/US only). |
+| ANZ | sitemap | `careers.anz.com` sitemap, target-city pages | ~4 | 1 | London pages. |
+| Commerzbank | sitemap | `jobs.commerzbank.com` sitemap (jobad) | 60 opened of 472 | 5 | 380 pages left for later runs. |
+| Danske Bank | custom (oracle) | `ejqi.fa.ocs.oraclecloud.eu` / `CX_1001` | 120 | 0 | Nordic and India roles, all out of scope tonight. |
+| DNB | sitemap | `jobb.dnb.no` sitemap, target cities + Oslo | 2 | 0 | Norwegian roles only. |
+| ABN AMRO | sitemap | `werkenbijabnamro.nl/sitemap.vacancy.xml` | 40 opened of ~140 | 11 | 102 pages left; mostly NL. |
+| RBI (Raiffeisen Bank International) | sitemap | `jobs.rbinternational.com` sitemap, target cities + Wien | 36 | 0 | Vienna roles only. |
+| SMBC Group EMEA | sitemap | `careersemea.smbcgroup.com` sitemap, target cities | 60 opened of ~110 | 14 | 96 pages left; London 96, Dublin 40, Paris 19 in sitemap. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Bank of China (UK) | UK site redirects to boc.cn, bankofchina.co.uk fails TLS. | No careers page. |
+| ICBC Standard Bank | Both domains answer 403 to plain clients. | Bot protection. |
+| Erste Group | Vacancies are a JavaScript SAP job-board app; jobs.erstegroup.com 502 through the proxy. | No public feed. |
+| SEB | Careers page only; vacancy portal unreachable (502). | No public feed. |
+| KBC | Local per-country portals (kbc.be/jobs, jobs.cbc.be), Belgian roles, no feed. | No public feed. |
+| Daiwa Capital Markets Europe | Careers page lists no vacancies and links to no ATS. | No public feed. |
+| Investec | 403 to plain clients; rotational graduate programmes paused. | Bot protection. |
