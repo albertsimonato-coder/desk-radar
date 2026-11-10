@@ -39,26 +39,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Close Brothers | bank | 2 | Winterflood Securities |
-| Cantor Fitzgerald | bank | 1 | |
-| BGC Group | bank | 1 | |
-| Tradition (Compagnie Financière Tradition) | bank | 1 | |
-| ODDO BHF | bank | 1 | |
-| Kepler Cheuvreux | bank | 1 | |
-| Banco BPM | bank | 1 | |
-| BPER Banca | bank | 2 | |
-| Credem | bank | 2 | |
-| Banca Mediolanum | bank | 2 | |
-| FinecoBank | bank | 2 | |
-| Banca Generali | bank | 2 | |
-| Banca Ifis | bank | 2 | |
-| illimity | bank | 2 | |
-| Vontobel | bank | 1 | Zurich |
-| EFG International | bank | 2 | |
-| Mirabaud | bank | 2 | Geneva |
-| Bank Syz | bank | 2 | |
-| Zürcher Kantonalbank | bank | 1 | |
-| Raiffeisen Switzerland | bank | 2 | |
 | Banque Internationale à Luxembourg | bank | 1 | |
 | Spuerkeess | bank | 2 | |
 | Quintet Private Bank | bank | 2 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | SMBC Group EMEA | 2026-11-09 | live (14 in scope) |
 | Daiwa Capital Markets Europe | 2026-11-09 | manual (careers page lists no vacancies and links to no ats) |
 | Investec | 2026-11-09 | manual (403 to plain clients) |
+| Close Brothers | 2026-11-10 | manual (SuccessFactors portal behind the careers page, no public feed) |
+| Cantor Fitzgerald | 2026-11-10 | manual (403 to non-browser clients) |
+| BGC Group | 2026-11-10 | manual (403 to non-browser clients) |
+| Tradition (Compagnie Financière Tradition) | 2026-11-10 | manual (no vacancy list or ATS link) |
+| ODDO BHF | 2026-11-10 | manual (client-rendered job list, no feed) |
+| Kepler Cheuvreux | 2026-11-10 | live (Teamtailor RSS feed, 4 roles, 2 in scope) |
+| Banco BPM | 2026-11-10 | manual (careers section without reachable ATS or feed) |
+| BPER Banca | 2026-11-10 | manual (no careers page reachable) |
+| Credem | 2026-11-10 | live (Oracle HCM REST API) |
+| Banca Mediolanum | 2026-11-10 | manual (403 to non-browser clients) |
+| FinecoBank | 2026-11-10 | manual (careers URL moved, no vacancy portal found) |
+| Banca Generali | 2026-11-10 | manual (careers section not reachable, no ATS found) |
+| Banca Ifis | 2026-11-10 | live (own job board, 3 listing pages, title from job page) |
+| illimity | 2026-11-10 | live (Workday, 1 posting tonight) |
+| Vontobel | 2026-11-10 | live (Workday, 58 roles, 13 in scope) |
+| EFG International | 2026-11-10 | manual (403 to non-browser clients) |
+| Mirabaud | 2026-11-10 | live (server-rendered listing, 10 roles, 2 in scope) |
+| Bank Syz | 2026-11-10 | manual (site unreachable through the proxy, 502) |
+| Zürcher Kantonalbank | 2026-11-10 | manual (jobs.zkb.ch unreachable through the proxy, 502) |
+| Raiffeisen Switzerland | 2026-11-10 | manual (JavaScript career-center app, no feed) |

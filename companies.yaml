@@ -2703,3 +2703,196 @@
   careers_url: https://www.investec.com/en_gb/welcome-to-investec/Careers/vacancies.html
   active: true
   notes: investec.com answers 403 to plain clients; rotational graduate programmes paused per their FAQ.
+
+# ---- Added 2026-11-10 (evening routine) ----
+- name: Close Brothers
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.closebrothers.com/s/careers
+  active: true
+  notes: Winterflood Securities included. SuccessFactors portal behind the careers page; no public feed or sitemap found, Workday guess answers 422.
+
+- name: Cantor Fitzgerald
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.cantor.com/careers/
+  active: true
+  notes: cantor.com answers 403 to non-browser clients.
+
+- name: BGC Group
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.bgcg.com/careers
+  active: true
+  notes: bgcg.com answers 403 to non-browser clients.
+
+- name: Tradition (Compagnie Financière Tradition)
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.tradition.com/careers/human-resources.aspx
+  active: true
+  notes: Careers page is static text, no vacancy list or ATS link found.
+
+- name: ODDO BHF
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.oddo-bhf.com/discover-our-jobs/
+  active: true
+  notes: WordPress site; job list is client-rendered, no feed found (jobs subdomains answer 502 through the proxy).
+
+- name: Kepler Cheuvreux
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    rss_url: https://keplercheuvreux.teamtailor.com/jobs.rss
+    job_url_pattern: "keplercheuvreux\\.teamtailor\\.com/jobs/"
+  careers_url: https://keplercheuvreux.teamtailor.com/
+  active: true
+  notes: Teamtailor board, RSS feed (internships and analyst roles in Paris, Nyon, London).
+
+- name: Banco BPM
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://gruppo.bancobpm.it/persone-e-valori/lavora-con-noi/
+  active: true
+  notes: Careers section found, no ATS link or feed reachable without a browser.
+
+- name: BPER Banca
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bper.it/
+  active: true
+  notes: No careers page reachable (lavora-con-noi paths 404).
+
+- name: Credem
+  priority: 2
+  group: bank
+  ats: custom
+  config:
+    kind: oracle
+    host: hczf.fa.em2.oraclecloud.com
+    site: CX_1
+  careers_url: https://www.credem.it/content/credem/it/lavora-con-noi.html
+  active: true
+  notes: Oracle HCM candidate experience site.
+
+- name: Banca Mediolanum
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bancamediolanum.it/chi-siamo/lavora-con-noi
+  active: true
+  notes: Careers page answers 403 to non-browser clients.
+
+- name: FinecoBank
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://it.finecobank.com/it/lavora-con-noi
+  active: true
+  notes: Careers page URL moved (404), no vacancy portal found.
+
+- name: Banca Generali
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bancagenerali.com/
+  active: true
+  notes: Careers section not reachable (lavora-con-noi 404), no ATS found.
+
+- name: Banca Ifis
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://posizioniaperte.bancaifis.it/?cngLanguage=ITA
+      - https://posizioniaperte.bancaifis.it/?ctl167=2&cngLanguage=ITA&RunDefaultAction=true&StartupViewID=TableView&PagerAnnunci=2
+      - https://posizioniaperte.bancaifis.it/?ctl167=3&cngLanguage=ITA&RunDefaultAction=true&StartupViewID=TableView&PagerAnnunci=3
+    job_url_pattern: "posizioniaperte\\.bancaifis\\.it/annunci-lavoro/job-details"
+    title_strip: " \\| Banca Ifis S\\.p\\.A\\. \\| Work with us$"
+    max_new_pages: 60
+  careers_url: https://posizioniaperte.bancaifis.it/
+  active: true
+  notes: Own job board (10 per page); job pages have no JSON-LD, title from the page title.
+
+- name: illimity
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: illimitybank
+    wd: wd3
+    site: Illimity
+  careers_url: https://www.illimity.com/it/lavora-con-noi
+  active: true
+  notes: Workday; only a spontaneous-application posting tonight.
+
+- name: Vontobel
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: vontobel
+    wd: wd3
+    site: Vontobel_External_Career
+  careers_url: https://www.vontobel.com/en-ch/about-vontobel/careers/
+  active: true
+  notes: Workday, ~58 postings, mostly Zurich.
+
+- name: EFG International
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.efginternational.com/careers
+  active: true
+  notes: efginternational.com answers 403 to non-browser clients.
+
+- name: Mirabaud
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.mirabaud.com/en/careers/job-opportunities
+    index_item_regex: '<h3 class="job-title">\s*<a href="(?P<url>/en/careers/job-opportunities/job-details/\d+)">(?P<title>[^<]+)</a>\s*</h3>\s*<span class="job-over-title">(?P<department>[^<]*)</span>\s*<span class="job-location">.*?</svg>\s*(?P<location>[^<]+?)\s*</span>'
+    fetch_pages: false
+    job_url_pattern: "mirabaud\\.com/en/careers/job-opportunities/job-details/"
+  careers_url: https://www.mirabaud.com/en/careers/job-opportunities
+  active: true
+  notes: Server-rendered listing (Geneva, Zurich, London...); title, department, location read from the listing.
+
+- name: Bank Syz
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bank-syz.com/en/careers
+  active: true
+  notes: bank-syz.com unreachable through the proxy (502), portal not identified.
+
+- name: Zürcher Kantonalbank
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://jobs.zkb.ch
+  active: true
+  notes: jobs.zkb.ch unreachable through the proxy (502), ~60 vacancies per third-party boards; portal not identified.
+
+- name: Raiffeisen Switzerland
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://jobs.raiffeisen.ch/
+  active: true
+  notes: jobs.raiffeisen.ch is a JavaScript career-center app (empty HTML shell), no feed found.

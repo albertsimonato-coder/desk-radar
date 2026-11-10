@@ -376,3 +376,28 @@ Manual (no feed reachable without a browser):
 | KBC | Local per-country portals (kbc.be/jobs, jobs.cbc.be), Belgian roles, no feed. | No public feed. |
 | Daiwa Capital Markets Europe | Careers page lists no vacancies and links to no ATS. | No public feed. |
 | Investec | 403 to plain clients; rotational graduate programmes paused. | Bot protection. |
+
+## Added on 2026-11-10 (evening routine)
+
+First 20 rows of `backlog.md` (tier 4, Close Brothers to Raiffeisen Switzerland); tiers 1-3 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source listed (approximate where noted); "In scope" is the number of rows that survived the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Kepler Cheuvreux | sitemap (rss_url) | `keplercheuvreux.teamtailor.com/jobs.rss` | 4 | 2 | Teamtailor RSS. |
+| Credem | custom (oracle) | `hczf.fa.em2.oraclecloud.com` / `CX_1` | 5+ | 5 | Oracle HCM REST API. |
+| Banca Ifis | sitemap (index_urls) | `posizioniaperte.bancaifis.it`, 3 listing pages | ~30 | 20 | Own job board; title from page title, no JSON-LD. |
+| illimity | workday | `illimitybank` / wd3 / `Illimity` | 1 | 1 | Only a spontaneous application tonight. |
+| Vontobel | workday | `vontobel` / wd3 / `Vontobel_External_Career` | 58 | 13 | Mostly Zurich. |
+| Mirabaud | sitemap (listing only) | `mirabaud.com/en/careers/job-opportunities` | 10 | 2 | Server-rendered listing, `fetch_pages: false`. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Close Brothers | SuccessFactors portal behind the careers page; Workday guess 422. | No public feed. |
+| Cantor Fitzgerald, BGC Group, Banca Mediolanum, EFG International | Sites answer 403 to plain clients. | Bot protection. |
+| Tradition | Static careers page, no vacancy list or ATS link. | No public feed. |
+| ODDO BHF | WordPress site, job list client-rendered; jobs subdomains 502. | No public feed. |
+| Banco BPM, Banca Generali, FinecoBank, BPER Banca | Careers sections found but no ATS link, or URLs 404. | No public feed. |
+| Bank Syz, Zürcher Kantonalbank | Sites unreachable through the proxy (502); ZKB shows ~60 roles on third-party boards. | Retry later. |
+| Raiffeisen Switzerland | jobs.raiffeisen.ch is a JavaScript app with an empty HTML shell. | No public feed. |
