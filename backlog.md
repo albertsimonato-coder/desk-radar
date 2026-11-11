@@ -39,26 +39,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Banque Internationale à Luxembourg | bank | 1 | |
-| Spuerkeess | bank | 2 | |
-| Quintet Private Bank | bank | 2 | |
-| CACEIS | bank | 2 | |
-| Bpifrance | bank | 2 | |
-| La Banque Postale | bank | 2 | |
-| CIC Market Solutions | bank | 2 | |
-| Swissquote | bank | 2 | |
-| IG Group | bank | 1 | |
-| CMC Markets | bank | 2 | |
-| Saxo Bank | bank | 2 | |
-| Interactive Brokers | bank | 2 | |
-| XTB | bank | 2 | |
-| eToro | bank | 2 | |
-| Plus500 | bank | 2 | |
-| Tradeweb | exchange | 1 | |
-| MarketAxess | exchange | 2 | |
-| Bloomberg | exchange | 1 | Financial products, analytics |
-| CME Group | exchange | 1 | |
-| Cboe | exchange | 2 | |
 | Nasdaq | exchange | 2 | |
 | SIX Group | exchange | 1 | Zurich |
 | London Metal Exchange | exchange | 1 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | Bank Syz | 2026-11-10 | manual (site unreachable through the proxy, 502) |
 | Zürcher Kantonalbank | 2026-11-10 | manual (jobs.zkb.ch unreachable through the proxy, 502) |
 | Raiffeisen Switzerland | 2026-11-10 | manual (JavaScript career-center app, no feed) |
+| Banque Internationale à Luxembourg | 2026-11-11 | manual (portal not identified, careers URLs 404 / 502) |
+| Spuerkeess | 2026-11-11 | manual (Cornerstone JavaScript portal, no feed) |
+| Quintet Private Bank | 2026-11-11 | live (server-rendered vacancies listing, 6 roles in scope) |
+| CACEIS | 2026-11-11 | manual (412 to plain clients) |
+| Bpifrance | 2026-11-11 | manual (no careers page or ATS link found) |
+| La Banque Postale | 2026-11-11 | manual (403 to non-browser clients) |
+| CIC Market Solutions | 2026-11-11 | manual (static join-us page, no vacancy list) |
+| Swissquote | 2026-11-11 | live (SmartRecruiters, 7 roles in scope) |
+| IG Group | 2026-11-11 | live (Workday, 6 in scope) |
+| CMC Markets | 2026-11-11 | live (Workday, 5 in scope) |
+| Saxo Bank | 2026-11-11 | live (Workday, 5 in scope) |
+| Interactive Brokers | 2026-11-11 | manual (Dayforce JavaScript portal, no feed) |
+| XTB | 2026-11-11 | manual (403 to non-browser clients) |
+| eToro | 2026-11-11 | live (server-rendered listing, 17 roles, 0 in scope (Israel/US)) |
+| Plus500 | 2026-11-11 | manual (no vacancy list or ATS link found) |
+| Tradeweb | 2026-11-11 | manual (403 to non-browser clients) |
+| MarketAxess | 2026-11-11 | manual (JavaScript job list, no feed) |
+| Bloomberg | 2026-11-11 | manual (403 to non-browser clients) |
+| CME Group | 2026-11-11 | live (Workday, 2 in scope) |
+| Cboe | 2026-11-11 | live (Phenom People, ~114 roles, 0 in scope (US only today)) |

@@ -2896,3 +2896,200 @@
   careers_url: https://jobs.raiffeisen.ch/
   active: true
   notes: jobs.raiffeisen.ch is a JavaScript career-center app (empty HTML shell), no feed found.
+
+- name: Banque Internationale à Luxembourg
+  priority: 1
+  group: bank
+  ats: manual
+  careers_url: https://www.bil.com/en/
+  active: true
+  notes: bil.com careers URLs answer 404 and careers subdomains 502 through the proxy; portal not identified, no feed found.
+
+- name: Spuerkeess
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.spuerkeess.lu/en/jobs/
+  active: true
+  notes: Jobs run on a Cornerstone (csod) career site, JavaScript only, no feed.
+
+- name: Quintet Private Bank
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.quintet.com/en-gb/your-career-at-quintet/vacancies
+    index_item_regex: '<li><a href="(?P<url>/en-gb/vacancies/job/[^"]+)">(?P<title>[^<]+?) \((?P<location>[^)]*)\)</a></li>'
+    fetch_pages: false
+    job_url_pattern: "quintet\\.com/en-gb/vacancies/job/"
+  careers_url: https://www.quintet.com/en-gb/your-career-at-quintet/vacancies
+  active: true
+  notes: Server-rendered vacancies page grouped by office (London, Luxembourg, Brussels, Zurich...); title and location read from the listing, job pages never opened.
+
+- name: CACEIS
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.caceis.com/careers/
+  active: true
+  notes: caceis.com answers 412 to plain HTTP clients; careers subdomain 502.
+
+- name: Bpifrance
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.bpifrance.fr/
+  active: true
+  notes: No careers page or ATS link reachable from the site (candidate URLs 404, recruitment subdomain 502).
+
+- name: La Banque Postale
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.labanquepostale.com/nous-rejoindre.html
+  active: true
+  notes: Site answers 403 to non-browser clients; recruitment subdomain 502.
+
+- name: CIC Market Solutions
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.cic-cib.com/en/join-us.html
+  active: true
+  notes: Join-us page on cic-cib.com is static, no vacancy list or ATS link; recruitment runs through the CIC group portal.
+
+- name: Swissquote
+  priority: 2
+  group: bank
+  ats: smartrecruiters
+  config:
+    company: Swissquote
+  careers_url: https://www.swissquote.com/en-ch/careers
+  active: true
+  notes: SmartRecruiters board (~35 roles, Gland/Zurich).
+
+- name: IG Group
+  priority: 1
+  group: bank
+  ats: workday
+  config:
+    tenant: ig
+    wd: wd103
+    site: EXT_IG
+  careers_url: https://www.iggroup.com/about-us/careers
+  active: true
+  notes: Workday, site found on the group careers page.
+
+- name: CMC Markets
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: cmcmarkets
+    wd: wd3
+    site: CMC_Markets_Careers
+  careers_url: https://www.cmcmarkets.com/group/careers
+  active: true
+  notes: Workday, site found on the group careers page.
+
+- name: Saxo Bank
+  priority: 2
+  group: bank
+  ats: workday
+  config:
+    tenant: saxobank
+    wd: wd3
+    site: CareeratSaxoBank
+  careers_url: https://www.home.saxo/about-us/careers
+  active: true
+  notes: Workday, site found on the Saxo careers page.
+
+- name: Interactive Brokers
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.interactivebrokers.com/en/general/about/careers-splash.php
+  active: true
+  notes: Jobs sit on a Dayforce candidate portal (jobs.dayforcehcm.com/en-US/ibgllc), JavaScript only, no feed.
+
+- name: XTB
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.xtb.com/en/careers
+  active: true
+  notes: xtb.com answers 403 to non-browser clients.
+
+- name: eToro
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.etoro.com/about/careers/
+    index_item_regex: 'href="(?P<url>/about/careers/position/\d+/)"[^>]*>(?P<title>[^<]+)</a>\s*<p class="text-body-sm[^"]*md:hidden">(?P<location>[^<]*?) · [^<]*</p>'
+    fetch_pages: false
+    job_url_pattern: "etoro\\.com/about/careers/position/"
+  careers_url: https://www.etoro.com/about/careers/
+  active: true
+  notes: Server-rendered open-roles list on the careers page (title and country read from it, job pages never opened); mostly Israel, US, Cyprus, UK.
+
+- name: Plus500
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.plus500.com/en/careers
+  active: true
+  notes: Careers URL redirects to the US site home page; no vacancy list or ATS link found.
+
+- name: Tradeweb
+  priority: 1
+  group: exchange
+  ats: manual
+  careers_url: https://www.tradeweb.com/careers/
+  active: true
+  notes: tradeweb.com answers 403 to non-browser clients; Workday site name not public (guesses 422).
+
+- name: MarketAxess
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://www.marketaxess.com/careers/current-openings
+  active: true
+  notes: Open-positions list is loaded by JavaScript (empty jobsContainer), no feed found.
+
+- name: Bloomberg
+  priority: 1
+  group: exchange
+  ats: manual
+  careers_url: https://www.bloomberg.com/careers
+  active: true
+  notes: bloomberg.com answers 403 to non-browser clients.
+
+- name: CME Group
+  priority: 1
+  group: exchange
+  ats: workday
+  config:
+    tenant: cmegroup
+    wd: wd1
+    site: cme_careers
+  careers_url: https://www.cmegroup.com/careers.html
+  active: true
+  notes: Workday (~70 roles worldwide, London included).
+
+- name: Cboe
+  priority: 2
+  group: exchange
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.cboe.com
+    lang: en_us
+    country: us
+  careers_url: https://careers.cboe.com/us/en
+  active: true
+  notes: Phenom People site.

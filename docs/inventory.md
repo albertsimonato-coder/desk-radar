@@ -401,3 +401,32 @@ Manual (no feed reachable without a browser):
 | Banco BPM, Banca Generali, FinecoBank, BPER Banca | Careers sections found but no ATS link, or URLs 404. | No public feed. |
 | Bank Syz, Zürcher Kantonalbank | Sites unreachable through the proxy (502); ZKB shows ~60 roles on third-party boards. | Retry later. |
 | Raiffeisen Switzerland | jobs.raiffeisen.ch is a JavaScript app with an empty HTML shell. | No public feed. |
+
+## Added on 2026-11-11 (evening routine)
+
+First 20 rows of `backlog.md` (tier 4, Banque Internationale à Luxembourg to Cboe); tiers 1-3 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source listed (approximate where noted); "In scope" is the number of rows that survived the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Quintet Private Bank | sitemap (index_urls) | `quintet.com/en-gb/your-career-at-quintet/vacancies` | 15 | 6 | Server-rendered listing grouped by office; `fetch_pages: false`. |
+| Swissquote | smartrecruiters | company `Swissquote` | 35 | 7 | |
+| IG Group | workday | `ig` / wd103 / `EXT_IG` | 85 | 6 | |
+| CMC Markets | workday | `cmcmarkets` / wd3 / `CMC_Markets_Careers` | 76 | 5 | |
+| Saxo Bank | workday | `saxobank` / wd3 / `CareeratSaxoBank` | 62 | 5 | |
+| eToro | sitemap (index_urls) | `etoro.com/about/careers/` | 17 | 0 | Listing on the careers page; roles are US/Israel today. |
+| CME Group | workday | `cmegroup` / wd1 / `cme_careers` | 71 | 2 | |
+| Cboe | custom (phenom) | `careers.cboe.com`, en_us | ~114 | 0 | No server-side country filter added; only US roles today. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Banque Internationale à Luxembourg | bil.com careers URLs 404, careers subdomains 502. | Portal not identified. |
+| Spuerkeess | Cornerstone (csod) career site. | JavaScript only. |
+| CACEIS | 412 to plain clients; careers subdomain 502. | Bot protection. |
+| Bpifrance | No careers page or ATS link found. | No public feed. |
+| La Banque Postale, XTB, Tradeweb, Bloomberg | Sites answer 403 to non-browser clients. | Bot protection. |
+| CIC Market Solutions | Static join-us page on cic-cib.com. | No public feed. |
+| Interactive Brokers | Dayforce candidate portal. | JavaScript only. |
+| Plus500 | Careers URL redirects to the US home page; no list. | No public feed. |
+| MarketAxess | Open-positions list loaded by JavaScript. | No public feed. |
