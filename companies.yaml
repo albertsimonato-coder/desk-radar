@@ -3093,3 +3093,218 @@
   careers_url: https://careers.cboe.com/us/en
   active: true
   notes: Phenom People site.
+
+# ---- Added 2026-11-12 (evening routine) ----
+- name: Nasdaq
+  priority: 2
+  group: exchange
+  ats: workday
+  config:
+    tenant: nasdaq
+    wd: wd1
+    site: Global_External_Site
+    applied_facets:
+      Location_Country: [29247e57dbaf46fb855b224e03170bc7, 8cd04a563fd94da7b06857a79faaf815, 328b82f597514643a7683a78fc67c3f1, 187134fccb084a0ea9b4b95f23890dbe, 54c5b6971ffb4bf0b116fe7651ec789a, 04a05835925f45b3a59406a2a6b72c8a]   # GB, IT, LU, CH, FR, IE
+  careers_url: https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site
+  active: true
+  notes: Workday (~175 roles worldwide), filtered to the six target countries. nasdaq.com itself answers 403 to plain clients; the site name comes from the public Workday listing.
+
+- name: SIX Group
+  priority: 1
+  group: exchange
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.six-group.com/sitemap.xml
+    job_url_pattern: "jobs\\.six-group\\.com/job/(Zurich|Geneva|Lausanne|Olten|Basel|London|Luxembourg|Paris|Milan|Dublin)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 60
+  careers_url: https://www.six-group.com/en/careers/jobs.html
+  active: true
+  notes: SuccessFactors sitemap (~110 jobs, slug starts with the city); only target-city and Swiss office pages are opened.
+
+- name: London Metal Exchange
+  priority: 1
+  group: exchange
+  ats: manual
+  careers_url: https://www.lme.com/en/about/careers
+  active: true
+  notes: lme.com answers 403 to non-browser clients; no ATS link seen.
+
+- name: EEX (European Energy Exchange)
+  priority: 1
+  group: exchange
+  ats: sitemap
+  config:
+    sitemap_url: https://career.deutsche-boerse.com/sitemap.xml
+    job_url_pattern: "career\\.deutsche-boerse\\.com/(eex|ecc)/job/"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 30
+  careers_url: https://www.eex.com/en/about-eex/eex-group/careers
+  active: true
+  notes: EEX and ECC (clearing house) hire on the Deutsche Börse SuccessFactors site; sitemap filtered to the /eex/ and /ecc/ paths (~20 jobs, mostly Leipzig).
+
+- name: Liquidnet
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://www.liquidnet.com/careers
+  active: true
+  notes: Job list is loaded by JavaScript from a Workday custom report that answers 401 without credentials.
+
+- name: Instinet
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://www.instinet.com/careers
+  active: true
+  notes: instinet.com answers 403 to non-browser clients.
+
+- name: Freepoint Commodities
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: freepoint
+    wd: wd12
+    site: Freepoint_Commodities
+  careers_url: https://www.freepoint.com/careers
+  active: true
+  notes: Workday, tiny board (1 role, Stamford, on 2026-11-12); London and Singapore roles appear here when open.
+
+- name: Hartree Partners
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.hartreepartners.com/careers
+  active: true
+  notes: hartreepartners.com answers 403 to non-browser clients.
+
+- name: Mabanaft
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.mbenergy.com/global/careers
+  active: true
+  notes: Now trades as MB energy; the careers pages link to a German HubSpot form site, no job feed found.
+
+- name: Petroineos
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.petroineos.com/careers
+  active: true
+  notes: petroineos.com answers 403 to non-browser clients.
+
+- name: Equinor
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: equinor
+    wd: wd3
+    site: EQNR
+  careers_url: https://www.equinor.com/careers
+  active: true
+  notes: Workday (~17 roles on 2026-11-12, London trading desk included); scope filter drops the Norwegian offshore roles.
+
+- name: Eni Trading & Shipping
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.eni.com/en-IT/careers/job-opportunities.html
+  active: true
+  notes: Eni Taleo portal (taleoPaginator on the careers page), JavaScript only.
+
+- name: Uniper
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.uniper.energy/sitemap.xml
+    job_url_pattern: "jobs\\.uniper\\.energy/job/(London|Milan|Rome|Paris|Zurich|Geneva|Dublin|Luxembourg|D%C3%BCsseldorf)-"
+    url_location_regex: "/job/([A-Za-z%0-9]+)-"
+    max_new_pages: 40
+  careers_url: https://careers.uniper.energy/en
+  active: true
+  notes: SuccessFactors sitemap (~110 jobs, mostly Germany); target-city pages plus Düsseldorf (trading hub) are opened.
+
+- name: RWE Supply & Trading
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.rwe.com/sitemap.xml
+    job_url_pattern: "jobs\\.rwe\\.com/RWE/job/(London|Swindon|Essen|Milan|Paris|Zurich|Geneva|Dublin|Luxembourg)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 60
+  careers_url: https://www.rwe.com/en/rwe-careers-portal/
+  active: true
+  notes: Group-wide RWE SuccessFactors sitemap (~220 jobs); London, Swindon and Essen (trading floor) plus other target cities.
+
+- name: EDF Trading
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: edftrading
+    wd: wd1
+    site: EDFTrading
+  careers_url: https://www.edftrading.com/careers/job-opportunities
+  active: true
+  notes: Workday, link taken from the job-opportunities page.
+
+- name: ENGIE Global Energy Management & Sales
+  priority: 1
+  group: commodities
+  ats: manual
+  careers_url: https://www.engie.com/en/jobs
+  active: true
+  notes: engie.com jobs paths answer 404 and careers.engie.com 502 to plain clients; no feed found.
+
+- name: Axpo
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    rss_url: https://careers.axpo.com/jobs.rss
+    job_url_pattern: "careers\\.axpo\\.com/jobs/"
+  careers_url: https://careers.axpo.com/jobs
+  active: true
+  notes: Teamtailor; the jobs.rss feed lists all openings (~450, many in Switzerland and Italy).
+
+- name: Alpiq
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.alpiq.com/career/open-jobs
+      - https://www.alpiq.com/career/open-jobs/jobs/job-page-2/f1-%2A/f2-%2A/search
+      - https://www.alpiq.com/career/open-jobs/jobs/job-page-3/f1-%2A/f2-%2A/search
+    index_item_regex: 'class="title" href="(?P<url>/career/open-jobs/your-application/\d+)"> (?P<title>[^<]+?) </a>.*?<span>(?P<location>[^<]*)</span>'
+    index_item_split: 'class="info"'
+    fetch_pages: false
+    job_url_pattern: "alpiq\\.com/career/open-jobs/your-application/"
+  careers_url: https://www.alpiq.com/career/open-jobs
+  active: true
+  notes: Server-rendered open-jobs list, 4 per page over 3 pages; title and location read from the listing, job pages never opened.
+
+- name: BKW
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.bkw.com/en/career/vacancies
+  active: true
+  notes: Vacancies come from job.bkw.com (SuccessFactors career centre, JavaScript "jobabo"); no sitemap or feed.
+
+- name: Statkraft
+  priority: 1
+  group: commodities
+  ats: smartrecruiters
+  config:
+    company: Statkraft1
+  careers_url: https://www.statkraft.com/careers/job-opportunities/
+  active: true
+  notes: SmartRecruiters (company id Statkraft1, ~73 roles).

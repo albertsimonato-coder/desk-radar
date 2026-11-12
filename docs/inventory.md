@@ -430,3 +430,35 @@ Manual (no feed reachable without a browser):
 | Interactive Brokers | Dayforce candidate portal. | JavaScript only. |
 | Plus500 | Careers URL redirects to the US home page; no list. | No public feed. |
 | MarketAxess | Open-positions list loaded by JavaScript. | No public feed. |
+
+## Added on 2026-11-12 (evening routine)
+
+First 20 rows of `backlog.md` (tier 4, Nasdaq to Instinet; tier 5, Freepoint Commodities to Statkraft); tiers 1-3 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is what the source listed (listed in-scope plus dropped); "In scope" is the number of rows that survived the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Nasdaq | workday | `nasdaq` / wd1 / `Global_External_Site` + `Location_Country` facet | ~175 worldwide, 10 after facet | 6 | Site name from the public Workday listing; nasdaq.com answers 403. |
+| SIX Group | sitemap | `jobs.six-group.com/sitemap.xml`, city-prefixed slugs | 39 | 10 | SuccessFactors; only target-city and Swiss office pages opened. |
+| EEX (European Energy Exchange) | sitemap | `career.deutsche-boerse.com/sitemap.xml`, paths `/eex/` and `/ecc/` | 20 | 9 | Same SuccessFactors site as Deutsche Börse; mostly Leipzig. |
+| Freepoint Commodities | workday | `freepoint` / wd12 / `Freepoint_Commodities` | 1 | 0 | Single Stamford role today; London roles appear when open. |
+| Equinor | workday | `equinor` / wd3 / `EQNR` | 17 | 1 | London Junior Deal Handler; rest Norway/Aberdeen. |
+| Uniper | sitemap | `jobs.uniper.energy/sitemap.xml`, target cities + Düsseldorf | 30 | 7 | SuccessFactors, mostly German roles. |
+| RWE Supply & Trading | sitemap | `jobs.rwe.com/sitemap.xml`, London, Swindon, Essen and target cities | 59 | 26 | Group-wide SuccessFactors sitemap. |
+| EDF Trading | workday | `edftrading` / wd1 / `EDFTrading` | 29 | 6 | Link from the job-opportunities page; London and Paris. |
+| Axpo | sitemap (RSS) | `careers.axpo.com/jobs.rss` | 71 | 29 | Teamtailor RSS feed. |
+| Alpiq | sitemap (index_urls) | `alpiq.com/career/open-jobs`, 3 listing pages | 12 | 4 | Server-rendered list; `fetch_pages: false`. |
+| Statkraft | smartrecruiters | company `Statkraft1` | 71 | 31 | |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| London Metal Exchange | lme.com answers 403 to non-browser clients. | Bot protection. |
+| Liquidnet | Job list loaded by JavaScript from a Workday custom report that answers 401. | JavaScript only. |
+| Instinet | instinet.com answers 403 to non-browser clients. | Bot protection. |
+| Hartree Partners | hartreepartners.com answers 403 to non-browser clients. | Bot protection. |
+| Mabanaft | Now MB energy; careers pages point to a German HubSpot form site. | No public feed. |
+| Petroineos | petroineos.com answers 403 to non-browser clients. | Bot protection. |
+| Eni Trading & Shipping | Eni Taleo portal. | JavaScript only. |
+| ENGIE Global Energy Management & Sales | Jobs paths 404, careers.engie.com 502. | Portal not identified. |
+| BKW | job.bkw.com SuccessFactors career centre, JavaScript "jobabo", no sitemap. | JavaScript only. |

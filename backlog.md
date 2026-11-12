@@ -39,31 +39,11 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Nasdaq | exchange | 2 | |
-| SIX Group | exchange | 1 | Zurich |
-| London Metal Exchange | exchange | 1 | |
-| EEX (European Energy Exchange) | exchange | 1 | |
-| Liquidnet | exchange | 2 | |
-| Instinet | exchange | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Freepoint Commodities | commodities | 1 | |
-| Hartree Partners | commodities | 1 | |
-| Mabanaft | commodities | 1 | |
-| Petroineos | commodities | 1 | |
-| Equinor | commodities | 1 | Marketing, midstream and processing; London trading |
-| Eni Trading & Shipping | commodities | 1 | Probably on the Eni portal |
-| Uniper | commodities | 1 | |
-| RWE Supply & Trading | commodities | 1 | |
-| EDF Trading | commodities | 1 | |
-| ENGIE Global Energy Management & Sales | commodities | 1 | |
-| Axpo | commodities | 1 | Baden, Milan |
-| Alpiq | commodities | 1 | |
-| BKW | commodities | 2 | |
-| Statkraft | commodities | 1 | |
 | Ørsted | commodities | 2 | |
 | Vattenfall | commodities | 2 | |
 | Centrica | commodities | 1 | Centrica Energy |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | Bloomberg | 2026-11-11 | manual (403 to non-browser clients) |
 | CME Group | 2026-11-11 | live (Workday, 2 in scope) |
 | Cboe | 2026-11-11 | live (Phenom People, ~114 roles, 0 in scope (US only today)) |
+| Nasdaq | 2026-11-12 | live (Workday, 6 in scope) |
+| SIX Group | 2026-11-12 | live (SuccessFactors sitemap, 10 in scope) |
+| London Metal Exchange | 2026-11-12 | manual (403 to non-browser clients) |
+| EEX (European Energy Exchange) | 2026-11-12 | live (SuccessFactors sitemap on Deutsche Börse site, 9 in scope) |
+| Liquidnet | 2026-11-12 | manual (JavaScript job list, Workday report needs credentials) |
+| Instinet | 2026-11-12 | manual (403 to non-browser clients) |
+| Freepoint Commodities | 2026-11-12 | live (Workday, 1 role, 0 in scope) |
+| Hartree Partners | 2026-11-12 | manual (403 to non-browser clients) |
+| Mabanaft | 2026-11-12 | manual (no job feed, HubSpot form site) |
+| Petroineos | 2026-11-12 | manual (403 to non-browser clients) |
+| Equinor | 2026-11-12 | live (Workday, 1 in scope) |
+| Eni Trading & Shipping | 2026-11-12 | manual (Taleo JavaScript portal) |
+| Uniper | 2026-11-12 | live (SuccessFactors sitemap, 7 in scope) |
+| RWE Supply & Trading | 2026-11-12 | live (SuccessFactors sitemap, 26 in scope) |
+| EDF Trading | 2026-11-12 | live (Workday, 6 in scope) |
+| ENGIE Global Energy Management & Sales | 2026-11-12 | manual (portal not identified, 404/502) |
+| Axpo | 2026-11-12 | live (Teamtailor RSS, 29 in scope) |
+| Alpiq | 2026-11-12 | live (server-rendered listing, 4 in scope) |
+| BKW | 2026-11-12 | manual (JavaScript career centre, no feed) |
+| Statkraft | 2026-11-12 | live (SmartRecruiters, 31 in scope) |
