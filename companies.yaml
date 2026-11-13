@@ -3308,3 +3308,208 @@
   careers_url: https://www.statkraft.com/careers/job-opportunities/
   active: true
   notes: SmartRecruiters (company id Statkraft1, ~73 roles).
+
+- name: Ørsted
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://orsted.com/en/careers/vacancies-list
+  active: true
+  notes: Vacancy list is rendered by JavaScript (no feed or ATS link in the page source); about 5 UK roles and 2 trading roles per the site.
+
+- name: Vattenfall
+  priority: 2
+  group: commodities
+  ats: smartrecruiters
+  config:
+    company: Vattenfall
+  careers_url: https://careers.vattenfall.com/global/jobs
+  active: true
+  notes: SmartRecruiters (company id Vattenfall, ~264 roles in Sweden, Germany, Netherlands, Denmark; none in the target cities today).
+
+- name: Centrica
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: centrica
+    wd: wd3
+    site: Centrica
+  careers_url: https://www.centrica.com/careers/
+  active: true
+  notes: Workday (centrica.com answers 403 to plain clients; site name found by probing). Centrica Energy trading roles included.
+
+- name: SEFE
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.sefe.eu/sitemap.xml
+    job_url_pattern: "careers\\.sefe\\.eu/job/"
+    max_new_pages: 40
+  careers_url: https://careers.sefe.eu/search?locale=en_GB&searchResultView=LIST
+  active: true
+  notes: SuccessFactors career site, sitemap lists ~25 jobs (London, Manchester, Paris, Kassel, Berlin, Rotterdam).
+
+- name: Bunge
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://jobs.bunge.com
+  active: true
+  notes: SuccessFactors career site (jobs.bunge.com) with an empty sitemap and no RSS feed; bunge.com answers 403 to plain clients.
+
+- name: COFCO International
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.cofcointernational.com/sitemap.xml
+    job_url_pattern: "careers\\.cofcointernational\\.com/job/"
+    max_new_pages: 60
+  careers_url: https://careers.cofcointernational.com
+  active: true
+  notes: SuccessFactors career site, sitemap lists ~48 jobs worldwide (Geneva, Singapore, Brazil...).
+
+- name: Olam Agri
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.olamagri.com/sitemap.xml
+    job_url_pattern: "careers\\.olamagri\\.com/job/"
+    max_new_pages: 60
+  careers_url: https://www.olamagri.com/careers
+  active: true
+  notes: SuccessFactors career site, sitemap lists ~46 jobs worldwide, mostly operations.
+
+- name: ED&F Man
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.edfman.com/careers/our-opportunities/
+    job_url_pattern: "edfman\\.com/jobs/[a-z0-9-]+/?$"
+    max_new_pages: 60
+  careers_url: https://www.edfman.com/careers/our-opportunities/
+  active: true
+  notes: WordPress site with a /jobs/ page per opening (EDF Man, Volcafe, Westway); listing at our-opportunities.
+
+- name: Sucden
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.sucden.com/en/human-resources/job-opportunities
+  active: true
+  notes: Job-opportunities page lists no openings, only a spontaneous application form (France, Geneva, Amsterdam, Dubai).
+
+- name: Czarnikow
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.czarnikow.com/careers/
+  active: true
+  notes: Jobs embedded from job-listing.occupop.com, a Next.js app with no public feed found.
+
+- name: Wilmar
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.wilmar-international.com/careers
+  active: true
+  notes: Careers page only links regional portals (Indonesia, ANZ, Vietnam); no group-wide feed.
+
+- name: Amaggi
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.amaggi.com.br
+  active: true
+  notes: Homepage reachable but no careers page or ATS link found in the source.
+
+- name: Concord Resources
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.concordltd.com/careers/
+  active: true
+  notes: Careers page has no job listings or ATS link (no feed).
+
+- name: IXM
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.ixmetals.com
+  active: true
+  notes: Site does not accept connections from plain HTTP clients here; portal not identified.
+
+- name: Traxys
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.traxys.com/careers
+  active: true
+  notes: Careers page is static text with no job list or ATS link.
+
+- name: Ocean Partners
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.oceanpartners.com
+  active: true
+  notes: oceanpartners.com answers 403 to non-browser clients.
+
+- name: Transamine
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.transamine.com/
+  active: true
+  notes: Site has no careers page or job list.
+
+- name: Anglo American
+  priority: 1
+  group: commodities
+  ats: smartrecruiters
+  config:
+    company: AngloAmericanDeBeersGroup
+  careers_url: https://www.angloamerican.com/careers/job-opportunities/apply
+  active: true
+  notes: SmartRecruiters (company id AngloAmericanDeBeersGroup, ~77 roles; 8 in GB).
+
+- name: Rio Tinto
+  priority: 1
+  group: commodities
+  ats: workday
+  config:
+    tenant: riotinto
+    wd: wd3
+    site: RioTinto_Careers
+  careers_url: https://jobs.riotinto.com
+  active: true
+  notes: Workday (~140 roles worldwide).
+
+- name: BHP
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.bhp.com/sitemap.xml
+    job_url_pattern: "careers\\.bhp\\.com/job/"
+    max_new_pages: 60
+  careers_url: https://careers.bhp.com
+  active: true
+  notes: SuccessFactors career site, sitemap lists ~119 jobs worldwide; bhp.com answers 403.

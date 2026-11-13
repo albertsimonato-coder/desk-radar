@@ -462,3 +462,35 @@ Manual (no feed reachable without a browser):
 | Eni Trading & Shipping | Eni Taleo portal. | JavaScript only. |
 | ENGIE Global Energy Management & Sales | Jobs paths 404, careers.engie.com 502. | Portal not identified. |
 | BKW | job.bkw.com SuccessFactors career centre, JavaScript "jobabo", no sitemap. | JavaScript only. |
+
+## Added on 2026-11-13 (evening routine)
+
+First 20 rows of `backlog.md` (tier 5, Ørsted to BHP); tiers 1-4 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is the count the run log printed for the source; "In scope" is the number of openings stored after the scope filter (the two coincide because the run log counts kept rows; the source totals are in Notes).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Vattenfall | smartrecruiters | company `Vattenfall` | 81 | 81 | 264 listed at the source; roles in Sweden, Germany, NL, Denmark, none in target cities today. Priority 2. |
+| Centrica | workday | `centrica` / wd3 / `Centrica` | 10 | 10 | 59 on the board; centrica.com answers 403, site name found by probing. |
+| SEFE | sitemap | `careers.sefe.eu/sitemap.xml` | 5 | 5 | SuccessFactors; 25 jobs listed (London, Manchester, Paris, Germany). |
+| COFCO International | sitemap | `careers.cofcointernational.com/sitemap.xml` | 21 | 21 | SuccessFactors, 48 jobs listed worldwide. |
+| Olam Agri | sitemap | `careers.olamagri.com/sitemap.xml` | 30 | 30 | SuccessFactors, 46 jobs listed; mostly operations. |
+| ED&F Man | sitemap (index_urls) | `edfman.com/careers/our-opportunities/` | 13 | 13 | The WordPress jobs sitemap uses CDATA locs the adapter cannot read, so job links are harvested from the listing page. |
+| Anglo American | smartrecruiters | company `AngloAmericanDeBeersGroup` | 52 | 52 | 77 listed; found via the SmartRecruiters link on the apply page. |
+| Rio Tinto | workday | `riotinto` / wd3 / `RioTinto_Careers` | 70 | 70 | 140 on the board; site name from the careers page. |
+| BHP | sitemap | `careers.bhp.com/sitemap.xml` | 29 | 29 | SuccessFactors, 119 jobs listed; 60 pages per run, rest queued. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Ørsted | Vacancy list rendered by JavaScript; no feed or ATS link in the source. | JavaScript only. |
+| Bunge | jobs.bunge.com is SuccessFactors with an empty sitemap and no feed; bunge.com answers 403. | No public feed. |
+| Sucden | Job-opportunities page lists no openings, only a spontaneous application form. | No listings. |
+| Czarnikow | Jobs embedded from an Occupop Next.js app. | JavaScript only. |
+| Wilmar | Careers page links only regional portals (Indonesia, ANZ, Vietnam). | No group feed. |
+| Amaggi | No careers page or ATS link found. | Portal not identified. |
+| Concord Resources | Careers page without listings or ATS link. | Portal not identified. |
+| IXM | ixmetals.com refuses connections from plain clients. | Bot protection. |
+| Traxys | Static careers page with no listings. | No listings. |
+| Ocean Partners | oceanpartners.com answers 403 to non-browser clients. | Bot protection. |
+| Transamine | No careers page. | Portal not identified. |

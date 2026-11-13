@@ -44,26 +44,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Ørsted | commodities | 2 | |
-| Vattenfall | commodities | 2 | |
-| Centrica | commodities | 1 | Centrica Energy |
-| SEFE | commodities | 1 | |
-| Bunge | commodities | 1 | Geneva |
-| COFCO International | commodities | 1 | Geneva |
-| Olam Agri | commodities | 1 | |
-| ED&F Man | commodities | 1 | |
-| Sucden | commodities | 1 | |
-| Czarnikow | commodities | 2 | |
-| Wilmar | commodities | 2 | |
-| Amaggi | commodities | 2 | |
-| Concord Resources | commodities | 1 | |
-| IXM | commodities | 1 | Geneva |
-| Traxys | commodities | 2 | Luxembourg |
-| Ocean Partners | commodities | 2 | |
-| Transamine | commodities | 2 | Geneva |
-| Anglo American | commodities | 1 | Marketing in London |
-| Rio Tinto | commodities | 1 | Commercial in London / Singapore |
-| BHP | commodities | 2 | |
 | Vale | commodities | 2 | |
 | Aurubis | commodities | 2 | |
 | Boliden | commodities | 2 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | Alpiq | 2026-11-12 | live (server-rendered listing, 4 in scope) |
 | BKW | 2026-11-12 | manual (JavaScript career centre, no feed) |
 | Statkraft | 2026-11-12 | live (SmartRecruiters, 31 in scope) |
+| Ørsted | 2026-11-13 | manual (JavaScript vacancy list, no feed) |
+| Vattenfall | 2026-11-13 | live (SmartRecruiters, 81 kept; Sweden/Germany/NL/Denmark roles) |
+| Centrica | 2026-11-13 | live (Workday, 10 in scope) |
+| SEFE | 2026-11-13 | live (SuccessFactors sitemap, 5 in scope) |
+| Bunge | 2026-11-13 | manual (SuccessFactors without sitemap or feed; bunge.com 403) |
+| COFCO International | 2026-11-13 | live (SuccessFactors sitemap, 21 in scope) |
+| Olam Agri | 2026-11-13 | live (SuccessFactors sitemap, 30 in scope) |
+| ED&F Man | 2026-11-13 | live (job pages harvested from the opportunities listing, 13 in scope) |
+| Sucden | 2026-11-13 | manual (no openings listed, spontaneous application only) |
+| Czarnikow | 2026-11-13 | manual (Occupop Next.js app, no feed) |
+| Wilmar | 2026-11-13 | manual (regional portals only) |
+| Amaggi | 2026-11-13 | manual (no careers page found) |
+| Concord Resources | 2026-11-13 | manual (no job listings or ATS link) |
+| IXM | 2026-11-13 | manual (site refuses plain HTTP clients) |
+| Traxys | 2026-11-13 | manual (static careers page, no listings) |
+| Ocean Partners | 2026-11-13 | manual (403 to non-browser clients) |
+| Transamine | 2026-11-13 | manual (no careers page) |
+| Anglo American | 2026-11-13 | live (SmartRecruiters, 52 in scope) |
+| Rio Tinto | 2026-11-13 | live (Workday, 70 in scope) |
+| BHP | 2026-11-13 | live (SuccessFactors sitemap, 29 in scope, 59 more pages queued) |
