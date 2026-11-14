@@ -494,3 +494,35 @@ Manual (no feed reachable without a browser):
 | Traxys | Static careers page with no listings. | No listings. |
 | Ocean Partners | oceanpartners.com answers 403 to non-browser clients. | Bot protection. |
 | Transamine | No careers page. | Portal not identified. |
+
+## Added on 2026-11-14 (evening routine)
+
+First 20 rows of `backlog.md` (tier 5, Vale to E.ON); tiers 1-4 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is the number of raw roles at the source; "In scope" is the number of openings stored after the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Aurubis | sitemap | `jobs.aurubis.com/sitemap-jobs.xml` | 54 | 0 | Job-shop portal; German plant and engineering roles. |
+| Boliden | workday | `boliden` / wd3 / `BolidenJobs` | 45 | 37 | Sweden, Finland, Norway; none in target cities. |
+| Engelhart Commodities Trading Partners | greenhouse | board `engelhart` | 3 | 0 | London data engineer, Berlin, Houston/Stamford treasury analyst. |
+| BB Energy | custom (`bamboohr`) | subdomain `bbenergy` | 8 | 0 | London roles are legal, business development and engineering. |
+| Danske Commodities | sitemap (index_urls) | `danskecommodities.com/join-us/vacancies` | 5 | 5 | Links harvested from the vacancies page; Aarhus, Singapore, Italy. |
+| InCommodities | sitemap (index_urls) | `incommoditiesas.hr-on.com/` | 6 | 6 | Hr-On listing page. |
+| MET Group | smartrecruiters | company `metgroup` | 64 | 13 | Zug, Geneva and other offices. |
+| EnBW | custom (`phenom`) | `careers.enbw.com`, de_de / de | 139 | 0 | German-language Phenom site, Germany roles. |
+| E.ON | custom (`oracle`) | `fa-eylc-saasfaeuraprod1` / `CX_1` | 145 | 1 | Oracle HCM behind jobs.eon.com. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Vale | Eightfold portal (vale.eightfold.ai, ~90 roles); its JSON API answers, but only Vale uses Eightfold tonight so no adapter was written. | No adapter. |
+| Litasco | Careers page without listings or ATS link. | Portal not identified. |
+| SOCAR Trading | No careers page. | Portal not identified. |
+| Aramco Trading | SuccessFactors job search (career23.sapsf.com) rendered by JavaScript, no sitemap. | JavaScript only. |
+| ADNOC Global Trading | Site resets connections from plain clients. | Bot protection. |
+| PetroChina International (London) | Site resets connections from plain clients. | Bot protection. |
+| Unipec UK | Site unreachable through the proxy (502). | Unreachable. |
+| Alvean | WordPress site without careers page. | Portal not identified. |
+| Ameropa | Career page links only to LinkedIn. | No own listings. |
+| Varo Energy | varopreem.com has no careers page. | Portal not identified. |
+| Trailstone | Minimal homepage, no careers page. | Portal not identified. |

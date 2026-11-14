@@ -44,26 +44,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Vale | commodities | 2 | |
-| Aurubis | commodities | 2 | |
-| Boliden | commodities | 2 | |
-| Litasco | commodities | 1 | Geneva |
-| SOCAR Trading | commodities | 1 | Geneva |
-| Aramco Trading | commodities | 2 | |
-| ADNOC Global Trading | commodities | 2 | |
-| PetroChina International (London) | commodities | 2 | |
-| Unipec UK | commodities | 2 | |
-| Alvean | commodities | 2 | Geneva |
-| Ameropa | commodities | 2 | |
-| Engelhart Commodities Trading Partners | commodities | 1 | |
-| BB Energy | commodities | 1 | |
-| Varo Energy | commodities | 2 | |
-| Trailstone | commodities | 1 | |
-| Danske Commodities | commodities | 1 | |
-| InCommodities | commodities | 1 | |
-| MET Group | commodities | 1 | Zug |
-| EnBW | commodities | 2 | |
-| E.ON | commodities | 2 | |
 | Iberdrola | commodities | 2 | |
 | Octopus Energy | commodities | 2 | |
 | Drax | commodities | 2 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | Anglo American | 2026-11-13 | live (SmartRecruiters, 52 in scope) |
 | Rio Tinto | 2026-11-13 | live (Workday, 70 in scope) |
 | BHP | 2026-11-13 | live (SuccessFactors sitemap, 29 in scope, 59 more pages queued) |
+| Vale | 2026-11-14 | manual (Eightfold portal, JSON API answers but no adapter yet) |
+| Aurubis | 2026-11-14 | live (job-shop sitemap, 54 roles, 0 in scope) |
+| Boliden | 2026-11-14 | live (Workday, 37 in scope) |
+| Litasco | 2026-11-14 | manual (no listings or ATS link on careers page) |
+| SOCAR Trading | 2026-11-14 | manual (no careers page) |
+| Aramco Trading | 2026-11-14 | manual (SuccessFactors search rendered by JavaScript, no feed) |
+| ADNOC Global Trading | 2026-11-14 | manual (site resets plain clients) |
+| PetroChina International (London) | 2026-11-14 | manual (site resets plain clients) |
+| Unipec UK | 2026-11-14 | manual (site unreachable) |
+| Alvean | 2026-11-14 | manual (no careers page) |
+| Ameropa | 2026-11-14 | manual (careers page only links to LinkedIn) |
+| Engelhart Commodities Trading Partners | 2026-11-14 | live (Greenhouse, 3 roles, 0 in scope) |
+| BB Energy | 2026-11-14 | live (BambooHR, 8 roles, 0 in scope) |
+| Varo Energy | 2026-11-14 | manual (no careers page on varopreem.com) |
+| Trailstone | 2026-11-14 | manual (no careers page) |
+| Danske Commodities | 2026-11-14 | live (own vacancies page, 5 in scope) |
+| InCommodities | 2026-11-14 | live (Hr-On listing page, 6 in scope) |
+| MET Group | 2026-11-14 | live (SmartRecruiters, 13 in scope of 64) |
+| EnBW | 2026-11-14 | live (Phenom API, 139 roles, 0 in scope) |
+| E.ON | 2026-11-14 | live (Oracle HCM REST API, 145 roles, 1 in scope) |

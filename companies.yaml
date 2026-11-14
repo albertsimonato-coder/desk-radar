@@ -3513,3 +3513,210 @@
   careers_url: https://careers.bhp.com
   active: true
   notes: SuccessFactors career site, sitemap lists ~119 jobs worldwide; bhp.com answers 403.
+
+- name: Vale
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://vale.eightfold.ai/careers
+  active: true
+  notes: "Eightfold portal (vale.eightfold.ai, ~90 roles worldwide, mostly Brazil/Canada); the JSON API answers but no Eightfold adapter exists yet; vale.com answers 403."
+
+- name: Aurubis
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.aurubis.com/sitemap-jobs.xml
+    job_url_pattern: "jobs\\.aurubis\\.com/jobs/"
+    max_new_pages: 60
+  careers_url: https://jobs.aurubis.com
+  active: true
+  notes: "Job-shop.com portal with a jobs sitemap (~54 roles, almost all German plant and engineering roles)."
+
+- name: Boliden
+  priority: 2
+  group: commodities
+  ats: workday
+  config:
+    tenant: boliden
+    wd: wd3
+    site: BolidenJobs
+  careers_url: https://www.boliden.com/career
+  active: true
+  notes: "Workday (site BolidenJobs, ~45 roles, Sweden, Finland, Norway; none in target cities expected)."
+
+- name: Litasco
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://litasco.com/en/Careers
+  active: true
+  notes: "Careers page carries no listings or ATS link (Geneva/London/Dubai trading arm of Lukoil); no SmartRecruiters, Greenhouse, Lever or Workable board under the obvious slugs."
+
+- name: SOCAR Trading
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.socartrading.com
+  active: true
+  notes: "No careers page on socartrading.com (404); no public ATS board found."
+
+- name: Aramco Trading
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.aramcotrading.com/en/careers/
+  active: true
+  notes: "Careers page links to a SuccessFactors job-search page (career23.sapsf.com, company aramcotrad) rendered by JavaScript; no sitemap or feed."
+
+- name: ADNOC Global Trading
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.adnocgt.com
+  active: true
+  notes: "Site resets connections from plain clients; no careers page reachable."
+
+- name: PetroChina International (London)
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.petrochina.com.cn
+  active: true
+  notes: "Site resets connections from plain clients; no careers page reachable."
+
+- name: Unipec UK
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.unipec.com.cn
+  active: true
+  notes: "Site unreachable through the proxy (502); no careers page found."
+
+- name: Alvean
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://alvean.com
+  active: true
+  notes: "WordPress corporate site without a careers or vacancies page; no ATS link found."
+
+- name: Ameropa
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://ameropa.com/en/career
+  active: true
+  notes: "Career page only links to the company's LinkedIn jobs page; no own listings."
+
+- name: Engelhart Commodities Trading Partners
+  priority: 1
+  group: commodities
+  ats: greenhouse
+  config:
+    board: engelhart
+  careers_url: https://job-boards.greenhouse.io/engelhart
+  active: true
+  notes: "Greenhouse board (3 roles: London data engineering, Berlin, Houston/Stamford treasury analyst)."
+
+- name: BB Energy
+  priority: 1
+  group: commodities
+  ats: custom
+  config:
+    kind: bamboohr
+    subdomain: bbenergy
+  careers_url: https://www.bbenergy.com/careers/
+  active: true
+  notes: "BambooHR careers page embedded on bbenergy.com."
+
+- name: Varo Energy
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.varopreem.com/en/home/
+  active: true
+  notes: "Varo rebranded and the corporate site (varopreem.com) has no careers page (404); no ATS board found."
+
+- name: Trailstone
+  priority: 1
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.trailstone.com
+  active: true
+  notes: "Three-line homepage with no careers page (404) and no ATS link; no public board under the obvious slugs."
+
+- name: Danske Commodities
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://danskecommodities.com/join-us/vacancies
+    job_url_pattern: "danskecommodities\\.com/vacancies/[a-z0-9-]+/?$"
+    max_new_pages: 40
+  careers_url: https://danskecommodities.com/join-us/vacancies
+  active: true
+  notes: "Own site with one page per vacancy; links harvested from the vacancies listing (Aarhus, Singapore, Italy)."
+
+- name: InCommodities
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://incommoditiesas.hr-on.com/
+    job_url_pattern: "incommoditiesas\\.hr-on\\.com/show-job/\\d+"
+    max_new_pages: 40
+  careers_url: https://incommodities.com/join-us
+  active: true
+  notes: "Hr-On recruitment page (incommoditiesas.hr-on.com); job links harvested from the listing page, Aarhus and other offices."
+
+- name: MET Group
+  priority: 1
+  group: commodities
+  ats: smartrecruiters
+  config:
+    company: metgroup
+  careers_url: https://www.met.com/careers/
+  active: true
+  notes: "SmartRecruiters (company id metgroup, ~64 roles; Zug, Budapest, Geneva and other offices)."
+
+- name: EnBW
+  priority: 2
+  group: commodities
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.enbw.com
+    lang: de_de
+    country: de
+  careers_url: https://careers.enbw.com/de/de
+  active: true
+  notes: "Phenom People career site; German-language roles, mostly Germany (none in target cities expected)."
+
+- name: E.ON
+  priority: 2
+  group: commodities
+  ats: custom
+  config:
+    kind: oracle
+    host: fa-eylc-saasfaeuraprod1.fa.ocs.oraclecloud.com
+    site: CX_1
+  careers_url: https://jobs.eon.com/en
+  active: true
+  notes: "Oracle HCM Cloud recruiting site behind jobs.eon.com (~145 roles); older SuccessFactors portal is being phased out."
