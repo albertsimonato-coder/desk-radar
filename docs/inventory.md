@@ -526,3 +526,35 @@ Manual (no feed reachable without a browser):
 | Ameropa | Career page links only to LinkedIn. | No own listings. |
 | Varo Energy | varopreem.com has no careers page. | Portal not identified. |
 | Trailstone | Minimal homepage, no careers page. | Portal not identified. |
+
+## Added on 2026-11-15 (evening routine)
+
+First 20 rows of `backlog.md` (tier 5, Iberdrola to Affinity Shipping); tiers 1-4 were empty and the wishlist had no new rows. Plain HTTP only. "Postings" is the number of raw roles at the source (for sitemap sources, the job pages opened tonight); "In scope" is the number of openings stored after the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Octopus Energy | lever | company `octoenergy` | 156 | 30 | London, Paris, Italy, Germany. |
+| SSE | sitemap | `careers.sse.com/sitemap.xml`, `/jobs/<slug>` pages | 80 | 27 | JSON-LD on job pages; 60 pages per run, rest queued. |
+| Puma Energy | workday | `trafigura` / wd3 / `Puma_Energy_Careers` | 44 | 7 | Shared Trafigura tenant; mostly Africa, Asia, Latin America. |
+| Repsol Trading | workday | `repsol` / wd3 / `Repsol` | 59 | 18 | Whole-of-Repsol board; trading not separated. |
+| OMV Trading | sitemap | `careers.omv.com/sitemap.xml`, target-city and Vienna pages | 8 | 0 | SuccessFactors, ~67 jobs, mostly Romania and Austria. |
+| Galp Trading | sitemap | `jobs.galp.com/sitemap.xml` | 20 | 20 | SuccessFactors; mostly Portugal and Spain. |
+| Moeve (Cepsa) Trading | sitemap | `jobs.moeveglobal.com/sitemap.xml` | 38 | 31 | SuccessFactors; Madrid and Spanish refineries. |
+| Phillips 66 (UK) | sitemap | `careers.phillips66.com/sitemap.xml`, London/Jarrow/Houston pages | 37 | 3 | SuccessFactors, ~75 jobs, nearly all US. |
+| Clarksons | sitemap | `careers.clarksons.com/sitemap.xml` | 37 | 18 | SuccessFactors; London broking roles. Early-careers programmes on clarksons.com. |
+| Howe Robinson Partners | sitemap (index_urls) | `howerobinson.com/careers/` | 3 | 2 | WordPress directory pages; London, Singapore, Hamburg. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Iberdrola | iberdrola.com answers 403; Workday tenant exists but site name unknown. | Bot protection. |
+| Drax | drax.com answers 403; careers site unreachable. | Bot protection. |
+| ScottishPower | scottishpower.com answers 403. | Bot protection. |
+| National Grid | careers.nationalgrid.com and nationalgrid.com answer 403. | Bot protection. |
+| Eni Plenitude | Eni group Taleo portal, JavaScript search, no feed. | JavaScript only. |
+| Duferco | WordPress site, no careers page (404). | Portal not identified. |
+| Gerald Group | Careers page is an empty stub; main site refuses connections. | No listings. |
+| Braemar | Roles page is static text linking to a LinkedIn search. | No own listings. |
+| Simpson Spence Young | ssy.co unreachable through the proxy; no careers page found on ssyglobal.com. | Unreachable. |
+| Affinity Shipping | Careers page states no open positions (CV submission only). | No listings. |

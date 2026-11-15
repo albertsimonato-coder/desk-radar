@@ -3720,3 +3720,206 @@
   careers_url: https://jobs.eon.com/en
   active: true
   notes: "Oracle HCM Cloud recruiting site behind jobs.eon.com (~145 roles); older SuccessFactors portal is being phased out."
+
+- name: Iberdrola
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.iberdrola.com/careers
+  active: true
+  notes: "iberdrola.com answers 403 to non-browser clients; the Workday tenant (iberdrola.wd3) exists but its site name is not public."
+
+- name: Octopus Energy
+  priority: 2
+  group: commodities
+  ats: lever
+  config:
+    company: octoenergy
+  careers_url: https://octopus.energy/careers/
+  active: true
+  notes: "Lever board octoenergy (~158 roles; London, Paris, Italy, Germany)."
+
+- name: Drax
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.drax.com/careers/
+  active: true
+  notes: "drax.com answers 403 to non-browser clients; careers site unreachable through plain HTTP."
+
+- name: SSE
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.sse.com/sitemap.xml
+    job_url_pattern: "careers\\.sse\\.com/jobs/[a-z0-9-]{12,}"
+    max_new_pages: 60
+  careers_url: https://careers.sse.com/jobs/search
+  active: true
+  notes: "Own careers site with one server-rendered page per job (JSON-LD); ~108 UK/Ireland roles, mostly engineering."
+
+- name: ScottishPower
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.scottishpower.com/careers
+  active: true
+  notes: "scottishpower.com answers 403 to non-browser clients."
+
+- name: National Grid
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://careers.nationalgrid.com/
+  active: true
+  notes: "careers.nationalgrid.com and nationalgrid.com answer 403 to non-browser clients."
+
+- name: Eni Plenitude
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.eni.com/en-IT/careers/job-opportunities.html
+  active: true
+  notes: "Hiring runs through the Eni group Taleo portal linked from eni.com (JavaScript search, no feed); Eni Trading & Shipping is a separate entry."
+
+- name: Duferco
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.duferco.com/
+  active: true
+  notes: "WordPress site without a careers page or job listings (404 on /careers)."
+
+- name: Gerald Group
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.geraldgroup.com/careers/
+  active: true
+  notes: "Careers page is an empty stub with no listings or ATS link; main site refuses plain connections."
+
+- name: Puma Energy
+  priority: 2
+  group: commodities
+  ats: workday
+  config:
+    tenant: trafigura
+    wd: wd3
+    site: Puma_Energy_Careers
+  careers_url: https://www.pumaenergy.com/en/careers
+  active: true
+  notes: "Workday site Puma_Energy_Careers on the Trafigura tenant; mostly Africa, Asia and Latin America roles, Geneva office included."
+
+- name: Repsol Trading
+  priority: 2
+  group: commodities
+  ats: workday
+  config:
+    tenant: repsol
+    wd: wd3
+    site: Repsol
+  careers_url: https://www.repsol.com/en/careers/index.cshtml
+  active: true
+  notes: "Whole-of-Repsol Workday board (site Repsol); the trading desks are not separated, scope filter drops the rest."
+
+- name: OMV Trading
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.omv.com/sitemap.xml
+    job_url_pattern: "careers\\.omv\\.com/job/(London|Zurich|Z%C3%BCrich|Vienna|Dublin|Paris|Milan|Geneva|Luxembourg)-"
+    url_location_regex: "/job/([A-Za-z%0-9]+)-"
+    max_new_pages: 40
+  careers_url: https://careers.omv.com
+  active: true
+  notes: "SuccessFactors sitemap (~67 jobs, mostly Romania and Austria); the slug starts with the city, so only target cities plus Vienna head office are opened."
+
+- name: Galp Trading
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.galp.com/sitemap.xml
+    job_url_pattern: "jobs\\.galp\\.com/job/"
+    max_new_pages: 40
+  careers_url: https://jobs.galp.com/
+  active: true
+  notes: "SuccessFactors portal jobs.galp.com (~22 jobs, mostly Portugal and Spain, a few shipping/tax roles); no trading-only board."
+
+- name: Moeve (Cepsa) Trading
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.moeveglobal.com/sitemap.xml
+    job_url_pattern: "jobs\\.moeveglobal\\.com/job/"
+    max_new_pages: 40
+  careers_url: https://jobs.moeveglobal.com/
+  active: true
+  notes: "SuccessFactors portal jobs.moeveglobal.com (~42 jobs, Madrid and Spanish refineries); no trading-only board."
+
+- name: Phillips 66 (UK)
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.phillips66.com/sitemap.xml
+    job_url_pattern: "careers\\.phillips66\\.com/job/(London|Jarrow|Houston)-"
+    url_location_regex: "/job/([A-Za-z]+)-"
+    max_new_pages: 40
+  careers_url: https://careers.phillips66.com/
+  active: true
+  notes: "SuccessFactors sitemap (~75 jobs, nearly all US); London and Jarrow pages opened, Houston kept so the source stays alive."
+
+- name: Clarksons
+  priority: 1
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.clarksons.com/sitemap.xml
+    job_url_pattern: "careers\\.clarksons\\.com/Clarksons/job/"
+    max_new_pages: 40
+  careers_url: https://careers.clarksons.com/Clarksons
+  active: true
+  notes: "SuccessFactors portal (~38 jobs worldwide; London broking roles); summer internship and trainee broker programmes are described on clarksons.com/home/careers/early-careers."
+
+- name: Braemar
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.braemar.com/careers/roles-at-braemar/
+  active: true
+  notes: "Roles page is static text linking only to a LinkedIn job search; no own feed."
+
+- name: Simpson Spence Young
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.ssyglobal.com/
+  active: true
+  notes: "ssy.co is unreachable through the proxy; ssyglobal.com has no careers page found in the homepage links."
+
+- name: Howe Robinson Partners
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.howerobinson.com/careers/
+    job_url_pattern: "howerobinson\\.com/directory/careers/[a-z0-9-]+/?$"
+    title_strip: " . Howe Robinson Partners$"
+    max_new_pages: 30
+  careers_url: https://www.howerobinson.com/careers/
+  active: true
+  notes: "WordPress directory with one page per vacancy; links harvested from the careers listing (London, Singapore, Hamburg)."
+
+- name: Affinity Shipping
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.affinityship.com/careers
+  active: true
+  notes: "Careers page exists but states no open positions, CV submission only; recheck later."

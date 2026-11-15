@@ -44,26 +44,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Iberdrola | commodities | 2 | |
-| Octopus Energy | commodities | 2 | |
-| Drax | commodities | 2 | |
-| SSE | commodities | 2 | |
-| ScottishPower | commodities | 2 | |
-| National Grid | commodities | 2 | |
-| Eni Plenitude | commodities | 2 | |
-| Duferco | commodities | 2 | Lugano |
-| Gerald Group | commodities | 2 | |
-| Puma Energy | commodities | 2 | Geneva |
-| Repsol Trading | commodities | 2 | |
-| OMV Trading | commodities | 2 | |
-| Galp Trading | commodities | 2 | Geneva |
-| Moeve (Cepsa) Trading | commodities | 2 | |
-| Phillips 66 (UK) | commodities | 2 | |
-| Clarksons | commodities | 1 | Shipbroking, London |
-| Braemar | commodities | 2 | |
-| Simpson Spence Young | commodities | 2 | |
-| Howe Robinson Partners | commodities | 2 | |
-| Affinity Shipping | commodities | 2 | |
 | Maersk | commodities | 2 | |
 | MSC | commodities | 2 | Geneva |
 | Oldendorff | commodities | 2 | |
@@ -459,3 +439,23 @@ registry" means it was there before.
 | MET Group | 2026-11-14 | live (SmartRecruiters, 13 in scope of 64) |
 | EnBW | 2026-11-14 | live (Phenom API, 139 roles, 0 in scope) |
 | E.ON | 2026-11-14 | live (Oracle HCM REST API, 145 roles, 1 in scope) |
+| Iberdrola | 2026-11-15 | manual (iberdrola.com answers 403) |
+| Octopus Energy | 2026-11-15 | live (Lever, 156 roles, 30 in scope) |
+| Drax | 2026-11-15 | manual (drax.com answers 403) |
+| SSE | 2026-11-15 | live (own site sitemap with JSON-LD, 80 roles, 27 in scope) |
+| ScottishPower | 2026-11-15 | manual (site answers 403) |
+| National Grid | 2026-11-15 | manual (site answers 403) |
+| Eni Plenitude | 2026-11-15 | manual (Eni Taleo portal, JavaScript search, no feed) |
+| Duferco | 2026-11-15 | manual (no careers page) |
+| Gerald Group | 2026-11-15 | manual (empty careers stub, no listings) |
+| Puma Energy | 2026-11-15 | live (Workday on Trafigura tenant, 44 roles, 7 in scope) |
+| Repsol Trading | 2026-11-15 | live (Workday whole-of-Repsol board, 59 roles, 18 in scope) |
+| OMV Trading | 2026-11-15 | live (SuccessFactors sitemap, 8 target-city pages opened, 0 in scope) |
+| Galp Trading | 2026-11-15 | live (SuccessFactors sitemap, 20 roles, 20 in scope) |
+| Moeve (Cepsa) Trading | 2026-11-15 | live (SuccessFactors sitemap, 38 roles, 31 in scope) |
+| Phillips 66 (UK) | 2026-11-15 | live (SuccessFactors sitemap, 37 pages opened, 3 in scope) |
+| Clarksons | 2026-11-15 | live (SuccessFactors sitemap, 37 roles, 18 in scope) |
+| Braemar | 2026-11-15 | manual (roles page only links to LinkedIn) |
+| Simpson Spence Young | 2026-11-15 | manual (ssy.co unreachable, no careers page found) |
+| Howe Robinson Partners | 2026-11-15 | live (WordPress directory listing, 3 roles, 2 in scope) |
+| Affinity Shipping | 2026-11-15 | manual (careers page states no open positions) |
