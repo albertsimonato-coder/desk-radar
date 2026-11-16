@@ -3923,3 +3923,192 @@
   careers_url: https://www.affinityship.com/careers
   active: true
   notes: "Careers page exists but states no open positions, CV submission only; recheck later."
+
+# ---- Added 2026-11-16 (evening routine) ---------------------------------------
+# Commodities trading, energy, metals, agri, shipping
+- name: Maersk
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.maersk.com/careers/vacancies
+  active: true
+  notes: "Vacancies page is a JavaScript search with no feed or ATS link in the HTML (Workday tenant answers 406, site name not public); recheck later."
+
+- name: MSC
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.msc.com/en/careers
+  active: true
+  notes: "msc.com answers 403 to non-browser clients (Geneva HQ)."
+
+- name: Oldendorff
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.oldendorff.com/teamwork/office-careers
+  active: true
+  notes: "Static office-careers page with a vacancies block, no feed or ATS link found."
+
+- name: Klaveness
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.klaveness.com/careers/vacancies
+  active: true
+  notes: "Squarespace vacancies page, no feed or ATS link in the HTML."
+
+- name: Hafnia
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://hafnia.com/career/
+  active: true
+  notes: "Onshore jobs sit on a recruiterpal.com portal (hafniabw.recruiterpal.com), an AngularJS app with no feed; recheck later."
+
+- name: Frontline
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.frontlineplc.cy/
+  active: true
+  notes: "Corporate WordPress site (Cyprus) with no careers page or vacancy list."
+
+- name: Scorpio Tankers
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.scorpiotankers.com/
+  active: true
+  notes: "Corporate WordPress site (Monaco) with no careers page or vacancy list."
+
+- name: d'Amico
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://damicoship.join-us.it/
+  active: true
+  notes: "Vacancies live on a join-us.it AngularJS portal that refuses connections through the proxy; no feed."
+
+- name: Grimaldi
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.grimaldi.napoli.it/
+  active: true
+  notes: "Site resets the connection from plain clients; no careers page reached."
+
+- name: Amerex
+  priority: 2
+  group: commodities
+  ats: manual
+  careers_url: https://www.amerexenergy.com/careers
+  active: true
+  notes: "amerexenergy.com answers 403 to non-browser clients."
+
+# Market risk, central banks, ratings, supranationals
+- name: Bank of England
+  priority: 1
+  group: corporate
+  ats: custom
+  config:
+    kind: oracle
+    host: eoff.fa.em1.ukg.oraclecloud.com
+    site: CX_1001
+  careers_url: https://www.bankofengland.co.uk/careers
+  active: true
+  notes: Oracle HCM Cloud recruiting site read through its public REST API.
+
+- name: European Central Bank
+  priority: 1
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_url_pattern: "https://talent.ecb.europa.eu/careers/SearchJobs/?jobRecordsPerPage=10&jobOffset={offset}"
+    index_step: 10
+    index_max_pages: 20
+    index_item_split: '<article class="article article--result'
+    index_item_regex: 'href="(?P<url>https://talent\.ecb\.europa\.eu/careers/JobDetail/[^"]+)"> ?(?P<title>[^<]+?) ?</a>.*?icon-interest"></span> <span> ?(?P<department>[^<]+?) ?</span>(?:.*?icon-calendar"></span> <span> ?(?P<posted>[^<]+?) ?</span>)?'
+    fetch_pages: false
+    job_url_pattern: "talent\\.ecb\\.europa\\.eu/careers/JobDetail"
+  careers_url: https://talent.ecb.europa.eu/careers
+  active: true
+  notes: Avature portal (Frankfurt); title, business area and closing date read from the listing pages, job pages never opened. No location in the listing.
+
+- name: Banca d'Italia
+  priority: 1
+  group: corporate
+  ats: manual
+  careers_url: https://www.bancaditalia.it/chi-siamo/lavorare-bi/index.html
+  active: true
+  notes: "Recruitment runs through competitions announced on a static page; no job feed or ATS link."
+
+- name: Swiss National Bank
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.snb.ch/sitemap.xml
+    job_url_pattern: "careers\\.snb\\.ch/job/"
+    url_location_regex: "/job/([A-Za-z]+)-"
+  careers_url: https://careers.snb.ch/search/?locale=en_US
+  active: true
+  notes: SuccessFactors sitemap (few jobs at a time, Zurich, Bern, Muehledorf).
+
+- name: Banque de France
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.banque-france.fr/en/careers
+  active: true
+  notes: "banque-france.fr answers 403 to non-browser clients."
+
+- name: Central Bank of Ireland
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.centralbank.ie/careers/current-vacancies
+  active: true
+  notes: "Candidate Manager portal (candidatemanager.net, mid=YUYF) has a server-rendered list of 2 roles, but neither list nor job pages carry a location, so the scope filter drops them; Dublin roles are read by hand."
+
+- name: Bank for International Settlements
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.bis.org/about/careers/vacancies
+  active: true
+  notes: "Workday tenant bis/wd3/External (Basel HQ, ~4 roles) answered once to a single request but then returned a Cloudflare challenge (429) to the adapter; retry later with ats: workday."
+
+- name: European Banking Authority
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.careers.eba.europa.eu/en
+    job_url_pattern: "careers\\.eba\\.europa\\.eu/en/our-vacancies/[a-z0-9-]+$"
+    max_new_pages: 30
+  careers_url: https://www.careers.eba.europa.eu/en
+  active: true
+  notes: Own recruitment site, vacancies linked from the landing page (Paris agency, 3 roles tonight).
+
+- name: ESMA
+  priority: 2
+  group: corporate
+  ats: manual
+  careers_url: https://www.esma.europa.eu/about-esma/careers
+  active: true
+  notes: "Vacancies are listed on the careers page and applied for on esmacareers.adequasys.com (login portal), no feed."
+
+- name: EBRD
+  priority: 1
+  group: bank
+  ats: sitemap
+  config:
+    rss_url: https://jobs.ebrd.com/sitemap.xml
+    job_url_pattern: "jobs\\.ebrd\\.com/job/"
+  careers_url: https://jobs.ebrd.com/
+  active: true
+  notes: SuccessFactors; the "sitemap.xml" is a Google-Jobs RSS feed with the city in each title (London HQ plus resident offices).

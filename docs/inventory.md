@@ -558,3 +558,35 @@ Manual (no feed reachable without a browser):
 | Braemar | Roles page is static text linking to a LinkedIn search. | No own listings. |
 | Simpson Spence Young | ssy.co unreachable through the proxy; no careers page found on ssyglobal.com. | Unreachable. |
 | Affinity Shipping | Careers page states no open positions (CV submission only). | No listings. |
+
+## Added on 2026-11-16 (evening routine)
+
+First 20 rows of `backlog.md` (tier 5 Maersk to Amerex, tier 6 Bank of England to EBRD); the wishlist had no new rows. CSC Commodities was already covered by the Marex entry (Marex portal, breezy.hr) and did not use a slot. Plain HTTP only. "Postings" is the count the run log printed; "In scope" is the number of openings stored after the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Bank of England | custom `oracle` | `eoff.fa.em1.ukg.oraclecloud.com`, site `CX_1001` | 3 | 3 | Oracle HCM REST API, London. |
+| European Central Bank | sitemap (index listing) | `talent.ecb.europa.eu/careers/SearchJobs`, 10 per page | 2 | 2 | Avature; Frankfurt, no location in the listing, so rows carry no city. |
+| Swiss National Bank | sitemap | `careers.snb.ch/sitemap.xml` | 10 | 10 | SuccessFactors; Swiss cash-logistics and IT roles, few finance. |
+| European Banking Authority | sitemap (index_urls) | `careers.eba.europa.eu/en` | 1 | 1 | Own recruitment site, Paris; 3 vacancies linked, page titles only. |
+| EBRD | sitemap (rss_url) | `jobs.ebrd.com/sitemap.xml` | 6 | 6 | SuccessFactors Google-Jobs RSS, London HQ. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Maersk | Vacancies page is a JavaScript search; Workday tenant answers 406. | JavaScript only. |
+| MSC | msc.com answers 403. | Bot protection. |
+| Oldendorff | Static office-careers page, no feed. | No feed. |
+| Klaveness | Squarespace vacancies page, no feed. | No feed. |
+| Hafnia | hafniabw.recruiterpal.com AngularJS portal. | JavaScript only. |
+| Frontline | Corporate site, no careers page. | No listings. |
+| Scorpio Tankers | Corporate site, no careers page. | No listings. |
+| d'Amico | damicoship.join-us.it refuses connections through the proxy. | Unreachable. |
+| Grimaldi | Connection reset from plain clients. | Bot protection. |
+| Amerex | amerexenergy.com answers 403. | Bot protection. |
+| Banca d'Italia | Competitions on a static page, no ATS. | No feed. |
+| Banque de France | banque-france.fr answers 403. | Bot protection. |
+| Central Bank of Ireland | Candidate Manager list is server-rendered (2 roles) but has no location, so the scope filter would drop them; could be revisited with a default-location option. | No location. |
+| Bank for International Settlements | Workday `bis`/wd3/External answered a manual request but the adapter got a Cloudflare 429; retry later. | Bot protection. |
+| ESMA | Vacancies on esmacareers.adequasys.com login portal. | No feed. |

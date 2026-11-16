@@ -44,32 +44,12 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Maersk | commodities | 2 | |
-| MSC | commodities | 2 | Geneva |
-| Oldendorff | commodities | 2 | |
-| Klaveness | commodities | 2 | |
-| Hafnia | commodities | 2 | |
-| Frontline | commodities | 2 | |
-| Scorpio Tankers | commodities | 2 | |
-| d'Amico | commodities | 2 | |
-| Grimaldi | commodities | 2 | |
 | CSC Commodities | commodities | 2 | |
-| Amerex | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Bank of England | corporate | 1 | |
-| European Central Bank | corporate | 1 | |
-| Banca d'Italia | corporate | 1 | |
-| Swiss National Bank | corporate | 2 | |
-| Banque de France | corporate | 2 | |
-| Central Bank of Ireland | corporate | 2 | |
-| Bank for International Settlements | corporate | 2 | Basel |
-| European Banking Authority | corporate | 2 | Paris |
-| ESMA | corporate | 2 | Paris |
-| EBRD | bank | 1 | |
 | Fitch Ratings | advisory | 1 | |
 | Moody's | advisory | 1 | |
 | Morningstar DBRS | advisory | 2 | |
@@ -459,3 +439,24 @@ registry" means it was there before.
 | Simpson Spence Young | 2026-11-15 | manual (ssy.co unreachable, no careers page found) |
 | Howe Robinson Partners | 2026-11-15 | live (WordPress directory listing, 3 roles, 2 in scope) |
 | Affinity Shipping | 2026-11-15 | manual (careers page states no open positions) |
+| CSC Commodities | 2026-11-16 | already in registry (CSC is part of Marex and hires on the Marex portal, entry Marex) |
+| Maersk | 2026-11-16 | manual (JavaScript vacancies search, Workday site name not public) |
+| MSC | 2026-11-16 | manual (403 to non-browser clients) |
+| Oldendorff | 2026-11-16 | manual (static careers page, no feed) |
+| Klaveness | 2026-11-16 | manual (Squarespace vacancies page, no feed) |
+| Hafnia | 2026-11-16 | manual (recruiterpal.com JavaScript portal, no feed) |
+| Frontline | 2026-11-16 | manual (no careers page or vacancy list) |
+| Scorpio Tankers | 2026-11-16 | manual (no careers page or vacancy list) |
+| d'Amico | 2026-11-16 | manual (join-us.it portal refuses connections through the proxy) |
+| Grimaldi | 2026-11-16 | manual (site resets connections from plain clients) |
+| Amerex | 2026-11-16 | manual (403 to non-browser clients) |
+| Bank of England | 2026-11-16 | live (Oracle HCM REST API, 3 in scope) |
+| European Central Bank | 2026-11-16 | live (Avature listing, Frankfurt only, 2 in scope) |
+| Banca d'Italia | 2026-11-16 | manual (competitions on a static page, no feed) |
+| Swiss National Bank | 2026-11-16 | live (SuccessFactors sitemap, 10 in scope) |
+| Banque de France | 2026-11-16 | manual (403 to non-browser clients) |
+| Central Bank of Ireland | 2026-11-16 | manual (Candidate Manager list has no location, so scope drops it) |
+| Bank for International Settlements | 2026-11-16 | manual (Workday tenant behind a Cloudflare challenge, 429 to the adapter) |
+| European Banking Authority | 2026-11-16 | live (own recruitment site, 1 in scope) |
+| ESMA | 2026-11-16 | manual (adequasys.com login portal, no feed) |
+| EBRD | 2026-11-16 | live (SuccessFactors RSS feed, 6 in scope, London) |
