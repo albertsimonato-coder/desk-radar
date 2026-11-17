@@ -590,3 +590,35 @@ Manual (no feed reachable without a browser):
 | Central Bank of Ireland | Candidate Manager list is server-rendered (2 roles) but has no location, so the scope filter would drop them; could be revisited with a default-location option. | No location. |
 | Bank for International Settlements | Workday `bis`/wd3/External answered a manual request but the adapter got a Cloudflare 429; retry later. | Bot protection. |
 | ESMA | Vacancies on esmacareers.adequasys.com login portal. | No feed. |
+
+## Added on 2026-11-17 (evening routine)
+
+First 20 rows of `backlog.md` after CSC Commodities (tier 6 Fitch Ratings to Jupiter, then Fidelity International in tier 7); the wishlist had no new rows. CSC Commodities was already covered by the Marex entry and did not use a slot. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter); "In scope" is the number of openings stored. Workday answered the adapter with 429 for part of the evening (an existing entry, Stout, failed the same way), so four new Workday entries were confirmed with curl only.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Moody's | sitemap | `careers.moodys.com/en/sitemap.xml`, `/en/job/` pages | 7 | 7 | JSON-LD pages, ~340 roles worldwide; 223 pages still to open on later runs. |
+| MSCI | sitemap | `careers.msci.com/sitemap.xml`, `/job/` pages | 9 | 9 | iCIMS behind own site, ~130 roles worldwide. |
+| Lloyd's of London | workday | `lloyds` / wd3 / `Lloyds-of-London` | 1 | 1 | 8 roles in total. |
+| Aon | custom `jibe` | `jobs.aon.com` | 129 | 129 | iCIMS/Jibe API, ~1000 roles worldwide. |
+| Marsh McLennan | custom `phenom` | `careers.marsh.com`, lang `en`, country `global` | 91 | 91 | Phenom People site. |
+| WTW | sitemap | `careers.wtwco.com/sitemap.xml`, `/jobs/` pages | 18 | 18 | ~640 job pages worldwide; 532 pages still to open on later runs. |
+| Legal & General | sitemap (index_urls) | `careers.legalandgeneral.com/jobs` | 0 | 0 | Server-rendered list, first page only (~10 roles, none in scope tonight). |
+| Phoenix Group | custom `oracle` | `fa-enor-saasfaprod1.fa.ocs.oraclecloud.com`, site `CX` | 9 | 9 | Oracle HCM REST API. |
+| Schroders | custom `oracle` | `ekbq.fa.em2.oraclecloud.com`, site `CX_2` | 20 | 20 | Oracle HCM REST API. |
+| abrdn | workday | `abrdn` / wd3 / `abrdn` | 6 | 6 | 21 roles in total. |
+| Morningstar DBRS | workday | `morningstar` / wd5 / `MorningstarDBRS` | not run (429) | not run | curl: 54 roles in total. |
+| Prudential plc | workday | `prudential` / wd3 / `prudential` | not run (429) | not run | curl: 468 roles, nearly all Asia/Africa; expect few in scope. |
+| M&G | workday | `mgpru` / wd3 / `mandgprudential` | not run (429) | not run | curl: 143 roles in total. |
+| Fidelity International | workday | `fil` / wd3 / `001` | not run (429) | not run | curl: 79 roles in total; graduate programmes are on fidelityinternational.tal.net. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Fitch Ratings | fitchgroup.com and careers.fitchgroup.com fail through the proxy (502 / refused). | Unreachable. |
+| Scope Ratings | Careers page is a client-rendered single-page app. | JavaScript only. |
+| FactSet | Careers page is client-rendered, no ATS link or feed in the HTML. | JavaScript only. |
+| Nationwide Building Society | nationwide-jobs.co.uk is an Angular app, sitemap answers 404. | JavaScript only. |
+| Legal & General Investment Management | Hires on the Legal & General group site (see that entry); am.landg.com careers page answers 404. | No separate feed. |
+| Jupiter Asset Management | No careers page or ATS link reachable from plain clients. | No listings. |

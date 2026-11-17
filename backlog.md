@@ -44,37 +44,16 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| CSC Commodities | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Fitch Ratings | advisory | 1 | |
-| Moody's | advisory | 1 | |
-| Morningstar DBRS | advisory | 2 | |
-| Scope Ratings | advisory | 2 | |
-| MSCI | advisory | 2 | |
-| FactSet | advisory | 2 | |
-| Lloyd's of London | corporate | 2 | |
-| Aon | advisory | 2 | |
-| Marsh McLennan | advisory | 2 | |
-| WTW | advisory | 2 | |
-| Nationwide Building Society | bank | 2 | Treasury |
-| Legal & General | corporate | 2 | |
-| Prudential plc | corporate | 2 | |
-| Phoenix Group | corporate | 2 | |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Schroders | asset_manager | 1 | |
-| abrdn | asset_manager | 2 | |
-| Legal & General Investment Management | asset_manager | 2 | |
-| M&G | asset_manager | 2 | |
-| Jupiter Asset Management | asset_manager | 2 | |
-| Fidelity International | asset_manager | 1 | |
 | Baillie Gifford | asset_manager | 2 | |
 | Aviva Investors | asset_manager | 2 | |
 | Amundi | asset_manager | 1 | Paris, Milan, Luxembourg |
@@ -460,3 +439,23 @@ registry" means it was there before.
 | European Banking Authority | 2026-11-16 | live (own recruitment site, 1 in scope) |
 | ESMA | 2026-11-16 | manual (adequasys.com login portal, no feed) |
 | EBRD | 2026-11-16 | live (SuccessFactors RSS feed, 6 in scope, London) |
+| Fitch Ratings | 2026-11-17 | manual (Fitch Group careers sites unreachable from plain clients) |
+| Moody's | 2026-11-17 | live (sitemap, careers.moodys.com JSON-LD pages, ~340 roles worldwide) |
+| Morningstar DBRS | 2026-11-17 | live (Workday, 54 roles) |
+| Scope Ratings | 2026-11-17 | manual (client-rendered single-page app, no feed) |
+| MSCI | 2026-11-17 | live (sitemap, careers.msci.com JSON-LD pages, ~130 roles worldwide) |
+| FactSet | 2026-11-17 | manual (client-rendered careers page, no ATS or feed found) |
+| Lloyd's of London | 2026-11-17 | live (Workday, 8 roles) |
+| Aon | 2026-11-17 | live (iCIMS/Jibe API on jobs.aon.com, ~1000 roles worldwide) |
+| Marsh McLennan | 2026-11-17 | live (Phenom People site) |
+| WTW | 2026-11-17 | live (sitemap of careers.wtwco.com, ~640 job pages worldwide) |
+| Nationwide Building Society | 2026-11-17 | manual (Angular single-page app, no sitemap or feed) |
+| Legal & General | 2026-11-17 | live (careers.legalandgeneral.com /jobs listing with sitemap adapter; first page only) |
+| Prudential plc | 2026-11-17 | live (Workday, ~470 roles, almost all Asia/Africa) |
+| Phoenix Group | 2026-11-17 | live (Oracle HCM REST API) |
+| Schroders | 2026-11-17 | live (Oracle HCM REST API) |
+| abrdn | 2026-11-17 | live (Workday, 21 roles) |
+| Legal & General Investment Management | 2026-11-17 | manual (hires on the Legal & General group site; no separate feed) |
+| M&G | 2026-11-17 | live (Workday, ~143 roles) |
+| Jupiter Asset Management | 2026-11-17 | manual (no careers page or ATS reachable from plain clients) |
+| Fidelity International | 2026-11-17 | live (Workday site 001, ~79 roles) |

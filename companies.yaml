@@ -4112,3 +4112,222 @@
   careers_url: https://jobs.ebrd.com/
   active: true
   notes: SuccessFactors; the "sitemap.xml" is a Google-Jobs RSS feed with the city in each title (London HQ plus resident offices).
+
+# ---- Added 2026-11-17 (evening routine) ----
+- name: Fitch Ratings
+  priority: 1
+  group: advisory
+  ats: manual
+  careers_url: https://www.fitchgroup.com/careers
+  active: true
+  notes: Fitch Group careers pages (fitchgroup.com, careers.fitchgroup.com) are unreachable from plain clients (proxy 502 / connection refused); no feed found.
+
+- name: Moody's
+  priority: 1
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.moodys.com/en/sitemap.xml
+    job_url_pattern: "careers\\.moodys\\.com/en/job/"
+    max_new_pages: 120
+  careers_url: https://careers.moodys.com/en
+  active: true
+  notes: Radancy-style careers site with JSON-LD job pages (~340 roles worldwide); old SuccessFactors board is career8 MoodysProd.
+
+- name: Morningstar DBRS
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: morningstar
+    wd: wd5
+    site: MorningstarDBRS
+  careers_url: https://dbrs.morningstar.com/careers
+  active: true
+  notes: Workday site MorningstarDBRS inside the Morningstar tenant (~54 roles, mostly New York, Toronto, Frankfurt, London). Config confirmed with curl on 2026-11-17 (CXS total returned) but the adapter run got HTTP 429 from Workday that evening; confirm on next run.
+
+- name: Scope Ratings
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.scoperatings.com/about-us/careers
+  active: true
+  notes: Careers page is a client-rendered single-page app (Vite); no ATS or feed in the HTML.
+
+- name: MSCI
+  priority: 2
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.msci.com/sitemap.xml
+    job_url_pattern: "careers\\.msci\\.com/job/"
+    max_new_pages: 140
+  careers_url: https://careers.msci.com/
+  active: true
+  notes: Own careers site over iCIMS with JSON-LD job pages (~130 roles worldwide).
+
+- name: FactSet
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.factset.com/careers
+  active: true
+  notes: Careers page is client-rendered with no ATS link or feed in the HTML.
+
+- name: Lloyd's of London
+  priority: 2
+  group: corporate
+  ats: workday
+  config:
+    tenant: lloyds
+    wd: wd3
+    site: Lloyds-of-London
+  careers_url: https://www.lloyds.com/about-lloyds/careers
+  active: true
+  notes: Workday site Lloyds-of-London (tenant lloyds, not Lloyds Banking Group); ~8 roles.
+
+- name: Aon
+  priority: 2
+  group: advisory
+  ats: custom
+  config:
+    kind: jibe
+    host: jobs.aon.com
+  careers_url: https://jobs.aon.com/jobs
+  active: true
+  notes: iCIMS/Jibe front end (jobs.aon.com), JSON API like ICE; ~1000 roles worldwide.
+
+- name: Marsh McLennan
+  priority: 2
+  group: advisory
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.marsh.com
+    lang: en
+    country: global
+  careers_url: https://careers.marsh.com/global/en
+  active: true
+  notes: Phenom People site (careers.marsh.com).
+
+- name: WTW
+  priority: 2
+  group: advisory
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.wtwco.com/sitemap.xml
+    job_url_pattern: "careers\\.wtwco\\.com/jobs/[a-z0-9-]+$"
+    max_new_pages: 100
+  careers_url: https://careers.wtwco.com/
+  active: true
+  notes: Own careers site (~640 job pages in the sitemap, worldwide); the www.wtwco.com page answers 429.
+
+- name: Nationwide Building Society
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.nationwide-jobs.co.uk/
+  active: true
+  notes: Angular single-page app on nationwide-jobs.co.uk, no sitemap (404) and no feed.
+
+- name: Legal & General
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://careers.legalandgeneral.com/jobs
+    job_url_pattern: "careers\\.legalandgeneral\\.com/job/"
+    max_new_pages: 60
+  careers_url: https://careers.legalandgeneral.com/jobs
+  active: true
+  notes: Own careers site, server-rendered /jobs list with /job/ pages (also carries Legal & General Investment Management roles).
+
+- name: Prudential plc
+  priority: 2
+  group: corporate
+  ats: workday
+  config:
+    tenant: prudential
+    wd: wd3
+    site: prudential
+  careers_url: https://www.prudentialplc.com/en/careers/overview/
+  active: true
+  notes: Workday (~470 roles, almost all Asia and Africa; the UK arm M&G hires separately). Config confirmed with curl on 2026-11-17 (CXS total returned) but the adapter run got HTTP 429 from Workday that evening; confirm on next run.
+
+- name: Phoenix Group
+  priority: 2
+  group: corporate
+  ats: custom
+  config:
+    kind: oracle
+    host: fa-enor-saasfaprod1.fa.ocs.oraclecloud.com
+    site: CX
+  careers_url: https://www.thephoenixgroup.com/careers
+  active: true
+  notes: Oracle HCM Cloud recruiting site (Standard Life / Phoenix), read through the public REST API.
+
+- name: Schroders
+  priority: 1
+  group: asset_manager
+  ats: custom
+  config:
+    kind: oracle
+    host: ekbq.fa.em2.oraclecloud.com
+    site: CX_2
+  careers_url: https://www.schroders.com/en/careers/
+  active: true
+  notes: Oracle HCM Cloud recruiting site read through the public REST API.
+
+- name: abrdn
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: abrdn
+    wd: wd3
+    site: abrdn
+  careers_url: https://www.aberdeenplc.com/en-gb/careers
+  active: true
+  notes: Workday (~21 roles, Edinburgh and London).
+
+- name: Legal & General Investment Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://careers.legalandgeneral.com/jobs
+  active: true
+  notes: LGIM hires on the Legal & General group careers site (see the Legal & General entry); am.landg.com careers page returns 404, no separate feed.
+
+- name: M&G
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: mgpru
+    wd: wd3
+    site: mandgprudential
+  careers_url: https://group.mandg.com/careers
+  active: true
+  notes: Workday (~143 roles, Stirling, London, Dublin, Luxembourg etc.). Config confirmed with curl on 2026-11-17 (CXS total returned) but the adapter run got HTTP 429 from Workday that evening; confirm on next run.
+
+- name: Jupiter Asset Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.jupiteram.com/global/en/corporate/
+  active: true
+  notes: Corporate site has no careers page or ATS link reachable from plain clients.
+
+- name: Fidelity International
+  priority: 1
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: fil
+    wd: wd3
+    site: "001"
+  careers_url: https://careers.fidelityinternational.com/
+  active: true
+  notes: Workday site 001 (~79 roles); graduate programmes are on fidelityinternational.tal.net. Config confirmed with curl on 2026-11-17 (CXS total returned) but the adapter run got HTTP 429 from Workday that evening; confirm on next run.
