@@ -54,28 +54,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Baillie Gifford | asset_manager | 2 | |
-| Aviva Investors | asset_manager | 2 | |
-| Amundi | asset_manager | 1 | Paris, Milan, Luxembourg |
-| AXA Investment Managers | asset_manager | 2 | |
-| Natixis Investment Managers | asset_manager | 2 | |
-| Eurizon Capital | asset_manager | 1 | Milan |
-| Anima SGR | asset_manager | 1 | Milan |
-| Generali Investments | asset_manager | 1 | |
-| Azimut | asset_manager | 2 | |
-| Kairos Partners | asset_manager | 2 | |
-| Algebris Investments | asset_manager | 1 | London / Milan |
-| GAM | asset_manager | 2 | |
-| LGT | asset_manager | 2 | |
-| Capital Group | asset_manager | 2 | |
-| Vanguard | asset_manager | 2 | |
-| Wellington Management | asset_manager | 2 | |
-| T. Rowe Price | asset_manager | 2 | |
-| Franklin Templeton | asset_manager | 2 | |
-| Invesco | asset_manager | 2 | |
-| Janus Henderson | asset_manager | 2 | |
-| Neuberger Berman | asset_manager | 2 | |
-| Nuveen | asset_manager | 2 | |
 | Allianz Global Investors | asset_manager | 2 | |
 | DWS | asset_manager | 2 | |
 | Robeco | asset_manager | 2 | |
@@ -459,3 +437,25 @@ registry" means it was there before.
 | M&G | 2026-11-17 | live (Workday, ~143 roles) |
 | Jupiter Asset Management | 2026-11-17 | manual (no careers page or ATS reachable from plain clients) |
 | Fidelity International | 2026-11-17 | live (Workday site 001, ~79 roles) |
+| Baillie Gifford | 2026-11-18 | live (Workday, 11 roles by curl; adapter run got 429) |
+| Aviva Investors | 2026-11-18 | live (Workday, adapter run got 429) |
+| Amundi | 2026-11-18 | live (RSS feed read with the sitemap adapter, 6 postings kept) |
+| AXA Investment Managers | 2026-11-18 | already in registry (now BNP Paribas Asset Management, entry BNP Paribas) |
+| Natixis Investment Managers | 2026-11-18 | manual (no careers page, JavaScript group portal) |
+| Eurizon Capital | 2026-11-18 | already in registry (hires on the Intesa Sanpaolo portal, entry Intesa Sanpaolo) |
+| Anima SGR | 2026-11-18 | manual (static page, email applications) |
+| Generali Investments | 2026-11-18 | manual (JavaScript group portal) |
+| Azimut | 2026-11-18 | manual (no vacancy list) |
+| Kairos Partners | 2026-11-18 | manual (no careers page) |
+| Algebris Investments | 2026-11-18 | manual (403 to non-browser clients) |
+| GAM | 2026-11-18 | live (Workday, adapter run got 429) |
+| LGT | 2026-11-18 | live (server-rendered job list, 18 postings) |
+| Capital Group | 2026-11-18 | live (Workday, adapter run got 429) |
+| Vanguard | 2026-11-18 | manual (JavaScript search, US-only postings) |
+| Wellington Management | 2026-11-18 | live (Workday, adapter run got 429) |
+| T. Rowe Price | 2026-11-18 | live (Workday international site, adapter run got 429) |
+| Franklin Templeton | 2026-11-18 | live (Phenom People, 8 postings) |
+| Invesco | 2026-11-18 | live (Workday, adapter run got 429) |
+| Janus Henderson | 2026-11-18 | live (SuccessFactors sitemap, 7 postings, 76 pages still to open) |
+| Neuberger Berman | 2026-11-18 | manual (429 / unreachable) |
+| Nuveen | 2026-11-18 | manual (TIAA Phenom site, widgets API 404) |

@@ -622,3 +622,35 @@ Manual (no feed reachable without a browser):
 | Nationwide Building Society | nationwide-jobs.co.uk is an Angular app, sitemap answers 404. | JavaScript only. |
 | Legal & General Investment Management | Hires on the Legal & General group site (see that entry); am.landg.com careers page answers 404. | No separate feed. |
 | Jupiter Asset Management | No careers page or ATS link reachable from plain clients. | No listings. |
+
+## Added on 2026-11-18 (evening routine)
+
+First 20 slots of `backlog.md` (tier 7 from Baillie Gifford to Janus Henderson, then Neuberger Berman and Nuveen); the wishlist had no new rows. AXA Investment Managers (now part of BNP Paribas AM, entry BNP Paribas) and Eurizon Capital (hires on the Intesa Sanpaolo portal, entry Intesa Sanpaolo) were already covered and did not use a slot. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter); "In scope" is the same number. Workday answered the adapter with 429 all evening, so the seven new Workday entries are unconfirmed by the adapter; Baillie Gifford's board was confirmed with curl (11 roles), the others were read from the employer's own careers page.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Baillie Gifford | workday | `bailliegifford` / wd3 / `BaillieGiffordCareers` | not run (429) | not run | curl: 11 roles in total. |
+| Aviva Investors | workday | `aviva` / wd1 / `Aviva_Investors_External` | not run (429) | not run | Site linked from careers.avivainvestors.com. |
+| Amundi | sitemap (rss_url) | `jobs.amundi.com/handlers/offerRss.ashx?LCID=2057` | 6 | 6 | ~100 roles in the feed (Paris, Luxembourg 15, Ireland 12, Italy 3); feed has only a postcode, so most fall out of scope. |
+| GAM | workday | `gam` / wd3 / `GAM` | not run (429) | not run | Linked from gam.com/en/careers. |
+| LGT | sitemap (index_urls) | `lgt.com/global-en/career/jobs`, 5 list pages | 18 | 18 | Server-rendered list; LGT Capital Partners is a separate entry. |
+| Capital Group | workday | `capgroup` / wd1 / `capitalgroupcareers` | not run (429) | not run | Mostly US roles expected. |
+| Wellington Management | workday | `wellington` / wd5 / `External` | not run (429) | not run | |
+| T. Rowe Price | workday | `troweprice` / wd5 / `TRowePriceInternational` | not run (429) | not run | International site; US site is `TRowePrice`. |
+| Franklin Templeton | custom `phenom` | `careers.franklintempleton.com`, six-country filter | 8 | 8 | Phenom People site over Workday. |
+| Invesco | workday | `invesco` / wd1 / `IVZ` | not run (429) | not run | |
+| Janus Henderson | sitemap | `jobs.janushenderson.com/sitemap.xml`, `/job/` pages | 7 | 7 | SuccessFactors; 76 pages still to open on later runs. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Natixis Investment Managers | im.natixis.com has no careers page (404); hiring is on the JavaScript Natixis group portal. | JavaScript only. |
+| Anima SGR | Static page with an email address, no vacancy list. | No feed. |
+| Generali Investments | Hires on the gogenerali.com group portal, JavaScript app. | JavaScript only. |
+| Azimut | Next.js page with only an unsolicited-application link. | No listings. |
+| Kairos Partners | No careers page or vacancy list. | No listings. |
+| Algebris Investments | algebris.com answers 403. | Bot protection. |
+| Vanguard | vanguardjobs.com WordPress site, JavaScript search, US-only postings, no job sitemap. | JavaScript only. |
+| Neuberger Berman | nb.com answers 429, careers.nb.com unreachable through the proxy. | Bot protection. |
+| Nuveen | TIAA Phenom site (careers.tiaa.org/nuveen); the widgets API answers 404 under the site prefix. | No feed. |

@@ -4331,3 +4331,216 @@
   careers_url: https://careers.fidelityinternational.com/
   active: true
   notes: Workday site 001 (~79 roles); graduate programmes are on fidelityinternational.tal.net. Config confirmed with curl on 2026-11-17 (CXS total returned) but the adapter run got HTTP 429 from Workday that evening; confirm on next run.
+
+# ---- Added 2026-11-18 (evening routine) ---------------------------------------
+# Asset managers, hedge funds
+- name: Baillie Gifford
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: bailliegifford
+    wd: wd3
+    site: BaillieGiffordCareers
+  careers_url: https://www.bailliegifford.com/en/uk/individual-investors/careers/
+  active: true
+  notes: Workday board linked from the careers page ("continue to Workday"). Config read from the employer page; Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: Aviva Investors
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: aviva
+    wd: wd1
+    site: Aviva_Investors_External
+  careers_url: https://careers.avivainvestors.com/
+  active: true
+  notes: Workday site linked from careers.avivainvestors.com. Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: Amundi
+  priority: 1
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: none
+    rss_url: https://jobs.amundi.com/handlers/offerRss.ashx?LCID=2057
+    job_url_pattern: "jobs\\.amundi\\.com/Pages/Offre/detailoffre"
+  careers_url: https://jobs.amundi.com/
+  active: true
+  notes: Talentsoft-style portal (jobs.amundi.com); public RSS feed of all openings (~100, mostly Paris, 15 Luxembourg, 12 Ireland, 3 Italy). Feed has title and postcode only.
+
+- name: Natixis Investment Managers
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.im.natixis.com/en-intl/home
+  active: true
+  notes: im.natixis.com has no working careers page (404 on every careers path) and no ATS link; hiring goes through the Natixis group portal (recrutement.natixis.com, JavaScript only).
+
+- name: Anima SGR
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.animasgr.it/IT/anima-holding/info/Pagine/careers.aspx
+  active: true
+  notes: Static careers page with an email address for applications (carriere@animaholding.it); no vacancy list or feed.
+
+- name: Generali Investments
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://gogenerali.com/home/jobs
+  active: true
+  notes: Hires via the Generali group portal gogenerali.com, a JavaScript app with no feed in the HTML.
+
+- name: Azimut
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.azimut-group.com/careers
+  active: true
+  notes: Next.js careers page with only an unsolicited-application link; no vacancy list or feed.
+
+- name: Kairos Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.kairospartners.com/
+  active: true
+  notes: WordPress site with no careers page or vacancy list reachable.
+
+- name: Algebris Investments
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.algebris.com/careers/
+  active: true
+  notes: algebris.com answers 403 to non-browser clients.
+
+- name: GAM
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: gam
+    wd: wd3
+    site: GAM
+  careers_url: https://www.gam.com/en/careers
+  active: true
+  notes: Workday board linked from gam.com/en/careers (Zurich, London). Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: LGT
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://www.lgt.com/global-en/career/jobs/34662!jobSearch?pageNum=1
+      - https://www.lgt.com/global-en/career/jobs/34662!jobSearch?pageNum=2
+      - https://www.lgt.com/global-en/career/jobs/34662!jobSearch?pageNum=3
+      - https://www.lgt.com/global-en/career/jobs/34662!jobSearch?pageNum=4
+      - https://www.lgt.com/global-en/career/jobs/34662!jobSearch?pageNum=5
+    job_url_pattern: "lgt\\.com/global-en/career/jobs/[a-z0-9-]+-\\d+$"
+  careers_url: https://www.lgt.com/global-en/career/jobs
+  active: true
+  notes: LGT Group (private banking, Vaduz, Zurich, Geneva, London, Dublin) own server-rendered job list, first 5 result pages. LGT Capital Partners is a separate entry.
+
+- name: Capital Group
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: capgroup
+    wd: wd1
+    site: capitalgroupcareers
+  careers_url: https://www.capitalgroup.com/about-us/careers.html
+  active: true
+  notes: Workday board linked from capitalgroup.com careers. Workday answered 429 on 2026-11-18, not yet confirmed by the adapter; expect mostly US roles.
+
+- name: Vanguard
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.vanguardjobs.com/
+  active: true
+  notes: vanguardjobs.com is a WordPress site with a JavaScript job search; the sitemap has no job pages and the visible postings are US-only.
+
+- name: Wellington Management
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: wellington
+    wd: wd5
+    site: External
+  careers_url: https://www.wellington.com/en/careers
+  active: true
+  notes: Workday board linked from wellington.com/en/careers (London, Boston). Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: T. Rowe Price
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: troweprice
+    wd: wd5
+    site: TRowePriceInternational
+  careers_url: https://www.troweprice.com/en/us/careers
+  active: true
+  notes: Workday international site (London, Luxembourg) linked from the careers page; the US site is TRowePrice. Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: Franklin Templeton
+  priority: 2
+  group: asset_manager
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.franklintempleton.com
+    lang: en_us
+    country: us
+    selected_fields:
+      country: [United Kingdom, Luxembourg, France, Switzerland, Italy, Ireland]
+  careers_url: https://careers.franklintempleton.com/us/en
+  active: true
+  notes: Phenom People site over Workday (franklintempleton.wd5 / Primary-External-1); country filter applied server-side.
+
+- name: Invesco
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: invesco
+    wd: wd1
+    site: IVZ
+  careers_url: https://careers.invesco.com/
+  active: true
+  notes: Workday board linked from careers.invesco.com. Workday answered 429 on 2026-11-18, not yet confirmed by the adapter.
+
+- name: Janus Henderson
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.janushenderson.com/sitemap.xml
+    job_url_pattern: "jobs\\.janushenderson\\.com/job/"
+  careers_url: https://jobs.janushenderson.com/
+  active: true
+  notes: SuccessFactors career site with a standard sitemap (London, Milan and other offices).
+
+- name: Neuberger Berman
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.nb.com/en/global/careers
+  active: true
+  notes: nb.com answers 429 to plain clients and careers.nb.com is unreachable through the proxy; no feed found.
+
+- name: Nuveen
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://careers.tiaa.org/nuveen
+  active: true
+  notes: Nuveen hires on the TIAA Phenom People site (careers.tiaa.org/nuveen) over Workday; the Phenom widgets API answers 404 under the site prefix, so no feed could be read.
