@@ -654,3 +654,36 @@ Manual (no feed reachable without a browser):
 | Vanguard | vanguardjobs.com WordPress site, JavaScript search, US-only postings, no job sitemap. | JavaScript only. |
 | Neuberger Berman | nb.com answers 429, careers.nb.com unreachable through the proxy. | Bot protection. |
 | Nuveen | TIAA Phenom site (careers.tiaa.org/nuveen); the widgets API answers 404 under the site prefix. | No feed. |
+
+## Added on 2026-11-19 (evening routine)
+
+First 20 slots of `backlog.md` (tier 7 from Allianz Global Investors to Elliott Management); the wishlist had no new rows and none of the 20 was already in the registry. Walleye Capital has two Greenhouse boards (full-time and students), so it got two entries. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter); "In scope" is the same number. Workday and Workable answered the adapter with 429 for DWS and Caxton Associates (curl worked and confirmed the boards), so those two are unconfirmed by the adapter. Robeco's adapter run succeeded after two 429 retries.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Allianz Global Investors | custom `phenom` | `careers.allianz.com`, lang `en_global`, six-country filter | 335 | 335 | Allianz group portal; includes group roles, not only AGI (the adapter has no keyword option). |
+| DWS | workday | `db` / wd3 / `DWSWebsite` | not run (429) | not run | curl: 83 roles worldwide. |
+| Robeco | workday | `robeco` / wd3 / `robecoexternalcareers` | 0 | 0 | curl: 10 roles, mostly Rotterdam. |
+| Caxton Associates | workable | account `caxton` | not run (429) | not run | curl: 30 roles incl. London programmes. |
+| ExodusPoint | greenhouse | board `exoduspoint` | 2 | 2 | 5 on the board, mostly Asia and US. |
+| Verition | greenhouse | board `veritiongroupllc` | 1 | 1 | 14 on the board, mostly US and Asia. |
+| Walleye Capital | greenhouse | board `walleyecapital-external-fulltime` | 0 | 0 | 13 roles, all New York. |
+| Walleye Capital (students) | greenhouse | board `walleyecapital-external-students` | 0 | 0 | 1 role (Miami). |
+| Winton | greenhouse | board `winton` | 3 | 3 | 7 London roles, EU-hosted board; includes the graduate quant role. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Carmignac | Careers page says "This website requires JS enabled and cookies". | JavaScript only. |
+| Comgest | Static job-offers page with a generic application form. | No listings. |
+| Marshall Wace | Static join-us pages (early careers, internships); no ATS link. | No feed. |
+| Rokos Capital Management | Static page with a careers email address. | No listings. |
+| BlueCrest Capital | No careers page (404); the SmartRecruiters "BlueCrest" board is another company. | No listings. |
+| Eisler Capital | eislercapital.com returns 502 through the proxy; no other page found. | Unreachable. |
+| Balyasny Asset Management | Programme pages only; vacancies on a Salesforce site that needs JavaScript. | JavaScript only. |
+| Aspect Capital | HiBob careers widget rendered in the browser. | JavaScript only. |
+| Lansdowne Partners | Static page: "There are currently no open positions". | No listings. |
+| Egerton Capital | No careers page (404). | No listings. |
+| TCI Fund Management | No careers page (404). | No listings. |
+| Elliott Management | /careers redirects to the contact page. | No listings. |

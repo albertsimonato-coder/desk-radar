@@ -22,11 +22,29 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Centerview Partners | boutique | 1 |  |
+| Raine Group | boutique | 1 |  |
+| Qatalyst Partners | boutique | 2 |  |
+| Livingstone Partners | boutique | 2 |  |
+| GP Bullhound | boutique | 2 | London |
+| Bryan Garnier & Co | boutique | 2 | Paris, London |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Oakley Capital | asset_manager | 1 |  |
+| IK Partners | asset_manager | 1 |  |
+| Park Square Capital | asset_manager | 2 |  |
+| Cerberus Capital Management | asset_manager | 2 |  |
+| Clayton Dubilier & Rice | asset_manager | 2 |  |
+| Eight Roads Ventures | asset_manager | 2 |  |
+| Argos Wityu | asset_manager | 2 | Paris |
+| Vitruvian Partners | asset_manager | 1 |  |
+| Cairn Capital | asset_manager | 2 |  |
+| Adams Street Partners | asset_manager | 2 |  |
+| Investcorp | asset_manager | 2 |  |
+| Cambridge Associates | advisory | 2 |  |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -39,41 +57,43 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| BGC Group | exchange | 1 |  |
+| Euroclear | exchange | 2 |  |
+| LCH | exchange | 2 |  |
+| Davy | bank | 2 | Dublin |
+| Goodbody | bank | 2 | Dublin |
+| Sucden Financial | commodities | 1 |  |
+| Old Mission Capital | prop_trading | 2 |  |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Sucafina | commodities | 1 | Geneva |
+| Viterra | commodities | 1 |  |
+| Tereos | commodities | 2 |  |
+| Argus Media | commodities | 2 |  |
+| Kpler | commodities | 2 |  |
+| CMA CGM | commodities | 2 |  |
+| Hapag-Lloyd | commodities | 2 |  |
+| Torm | commodities | 2 |  |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Munich Re | corporate | 2 |  |
+| Swiss Re | corporate | 2 | Zurich |
+| Zurich Insurance Group | corporate | 2 |  |
+| Hannover Re | corporate | 2 |  |
+| Willis Towers Watson | corporate | 2 |  |
+| Lombard International | corporate | 2 | Luxembourg |
+| KBRA | corporate | 2 |  |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Allianz Global Investors | asset_manager | 2 | |
-| DWS | asset_manager | 2 | |
-| Robeco | asset_manager | 2 | |
-| Carmignac | asset_manager | 2 | |
-| Comgest | asset_manager | 2 | |
-| Marshall Wace | asset_manager | 1 | |
-| Caxton Associates | asset_manager | 1 | |
-| Rokos Capital Management | asset_manager | 1 | |
-| BlueCrest Capital | asset_manager | 1 | |
-| Eisler Capital | asset_manager | 1 | |
-| ExodusPoint | asset_manager | 1 | |
-| Balyasny Asset Management | asset_manager | 1 | |
-| Verition | asset_manager | 1 | |
-| Walleye Capital | asset_manager | 2 | |
-| Winton | asset_manager | 2 | |
-| Aspect Capital | asset_manager | 2 | |
-| Lansdowne Partners | asset_manager | 2 | |
-| Egerton Capital | asset_manager | 2 | |
-| TCI Fund Management | asset_manager | 2 | |
-| Elliott Management | asset_manager | 1 | |
 | Davidson Kempner | asset_manager | 2 | |
 | King Street | asset_manager | 2 | |
 | Sculptor Capital | asset_manager | 2 | |
@@ -459,3 +479,23 @@ registry" means it was there before.
 | Janus Henderson | 2026-11-18 | live (SuccessFactors sitemap, 7 postings, 76 pages still to open) |
 | Neuberger Berman | 2026-11-18 | manual (429 / unreachable) |
 | Nuveen | 2026-11-18 | manual (TIAA Phenom site, widgets API 404) |
+| Allianz Global Investors | 2026-11-19 | live (Phenom People on the Allianz group site, six-country filter, 335 postings kept) |
+| DWS | 2026-11-19 | live (Workday db/DWSWebsite, 83 roles by curl, adapter run got 429) |
+| Robeco | 2026-11-19 | live (Workday, 10 roles, none in scope) |
+| Carmignac | 2026-11-19 | manual (JavaScript-only careers page) |
+| Comgest | 2026-11-19 | manual (static job-offers page, no feed) |
+| Marshall Wace | 2026-11-19 | manual (static join-us pages, no feed) |
+| Caxton Associates | 2026-11-19 | live (Workable, 30 roles by curl, adapter run got 429) |
+| Rokos Capital Management | 2026-11-19 | manual (static page, email only) |
+| BlueCrest Capital | 2026-11-19 | manual (no careers page) |
+| Eisler Capital | 2026-11-19 | manual (site unreachable, no feed) |
+| ExodusPoint | 2026-11-19 | live (Greenhouse, 2 postings kept) |
+| Balyasny Asset Management | 2026-11-19 | manual (Salesforce site needs JavaScript) |
+| Verition | 2026-11-19 | live (Greenhouse veritiongroupllc, 1 posting kept) |
+| Walleye Capital | 2026-11-19 | live (two Greenhouse boards, full-time and students; US roles only, 0 in scope) |
+| Winton | 2026-11-19 | live (Greenhouse, 3 postings kept) |
+| Aspect Capital | 2026-11-19 | manual (HiBob widget, JavaScript) |
+| Lansdowne Partners | 2026-11-19 | manual (page says no open positions) |
+| Egerton Capital | 2026-11-19 | manual (no careers page) |
+| TCI Fund Management | 2026-11-19 | manual (no careers page) |
+| Elliott Management | 2026-11-19 | manual (no careers page) |

@@ -4544,3 +4544,199 @@
   careers_url: https://careers.tiaa.org/nuveen
   active: true
   notes: Nuveen hires on the TIAA Phenom People site (careers.tiaa.org/nuveen) over Workday; the Phenom widgets API answers 404 under the site prefix, so no feed could be read.
+
+# ---- Added 2026-11-19 (evening routine) ---------------------------------------
+- name: Allianz Global Investors
+  priority: 2
+  group: asset_manager
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.allianz.com
+    lang: en_global
+    country: global
+    selected_fields:
+      country: [United Kingdom, Luxembourg, France, Switzerland, Italy, Ireland]
+  careers_url: https://careers.allianz.com/global/en
+  active: true
+  notes: Allianz Global Investors hires on the Allianz group Phenom People site; the country filter is applied server-side, so group roles in the six countries come with it.
+
+- name: DWS
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: db
+    wd: wd3
+    site: DWSWebsite
+  careers_url: https://careers.dws.com/
+  active: true
+  notes: DWS board on the Deutsche Bank Workday tenant (db / DWSWebsite), linked from dws.com careers; 83 roles worldwide on 2026-11-19 (curl). The Workday adapter answered 429 on 2026-11-19, not yet confirmed by the adapter.
+
+- name: Robeco
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: robeco
+    wd: wd3
+    site: robecoexternalcareers
+  careers_url: https://www.robeco.com/en-int/careers/job-openings
+  active: true
+  notes: Workday board linked from robeco.com/careers/job-openings; 10 roles on 2026-11-19, mostly Rotterdam; the adapter run succeeded with none in scope.
+
+- name: Carmignac
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.carmignac.com/en_GB/careers
+  active: true
+  notes: Careers page answers "This website requires JS enabled and cookies"; JavaScript-only, no feed found.
+
+- name: Comgest
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.comgest.com/en/about-us/our-people/careers/job-offers
+  active: true
+  notes: Static job-offers page on comgest.com with a generic application form and no vacancy list or feed.
+
+- name: Marshall Wace
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.mwam.com/join-us/
+  active: true
+  notes: mwam.com/join-us has static pages (early careers, internships, fundamental analyst) and no vacancy feed; the Workable and Greenhouse slugs tried are empty.
+
+- name: Caxton Associates
+  priority: 1
+  group: asset_manager
+  ats: workable
+  config:
+    account: caxton
+  careers_url: https://caxton.io/about/careers
+  active: true
+  notes: Workable board linked from caxton.io careers (30 roles by curl on 2026-11-19, London programmes included). The adapter answered 429 on 2026-11-19, not yet confirmed by the adapter.
+
+- name: Rokos Capital Management
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.rokoscapital.com/careers
+  active: true
+  notes: Static careers page that points to a careers email address; no vacancy list or feed.
+
+- name: BlueCrest Capital
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.bluecrestcapital.com/
+  active: true
+  notes: No careers page (bluecrestcapital.com/careers answers 404); the SmartRecruiters "BlueCrest" board belongs to an unrelated company.
+
+- name: Eisler Capital
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.eislercapital.com/
+  active: true
+  notes: eislercapital.com unreachable through the proxy (502) and no other careers page found; no feed.
+
+- name: ExodusPoint
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: exoduspoint
+  careers_url: https://www.exoduspoint.com/careers
+  active: true
+  notes: Greenhouse board found by slug probe.
+
+- name: Balyasny Asset Management
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.bamfunds.com/careers
+  active: true
+  notes: bamfunds.com careers pages list programmes only; vacancies sit on a Salesforce site (bambusdev.my.site.com) that needs JavaScript. No feed found.
+
+- name: Verition
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: veritiongroupllc
+  careers_url: https://www.verition.com/open-positions
+  active: true
+  notes: Greenhouse board veritiongroupllc embedded on verition.com/open-positions.
+
+- name: Walleye Capital
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: walleyecapital-external-fulltime
+  careers_url: https://www.walleyecapital.com/careers
+  active: true
+  notes: Full-time Greenhouse board embedded on walleyecapital.com/careers.
+
+- name: Walleye Capital (students)
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: walleyecapital-external-students
+  careers_url: https://www.walleyecapital.com/careers
+  active: true
+  notes: Student and intern Greenhouse board of Walleye Capital (second board of the same employer).
+
+- name: Winton
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: winton
+  careers_url: https://www.winton.com/careers
+  active: true
+  notes: Greenhouse board (EU-hosted job-boards.eu.greenhouse.io) found by slug probe; the public API answers on the global host.
+
+- name: Aspect Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.aspectcapital.com/careers/opportunities/
+  active: true
+  notes: Vacancies are rendered by a HiBob careers widget (JavaScript); no feed reachable with plain HTTP.
+
+- name: Lansdowne Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.lansdownepartners.com/careers/
+  active: true
+  notes: Static careers page; on 2026-11-19 it states "There are currently no open positions"; no feed.
+
+- name: Egerton Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.egertoncapital.com/
+  active: true
+  notes: No careers page (egertoncapital.com/careers answers 404) and no vacancy list on the site.
+
+- name: TCI Fund Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.tcifund.com/
+  active: true
+  notes: No careers page (tcifund.com/careers answers 404); the site only has investor and ESG pages.
+
+- name: Elliott Management
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.elliottmgmt.com/
+  active: true
+  notes: elliottmgmt.com/careers redirects to the contact page; no vacancy list or feed on the site.
