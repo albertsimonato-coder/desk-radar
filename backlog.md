@@ -22,29 +22,11 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Centerview Partners | boutique | 1 |  |
-| Raine Group | boutique | 1 |  |
-| Qatalyst Partners | boutique | 2 |  |
-| Livingstone Partners | boutique | 2 |  |
-| GP Bullhound | boutique | 2 | London |
-| Bryan Garnier & Co | boutique | 2 | Paris, London |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Oakley Capital | asset_manager | 1 |  |
-| IK Partners | asset_manager | 1 |  |
-| Park Square Capital | asset_manager | 2 |  |
-| Cerberus Capital Management | asset_manager | 2 |  |
-| Clayton Dubilier & Rice | asset_manager | 2 |  |
-| Eight Roads Ventures | asset_manager | 2 |  |
-| Argos Wityu | asset_manager | 2 | Paris |
-| Vitruvian Partners | asset_manager | 1 |  |
-| Cairn Capital | asset_manager | 2 |  |
-| Adams Street Partners | asset_manager | 2 |  |
-| Investcorp | asset_manager | 2 |  |
-| Cambridge Associates | advisory | 2 |  |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -57,10 +39,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| BGC Group | exchange | 1 |  |
-| Euroclear | exchange | 2 |  |
-| LCH | exchange | 2 |  |
-| Davy | bank | 2 | Dublin |
 | Goodbody | bank | 2 | Dublin |
 | Sucden Financial | commodities | 1 |  |
 | Old Mission Capital | prop_trading | 2 |  |
@@ -499,3 +477,25 @@ registry" means it was there before.
 | Egerton Capital | 2026-11-19 | manual (no careers page) |
 | TCI Fund Management | 2026-11-19 | manual (no careers page) |
 | Elliott Management | 2026-11-19 | manual (no careers page) |
+| Raine Group | 2026-11-20 | live (Lever, 1 role, Singapore only, 0 in scope) |
+| Qatalyst Partners | 2026-11-20 | manual (mailto addresses only) |
+| Livingstone Partners | 2026-11-20 | manual (403 to non-browser clients) |
+| GP Bullhound | 2026-11-20 | manual (no vacancy list, Sesame HR / email) |
+| Bryan Garnier & Co | 2026-11-20 | manual (site unreachable (502)) |
+| Oakley Capital | 2026-11-20 | live (Greenhouse board exists, 0 roles today) |
+| IK Partners | 2026-11-20 | manual (403 to non-browser clients) |
+| Park Square Capital | 2026-11-20 | manual (403 to non-browser clients) |
+| Cerberus Capital Management | 2026-11-20 | manual (403 to non-browser clients) |
+| Clayton Dubilier & Rice | 2026-11-20 | manual (no careers page) |
+| Eight Roads Ventures | 2026-11-20 | manual (no careers page) |
+| Argos Wityu | 2026-11-20 | manual (site unreachable (502)) |
+| Vitruvian Partners | 2026-11-20 | manual (no careers page) |
+| Cairn Capital | 2026-11-20 | manual (TLS handshake fails) |
+| Adams Street Partners | 2026-11-20 | live (Greenhouse, 13 roles, 2 in scope) |
+| Investcorp | 2026-11-20 | manual (no vacancy list or ATS link) |
+| Cambridge Associates | 2026-11-20 | manual (403 to non-browser clients) |
+| Euroclear | 2026-11-20 | manual (403 to non-browser clients, no public ATS) |
+| LCH | 2026-11-20 | manual (hires via the LSEG portal, see LSEG entry) |
+| Davy | 2026-11-20 | manual (editorial careers pages, no feed) |
+| Centerview Partners | 2026-11-20 | already in registry (entry Centerview) |
+| BGC Group | 2026-11-20 | already in registry (manual, 403 to non-browser clients) |

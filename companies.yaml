@@ -4740,3 +4740,172 @@
   careers_url: https://www.elliottmgmt.com/
   active: true
   notes: elliottmgmt.com/careers redirects to the contact page; no vacancy list or feed on the site.
+
+# ---- Added 2026-11-20 (evening routine) ---------------------------------------
+# Valuation and advisory boutiques, private equity, market infrastructure
+
+- name: Raine Group
+  priority: 1
+  group: boutique
+  ats: lever
+  config:
+    company: raine
+  careers_url: https://www.raine.com/careers
+  active: true
+  notes: Lever board `raine` (jobs.lever.co/raine); 1 role tonight (2027 off-cycle analyst, Singapore). raine.com answers 403 to plain clients.
+
+- name: Qatalyst Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://qatalyst.com/
+  active: true
+  notes: Site has only mailto careers addresses (ukcareers@ / uscareers@); no vacancy list or feed.
+
+- name: Livingstone Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.livingstonepartners.com/careers/
+  active: true
+  notes: livingstonepartners.com answers 403 to non-browser clients.
+
+- name: GP Bullhound
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.gpbullhound.com/careers/
+  active: true
+  notes: WordPress careers and jobs pages show no vacancy list; application via Sesame HR (jobs.sesametime.com, 503 tonight) and email.
+
+- name: Bryan Garnier & Co
+  priority: 2
+  group: boutique
+  ats: manual
+  careers_url: https://www.bryangarnier.com/
+  active: true
+  notes: Site unreachable through the proxy (502 Bad Gateway).
+
+- name: Oakley Capital
+  priority: 1
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: oakleycapital
+  careers_url: https://www.oakleycapital.com/about/working-at-oakley/
+  active: true
+  notes: Greenhouse board `oakleycapital` exists but listed 0 postings tonight; will pick up roles when posted.
+
+- name: IK Partners
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.ikpartners.com/careers/
+  active: true
+  notes: ikpartners.com answers 403 to non-browser clients.
+
+- name: Park Square Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.parksquarecapital.com/careers/
+  active: true
+  notes: parksquarecapital.com answers 403 to non-browser clients.
+
+- name: Cerberus Capital Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cerberus.com/careers
+  active: true
+  notes: cerberus.com answers 403 to non-browser clients; portal not identified.
+
+- name: Clayton Dubilier & Rice
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cdr.com/
+  active: true
+  notes: cdr.com has no careers page (404) and no job list.
+
+- name: Eight Roads Ventures
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://eightroads.com/en/
+  active: true
+  notes: No careers page (404); site mentions a HiBob link only in team data, no vacancy list.
+
+- name: Argos Wityu
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.argos-wityu.com/
+  active: true
+  notes: Site unreachable through the proxy (502 Bad Gateway).
+
+- name: Vitruvian Partners
+  priority: 1
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.vitruvianpartners.com/
+  active: true
+  notes: No careers page (404) and no job list on the site.
+
+- name: Cairn Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.cairncapital.com/
+  active: true
+  notes: Site fails the TLS handshake from plain clients.
+
+- name: Adams Street Partners
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: adamsstreetpartners
+  careers_url: https://www.adamsstreetpartners.com/careers/
+  active: true
+  notes: Greenhouse board `adamsstreetpartners`; 13 roles, 1 London (Analyst, Primary), rest US and Singapore. Main site answers 403.
+
+- name: Investcorp
+  priority: 2
+  group: asset_manager
+  ats: manual
+  careers_url: https://www.investcorp.com/careers/
+  active: true
+  notes: WordPress careers page with no vacancy list or ATS link; roles go through external boards.
+
+- name: Cambridge Associates
+  priority: 2
+  group: advisory
+  ats: manual
+  careers_url: https://www.cambridgeassociates.com/careers/
+  active: true
+  notes: cambridgeassociates.com answers 403 to non-browser clients.
+
+- name: Euroclear
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://www.euroclear.com/careers/en.html
+  active: true
+  notes: euroclear.com/careers answers 403 to non-browser clients; no public ATS found (Workday guesses 422/429).
+
+- name: LCH
+  priority: 2
+  group: exchange
+  ats: manual
+  careers_url: https://www.lseg.com/en/post-trade/clearing
+  active: true
+  notes: LCH hires through the LSEG group portal; see the LSEG entry (Workday, live).
+
+- name: Davy
+  priority: 2
+  group: bank
+  ats: manual
+  careers_url: https://www.davy.ie/working-at-davy
+  active: true
+  notes: Careers and early-careers pages are editorial with no vacancy list or ATS link.

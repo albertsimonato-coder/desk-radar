@@ -687,3 +687,35 @@ Manual (no feed reachable without a browser):
 | Egerton Capital | No careers page (404). | No listings. |
 | TCI Fund Management | No careers page (404). | No listings. |
 | Elliott Management | /careers redirects to the contact page. | No listings. |
+
+## Added on 2026-11-20 (evening routine)
+
+The wishlist had no new rows. First slots of `backlog.md` (tier 1 to tier 4, Raine Group to Davy); Centerview Partners and BGC Group were already in the registry and did not use slots (22 rows removed from the queue, 20 processed). Plain HTTP only. Workable and Workday probes were rate-limited (429) tonight, so a Workable or Workday board for the manual employers cannot be ruled out. "Postings" is the count the run log printed (rows kept by the scope filter).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Raine Group | lever | company `raine` | 0 | 0 | 1 role on the board (2027 off-cycle analyst, Singapore), out of geography. |
+| Oakley Capital | greenhouse | board `oakleycapital` | 0 | 0 | Board exists, empty tonight. |
+| Adams Street Partners | greenhouse | board `adamsstreetpartners` | 2 | 2 | 13 roles on the board, mostly US; one London analyst role. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Qatalyst Partners | Only mailto careers addresses. | No listings. |
+| Livingstone Partners | Site answers 403. | Bot protection. |
+| GP Bullhound | Careers/jobs pages without a list; Sesame HR link answers 503. | No listings. |
+| Bryan Garnier & Co | 502 through the proxy. | Unreachable. |
+| IK Partners | Site answers 403. | Bot protection. |
+| Park Square Capital | Site answers 403. | Bot protection. |
+| Cerberus Capital Management | Site answers 403. | Bot protection. |
+| Clayton Dubilier & Rice | No careers page (404). | No listings. |
+| Eight Roads Ventures | No careers page (404). | No listings. |
+| Argos Wityu | 502 through the proxy. | Unreachable. |
+| Vitruvian Partners | No careers page (404). | No listings. |
+| Cairn Capital | TLS handshake fails. | Unreachable. |
+| Investcorp | Careers page without vacancy list or ATS link. | No listings. |
+| Cambridge Associates | Site answers 403. | Bot protection. |
+| Euroclear | Careers site answers 403; no public ATS found. | Bot protection. |
+| LCH | Hires via the LSEG group portal (entry LSEG). | Covered by LSEG. |
+| Davy | Editorial careers pages, no vacancy list. | No listings. |
