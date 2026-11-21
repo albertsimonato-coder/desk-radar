@@ -22,11 +22,33 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Moelis & Company | boutique | 2 | |
+| Perella Weinberg Partners | boutique | 2 | |
+| Hawkpoint Partners | boutique | 2 | |
+| Hoche Partners | boutique | 2 | |
+| Messier Maris & Associés | boutique | 2 | |
+| Degroof Petercam | bank | 2 | |
+| Zeus Capital | boutique | 2 | |
+| MCF Corporate Finance | boutique | 2 | |
+| Aream | boutique | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Kartesia | asset_manager | 2 | |
+| Muzinich & Co | asset_manager | 2 | |
+| Apera Asset Management | asset_manager | 2 | |
+| HarbourVest Partners | asset_manager | 2 | |
+| Wendel | asset_manager | 2 | |
+| Mutares | asset_manager | 2 | |
+| Arle Capital | asset_manager | 2 | |
+| Phoenix Equity Partners | asset_manager | 2 | |
+| Duke Street | asset_manager | 2 | |
+| Hellman & Friedman | asset_manager | 2 | |
+| Stonepeak | asset_manager | 2 | |
+| InfraVia Capital Partners | asset_manager | 2 | |
+| Meridiam | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -39,43 +61,34 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Goodbody | bank | 2 | Dublin |
-| Sucden Financial | commodities | 1 |  |
-| Old Mission Capital | prop_trading | 2 |  |
+| Cboe Global Markets | exchange | 2 | |
+| Winterflood Securities | bank | 2 | |
+| Canaccord Genuity | bank | 2 | |
+| SMBC Nikko | bank | 2 | |
+| Luxembourg Stock Exchange | exchange | 2 | |
+| Aquis Exchange | exchange | 2 | |
+| Trayport | exchange | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Sucafina | commodities | 1 | Geneva |
-| Viterra | commodities | 1 |  |
-| Tereos | commodities | 2 |  |
-| Argus Media | commodities | 2 |  |
-| Kpler | commodities | 2 |  |
-| CMA CGM | commodities | 2 |  |
-| Hapag-Lloyd | commodities | 2 |  |
-| Torm | commodities | 2 |  |
+| Louis Dreyfus Company | commodities | 2 | |
+| Engie Global Markets | commodities | 2 | |
+| Edison | commodities | 2 | |
+| Odfjell | commodities | 2 | |
+| Pacific Basin | commodities | 2 | |
+| Aquila Capital | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Munich Re | corporate | 2 |  |
-| Swiss Re | corporate | 2 | Zurich |
-| Zurich Insurance Group | corporate | 2 |  |
-| Hannover Re | corporate | 2 |  |
-| Willis Towers Watson | corporate | 2 |  |
-| Lombard International | corporate | 2 | Luxembourg |
-| KBRA | corporate | 2 |  |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Davidson Kempner | asset_manager | 2 | |
-| King Street | asset_manager | 2 | |
-| Sculptor Capital | asset_manager | 2 | |
-| Pharo Management | asset_manager | 2 | |
 | Tudor Investment | asset_manager | 2 | |
 | Moore Capital | asset_manager | 2 | |
 | Graham Capital | asset_manager | 2 | |
@@ -104,6 +117,7 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Columbia Threadneedle | asset_manager | 2 | |
 | Candriam | asset_manager | 2 | Luxembourg |
 | Swiss Life Asset Managers | asset_manager | 2 | |
+| Millennium Management | asset_manager | 2 | |
 
 ## Tier 8: consulting and other finance
 
@@ -122,6 +136,9 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Worldline | corporate | 2 | |
 | Hiscox | corporate | 2 | |
 | Beazley | corporate | 2 | |
+| Capco | advisory | 2 | |
+| Zanders | advisory | 2 | |
+| Sia Partners | advisory | 2 | |
 
 ## Processed
 
@@ -499,3 +516,25 @@ registry" means it was there before.
 | Davy | 2026-11-20 | manual (editorial careers pages, no feed) |
 | Centerview Partners | 2026-11-20 | already in registry (entry Centerview) |
 | BGC Group | 2026-11-20 | already in registry (manual, 403 to non-browser clients) |
+| Goodbody | 2026-11-21 | live (SuccessFactors via AIB group RSS, 3 roles, 1 in scope) |
+| Sucden Financial | 2026-11-21 | already in registry (entry Sucden, manual) |
+| Old Mission Capital | 2026-11-21 | live (Ashby, 39 roles, 4 in scope) |
+| Sucafina | 2026-11-21 | manual (no careers page or feed) |
+| Viterra | 2026-11-21 | already in registry (merged into Bunge, entry Bunge, manual) |
+| Tereos | 2026-11-21 | manual (careers site redirects to WordPress sign-up, no feed) |
+| Argus Media | 2026-11-21 | live (Teamtailor jobs.rss, 58 roles, 15 in scope) |
+| Kpler | 2026-11-21 | live (Lever, 110 roles, 12 in scope) |
+| CMA CGM | 2026-11-21 | manual (403 / 404, no feed) |
+| Hapag-Lloyd | 2026-11-21 | manual (403 to non-browser clients) |
+| Torm | 2026-11-21 | manual (403 to non-browser clients) |
+| Munich Re | 2026-11-21 | live (sitemap, target-city job pages only, 17 in scope) |
+| Swiss Re | 2026-11-21 | manual (403 to non-browser clients) |
+| Zurich Insurance Group | 2026-11-21 | manual (Incapsula bot challenge) |
+| Hannover Re | 2026-11-21 | manual (no careers page found, 404) |
+| Willis Towers Watson | 2026-11-21 | manual (JavaScript job search, 429 on main site) |
+| Lombard International | 2026-11-21 | manual (site fails TLS verification, expired certificate) |
+| KBRA | 2026-11-21 | live (Greenhouse krollbondratingagency, 62 roles, 0 in scope) |
+| Davidson Kempner | 2026-11-21 | live (Greenhouse, single evergreen posting) |
+| King Street | 2026-11-21 | manual (no careers page) |
+| Sculptor Capital | 2026-11-21 | live (Workday wd12, 1 role; adapter run rate-limited 429 tonight) |
+| Pharo Management | 2026-11-21 | manual (no careers page) |

@@ -4909,3 +4909,199 @@
   careers_url: https://www.davy.ie/working-at-davy
   active: true
   notes: Careers and early-careers pages are editorial with no vacancy list or ATS link.
+
+# ---- Added 2026-11-21 (evening routine) ---------------------------------------
+# Sales and trading, commodities, market risk, asset managers
+- name: Goodbody
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    rss_url: https://jobs.aib.ie/sitemap.xml
+    job_url_pattern: "jobs\\.aib\\.ie/goodbody/job/"
+  careers_url: https://jobs.aib.ie/goodbody/
+  active: true
+  notes: SuccessFactors site shared with AIB; the group's sitemap.xml is an RSS feed of all openings, filtered here to the /goodbody/ pages.
+
+- name: Old Mission Capital
+  priority: 2
+  group: prop_trading
+  ats: ashby
+  config:
+    board: old-mission-capital
+  careers_url: https://www.oldmissioncapital.com/careers/
+  active: true
+  notes: Ashby board embedded on the careers page.
+
+- name: Argus Media
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    rss_url: https://careers.argusmedia.com/jobs.rss
+    job_url_pattern: "careers\\.argusmedia\\.com/jobs/"
+  careers_url: https://careers.argusmedia.com/jobs
+  active: true
+  notes: Teamtailor career site; jobs.rss lists every opening in one request.
+
+- name: Kpler
+  priority: 2
+  group: commodities
+  ats: lever
+  config:
+    company: kpler
+  careers_url: https://www.kpler.com/company/careers
+  active: true
+  notes: Lever board.
+
+- name: Munich Re
+  priority: 2
+  group: corporate
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.munichre.com/sitemap.xml
+    job_url_pattern: "careers\\.munichre\\.com/en/job/(?:london|zurich|zuerich|milan|milano|luxembourg|paris|dublin|geneva|geneve)[^/]*/"
+    max_new_pages: 60
+  careers_url: https://careers.munichre.com/en/search-jobs
+  active: true
+  notes: Own career site; sitemap lists ~1,700 global job pages (JSON-LD), URL pattern keeps only target-city pages (city slug is in the URL).
+
+- name: KBRA
+  priority: 2
+  group: corporate
+  ats: greenhouse
+  config:
+    board: krollbondratingagency
+  careers_url: https://www.kbra.com/company/careers
+  active: true
+  notes: Kroll Bond Rating Agency, Greenhouse board; mostly New York roles, a few London and Dublin.
+
+- name: Sculptor Capital
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: sculptor
+    wd: wd12
+    site: Sculptor_External_Career_Site
+  careers_url: https://www.sculptor.com/careers
+  active: true
+  notes: Workday site found on the careers page (now part of Rithm Capital); 1 posting tonight.
+
+- name: Davidson Kempner
+  priority: 2
+  group: asset_manager
+  ats: greenhouse
+  config:
+    board: "1456754456yhgbhfg"
+  careers_url: https://www.davidsonkempner.com/careers
+  active: true
+  notes: Greenhouse board named in the careers page link; carries a single evergreen "Opportunities" posting.
+
+- name: Sucafina
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.sucafina.com/
+  active: true
+  notes: No careers page or job feed found on sucafina.com (site has no careers link).
+
+- name: Tereos
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://tereos.com/en/careers/
+  active: true
+  notes: careers.tereos.com redirects to a WordPress sign-up page; no job feed or ATS link found.
+
+- name: CMA CGM
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.cmacgm-group.com/en/careers
+  active: true
+  notes: cma-cgm.com answers 403 and the group careers URL 404; no feed reachable without a browser.
+
+- name: Hapag-Lloyd
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.hapag-lloyd.com/en/company/careers.html
+  active: true
+  notes: hapag-lloyd.com answers 403 to non-browser clients.
+
+- name: Torm
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://torm.com/careers
+  active: true
+  notes: torm.com answers 403 to non-browser clients (www host resets the connection).
+
+- name: Swiss Re
+  priority: 2
+  group: corporate
+  ats: manual
+  config: {}
+  careers_url: https://www.swissre.com/careers.html
+  active: true
+  notes: swissre.com answers 403 to non-browser clients.
+
+- name: Zurich Insurance Group
+  priority: 2
+  group: corporate
+  ats: manual
+  config: {}
+  careers_url: https://www.zurich.com/careers
+  active: true
+  notes: zurich.com careers sits behind an Incapsula bot challenge.
+
+- name: Hannover Re
+  priority: 2
+  group: corporate
+  ats: manual
+  config: {}
+  careers_url: https://www.hannover-re.com/
+  active: true
+  notes: Careers URLs guessed on hannover-re.com answer 404; no ATS link found.
+
+- name: Willis Towers Watson
+  priority: 2
+  group: corporate
+  ats: manual
+  config: {}
+  careers_url: https://careers.wtwco.com/
+  active: true
+  notes: careers.wtwco.com is a JavaScript job search with no ATS link or feed in the page source; wtwco.com rate-limits plain clients (429).
+
+- name: Lombard International
+  priority: 2
+  group: corporate
+  ats: manual
+  config: {}
+  careers_url: https://www.lombardinternational.com/
+  active: true
+  notes: Site fails TLS verification (expired certificate); careers page not reachable.
+
+- name: King Street
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.kingstreet.com/
+  active: true
+  notes: No careers page linked from the site (/careers answers 404).
+
+- name: Pharo Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.pharo.com/
+  active: true
+  notes: No careers page; /careers redirects to the disclaimers page.

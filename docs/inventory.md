@@ -719,3 +719,35 @@ Manual (no feed reachable without a browser):
 | Euroclear | Careers site answers 403; no public ATS found. | Bot protection. |
 | LCH | Hires via the LSEG group portal (entry LSEG). | Covered by LSEG. |
 | Davy | Editorial careers pages, no vacancy list. | No listings. |
+
+## Added on 2026-11-21 (evening routine)
+
+The wishlist had no new rows. First slots of `backlog.md` (tier 4 to tier 7, Goodbody to Pharo Management); Sucden Financial (entry Sucden) and Viterra (merged into Bunge, entry Bunge) were already in the registry and did not use slots, so 22 rows left the queue and 20 were processed. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter) and "In scope" is the same number; the total on the board is in Notes. Sculptor's Workday site answered 200 to the probe but 429 to the adapter during the run, so its row count is unconfirmed by the adapter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Goodbody | sitemap (RSS) | `jobs.aib.ie/sitemap.xml`, pattern `/goodbody/job/` | 1 | 1 | SuccessFactors site shared with AIB; 3 Goodbody roles in the group feed. |
+| Old Mission Capital | ashby | board `old-mission-capital` | 4 | 4 | 39 roles on the board. |
+| Argus Media | sitemap (RSS) | `careers.argusmedia.com/jobs.rss` | 15 | 15 | Teamtailor; 58 roles in the feed. |
+| Kpler | lever | company `kpler` | 12 | 12 | 110 roles on the board. |
+| Munich Re | sitemap | `careers.munichre.com/sitemap.xml`, target-city URL pattern | 17 | 17 | ~1,700 global job pages; only target-city pages are fetched (60 new pages per run, more on later runs). |
+| KBRA | greenhouse | board `krollbondratingagency` | 0 | 0 | 62 roles, mostly New York; none passed scope today. |
+| Sculptor Capital | workday | `sculptor` / wd12 / `Sculptor_External_Career_Site` | 0 | 0 | Probe: 1 role. Adapter run hit 429 tonight. |
+| Davidson Kempner | greenhouse | board `1456754456yhgbhfg` | 1 | 1 | Single evergreen "Opportunities" posting. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Sucafina | No careers page or job feed on the site. | No listings. |
+| Tereos | Careers site redirects to a WordPress sign-up page. | No listings. |
+| CMA CGM | Main site 403, group careers URL 404. | Bot protection. |
+| Hapag-Lloyd | Site answers 403. | Bot protection. |
+| Torm | Site answers 403 (www host resets the connection). | Bot protection. |
+| Swiss Re | Site answers 403. | Bot protection. |
+| Zurich Insurance Group | Incapsula bot challenge. | Bot protection. |
+| Hannover Re | Careers URLs 404, no ATS link found. | No listings. |
+| Willis Towers Watson | JavaScript job search, main site answers 429. | Needs browser. |
+| Lombard International | TLS verification fails (expired certificate). | Unreachable. |
+| King Street | No careers page. | No listings. |
+| Pharo Management | No careers page (redirects to disclaimers). | No listings. |
