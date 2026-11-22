@@ -22,33 +22,27 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Moelis & Company | boutique | 2 | |
-| Perella Weinberg Partners | boutique | 2 | |
-| Hawkpoint Partners | boutique | 2 | |
-| Hoche Partners | boutique | 2 | |
-| Messier Maris & Associés | boutique | 2 | |
-| Degroof Petercam | bank | 2 | |
-| Zeus Capital | boutique | 2 | |
-| MCF Corporate Finance | boutique | 2 | |
-| Aream | boutique | 2 | |
+| Hilco Valuation Services | advisory | 2 | |
+| Ardea Partners | boutique | 2 | |
+| Cenkos Securities | boutique | 2 | |
+| Singer Capital Markets | boutique | 2 | |
+| Shore Capital | boutique | 2 | |
+| finnCap | boutique | 2 | |
+| Compass Lexecon | advisory | 2 | |
+| Brattle Group | advisory | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Kartesia | asset_manager | 2 | |
-| Muzinich & Co | asset_manager | 2 | |
-| Apera Asset Management | asset_manager | 2 | |
-| HarbourVest Partners | asset_manager | 2 | |
-| Wendel | asset_manager | 2 | |
-| Mutares | asset_manager | 2 | |
-| Arle Capital | asset_manager | 2 | |
-| Phoenix Equity Partners | asset_manager | 2 | |
-| Duke Street | asset_manager | 2 | |
-| Hellman & Friedman | asset_manager | 2 | |
-| Stonepeak | asset_manager | 2 | |
-| InfraVia Capital Partners | asset_manager | 2 | |
-| Meridiam | asset_manager | 2 | |
+| Lexington Partners | asset_manager | 2 | |
+| Oak Hill Advisors | asset_manager | 2 | |
+| Ontario Teachers' Pension Plan | asset_manager | 2 | |
+| OMERS | asset_manager | 2 | |
+| CPP Investments | asset_manager | 2 | |
+| Kester Capital | asset_manager | 2 | |
+| Alcentra | asset_manager | 2 | |
+| Clayton Dubilier & Rice | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -61,13 +55,17 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Cboe Global Markets | exchange | 2 | |
-| Winterflood Securities | bank | 2 | |
 | Canaccord Genuity | bank | 2 | |
 | SMBC Nikko | bank | 2 | |
 | Luxembourg Stock Exchange | exchange | 2 | |
 | Aquis Exchange | exchange | 2 | |
 | Trayport | exchange | 2 | |
+| Société Générale | bank | 2 | |
+| TD Cowen | bank | 2 | |
+| Oppenheimer | bank | 2 | |
+| Helaba | bank | 2 | |
+| LBBW | bank | 2 | |
+| DZ Bank | bank | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
@@ -79,11 +77,17 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Odfjell | commodities | 2 | |
 | Pacific Basin | commodities | 2 | |
 | Aquila Capital | commodities | 2 | |
+| Noble Resources | commodities | 2 | |
+| Mitsui & Co | commodities | 2 | |
+| Mitsubishi Corporation International | commodities | 2 | |
+| Sumitomo Corporation Europe | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| CSSF | bank | 2 | |
+| FINMA | bank | 2 | |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
@@ -118,6 +122,16 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Candriam | asset_manager | 2 | Luxembourg |
 | Swiss Life Asset Managers | asset_manager | 2 | |
 | Millennium Management | asset_manager | 2 | |
+| Odey Asset Management | asset_manager | 2 | |
+| Third Point | asset_manager | 2 | |
+| Magnetar Capital | asset_manager | 2 | |
+| Anchorage Capital | asset_manager | 2 | |
+| Hudson Bay Capital | asset_manager | 2 | |
+| Sona Asset Management | asset_manager | 2 | |
+| Quilter | asset_manager | 2 | |
+| Hargreaves Lansdown | asset_manager | 2 | |
+| Edmond de Rothschild | asset_manager | 2 | |
+| Bordier | asset_manager | 2 | |
 
 ## Tier 8: consulting and other finance
 
@@ -139,6 +153,8 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Capco | advisory | 2 | |
 | Zanders | advisory | 2 | |
 | Sia Partners | advisory | 2 | |
+| Charles River Associates | advisory | 2 | |
+| Oxera | advisory | 2 | |
 
 ## Processed
 
@@ -538,3 +554,27 @@ registry" means it was there before.
 | King Street | 2026-11-21 | manual (no careers page) |
 | Sculptor Capital | 2026-11-21 | live (Workday wd12, 1 role; adapter run rate-limited 429 tonight) |
 | Pharo Management | 2026-11-21 | manual (no careers page) |
+| Moelis & Company | 2026-11-22 | already in registry (entry Moelis, Workday) |
+| Perella Weinberg Partners | 2026-11-22 | already in registry (entry Perella Weinberg) |
+| Hawkpoint Partners | 2026-11-22 | manual (TLS certificate fails) |
+| Hoche Partners | 2026-11-22 | manual (no careers page; hoche.com is an unrelated accounting group) |
+| Messier Maris & Associés | 2026-11-22 | manual (TLS certificate fails) |
+| Degroof Petercam | 2026-11-22 | manual (JavaScript careers page, no feed) |
+| Zeus Capital | 2026-11-22 | manual (static careers page, no vacancy list) |
+| MCF Corporate Finance | 2026-11-22 | manual (TLS handshake fails) |
+| Aream | 2026-11-22 | manual (connection reset) |
+| Kartesia | 2026-11-22 | manual (client-rendered open positions, no feed) |
+| Muzinich & Co | 2026-11-22 | manual (Workday site answers 429 to every request; retry later) |
+| Apera Asset Management | 2026-11-22 | manual (parked domain, no careers page) |
+| HarbourVest Partners | 2026-11-22 | already in registry (entry HarbourVest) |
+| Wendel | 2026-11-22 | manual (403 to plain clients) |
+| Mutares | 2026-11-22 | live (Teamtailor jobs.rss, 24 roles, 4 in scope) |
+| Arle Capital | 2026-11-22 | manual (site unreachable through proxy) |
+| Phoenix Equity Partners | 2026-11-22 | manual (parked domain, no careers page) |
+| Duke Street | 2026-11-22 | manual (no careers page) |
+| Hellman & Friedman | 2026-11-22 | manual (403 to plain clients) |
+| Stonepeak | 2026-11-22 | manual (no vacancy list or feed) |
+| InfraVia Capital Partners | 2026-11-22 | manual (no careers page) |
+| Meridiam | 2026-11-22 | live (Recruitee sitemap, 5 pages, 1 in scope) |
+| Cboe Global Markets | 2026-11-22 | already in registry (entry Cboe) |
+| Winterflood Securities | 2026-11-22 | manual (403, now part of Marex) |

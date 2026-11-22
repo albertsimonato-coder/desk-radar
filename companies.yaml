@@ -5105,3 +5105,191 @@
   careers_url: https://www.pharo.com/
   active: true
   notes: No careers page; /careers redirects to the disclaimers page.
+
+# ---- Added 2026-11-22 (evening routine) ---------------------------------------
+# Valuation and advisory boutiques, private equity and private credit, brokers
+
+- name: Meridiam
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://careers.meridiam.com/sitemap.xml
+    job_url_pattern: "careers\\.meridiam\\.com/o/"
+    max_new_pages: 40
+  careers_url: https://careers.meridiam.com/
+  active: true
+  notes: Recruitee portal (meridiam.recruitee.com redirects to careers.meridiam.com); few roles, Paris internships and spontaneous applications.
+
+- name: Mutares
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    rss_url: https://career.mutares.com/jobs.rss
+    job_url_pattern: "career\\.mutares\\.com/jobs/"
+  careers_url: https://career.mutares.com/
+  active: true
+  notes: Teamtailor career site; jobs.rss lists every opening worldwide (mostly portfolio-company and group roles, Munich, Paris, Milan).
+
+- name: Muzinich & Co
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.muzinich.com/about/careers
+  active: true
+  notes: Workday site muzinich.wd5.myworkdayjobs.com/muzinichcareers (linked from the careers page) answers 429 to every request from this egress IP; switch to workday (tenant muzinich, wd5, site muzinichcareers) once it answers.
+
+- name: Hawkpoint Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.hawkpoint.com/
+  active: true
+  notes: Site fails TLS certificate verification from plain clients; no careers page reachable.
+
+- name: Hoche Partners
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.hoche.com/
+  active: true
+  notes: No careers page found; hoche.com is an unrelated French accounting group and hochepartners.com did not resolve.
+
+- name: Messier Maris & Associés
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.messiermaris.com/
+  active: true
+  notes: Site fails TLS certificate verification (earlier host answered 502 through the proxy); no careers page reachable.
+
+- name: Degroof Petercam
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.degroofpetercam.com/en-lu/jobs-finance
+  active: true
+  notes: Careers page is a large JavaScript page with no ATS link or feed in the source; the Luxembourg page answers 412.
+
+- name: Zeus Capital
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://zeuscapital.co.uk/about-us/careers/
+  active: true
+  notes: Static careers page (WordPress) with no vacancy list or feed.
+
+- name: MCF Corporate Finance
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.mcfcorporatefinance.com/
+  active: true
+  notes: TLS handshake fails from plain clients (internal error); no careers page reachable.
+
+- name: Aream
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.aream.it/
+  active: true
+  notes: Connection reset by the server; no careers page reachable.
+
+- name: Kartesia
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://kartesia.com/careers/
+  active: true
+  notes: WordPress careers page with an 'Open positions' block rendered client-side (Cornerstone link); no feed found.
+
+- name: Apera Asset Management
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.aperaam.com/
+  active: true
+  notes: Domain redirects to a parked 'lander' page; no careers page.
+
+- name: Wendel
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.wendelgroup.com/en/join-us
+  active: true
+  notes: Site answers 403 to plain clients.
+
+- name: Arle Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.arlecapital.com/
+  active: true
+  notes: Site unreachable through the proxy (502); no careers page.
+
+- name: Phoenix Equity Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.phoenixequity.com/
+  active: true
+  notes: Domain redirects to a parked 'lander' page; no careers page.
+
+- name: Duke Street
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.dukestreet.com/
+  active: true
+  notes: No careers page on the site (/careers 404); only a Cornerstone reference in the page source.
+
+- name: Hellman & Friedman
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.hf.com/careers
+  active: true
+  notes: Site answers 403 to plain clients.
+
+- name: Stonepeak
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://stonepeak.com/life-at-stonepeak
+  active: true
+  notes: No vacancy list or ATS link; /careers answers 404 and the life-at-Stonepeak page has no feed.
+
+- name: InfraVia Capital Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://infraviacapital.com/
+  active: true
+  notes: No careers page found (/careers 404); WordPress site with no vacancy post type exposed.
+
+- name: Winterflood Securities
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.winterflood.com/
+  active: true
+  notes: Site now part of Marex; careers URL answers 403 and the homepage links no vacancy list.

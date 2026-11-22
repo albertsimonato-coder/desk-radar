@@ -751,3 +751,35 @@ Manual (no feed reachable without a browser):
 | Lombard International | TLS verification fails (expired certificate). | Unreachable. |
 | King Street | No careers page. | No listings. |
 | Pharo Management | No careers page (redirects to disclaimers). | No listings. |
+
+## Added on 2026-11-22 (evening routine)
+
+The wishlist had no new rows. First slots of `backlog.md` (tier 1, tier 2, then tier 4: Moelis & Company to Winterflood Securities). Moelis & Company (entry Moelis), Perella Weinberg Partners (entry Perella Weinberg), HarbourVest Partners (entry HarbourVest) and Cboe Global Markets (entry Cboe) were already in the registry and did not use slots, so 24 rows left the queue and 20 were processed. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter) and "In scope" is the same number; the total on the board is in Notes. Muzinich's Workday site answered 429 to every request tonight, so it is recorded as manual.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Meridiam | sitemap | `careers.meridiam.com/sitemap.xml`, pattern `/o/` | 1 | 1 | Recruitee portal; 5 job pages in the sitemap (Paris internships, spontaneous applications). |
+| Mutares | sitemap (RSS) | `career.mutares.com/jobs.rss` | 4 | 4 | Teamtailor; 24 roles in the feed, mostly portfolio-company roles. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Muzinich & Co | Workday site `muzinich` / wd5 / `muzinichcareers` linked from the careers page, but every request answers 429. | Rate limited; retry later. |
+| Hawkpoint Partners | TLS certificate verification fails. | Unreachable. |
+| Hoche Partners | No careers page; hoche.com is an unrelated accounting group. | No listings. |
+| Messier Maris & Associés | TLS certificate verification fails. | Unreachable. |
+| Degroof Petercam | JavaScript careers page, no ATS link or feed; Luxembourg page answers 412. | Needs browser. |
+| Zeus Capital | Static WordPress careers page, no vacancy list. | No listings. |
+| MCF Corporate Finance | TLS handshake fails. | Unreachable. |
+| Aream | Connection reset by the server. | Unreachable. |
+| Kartesia | Open positions block rendered client-side, no feed. | Needs browser. |
+| Apera Asset Management | Parked domain, no careers page. | No listings. |
+| Wendel | Site answers 403. | Bot protection. |
+| Arle Capital | Proxy 502, site unreachable. | Unreachable. |
+| Phoenix Equity Partners | Parked domain, no careers page. | No listings. |
+| Duke Street | No careers page (/careers 404). | No listings. |
+| Hellman & Friedman | Site answers 403. | Bot protection. |
+| Stonepeak | No vacancy list or ATS link; /careers 404. | No listings. |
+| InfraVia Capital Partners | No careers page found. | No listings. |
+| Winterflood Securities | Careers URL answers 403; firm now part of Marex. | Bot protection. |
