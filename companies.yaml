@@ -5293,3 +5293,204 @@
   careers_url: https://www.winterflood.com/
   active: true
   notes: Site now part of Marex; careers URL answers 403 and the homepage links no vacancy list.
+
+# ---- Added 2026-11-23 (evening routine) ---------------------------------------
+- name: Hilco Valuation Services
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://www.hilcoglobal.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Ardea Partners
+  priority: 2
+  group: boutique
+  ats: ashby
+  config:
+    board: ardea-partners
+  careers_url: https://www.ardeapartners.com/careers
+  active: true
+  notes: Ashby board linked from the careers page.
+
+- name: Singer Capital Markets
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.singercm.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Shore Capital
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.shorecap.co.uk/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Compass Lexecon
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: fticonsulting
+    wd: wd108
+    site: CompassLexeconCareers
+  careers_url: https://www.compasslexecon.com/careers
+  active: true
+  notes: Workday site on the FTI Consulting tenant (~26 roles, London/Paris/Madrid analysts).
+
+- name: Brattle Group
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://www.brattle.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Lexington Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.lexingtonpartners.com/careers
+  active: true
+  notes: WordPress careers page with no vacancy list, ATS link or job post type.
+
+- name: Oak Hill Advisors
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.oakhilladvisors.com/
+  active: true
+  notes: Site answers 403 to non-browser clients (T. Rowe Price group).
+
+- name: Ontario Teachers' Pension Plan
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: otppb
+    wd: wd3
+    site: OntarioTeachers_Careers
+  careers_url: https://www.otpp.com/en-ca/careers/
+  active: true
+  notes: Workday site (~34 roles, mostly Toronto; London office hires investment roles).
+
+- name: OMERS
+  priority: 2
+  group: asset_manager
+  ats: custom
+  config:
+    kind: phenom
+    host: careers.omers.com
+    lang: en_ca
+    country: ca
+  careers_url: https://careers.omers.com/ca/en
+  active: true
+  notes: Phenom People site; mostly Toronto, some London roles.
+
+- name: CPP Investments
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.cppinvestments.com/careers/
+  active: true
+  notes: Site answers 202 with an empty body (bot challenge) to plain clients.
+
+- name: Kester Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.kestercapital.com/
+  active: true
+  notes: No careers page (/careers 404) and no vacancy list; hires are announced only as news items.
+
+- name: Alcentra
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.bspcredit.com/
+  active: true
+  notes: Alcentra is now BSP (BNY); alcentra.com redirects there and the site has no careers page (404).
+
+- name: Canaccord Genuity
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.canaccordgenuity.com/global-careers/uk--europe-opportunities/
+  active: true
+  notes: UK and Europe opportunities page sits behind an Incapsula bot challenge.
+
+- name: Luxembourg Stock Exchange
+  priority: 2
+  group: exchange
+  ats: manual
+  config: {}
+  careers_url: https://www.luxse.com/about-us/careers
+  active: true
+  notes: Vacancies are rendered as cards with an Apply button and no per-job URL, so nothing can be tracked.
+
+- name: Aquis Exchange
+  priority: 2
+  group: exchange
+  ats: manual
+  config: {}
+  careers_url: https://www.aquis.eu/careers
+  active: true
+  notes: Site answers 429 to every plain request (rate limited); retry later.
+
+- name: Trayport
+  priority: 2
+  group: exchange
+  ats: workday
+  config:
+    tenant: tmx
+    wd: wd3
+    site: Trayport_Careers
+  careers_url: https://trayport.com/company/careers/
+  active: true
+  notes: Workday site on the TMX tenant (~7 roles, London).
+
+- name: Oppenheimer
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.oppenheimer.com
+  active: true
+  notes: opco.com and oppenheimer.com answer 403 to non-browser clients.
+
+- name: Helaba
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://www.helaba.com/sitemap.xml
+    job_url_pattern: "helaba\\.com/de/karriere/jobs/[a-z0-9-]+"
+    max_new_pages: 50
+  careers_url: https://www.helaba.com/de/karriere/jobs
+  active: true
+  notes: Drupal sitemap with JSON-LD on job pages (~46 roles, all Frankfurt, Offenbach, Düsseldorf, Wiesbaden, Erfurt, Kassel today; none in target cities).
+
+- name: LBBW
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: https://karriere.lbbw.de/sitemap.xml
+    job_url_pattern: "karriere\\.lbbw\\.de/job/"
+    max_new_pages: 50
+  careers_url: https://karriere.lbbw.de/
+  active: true
+  notes: SuccessFactors sitemap (~80 roles, nearly all Stuttgart; none in target cities today).

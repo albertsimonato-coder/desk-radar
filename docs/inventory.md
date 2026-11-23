@@ -783,3 +783,35 @@ Manual (no feed reachable without a browser):
 | Stonepeak | No vacancy list or ATS link; /careers 404. | No listings. |
 | InfraVia Capital Partners | No careers page found. | No listings. |
 | Winterflood Securities | Careers URL answers 403; firm now part of Marex. | Bot protection. |
+
+## Added on 2026-11-23 (evening routine)
+
+The wishlist had no new rows. First slots of `backlog.md` (tier 1, tier 2, tier 4 up to LBBW). Cenkos Securities and finnCap (both now Cavendish), Clayton Dubilier & Rice, SMBC Nikko (SMBC Group EMEA), Société Générale and TD Cowen (TD Securities) were already in the registry and did not use slots, so 26 rows left the queue and 20 were processed. Plain HTTP only. "Postings" is the count the run log printed (rows kept by the scope filter) and "In scope" is the same number; the total on the board is in Notes. Workday answered 429 to rapid requests tonight (Trayport's last re-run failed for that reason; its first run read the board fine).
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Ardea Partners | ashby | board `ardea-partners` | 0 | 0 | 3 roles on the board, all New York. |
+| Compass Lexecon | workday | `fticonsulting` / wd108 / `CompassLexeconCareers` | 7 | 7 | 26 roles on the board (London, Paris, Madrid, Berlin, Beijing analysts and interns). |
+| Ontario Teachers' Pension Plan | workday | `otppb` / wd3 / `OntarioTeachers_Careers` | 0 | 0 | 34 roles, mostly Toronto. |
+| OMERS | custom (`phenom`) | `careers.omers.com`, en_ca | 0 | 0 | 49 roles, mostly Toronto. |
+| Trayport | workday | `tmx` / wd3 / `Trayport_Careers` | 1 | 1 | 7 roles, London; mostly engineering. |
+| Helaba | sitemap | `helaba.com/sitemap.xml`, pattern `/de/karriere/jobs/` | 0 | 0 | 46 roles with JSON-LD, all Frankfurt, Offenbach, Düsseldorf and similar. |
+| LBBW | sitemap | `karriere.lbbw.de/sitemap.xml` | 36 | 36 | SuccessFactors; ~83 roles, nearly all Stuttgart; 47 pages still to open. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Hilco Valuation Services | Site answers 403. | Bot protection. |
+| Singer Capital Markets | Site answers 403. | Bot protection. |
+| Shore Capital | Site answers 403. | Bot protection. |
+| Brattle Group | Site answers 403. | Bot protection. |
+| Lexington Partners | WordPress careers page with no vacancy list or ATS link. | No listings. |
+| Oak Hill Advisors | Site answers 403. | Bot protection. |
+| CPP Investments | Empty 202 answer to plain clients. | Bot challenge. |
+| Kester Capital | No careers page (/careers 404). | No listings. |
+| Alcentra | Now BSP; no careers page (404). | No listings. |
+| Canaccord Genuity | UK & Europe opportunities page behind an Incapsula challenge. | Bot protection. |
+| Luxembourg Stock Exchange | Server-rendered vacancy cards with no per-job URL. | Cannot be tracked. |
+| Aquis Exchange | Every request answers 429. | Rate limited; retry later. |
+| Oppenheimer | opco.com and oppenheimer.com answer 403. | Bot protection. |

@@ -22,27 +22,11 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Hilco Valuation Services | advisory | 2 | |
-| Ardea Partners | boutique | 2 | |
-| Cenkos Securities | boutique | 2 | |
-| Singer Capital Markets | boutique | 2 | |
-| Shore Capital | boutique | 2 | |
-| finnCap | boutique | 2 | |
-| Compass Lexecon | advisory | 2 | |
-| Brattle Group | advisory | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Lexington Partners | asset_manager | 2 | |
-| Oak Hill Advisors | asset_manager | 2 | |
-| Ontario Teachers' Pension Plan | asset_manager | 2 | |
-| OMERS | asset_manager | 2 | |
-| CPP Investments | asset_manager | 2 | |
-| Kester Capital | asset_manager | 2 | |
-| Alcentra | asset_manager | 2 | |
-| Clayton Dubilier & Rice | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -55,16 +39,6 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Canaccord Genuity | bank | 2 | |
-| SMBC Nikko | bank | 2 | |
-| Luxembourg Stock Exchange | exchange | 2 | |
-| Aquis Exchange | exchange | 2 | |
-| Trayport | exchange | 2 | |
-| Société Générale | bank | 2 | |
-| TD Cowen | bank | 2 | |
-| Oppenheimer | bank | 2 | |
-| Helaba | bank | 2 | |
-| LBBW | bank | 2 | |
 | DZ Bank | bank | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
@@ -578,3 +552,29 @@ registry" means it was there before.
 | Meridiam | 2026-11-22 | live (Recruitee sitemap, 5 pages, 1 in scope) |
 | Cboe Global Markets | 2026-11-22 | already in registry (entry Cboe) |
 | Winterflood Securities | 2026-11-22 | manual (403, now part of Marex) |
+| Hilco Valuation Services | 2026-11-23 | manual (403 to non-browser clients) |
+| Ardea Partners | 2026-11-23 | live (Ashby, 3 roles, all New York) |
+| Cenkos Securities | 2026-11-23 | already in registry (now part of Cavendish) |
+| Singer Capital Markets | 2026-11-23 | manual (403 to non-browser clients) |
+| Shore Capital | 2026-11-23 | manual (403 to non-browser clients) |
+| finnCap | 2026-11-23 | already in registry (now part of Cavendish) |
+| Compass Lexecon | 2026-11-23 | live (Workday on the FTI Consulting tenant, 26 roles, 7 in scope) |
+| Brattle Group | 2026-11-23 | manual (403 to non-browser clients) |
+| Lexington Partners | 2026-11-23 | manual (no vacancy list) |
+| Oak Hill Advisors | 2026-11-23 | manual (403 to non-browser clients) |
+| Ontario Teachers' Pension Plan | 2026-11-23 | live (Workday, 34 roles, 0 in scope today) |
+| OMERS | 2026-11-23 | live (Phenom People, 49 roles, 0 in scope today) |
+| CPP Investments | 2026-11-23 | manual (bot challenge, empty 202 answer) |
+| Kester Capital | 2026-11-23 | manual (no careers page) |
+| Alcentra | 2026-11-23 | manual (now BSP, no careers page) |
+| Clayton Dubilier & Rice | 2026-11-23 | already in registry (manual) |
+| Canaccord Genuity | 2026-11-23 | manual (Incapsula bot challenge) |
+| SMBC Nikko | 2026-11-23 | already in registry (SMBC Group EMEA, live) |
+| Luxembourg Stock Exchange | 2026-11-23 | manual (job cards with no per-job URL) |
+| Aquis Exchange | 2026-11-23 | manual (429 to every request) |
+| Trayport | 2026-11-23 | live (Workday on the TMX tenant, 7 roles, 1 in scope) |
+| Société Générale | 2026-11-23 | already in registry (live) |
+| TD Cowen | 2026-11-23 | already in registry (TD Securities, live) |
+| Oppenheimer | 2026-11-23 | manual (403 to non-browser clients) |
+| Helaba | 2026-11-23 | live (sitemap with JSON-LD, 46 roles, none in target cities) |
+| LBBW | 2026-11-23 | live (SuccessFactors sitemap, ~83 roles mostly Stuttgart, 36 kept by scope) |
