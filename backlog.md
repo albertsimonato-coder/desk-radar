@@ -22,11 +22,36 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| EY-Parthenon | advisory | 2 | |
+| Hawthorn Advisors | boutique | 2 | |
+| Ankura | advisory | 2 | |
+| Berkeley Research Group | advisory | 2 | |
+| EY Luxembourg | advisory | 2 | |
+| EY Italia | advisory | 2 | |
+| EY Switzerland | advisory | 2 | |
+| Deloitte Switzerland | advisory | 2 | |
+| Deloitte France | advisory | 2 | |
+| KPMG Switzerland | advisory | 2 | |
+| KPMG France | advisory | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
+| Foresight Group | asset_manager | 2 | |
+| Gresham House | asset_manager | 2 | |
+| Beechbrook Capital | asset_manager | 2 | |
+| Barings | asset_manager | 2 | |
+| Benefit Street Partners | asset_manager | 2 | |
+| Eiffel Investment Group | asset_manager | 2 | |
+| Siparex | asset_manager | 2 | |
+| Andera Partners | asset_manager | 2 | |
+| Qualium Investissement | asset_manager | 2 | |
+| Capzanine | asset_manager | 2 | |
+| Naxicap Partners | asset_manager | 2 | |
+| DeA Capital Alternative Funds | asset_manager | 2 | |
+| Capvis Equity Partners | asset_manager | 2 | |
+| Luxempart | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -39,43 +64,36 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| DZ Bank | bank | 2 | |
+| Arbuthnot Latham | bank | 2 | |
+| Borsa Italiana | exchange | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Louis Dreyfus Company | commodities | 2 | |
-| Engie Global Markets | commodities | 2 | |
-| Edison | commodities | 2 | |
-| Odfjell | commodities | 2 | |
-| Pacific Basin | commodities | 2 | |
-| Aquila Capital | commodities | 2 | |
-| Noble Resources | commodities | 2 | |
-| Mitsui & Co | commodities | 2 | |
-| Mitsubishi Corporation International | commodities | 2 | |
-| Sumitomo Corporation Europe | commodities | 2 | |
+| Norden | commodities | 2 | |
+| BW Group | commodities | 2 | |
+| Stena Bulk | commodities | 2 | |
+| Teekay | commodities | 2 | |
+| Naturgy | commodities | 2 | |
+| Fortum | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| CSSF | bank | 2 | |
-| FINMA | bank | 2 | |
+| Single Resolution Board | bank | 2 | |
+| EIOPA | bank | 2 | |
+| Financial Conduct Authority | bank | 2 | |
+| Autorité des marchés financiers | bank | 2 | |
+| Consob | bank | 2 | |
+| IVASS | bank | 2 | |
+| Banque centrale du Luxembourg | bank | 2 | |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Tudor Investment | asset_manager | 2 | |
-| Moore Capital | asset_manager | 2 | |
-| Graham Capital | asset_manager | 2 | |
-| Systematica | asset_manager | 2 | |
-| Cheyne Capital | asset_manager | 2 | |
-| CQS | asset_manager | 2 | |
-| LMR Partners | asset_manager | 2 | |
-| Garda Capital | asset_manager | 2 | |
-| Symmetry Investments | asset_manager | 2 | |
 | Hudson River Trading | prop_trading | 1 | |
 | XTX Markets | prop_trading | 1 | |
 | Five Rings | prop_trading | 2 | |
@@ -578,3 +596,25 @@ registry" means it was there before.
 | Oppenheimer | 2026-11-23 | manual (403 to non-browser clients) |
 | Helaba | 2026-11-23 | live (sitemap with JSON-LD, 46 roles, none in target cities) |
 | LBBW | 2026-11-23 | live (SuccessFactors sitemap, ~83 roles mostly Stuttgart, 36 kept by scope) |
+| DZ Bank | 2026-11-24 | manual (Careers page redirects to dzbank.de, no vacancy list or ATS link) |
+| Louis Dreyfus Company | 2026-11-24 | already in registry (entry Louis Dreyfus) |
+| Engie Global Markets | 2026-11-24 | already in registry (entry ENGIE Global Energy Management & Sales, manual) |
+| Edison | 2026-11-24 | manual (Site fails TLS verification; no careers page reachable) |
+| Odfjell | 2026-11-24 | manual (Careers page 404; vacancies on odfjell.easycruit.com, which answers an empty 202) |
+| Pacific Basin | 2026-11-24 | manual (Static vacancies page, no ATS link or feed) |
+| Aquila Capital | 2026-11-24 | manual (Editorial careers pages, no vacancy list or ATS link) |
+| Noble Resources | 2026-11-24 | manual (Site unreachable through the proxy (502)) |
+| Mitsui & Co | 2026-11-24 | manual (career.mitsui.com is the Japan new-graduate WordPress site, no EMEA vacancy list) |
+| Mitsubishi Corporation International | 2026-11-24 | manual (Site answers 403) |
+| Sumitomo Corporation Europe | 2026-11-24 | manual (SuccessFactors XML listing (5 roles) has no job link or location) |
+| CSSF | 2026-11-24 | manual (careers.cssf.lu answers errors or drops the connection; vacancies also on Moovijob) |
+| FINMA | 2026-11-24 | live (own career centre jobs.finma.ch, 8 roles, 5 in scope) |
+| Tudor Investment | 2026-11-24 | manual (Site answers 403) |
+| Moore Capital | 2026-11-24 | manual (Domain redirects to a lander page) |
+| Graham Capital | 2026-11-24 | manual (Site answers 403) |
+| Systematica | 2026-11-24 | live (Pinpoint sitemap, 3 roles, 0 in scope) |
+| Cheyne Capital | 2026-11-24 | manual (No careers page found (/careers 404)) |
+| CQS | 2026-11-24 | manual (Site answers 403) |
+| LMR Partners | 2026-11-24 | manual (Static careers page, no vacancy list) |
+| Garda Capital | 2026-11-24 | manual (Domain redirects to a lander page) |
+| Symmetry Investments | 2026-11-24 | manual (No careers page or vacancy list found) |

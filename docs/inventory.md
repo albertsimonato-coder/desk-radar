@@ -815,3 +815,35 @@ Manual (no feed reachable without a browser):
 | Luxembourg Stock Exchange | Server-rendered vacancy cards with no per-job URL. | Cannot be tracked. |
 | Aquis Exchange | Every request answers 429. | Rate limited; retry later. |
 | Oppenheimer | opco.com and oppenheimer.com answer 403. | Bot protection. |
+
+## Added on 2026-11-24 (evening routine)
+
+The wishlist had no new rows. Backlog rows taken in order: tier 4 (DZ Bank), tier 5, tier 6 and tier 7 up to Symmetry Investments. Louis Dreyfus Company and Engie Global Markets were already in the registry and did not use slots, so 22 rows left the queue and 20 were processed. Plain HTTP only; "Postings" is the count the run log printed (rows kept by the scope filter) and the board total is in Notes.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| FINMA | sitemap (listing only) | `jobs.finma.ch/` as `index_urls`, pattern `/offene-stellen/` | 5 | 5 | Own career centre; 8 roles (Bern, Zurich), JSON-LD on job pages, includes the traineeship. |
+| Systematica | sitemap | `systematica.pinpointhq.com/sitemap.xml`, pattern `/postings/` | 0 | 0 | Pinpoint portal; 3 roles, London fund accounting and recruitment, none in scope. |
+
+Manual (no feed reachable without a browser):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| DZ Bank | Careers page redirects to dzbank.de, no vacancy list or ATS link. | No listings. |
+| Edison | Site fails TLS verification; no careers page reachable. | Unreachable. |
+| Odfjell | Careers page 404; vacancies on odfjell.easycruit.com, which answers an empty 202. | Bot challenge. |
+| Pacific Basin | Static vacancies page, no ATS link or feed. | No listings. |
+| Aquila Capital | Editorial careers pages, no vacancy list or ATS link. | No listings. |
+| Noble Resources | Site unreachable through the proxy (502). | Unreachable. |
+| Mitsui & Co | career.mitsui.com is the Japan new-graduate WordPress site, no EMEA vacancy list. | No listings. |
+| Mitsubishi Corporation International | Site answers 403. | Bot protection. |
+| Sumitomo Corporation Europe | SuccessFactors XML listing (5 roles) has no job link or location. | Cannot be tracked. |
+| CSSF | careers.cssf.lu answers errors or drops the connection; vacancies also on Moovijob. | Bot protection. |
+| Tudor Investment | Site answers 403. | Bot protection. |
+| Moore Capital | Domain redirects to a lander page. | No listings. |
+| Graham Capital | Site answers 403. | Bot protection. |
+| Cheyne Capital | No careers page found (/careers 404). | No listings. |
+| CQS | Site answers 403. | Bot protection. |
+| LMR Partners | Static careers page, no vacancy list. | No listings. |
+| Garda Capital | Domain redirects to a lander page. | No listings. |
+| Symmetry Investments | No careers page or vacancy list found. | No listings. |

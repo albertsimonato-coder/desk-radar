@@ -5494,3 +5494,191 @@
   careers_url: https://karriere.lbbw.de/
   active: true
   notes: SuccessFactors sitemap (~80 roles, nearly all Stuttgart; none in target cities today).
+
+- name: DZ Bank
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.dzbank.de/content/dzbank/de/home/karriere.html
+  active: true
+  notes: Careers page (karriere.dzbank.de redirects to dzbank.de) has no vacancy list or ATS link readable without a browser.
+
+- name: Edison
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.edison.it/it/
+  active: true
+  notes: Site fails TLS verification from plain clients; no careers page reachable.
+
+- name: Odfjell
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.odfjell.com/
+  active: true
+  notes: Careers page 404; vacancies sit on odfjell.easycruit.com, which answers an empty 202 to plain clients.
+
+- name: Pacific Basin
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.pacificbasin.com/en/careers/vacancies.php
+  active: true
+  notes: Static vacancies page, no ATS link or feed.
+
+- name: Aquila Capital
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.aquila-capital.de/en/career
+  active: true
+  notes: Editorial careers pages (aquila-capital.de), no vacancy list or ATS link.
+
+- name: Noble Resources
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.noble.group
+  active: true
+  notes: Site unreachable through the proxy (502); no careers page found.
+
+- name: Mitsui & Co
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://career.mitsui.com/
+  active: true
+  notes: career.mitsui.com is the Japan new-graduate WordPress site, no London/EMEA vacancy list; mitsui.com/gb has no careers page.
+
+- name: Mitsubishi Corporation International
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.mitsubishicorp.com/gb/en/
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Sumitomo Corporation Europe
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.sumitomocorp.com/en/europe/sceu/career
+  active: true
+  notes: SuccessFactors (career5.successfactors.eu, company S004690996D); the XML listing has titles but no job link or location, 5 roles tonight.
+
+- name: Tudor Investment
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://tudor.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Moore Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.mooreinvestment.com
+  active: true
+  notes: Domain redirects to a lander page; no careers page.
+
+- name: Graham Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.grahamcapital.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Cheyne Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.cheynecapital.com
+  active: true
+  notes: No careers page or vacancy list found (/careers 404).
+
+- name: CQS
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.cqs.com/careers
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: LMR Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.lmrpartners.com/careers
+  active: true
+  notes: Static careers page, no vacancy list or ATS link.
+
+- name: Garda Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.gardacapital.com
+  active: true
+  notes: Domain redirects to a lander page; no careers page.
+
+- name: Symmetry Investments
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.symmetryinvestments.com
+  active: true
+  notes: No careers page or vacancy list found.
+
+- name: FINMA
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    sitemap_url: none
+    index_urls:
+      - https://jobs.finma.ch/
+    job_url_pattern: "jobs\\.finma\\.ch/offene-stellen/"
+    max_new_pages: 50
+  careers_url: https://jobs.finma.ch/
+  active: true
+  notes: Own career centre (jobs.finma.ch), server-rendered listing with JSON-LD on job pages (~8 roles, Bern and Zurich; traineeship programme).
+
+- name: Systematica
+  priority: 2
+  group: asset_manager
+  ats: sitemap
+  config:
+    sitemap_url: https://systematica.pinpointhq.com/sitemap.xml
+    job_url_pattern: "systematica\\.pinpointhq\\.com/(?:en/)?postings/"
+    max_new_pages: 50
+  careers_url: https://systematica.pinpointhq.com/
+  active: true
+  notes: Pinpoint portal; sitemap lists posting pages with JSON-LD (3 roles, London fund accounting and recruitment).
+
+- name: CSSF
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://careers.cssf.lu/en/
+  active: true
+  notes: WordPress careers site (careers.cssf.lu) answers errors or drops the connection for plain clients (sitemap and wp-json unreadable); vacancies only on Moovijob.
