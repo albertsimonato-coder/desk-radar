@@ -847,3 +847,35 @@ Manual (no feed reachable without a browser):
 | LMR Partners | Static careers page, no vacancy list. | No listings. |
 | Garda Capital | Domain redirects to a lander page. | No listings. |
 | Symmetry Investments | No careers page or vacancy list found. | No listings. |
+
+## Added on 2026-11-25 (evening routine)
+
+The wishlist had no new rows. Backlog rows taken in order from tier 1: EY-Parthenon, EY Luxembourg, EY Italia and EY Switzerland were already in the registry (the global EY entry, currently inactive) and did not use slots, so 24 rows left the queue and 20 were processed. Plain HTTP only. Workday answered 429 to this IP for most of the evening, which is why Ankura and Barings are manual for now.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Berkeley Research Group | workday | `thinkbrg` / wd5 / `BRG_External_Career_Site` | 131 | 18 | Linked from thinkbrg.com/careers; whole board, mostly US. |
+
+Manual (no feed reachable without a browser, or rate-limited):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Ankura | Workday board found (`ankura` / wd5 / `Ankura`, 92 roles by hand), but the API answered 429 to every run tonight. | Rate limit; retry. |
+| Barings | Workday site `barings` / wd1 / `Barings` (44 roles by hand), API answered 429 to every run tonight. | Rate limit; retry. |
+| Hawthorn Advisors | /join lists vacancies on Breathe HR pages; no parseable job data. PR firm, mostly non-finance. | No feed. |
+| Deloitte Switzerland | Global Avature portal (apply.deloitte.com), no Swiss-only feed. | No location filter. |
+| Deloitte France | Global Avature portal, no French-only feed. | No location filter. |
+| KPMG Switzerland | jobs.kpmg.ch is a JavaScript app; sitemap 404. | JavaScript portal. |
+| KPMG France | Recruitment site does not answer plain HTTP. | Unreachable. |
+| Foresight Group | Careers page is a mailbox only. | No listings. |
+| Gresham House | Site answers 403. | Bot protection. |
+| Beechbrook Capital | /careers redirects to a not-found page. | No listings. |
+| Benefit Street Partners | /careers 404, no vacancy list. | No listings. |
+| Eiffel Investment Group | JavaScript (Frontity) single-page app, no feed. | JavaScript portal. |
+| Siparex | Vacancies on Welcome to the Jungle (JavaScript). | JavaScript portal. |
+| Andera Partners | No careers page found. | No listings. |
+| Qualium Investissement | Vacancies as news posts; REST API blocked (401). | No listings. |
+| Capzanine | Site unreachable through the proxy (502). | Unreachable. |
+| Naxicap Partners | No careers page; REST API restricted (401). | No listings. |
+| DeA Capital Alternative Funds | Site unreachable through the proxy. | Unreachable. |
+| Capvis Equity Partners | Jobs page says to apply by email only. | No listings. |

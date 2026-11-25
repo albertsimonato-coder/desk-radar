@@ -22,35 +22,11 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| EY-Parthenon | advisory | 2 | |
-| Hawthorn Advisors | boutique | 2 | |
-| Ankura | advisory | 2 | |
-| Berkeley Research Group | advisory | 2 | |
-| EY Luxembourg | advisory | 2 | |
-| EY Italia | advisory | 2 | |
-| EY Switzerland | advisory | 2 | |
-| Deloitte Switzerland | advisory | 2 | |
-| Deloitte France | advisory | 2 | |
-| KPMG Switzerland | advisory | 2 | |
-| KPMG France | advisory | 2 | |
 
 ## Tier 2: private equity, private credit, infrastructure
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Foresight Group | asset_manager | 2 | |
-| Gresham House | asset_manager | 2 | |
-| Beechbrook Capital | asset_manager | 2 | |
-| Barings | asset_manager | 2 | |
-| Benefit Street Partners | asset_manager | 2 | |
-| Eiffel Investment Group | asset_manager | 2 | |
-| Siparex | asset_manager | 2 | |
-| Andera Partners | asset_manager | 2 | |
-| Qualium Investissement | asset_manager | 2 | |
-| Capzanine | asset_manager | 2 | |
-| Naxicap Partners | asset_manager | 2 | |
-| DeA Capital Alternative Funds | asset_manager | 2 | |
-| Capvis Equity Partners | asset_manager | 2 | |
 | Luxempart | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
@@ -618,3 +594,27 @@ registry" means it was there before.
 | LMR Partners | 2026-11-24 | manual (Static careers page, no vacancy list) |
 | Garda Capital | 2026-11-24 | manual (Domain redirects to a lander page) |
 | Symmetry Investments | 2026-11-24 | manual (No careers page or vacancy list found) |
+| EY-Parthenon | 2026-11-25 | already in registry (EY, one global careers.ey.com entry, currently inactive) |
+| Hawthorn Advisors | 2026-11-25 | manual (PR firm; vacancies on Breathe HR pages with no parseable data) |
+| Ankura | 2026-11-25 | manual (Workday board found, API answered 429 to every run; config in notes) |
+| Berkeley Research Group | 2026-11-25 | live (Workday, 131 roles, 18 in scope) |
+| EY Luxembourg | 2026-11-25 | already in registry (EY, one global careers.ey.com entry, currently inactive) |
+| EY Italia | 2026-11-25 | already in registry (EY, one global careers.ey.com entry, currently inactive) |
+| EY Switzerland | 2026-11-25 | already in registry (EY, one global careers.ey.com entry, currently inactive) |
+| Deloitte Switzerland | 2026-11-25 | manual (global Avature portal, no Swiss feed) |
+| Deloitte France | 2026-11-25 | manual (global Avature portal, no French feed) |
+| KPMG Switzerland | 2026-11-25 | manual (JavaScript app jobs.kpmg.ch, no sitemap) |
+| KPMG France | 2026-11-25 | manual (recruitment site not reachable) |
+| Foresight Group | 2026-11-25 | manual (careers page is an email address only) |
+| Gresham House | 2026-11-25 | manual (site answers 403) |
+| Beechbrook Capital | 2026-11-25 | manual (no careers page) |
+| Barings | 2026-11-25 | manual (Workday board found, API answered 429 to every run; config in notes) |
+| Benefit Street Partners | 2026-11-25 | manual (no careers page) |
+| Eiffel Investment Group | 2026-11-25 | manual (JavaScript single-page app) |
+| Siparex | 2026-11-25 | manual (vacancies on Welcome to the Jungle, JavaScript) |
+| Andera Partners | 2026-11-25 | manual (no careers page) |
+| Qualium Investissement | 2026-11-25 | manual (REST API blocked, no vacancy list) |
+| Capzanine | 2026-11-25 | manual (site unreachable) |
+| Naxicap Partners | 2026-11-25 | manual (no careers page, REST API restricted) |
+| DeA Capital Alternative Funds | 2026-11-25 | manual (site unreachable) |
+| Capvis Equity Partners | 2026-11-25 | manual (careers by email only) |

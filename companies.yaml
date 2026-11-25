@@ -5682,3 +5682,188 @@
   careers_url: https://careers.cssf.lu/en/
   active: true
   notes: WordPress careers site (careers.cssf.lu) answers errors or drops the connection for plain clients (sitemap and wp-json unreadable); vacancies only on Moovijob.
+
+# ---- Added 2026-11-25 (evening routine) ---------------------------------------
+
+- name: Hawthorn Advisors
+  priority: 2
+  group: boutique
+  ats: manual
+  config: {}
+  careers_url: https://www.hawthornadvisors.com/join
+  active: true
+  notes: "Public affairs advisory; /join links each vacancy to Breathe HR, whose pages carry no job data a plain client can parse (the sitemap adapter only got the title 'Breathe'). Few roles, mostly non-finance."
+
+- name: Ankura
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://ankura.wd5.myworkdayjobs.com/Ankura
+  active: true
+  notes: "Workday board (tenant ankura / wd5 / site Ankura, ~92 roles when probed by hand) but the API answered 429 to every run tonight; switch to ats workday with that config once the rate limit clears."
+
+- name: Berkeley Research Group
+  priority: 2
+  group: advisory
+  ats: workday
+  config:
+    tenant: thinkbrg
+    wd: wd5
+    site: BRG_External_Career_Site
+  careers_url: https://www.thinkbrg.com/careers/
+  active: true
+  notes: Workday board linked from thinkbrg.com/careers (~130 roles, mostly US).
+
+- name: Barings
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.barings.com/en-us/guest/about/careers/professional
+  active: true
+  notes: "Workday board (tenant barings / wd1 / site Barings, ~44 roles when probed by hand) but the API answered 429 to every run tonight; switch to ats workday with that config once the rate limit clears."
+
+- name: Deloitte Switzerland
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://www.deloitte.com/ch/en/careers.html
+  active: true
+  notes: Careers page links to the global Avature portal (apply.deloitte.com) whose listing is worldwide and carries no usable location; no Swiss-only feed found.
+
+- name: Deloitte France
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://www.deloitte.com/fr/fr/careers.html
+  active: true
+  notes: Careers page links to the global Avature portal (apply.deloitte.com), worldwide listing without a country filter reachable by plain HTTP; no French-only feed found.
+
+- name: KPMG Switzerland
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://kpmg.com/ch/en/careers/jobs.html
+  active: true
+  notes: Vacancies on jobs.kpmg.ch, a JavaScript single-page app; no sitemap (404) and no JSON feed found.
+
+- name: KPMG France
+  priority: 2
+  group: advisory
+  ats: manual
+  config: {}
+  careers_url: https://kpmg.com/fr/fr.html
+  active: true
+  notes: "No vacancy list reachable: kpmg.com/fr careers pages link to a separate recruitment site that does not answer plain HTTP."
+
+- name: Foresight Group
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.foresight.group/other-information/careers/
+  active: true
+  notes: Careers page only gives a careers@ mailbox, no vacancy list or ATS link.
+
+- name: Gresham House
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://greshamhouse.com/careers/
+  active: true
+  notes: Site answers 403 to non-browser clients.
+
+- name: Beechbrook Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://beechbrook.com/
+  active: true
+  notes: No careers page (/careers redirects to a not-found page); site has no vacancy list.
+
+- name: Benefit Street Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.bspcredit.com/
+  active: true
+  notes: Franklin Templeton affiliate; /careers 404 and no vacancy list or ATS link on the site.
+
+- name: Eiffel Investment Group
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.eiffel-ig.com/en/careers/
+  active: true
+  notes: JavaScript (Frontity) single-page app; no WordPress REST or job feed.
+
+- name: Siparex
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.siparex.com/en/career/
+  active: true
+  notes: Vacancies are on Welcome to the Jungle, a JavaScript app; no feed on siparex.com.
+
+- name: Andera Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.anderapartners.com/en/
+  active: true
+  notes: No careers page or vacancy list found.
+
+- name: Qualium Investissement
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://qualium-investissement.com/
+  active: true
+  notes: Vacancies only as news posts; WordPress REST API blocked (401).
+
+- name: Capzanine
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.capzanine.com/
+  active: true
+  notes: Site did not answer through the proxy (502); no careers page reachable.
+
+- name: Naxicap Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://naxicap.com/
+  active: true
+  notes: No careers page found (/en/careers 404); WordPress REST API restricted (401).
+
+- name: DeA Capital Alternative Funds
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.deacapitalalternative.it/
+  active: true
+  notes: Site did not answer through the proxy; no careers page reachable.
+
+- name: Capvis Equity Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.capvis.com/en/jobs.html
+  active: true
+  notes: Jobs page says to send applications to hr@capvis.com; no vacancy list.
