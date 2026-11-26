@@ -879,3 +879,35 @@ Manual (no feed reachable without a browser, or rate-limited):
 | Naxicap Partners | No careers page; REST API restricted (401). | No listings. |
 | DeA Capital Alternative Funds | Site unreachable through the proxy. | Unreachable. |
 | Capvis Equity Partners | Jobs page says to apply by email only. | No listings. |
+
+## Added on 2026-11-26 (evening routine)
+
+The wishlist had no new rows. Backlog rows taken in order: Luxempart through Headlands Technologies, then Da Vinci Derivatives. Borsa Italiana is part of the Euronext group (already in the registry) and did not use a slot. Plain HTTP only. Workday answered 429 to this IP tonight, so the Financial Conduct Authority is manual for now.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Stena Bulk | sitemap (RSS) | stena.teamtailor.com/jobs.rss, pattern `career.stena.com/jobs/` | 2 | 0 | Group-wide Teamtailor; only talent-pool registrations open. |
+| Teekay | custom (`oracle`) | `eipv.fa.us6.oraclecloud.com` / `CX_2001` | 4 | 0 | Linked from teekay.com/careers. |
+| XTX Markets | greenhouse | board `xtxmarketstechnologies` | 7 | 0 | London, Finland, Singapore. |
+| Five Rings | greenhouse | board `fiveringsllc` | 22 | 2 | Amsterdam, London, New York. |
+| Headlands Technologies | greenhouse | board `headlandstechnologiesllc` | 8 | 0 | Amsterdam, Chicago, London, New York. |
+
+Manual (no feed reachable without a browser, or rate-limited):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Luxempart | No vacancy list, spontaneous applications only. | No feed. |
+| Arbuthnot Latham | Vacancy list filled by script, no feed. | No feed. |
+| Norden | Open-positions page without ATS link or feed. | No feed. |
+| BW Group | Site answers 522 tonight; retry. | Rate limit; retry. |
+| Naturgy | Bot-challenge redirect. | No feed. |
+| Fortum | 406 to plain clients, careers subdomain 502. | No feed. |
+| Single Resolution Board | Ajax vacancy view, no feed. | No feed. |
+| EIOPA | No vacancy list or feed. | No feed. |
+| Financial Conduct Authority | Workday found, API 429 tonight; retry. | Rate limit; retry. |
+| Autorité des marchés financiers | Careers pages 404. | No feed. |
+| Consob | Bot-challenge redirect. | No feed. |
+| IVASS | Careers pages 404. | No feed. |
+| Banque centrale du Luxembourg | No careers page reachable. | No feed. |
+| Hudson River Trading | Site 403, Greenhouse token not public. | No feed. |
+| Da Vinci Derivatives | Greenhouse form plugin, no public board token. | No feed. |

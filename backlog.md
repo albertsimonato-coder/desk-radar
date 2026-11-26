@@ -27,7 +27,14 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Luxempart | asset_manager | 2 | |
+| Gimv | asset_manager | 2 | |
+| Mid Europa Partners | asset_manager | 2 | |
+| Tages Group | asset_manager | 2 | |
+| Azulis Capital | asset_manager | 2 | |
+| Mérieux Equity Partners | asset_manager | 2 | |
+| Bregal Sagemount | asset_manager | 2 | |
+| Graphite Capital | asset_manager | 2 | |
+| Fortress Investment Group | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -40,41 +47,43 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Arbuthnot Latham | bank | 2 | |
-| Borsa Italiana | exchange | 2 | |
+| Wintermute | prop_trading | 2 | |
+| Flowdesk | prop_trading | 2 | |
+| B2C2 | prop_trading | 2 | |
+| Cumberland DRW | prop_trading | 2 | |
+| Mako Trading | prop_trading | 2 | |
+| MTS | exchange | 2 | |
+| Monte Titoli | exchange | 2 | |
+| Pareto Securities | bank | 2 | |
+| Redburn | bank | 2 | |
+| KBL | bank | 2 | |
+| Cassa Depositi e Prestiti | bank | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Norden | commodities | 2 | |
-| BW Group | commodities | 2 | |
-| Stena Bulk | commodities | 2 | |
-| Teekay | commodities | 2 | |
-| Naturgy | commodities | 2 | |
-| Fortum | commodities | 2 | |
+| Concord Energy | commodities | 2 | |
+| Bunker Holding | commodities | 2 | |
+| Monjasa | commodities | 2 | |
+| Nyrstar | commodities | 2 | |
+| Umicore | commodities | 2 | |
+| Neste | commodities | 2 | |
+| Orsted | commodities | 2 | |
+| Sorgenia | commodities | 2 | |
 
 ## Tier 6: market risk, treasury, central banks, ratings, insurance markets
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Single Resolution Board | bank | 2 | |
-| EIOPA | bank | 2 | |
-| Financial Conduct Authority | bank | 2 | |
-| Autorité des marchés financiers | bank | 2 | |
-| Consob | bank | 2 | |
-| IVASS | bank | 2 | |
-| Banque centrale du Luxembourg | bank | 2 | |
+| Ebury | corporate | 2 | |
+| Equiniti | corporate | 2 | |
+| Arrow Global | corporate | 2 | |
 
 ## Tier 7: asset managers, hedge funds, quant and market makers
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Hudson River Trading | prop_trading | 1 | |
-| XTX Markets | prop_trading | 1 | |
-| Five Rings | prop_trading | 2 | |
-| Headlands Technologies | prop_trading | 2 | |
-| Da Vinci Derivatives | prop_trading | 2 | Amsterdam |
 | Maven Securities | prop_trading | 1 | |
 | G-Research | prop_trading | 2 | |
 | Two Sigma | prop_trading | 2 | |
@@ -100,6 +109,16 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 | Hargreaves Lansdown | asset_manager | 2 | |
 | Edmond de Rothschild | asset_manager | 2 | |
 | Bordier | asset_manager | 2 | |
+| Marathon Asset Management | asset_manager | 2 | |
+| Lazard Asset Management | asset_manager | 2 | |
+| Royal London Asset Management | asset_manager | 2 | |
+| Insight Investment | asset_manager | 2 | |
+| Newton Investment Management | asset_manager | 2 | |
+| Mondrian Investment Partners | asset_manager | 2 | |
+| Brooks Macdonald | asset_manager | 2 | |
+| Kempen | asset_manager | 2 | |
+| Pictet Asset Management | asset_manager | 2 | |
+| Fundsmith | asset_manager | 2 | |
 
 ## Tier 8: consulting and other finance
 
@@ -618,3 +637,24 @@ registry" means it was there before.
 | Naxicap Partners | 2026-11-25 | manual (no careers page, REST API restricted) |
 | DeA Capital Alternative Funds | 2026-11-25 | manual (site unreachable) |
 | Capvis Equity Partners | 2026-11-25 | manual (careers by email only) |
+| Luxempart | 2026-11-26 | manual (no vacancy list, spontaneous applications only) |
+| Arbuthnot Latham | 2026-11-26 | manual (vacancy list filled by script, no feed) |
+| Borsa Italiana | 2026-11-26 | already in registry (Euronext group; hires via the Euronext entry) |
+| Norden | 2026-11-26 | manual (open-positions page without ATS link or feed) |
+| BW Group | 2026-11-26 | manual (site answers 522 tonight; retry) |
+| Stena Bulk | 2026-11-26 | live (Teamtailor jobs.rss, group-wide talent pools only) |
+| Teekay | 2026-11-26 | live (Oracle HCM REST API, 4 roles, 0 in scope) |
+| Naturgy | 2026-11-26 | manual (bot-challenge redirect) |
+| Fortum | 2026-11-26 | manual (406 to plain clients, careers subdomain 502) |
+| Single Resolution Board | 2026-11-26 | manual (Ajax vacancy view, no feed) |
+| EIOPA | 2026-11-26 | manual (no vacancy list or feed) |
+| Financial Conduct Authority | 2026-11-26 | manual (Workday found, API 429 tonight; retry) |
+| Autorité des marchés financiers | 2026-11-26 | manual (careers pages 404) |
+| Consob | 2026-11-26 | manual (bot-challenge redirect) |
+| IVASS | 2026-11-26 | manual (careers pages 404) |
+| Banque centrale du Luxembourg | 2026-11-26 | manual (no careers page reachable) |
+| Hudson River Trading | 2026-11-26 | manual (site 403, Greenhouse token not public) |
+| XTX Markets | 2026-11-26 | live (Greenhouse, 7 roles, 0 in scope) |
+| Five Rings | 2026-11-26 | live (Greenhouse, 22 roles, 2 in scope) |
+| Headlands Technologies | 2026-11-26 | live (Greenhouse, 8 roles, 0 in scope) |
+| Da Vinci Derivatives | 2026-11-26 | manual (Greenhouse form plugin, no public board token) |

@@ -5867,3 +5867,191 @@
   careers_url: https://www.capvis.com/en/jobs.html
   active: true
   notes: Jobs page says to send applications to hr@capvis.com; no vacancy list.
+
+- name: Luxempart
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.luxempart.lu/our-people/careers/
+  active: true
+  notes: Careers page only invites spontaneous applications; no vacancy list or feed.
+
+- name: Arbuthnot Latham
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://careers.arbuthnotlatham.co.uk/
+  active: true
+  notes: Own recruitment site (careers.arbuthnotlatham.co.uk); vacancy list is filled by script, no job links in the HTML and no feed found.
+
+- name: Norden
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.norden.com/career/open-positions/
+  active: true
+  notes: Open-positions page has no ATS link or feed; ds-norden.com redirects to norden.com.
+
+- name: BW Group
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.bwgroup.com/careers
+  active: true
+  notes: Site answers 522 (origin unreachable) to plain clients tonight; retry later.
+
+- name: Stena Bulk
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    rss_url: https://stena.teamtailor.com/jobs.rss
+    job_url_pattern: "career\\.stena\\.com/jobs/"
+  careers_url: https://stena.com/careers
+  active: true
+  notes: Teamtailor (stena.teamtailor.com, linked from stena.com/careers); jobs.rss covers the whole Stena group, only a couple of roles open.
+
+- name: Teekay
+  priority: 2
+  group: commodities
+  ats: custom
+  config:
+    kind: oracle
+    host: eipv.fa.us6.oraclecloud.com
+    site: CX_2001
+  careers_url: https://www.teekay.com/careers/
+  active: true
+  notes: Oracle HCM Cloud site CX_2001 (linked from teekay.com/careers) read through its REST API.
+
+- name: Naturgy
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.naturgy.com/en/careers/
+  active: true
+  notes: Site redirects plain clients to a bot-challenge page (perfdrive).
+
+- name: Fortum
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.fortum.com/about-us/careers
+  active: true
+  notes: Careers page answers 406 to plain clients; careers.fortum.com answers 502 through the proxy.
+
+- name: Single Resolution Board
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.srb.europa.eu/en/vacancies
+  active: true
+  notes: Drupal vacancies page; open-vacancy list is loaded through an Ajax view, no feed (also posts on LinkedIn).
+
+- name: EIOPA
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.eiopa.europa.eu/about/careers_en
+  active: true
+  notes: Careers page links to a how-to-join page; no vacancy list or feed readable with plain HTTP.
+
+- name: Financial Conduct Authority
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.fca.org.uk/careers
+  active: true
+  notes: Workday board found (fca / wd3 / FCA_Careers, 18 roles by hand) but the API answered 429 to every run tonight; switch to workday when the rate limit clears.
+
+- name: Autorité des marchés financiers
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.amf-france.org/
+  active: true
+  notes: Careers and recruitment pages answer 404; no job list found.
+
+- name: Consob
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.consob.it/
+  active: true
+  notes: Site redirects plain clients to a bot-challenge page (perfdrive).
+
+- name: IVASS
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.ivass.it/
+  active: true
+  notes: Lavora-con-noi pages answer 404; no job list found.
+
+- name: Banque centrale du Luxembourg
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.bcl.lu/
+  active: true
+  notes: Site only serves a redirect stub; no careers page reachable with plain HTTP.
+
+- name: Hudson River Trading
+  priority: 1
+  group: prop_trading
+  ats: manual
+  config: {}
+  careers_url: https://www.hudsonrivertrading.com/careers/
+  active: true
+  notes: Site answers 403; Greenhouse slug hrt is not public (404).
+
+- name: XTX Markets
+  priority: 1
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: xtxmarketstechnologies
+  careers_url: https://www.xtxmarkets.com/careers/
+  active: true
+  notes: Greenhouse board linked from xtxmarkets.com/careers (London, Finland, Singapore).
+
+- name: Five Rings
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: fiveringsllc
+  careers_url: https://fiverings.com/careers/
+  active: true
+  notes: Greenhouse board linked from fiverings.com/careers (Amsterdam, London, New York).
+
+- name: Headlands Technologies
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: headlandstechnologiesllc
+  careers_url: https://www.headlandstech.com/careers/
+  active: true
+  notes: Greenhouse board linked from headlandstech.com/careers (Amsterdam, Chicago, London).
+
+- name: Da Vinci Derivatives
+  priority: 2
+  group: prop_trading
+  ats: manual
+  config: {}
+  careers_url: https://davincitrading.com/careers/
+  active: true
+  notes: Careers page uses a Greenhouse application form plugin but no public board token; no feed.
