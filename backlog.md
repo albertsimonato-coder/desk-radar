@@ -27,14 +27,6 @@ When fewer than 60 rows remain in the tier tables, the routine appends new candi
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Gimv | asset_manager | 2 | |
-| Mid Europa Partners | asset_manager | 2 | |
-| Tages Group | asset_manager | 2 | |
-| Azulis Capital | asset_manager | 2 | |
-| Mérieux Equity Partners | asset_manager | 2 | |
-| Bregal Sagemount | asset_manager | 2 | |
-| Graphite Capital | asset_manager | 2 | |
-| Fortress Investment Group | asset_manager | 2 | |
 
 ## Tier 3: corporate finance and treasury inside corporates
 
@@ -47,26 +39,11 @@ _Dropped on 2026-11-08: the user wants M&A and investment banking, not finance r
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Wintermute | prop_trading | 2 | |
-| Flowdesk | prop_trading | 2 | |
-| B2C2 | prop_trading | 2 | |
-| Cumberland DRW | prop_trading | 2 | |
-| Mako Trading | prop_trading | 2 | |
-| MTS | exchange | 2 | |
-| Monte Titoli | exchange | 2 | |
-| Pareto Securities | bank | 2 | |
-| Redburn | bank | 2 | |
-| KBL | bank | 2 | |
-| Cassa Depositi e Prestiti | bank | 2 | |
 
 ## Tier 5: commodities trading, energy, metals, agri, shipping
 
 | Company | Group | Priority | Hint |
 |---|---|---|---|
-| Concord Energy | commodities | 2 | |
-| Bunker Holding | commodities | 2 | |
-| Monjasa | commodities | 2 | |
-| Nyrstar | commodities | 2 | |
 | Umicore | commodities | 2 | |
 | Neste | commodities | 2 | |
 | Orsted | commodities | 2 | |
@@ -658,3 +635,26 @@ registry" means it was there before.
 | Five Rings | 2026-11-26 | live (Greenhouse, 22 roles, 2 in scope) |
 | Headlands Technologies | 2026-11-26 | live (Greenhouse, 8 roles, 0 in scope) |
 | Da Vinci Derivatives | 2026-11-26 | manual (Greenhouse form plugin, no public board token) |
+| Gimv | 2026-11-27 | manual (spontaneous applications only, no vacancy list) |
+| Mid Europa Partners | 2026-11-27 | manual (recruitment page without vacancy list) |
+| Tages Group | 2026-11-27 | manual (no careers page; site moved to 21tages.eu) |
+| Azulis Capital | 2026-11-27 | manual (site 502; retry later) |
+| Mérieux Equity Partners | 2026-11-27 | manual (site 502; retry later) |
+| Bregal Sagemount | 2026-11-27 | manual (TLS hostname mismatch) |
+| Graphite Capital | 2026-11-27 | manual (no vacancy list) |
+| Fortress Investment Group | 2026-11-27 | live (Workday wd503, 11 postings, 0 in scope) |
+| Wintermute | 2026-11-27 | manual (Next.js careers page, no ATS link or feed) |
+| Flowdesk | 2026-11-27 | live (Greenhouse, 10 postings, 0 in scope) |
+| B2C2 | 2026-11-27 | live (Greenhouse, 5 postings, 1 in scope) |
+| Cumberland DRW | 2026-11-27 | manual (listings rendered by script on drw.com, no feed) |
+| Mako Trading | 2026-11-27 | already in registry (entry Mako, Greenhouse) |
+| MTS | 2026-11-27 | already in registry (part of Euronext, entry Euronext) |
+| Monte Titoli | 2026-11-27 | already in registry (Euronext Securities Milan, entry Euronext) |
+| Pareto Securities | 2026-11-27 | live (Teamtailor RSS, 6 postings, 5 in scope; mostly open applications) |
+| Redburn | 2026-11-27 | manual (Rothschild & Co site answers 403) |
+| KBL | 2026-11-27 | manual (TLS hostname mismatch) |
+| Cassa Depositi e Prestiti | 2026-11-27 | manual (Radware bot challenge, same as CDP Equity) |
+| Concord Energy | 2026-11-27 | manual (careers page says no postings, no feed) |
+| Bunker Holding | 2026-11-27 | manual (HR contact only, no vacancy list) |
+| Monjasa | 2026-11-27 | manual (403 to plain clients) |
+| Nyrstar | 2026-11-27 | live (SuccessFactors sitemap, 15 postings, 11 in scope) |

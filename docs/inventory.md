@@ -911,3 +911,35 @@ Manual (no feed reachable without a browser, or rate-limited):
 | Banque centrale du Luxembourg | No careers page reachable. | No feed. |
 | Hudson River Trading | Site 403, Greenhouse token not public. | No feed. |
 | Da Vinci Derivatives | Greenhouse form plugin, no public board token. | No feed. |
+
+## Added on 2026-11-27 (evening routine)
+
+The wishlist had no new rows. Backlog rows taken in order: Gimv through Bunker Holding, then Monjasa and Nyrstar. Mako Trading (entry Mako), MTS and Monte Titoli (both Euronext group, entry Euronext) were already in the registry and did not use a slot. Plain HTTP only. "In scope" is the count the run log printed after the scope filter.
+
+| Company | ATS | Config | Postings | In scope | Notes |
+|---|---|---|---|---|---|
+| Fortress Investment Group | workday | `fortress` / wd503 / `Careers` | 11 | 0 | Linked from fortress.com/careers; mostly New York. |
+| Flowdesk | greenhouse | board `flowdesk` | 10 | 0 | Paris, London, Singapore, Hong Kong; one Paris algo-trader internship was dropped by the scope filter. |
+| B2C2 | greenhouse | board `b2c2` | 5 | 1 | London, Lisbon, New York. |
+| Pareto Securities | sitemap (RSS) | paretosecurities.teamtailor.com/jobs.rss, pattern `paretosecurities.teamtailor.com/jobs/` | 6 | 5 | Teamtailor; mostly open applications by country. |
+| Nyrstar | sitemap | jobs.nyrstar.com/sitemap.xml, pattern `jobs.nyrstar.com/job/` | 15 | 11 | SuccessFactors; mostly smelter roles in Australia and Europe. |
+
+Manual (no feed reachable without a browser, or rate-limited):
+
+| Company | What was found | Difficulty |
+|---|---|---|
+| Gimv | Vacancies page takes spontaneous applications only. | No listings. |
+| Mid Europa Partners | Recruitment page, no vacancy list. | No listings. |
+| Tages Group | tagesgroup.com redirects to 21tages.eu, no careers page. | No listings. |
+| Azulis Capital | Site answers 502. | Unreachable; retry. |
+| Mérieux Equity Partners | Site answers 502. | Unreachable; retry. |
+| Bregal Sagemount | TLS hostname mismatch. | Unreachable. |
+| Graphite Capital | Working-with-us page, no vacancy list. | No listings. |
+| Wintermute | Next.js careers page, no ATS link; Greenhouse, Lever, Ashby slugs not found. | JavaScript portal. |
+| Cumberland DRW | Roles listed on drw.com by script, no feed. | JavaScript portal. |
+| Redburn | Now Rothschild & Co Redburn; rothschildandco.com answers 403. | Bot protection. |
+| KBL | TLS hostname mismatch. | Unreachable. |
+| Cassa Depositi e Prestiti | Radware bot-manager challenge. | Bot protection. |
+| Concord Energy | Careers page says no postings. | No listings. |
+| Bunker Holding | Jobs page gives an HR contact only. | No listings. |
+| Monjasa | Site answers 403. | Bot protection. |

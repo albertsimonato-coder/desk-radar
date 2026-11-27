@@ -6055,3 +6055,200 @@
   careers_url: https://davincitrading.com/careers/
   active: true
   notes: Careers page uses a Greenhouse application form plugin but no public board token; no feed.
+
+# ---- Added 2026-11-27 (evening routine) ---------------------------------------
+# Private equity, private credit, infrastructure
+- name: Gimv
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.gimv.com/en/vacancies-gimv
+  active: true
+  notes: Vacancies page says positions are rarely posted and takes spontaneous applications only; no feed.
+
+- name: Mid Europa Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://mideuropa.com/recruitment/
+  active: true
+  notes: Recruitment page (WordPress) has no vacancy list or ATS link; no feed.
+
+- name: Tages Group
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://21tages.eu/
+  active: true
+  notes: tagesgroup.com redirects to 21tages.eu; /careers answers 404, no careers page found.
+
+- name: Azulis Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.azulis.fr/
+  active: true
+  notes: Site answers 502 through the proxy tonight; retry later.
+
+- name: Mérieux Equity Partners
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.merieux-equity-partners.com/
+  active: true
+  notes: Site answers 502 through the proxy tonight; retry later.
+
+- name: Bregal Sagemount
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.bregalsagemount.com/
+  active: true
+  notes: Site fails TLS verification (hostname mismatch) for plain clients; no feed.
+
+- name: Graphite Capital
+  priority: 2
+  group: asset_manager
+  ats: manual
+  config: {}
+  careers_url: https://www.graphitecapital.com/working-with-us/
+  active: true
+  notes: Working-with-us page has no vacancy list or ATS link; no feed.
+
+- name: Fortress Investment Group
+  priority: 2
+  group: asset_manager
+  ats: workday
+  config:
+    tenant: fortress
+    wd: wd503
+    site: Careers
+  careers_url: https://www.fortress.com/careers
+  active: true
+  notes: Workday board linked from fortress.com/careers (~11 roles, mostly New York).
+
+
+# Sales and trading, brokers, exchanges, market infrastructure
+
+- name: Wintermute
+  priority: 2
+  group: prop_trading
+  ats: manual
+  config: {}
+  careers_url: https://www.wintermute.com/company/careers
+  active: true
+  notes: Next.js careers page (5 MB) with no ATS link or feed in the source; Greenhouse, Lever, Ashby slugs not found.
+
+- name: Flowdesk
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: flowdesk
+  careers_url: https://www.flowdesk.co/careers
+  active: true
+  notes: Greenhouse board (Paris, London, Singapore, Hong Kong).
+
+- name: B2C2
+  priority: 2
+  group: prop_trading
+  ats: greenhouse
+  config:
+    board: b2c2
+  careers_url: https://www.b2c2.com/careers
+  active: true
+  notes: Greenhouse board (London, Lisbon, New York).
+
+- name: Cumberland DRW
+  priority: 2
+  group: prop_trading
+  ats: manual
+  config: {}
+  careers_url: https://drw.com/work-at-drw/listings/
+  active: true
+  notes: Roles listed on drw.com by script (no ATS link or feed in the source); DRW Greenhouse slug not found.
+
+- name: Pareto Securities
+  priority: 2
+  group: bank
+  ats: sitemap
+  config:
+    rss_url: https://paretosecurities.teamtailor.com/jobs.rss
+    job_url_pattern: "paretosecurities\\.teamtailor\\.com/jobs/"
+  careers_url: https://paretosec.com/our-firm/career
+  active: true
+  notes: Teamtailor (paretosecurities.teamtailor.com, linked from paretosec.com/our-firm/career); jobs.rss, mostly open applications by country.
+
+- name: Redburn
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.rothschildandco.com/en/careers/
+  active: true
+  notes: Now Rothschild & Co Redburn; redburn.com redirects to rothschildandco.com, which answers 403 to plain clients.
+
+- name: KBL
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.kbl.lu/
+  active: true
+  notes: Site fails TLS verification (hostname mismatch) for plain clients; no feed.
+
+- name: Cassa Depositi e Prestiti
+  priority: 2
+  group: bank
+  ats: manual
+  config: {}
+  careers_url: https://www.cdp.it/sitointernet/en/careers.page
+  active: true
+  notes: cdp.it sits behind a Radware bot-manager challenge for plain clients (same as CDP Equity); no feed.
+
+
+# Commodities trading, energy, metals, agri, shipping
+
+- name: Concord Energy
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.concordenergy.com/careers/
+  active: true
+  notes: Careers page reads 'No postings at this time'; no ATS link.
+
+- name: Bunker Holding
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://www.bunker-holding.com/jobs/
+  active: true
+  notes: Jobs page only gives the HR contact, no vacancy list or ATS link.
+
+- name: Monjasa
+  priority: 2
+  group: commodities
+  ats: manual
+  config: {}
+  careers_url: https://monjasa.com/careers
+  active: true
+  notes: Site answers 403 to plain clients; no feed.
+
+- name: Nyrstar
+  priority: 2
+  group: commodities
+  ats: sitemap
+  config:
+    sitemap_url: https://jobs.nyrstar.com/sitemap.xml
+    job_url_pattern: "jobs\\.nyrstar\\.com/job/"
+  careers_url: https://www.nyrstar.com/careers
+  active: true
+  notes: SuccessFactors sitemap (jobs.nyrstar.com, ~20 jobs, mostly Australia, Belgium, Netherlands, France); keeps the source alive for graduate roles.
